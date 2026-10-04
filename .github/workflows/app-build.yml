@@ -12,6 +12,11 @@ on:
       - "Packages/**"
       - ".github/workflows/app-build.yml"
   workflow_dispatch:
+    inputs:
+      tours:
+        description: "Also run the screenshot tours (slow)"
+        type: boolean
+        default: false
 
 env:
   # Simulator builds run unsigned, so the CloudKit entitlements are stripped (see CLAUDE.md).
@@ -110,12 +115,15 @@ jobs:
           test -n "$UDID"
           echo "SIM_UDID=$UDID" >> "$GITHUB_ENV"
       - name: UI tests
+        env:
+          SKIP_TOURS: ${{ inputs.tours && '' || '-skip-testing:PitlogUITests/AccessibilityAuditTests/testTourEnglishDefault -skip-testing:PitlogUITests/AccessibilityAuditTests/testTourGermanDefault -skip-testing:PitlogUITests/AccessibilityAuditTests/testTourEnglishLargeText -skip-testing:PitlogUITests/AccessibilityAuditTests/testTourGermanLargeText' }}
         run: |
           set -o pipefail
           xcodebuild test \
             -scheme Pitlog \
             -destination "platform=iOS Simulator,id=$SIM_UDID" \
             -only-testing:PitlogUITests \
+            $SKIP_TOURS \
             -resultBundlePath "$RUNNER_TEMP/ui.xcresult" \
             $XCODEBUILD_FLAGS 2>&1 | tee "$RUNNER_TEMP/ui.log"
       - name: Summarize errors
@@ -142,8 +150,8 @@ jobs:
           for test in manifest:
               for a in test.get("attachments", []):
                   name = a.get("suggestedHumanReadableName", "")
-                  if name.startswith("audit-") and name.endswith(".txt") or "audit-" in name and ".txt" in name:
-                      print("=====", name)
+                  if name.startswith("audit-") and ".txt" in name or "Issue Description" in name:
+                      print("=====", test.get("testIdentifier"), name)
                       print(open(os.path.join(root, a["exportedFileName"])).read())
           PY
       - uses: actions/upload-artifact@v4
