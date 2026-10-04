@@ -53,7 +53,10 @@ public enum RuleNoteKind: Hashable, Codable, Sendable {
     case openLegalQuestion
     case possibleExtension(until: DayDate)
     case checkPlaque
+    /// Enter the new punch from the plaque; the computed due month only prefills the picker (AT-12).
     case outsideWindowRepunch
+    /// The exchange plaque suggestion rests on a last inspection derived from the plaque (AT-53, D-11).
+    case derivedLastInspection
 
     var sortOrder: Int {
         switch self {
@@ -61,6 +64,7 @@ public enum RuleNoteKind: Hashable, Codable, Sendable {
         case .possibleExtension: 1
         case .checkPlaque: 2
         case .outsideWindowRepunch: 3
+        case .derivedLastInspection: 4
         }
     }
 }
