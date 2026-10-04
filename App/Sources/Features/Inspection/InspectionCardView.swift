@@ -41,7 +41,6 @@ struct InspectionCardView: View {
                 ? Text("Due", comment: "Pickerl card: caption above the due month")
                 : Text("Estimated due", comment: "Pickerl card: caption above an estimated due month"))
                 .font(.subheadline)
-                .foregroundStyle(.secondary)
 
             Text(presentation.dueMonthText)
                 .font(.largeTitle)

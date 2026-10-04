@@ -10,6 +10,7 @@ struct LegalNoticeView: View {
         }
         // Primary color on purpose: the notice must stay readable on any background (audit contrast).
         .font(.footnote)
+        .foregroundStyle(.primary)
         .fixedSize(horizontal: false, vertical: true)
     }
 }

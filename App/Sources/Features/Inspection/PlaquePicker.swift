@@ -192,7 +192,6 @@ struct PlaquePicker: View {
             }
             Text("Estimated from the first registration. Check it against your inspection sticker.", comment: "Caption below the suggestion button of the sticker picker")
                 .font(.footnote)
-                .foregroundStyle(.secondary)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }

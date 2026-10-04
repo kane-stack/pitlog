@@ -67,6 +67,7 @@ struct VehicleFormView: View {
                     } label: {
                         Text("Type", comment: "Vehicle form: vehicle category picker")
                     }
+                    .pickerStyle(.navigationLink)
                 }
 
                 Section {
@@ -118,9 +119,9 @@ struct VehicleFormView: View {
                     Text("Inspection sticker", comment: "Vehicle form: section header for the inspection sticker")
                         .font(.headline)
                         .accessibilityAddTraits(.isHeader)
-                    PlaquePicker(plaque: $plaque, suggestion: suggestion, today: today)
-                } footer: {
                     Text("Enter the month and year punched on your inspection sticker.", comment: "Vehicle form: explanation of the inspection sticker picker")
+                        .font(.footnote)
+                    PlaquePicker(plaque: $plaque, suggestion: suggestion, today: today)
                 }
 
                 Section {

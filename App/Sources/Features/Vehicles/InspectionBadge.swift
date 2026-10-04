@@ -18,7 +18,6 @@ struct InspectionBadge: View {
         case .unavailable(let reason):
             Label(reason.text(locale: locale), systemImage: "questionmark.circle")
                 .font(.subheadline)
-                .foregroundStyle(.secondary)
         }
     }
 }

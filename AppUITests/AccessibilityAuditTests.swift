@@ -35,6 +35,26 @@ final class AccessibilityAuditTests: XCTestCase {
                 add(attachment)
             }
         }
+        // The audit sometimes runs into its own time limit on slow CI machines (code -56). That is
+        // an infrastructure error, not a finding, so it is retried once. Findings are never retried.
+        for attempt in 1...2 {
+            do {
+                try runAudit(app, name, &report)
+                break
+            } catch let error as NSError
+                where error.domain == "com.apple.xcode.xctest.accessibilityAudit" && error.code == -56 && attempt == 1 {
+                report.append("(audit timed out, retrying)")
+                continue
+            }
+        }
+        let screenshot = XCTAttachment(screenshot: app.screenshot())
+        screenshot.name = "audit-\(name).png"
+        screenshot.lifetime = .keepAlways
+        add(screenshot)
+    }
+
+    @MainActor
+    private func runAudit(_ app: XCUIApplication, _ name: String, _ report: inout [String]) throws {
         try app.performAccessibilityAudit { issue in
             let element = issue.element.map {
                 "type=\($0.elementType.rawValue) label='\($0.label)' id='\($0.identifier)' frame=\($0.frame)"
@@ -55,10 +75,6 @@ final class AccessibilityAuditTests: XCTestCase {
             }
             return false
         }
-        let screenshot = XCTAttachment(screenshot: app.screenshot())
-        screenshot.name = "audit-\(name).png"
-        screenshot.lifetime = .keepAlways
-        add(screenshot)
     }
 
     @MainActor
