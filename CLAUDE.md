@@ -101,6 +101,17 @@ AppTests/, AppUITests/          app-level tests (Xcode only)
 - **App:** `scripts/bootstrap.sh` (braucht `xcodegen`, `brew install xcodegen`), dann
   `Pitlog.xcodeproj` öffnen.
 
+## Arbeitsweise
+
+- **Coding-Sessions:** Jeder Meilenstein bzw. jedes Coding-Paket läuft als **eigene Cloud-Session
+  mit Sonnet**. Die koordinierende Session plant, prüft und merged.
+- **Branches:** Pro Paket ein eigener Branch `claude/<meilenstein>-<thema>`, Basis ist
+  `claude/practical-edison-jhlpos`.
+- **Ergebnis:** Die Coding-Session pusht nur auf ihren Branch, wartet auf grüne CI
+  (`PitlogCore tests`) und erstellt **keinen** Pull Request ohne ausdrücklichen Auftrag.
+- **CI-Status abfragen:** über die GitHub-MCP-Tools (`actions_list`/`get_job_logs`) oder
+  `curl https://api.github.com/repos/kane-stack/pitlog/actions/runs?branch=<branch>`.
+
 ## Recherche
 
 Die Cloud-Umgebung erreicht ris.bka.gv.at, parlament.gv.at, oeamtc.at, arboe.at und wko.at
@@ -111,8 +122,8 @@ Prompt: `docs/research/local-session-prompt.md`.
 
 | # | Zeitraum | Inhalt | Status |
 |---|---|---|---|
-| M0 | Okt 2026 | Gerüst, CLAUDE.md, Regeldoku, XcodeGen, PitlogCore, CI | in Arbeit |
-| M1 | Okt–Nov | Fristen-Engine und Tests (final erst nach Primärquellen-Abgleich) | |
+| M0 | Okt 2026 | Gerüst, CLAUDE.md, Regeldoku, XcodeGen, PitlogCore, CI | erledigt |
+| M1 | Okt–Nov | Fristen-Engine und Tests (final erst nach Primärquellen-Abgleich) | in Arbeit (Branch `claude/m1-inspection-engine`) |
 | M2 | Nov | Datenmodell, Fahrzeugverwaltung, Pickerl-Karte, Hinweis, Lokalisierung | |
 | M3 | Dez | Erinnerungen und Benachrichtigungen | |
 | M4 | Jan 2027 | Historie, manuelle Einträge, Kosten pro Jahr | |
