@@ -27,7 +27,7 @@ let nextDueCases: [NextDueCase] = [
           inspection: day(2027, 7, 31), expected: ym(2028, 3), noteIDs: ["AT-54"]),
     // Outside the window, one day too late / too early (AT-12).
     .init(rules: "AT-12", category: .passengerCar, firstRegistration: ym(2020, 3), dueMonth: ym(2027, 3),
-          inspection: day(2027, 8, 1), expected: ym(2028, 8), noteIDs: ["AT-12"]),
+          inspection: day(2027, 8, 1), expected: ym(2028, 8), noteIDs: ["AT-12", "AT-54"]),
     .init(rules: "AT-12", category: .passengerCar, firstRegistration: ym(2020, 3), dueMonth: ym(2027, 3),
           inspection: day(2027, 1, 31), expected: ym(2028, 1), noteIDs: ["AT-12"]),
     // Previous law sequence 3, 5, 6, 7, 8, ...
@@ -77,14 +77,18 @@ let nextDueCases: [NextDueCase] = [
     // Taxi (AT-24)
     .init(rules: "AT-24", category: .taxiOrAmbulance, firstRegistration: ym(2020, 5), dueMonth: ym(2027, 5),
           inspection: day(2027, 5, 10), expected: ym(2028, 5), noteIDs: ["AT-24"]),
-    // Historic (AT-25): every two years under both laws.
+    // Historic (AT-25): fixed two years from the due month, independent of the age.
+    .init(rules: "AT-25", category: .historic, firstRegistration: ym(1991, 4), dueMonth: ym(2028, 4),
+          inspection: day(2028, 4, 10), expected: ym(2030, 4), noteIDs: ["AT-25"]),
+    .init(rules: "AT-25 AT-12", category: .historic, firstRegistration: ym(1991, 4), dueMonth: ym(2028, 4),
+          inspection: day(2028, 8, 10), expected: ym(2030, 8), noteIDs: ["AT-12", "AT-25"]),
     .init(rules: "AT-25 AT-43", category: .historic, firstRegistration: ym(1976, 4), dueMonth: ym(2028, 4),
           inspection: day(2028, 4, 20), expected: ym(2030, 4), noteIDs: ["AT-25"]),
     .init(rules: "AT-25", category: .historic, firstRegistration: ym(1980, 6), dueMonth: ym(2026, 6),
           inspection: day(2026, 6, 2), expected: ym(2028, 6), noteIDs: ["AT-25"]),
     // Anchor 15 and further AT-12 cases.
-    .init(rules: "AT-12", category: .passengerCar, firstRegistration: ym(2020, 6), dueMonth: ym(2027, 6),
-          inspection: day(2027, 12, 1), expected: ym(2028, 12), noteIDs: ["AT-12"]),
+    .init(rules: "AT-12 AT-54", category: .passengerCar, firstRegistration: ym(2020, 6), dueMonth: ym(2027, 6),
+          inspection: day(2027, 12, 1), expected: ym(2028, 12), noteIDs: ["AT-12", "AT-54"]),
     .init(rules: "AT-12", category: .passengerCar, firstRegistration: ym(2017, 6), dueMonth: ym(2027, 6),
           inspection: day(2027, 12, 1), expected: ym(2028, 12), noteIDs: ["AT-12"]),
     .init(rules: "AT-12 AT-20", category: .passengerCar, firstRegistration: ym(2020, 3), dueMonth: ym(2026, 3),
@@ -108,8 +112,9 @@ func nextDue(_ c: NextDueCase) throws {
     let inside = try austria.nextDue(after: day(2027, 11, 10), dueMonth: ym(2027, 11), input: input)
     #expect(inside.notes == [note("AT-54", .openLegalQuestion)])
 
+    // Age 9 in 2028-03, amended law, one-year step: AT-54 applies outside the window as well.
     let outside = try austria.nextDue(after: day(2028, 3, 1), dueMonth: ym(2027, 11), input: input)
-    #expect(outside.notes == [note("AT-12", .outsideWindowRepunch)])
+    #expect(outside.notes == [note("AT-12", .outsideWindowRepunch), note("AT-54", .openLegalQuestion)])
 }
 
 @Test func nextDueRejectsUnsupportedCategory() {

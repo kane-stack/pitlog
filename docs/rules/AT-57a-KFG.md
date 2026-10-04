@@ -146,6 +146,10 @@ verifizierten Rechtsfolgen. Wo die Auslegung eine Annahme trifft, liefert die En
   und Erstzulassung + 3 Jahre nicht vor Mai 2027: Erstzulassung + 4 Jahre. Begutachtet und
   Fahrzeugalter bei der letzten Begutachtung höchstens 8 Jahre: letzte Begutachtung + 2 Jahre.
   Sonst kein Vorschlag. Angezeigt wird er nur, wenn er später liegt als die Plakette.
+  Der Vorschlag gilt nur für Plaketten, die nach alter Fassung gelocht wurden: Mit letzter
+  Begutachtung nur, wenn sie vor dem Stichtag liegt; ohne letzte Begutachtung nur, wenn die
+  Plakette noch die ursprüngliche Lochung der ersten Begutachtung ist (Plakette höchstens
+  Erstzulassung + 3 Jahre).
 - **AT-43:** Kategorien außerhalb von AT-30 (N1, Taxi/Rettung, historische Fahrzeuge) verwenden
   ein Fenster vom Beginn des Vormonats bis zum Ende des Fälligkeitsmonats. Hinweis AT-42
   (Fälligkeit bis Mai 2027) bzw. AT-43 (danach).
@@ -153,7 +157,8 @@ verifizierten Rechtsfolgen. Wo die Auslegung eine Annahme trifft, liefert die En
   Begutachtungsmonat neu und fordert den Nutzer auf, die neue Lochung von der Plakette
   einzutragen (`outsideWindowRepunch`).
 - **AT-23/24/25:** Intervalle für N1, Taxi und historische Fahrzeuge sind nur sekundär belegt;
-  die Engine gibt jeweils einen Hinweis `openLegalQuestion` aus.
+  die Engine gibt jeweils einen Hinweis `openLegalQuestion` aus. Historische Fahrzeuge haben
+  ein festes Intervall von 2 Jahren ab dem Fälligkeitsmonat (AT-25), unabhängig vom Alter.
 - **AT-26:** Schwere Fahrzeuge, Zugmaschinen und Ähnliches (`other`) unterstützt die Engine
   nicht. Sie meldet `unsupportedCategory`.
 
@@ -195,7 +200,7 @@ Fassung, wenn T vor dem Stichtag liegt, sonst neue Fassung.
 | Pkw, Klasse L, Anhänger O1/O2 | 3, 5, 6, 7, 8, … | 4, 6, 8, 10, 11, 12, … | AT-20/21/22, AT-30 |
 | N1 | 1, 2, 3, … | 1, 2, 3, … | AT-23 (Hinweis) |
 | Taxi, Rettung, Krankentransport | 1, 2, 3, … | 1, 2, 3, … | AT-24 (Hinweis) |
-| Historisch | 2, 4, 6, … | 2, 4, 6, … | AT-25 (Hinweis) |
+| Historisch | fest +2 Jahre ab Fälligkeitsmonat (Erstzulassung + 2, + 2, …) | wie alte Fassung | AT-25 (Hinweis) |
 | Sonstige (`other`) | nicht unterstützt | nicht unterstützt | AT-26 |
 
 ### 9.2 Nächste Fälligkeit (`nextDue`) nach einer Begutachtung am Tag T
@@ -205,10 +210,12 @@ Fassung, wenn T vor dem Stichtag liegt, sonst neue Fassung.
   minus Alter bei D) Jahre. Das ist bewusst altersbasiert und damit konservativ: nie später
   als „2 Jahre nach der letzten Begutachtung“. Gilt die neue Fassung, ist die Kategorie
   Pkw/L/O1/O2, das Alter bei D unter 10 und der Abstand genau 1 Jahr, kommt der Hinweis
-  `AT-54 openLegalQuestion`.
+  `AT-54 openLegalQuestion`. Historische Fahrzeuge: immer D + 2 Jahre, ohne Altersfolge.
 - **T liegt außerhalb des Fensters (AT-12):** Neue Fälligkeit = Begutachtungsmonat plus
   Abstand, berechnet mit dem Alter im Begutachtungsmonat und dem Recht an T. Hinweis
-  `AT-12 outsideWindowRepunch`.
+  `AT-12 outsideWindowRepunch`. Der Hinweis `AT-54` gilt unter derselben Bedingung wie
+  innerhalb des Fensters (neue Fassung, Pkw/L/O1/O2, Alter unter 10, Abstand 1 Jahr), mit dem
+  Alter im Begutachtungsmonat.
 
 ### 9.3 Fenster für den Fälligkeitsmonat D
 
@@ -247,9 +254,10 @@ heutige Monat: `closesThisMonth`. Sonst `open`.
   nicht vor heute liegt. Hinweise aus diesen Zwischenschritten (z. B. AT-54) werden verworfen,
   AT-10 gilt für die ganze Schätzung.
 - **Austauschplakette (AT-52/53/54):** nur Pkw/L/O1/O2 und nur mit Quelle `plaque`.
-  Kandidat: nie begutachtet und Erstzulassung + 3 Jahre nicht vor 2027-05: Erstzulassung + 4
-  Jahre. Begutachtet und Alter bei der letzten Begutachtung höchstens 8: letzte Begutachtung
-  + 2 Jahre. Sonst keiner. Vorschlag nur, wenn der Kandidat nach der Plakette liegt, mit Hinweis
+  Nur für Plaketten nach alter Fassung. Kandidat: nie begutachtet, Erstzulassung + 3 Jahre
+  nicht vor 2027-05 und Plakette höchstens Erstzulassung + 3 Jahre: Erstzulassung + 4 Jahre.
+  Begutachtet vor dem Stichtag und Alter bei der letzten Begutachtung höchstens 8: letzte
+  Begutachtung + 2 Jahre. Sonst keiner. Vorschlag nur, wenn der Kandidat nach der Plakette liegt, mit Hinweis
   `AT-53 openLegalQuestion`.
 - Hinweise werden dedupliziert und nach Regel-ID sortiert. Zusätzlich gibt es den
   Kategoriehinweis AT-23, AT-24 bzw. AT-25.
@@ -274,7 +282,7 @@ heutige Monat: `closesThisMonth`. Sonst `open`.
 | 12 | Kategorie `other` | – | wirft `unsupportedCategory(.other)` |
 | 13 | Pkw, EZ 2022-01, Plakette 2027-01 | – | closes 2027-05-18, AT-56 `possibleExtension(until: 2027-05-31)` |
 | 14 | Pkw, EZ 2010-03, Plakette 2028-03 | – | nextDue(nach 2028-03-15) = 2029-03 (Alter 18, jährlich) |
-| 15 | Pkw, EZ 2020-06, Plakette 2027-06 | – | nextDue(nach 2027-12-01) liegt außerhalb des Fensters (closes 2027-10-31): Alter im Dezember 2027 = 7, neue Fassung → 8, also 2028-12, AT-12 |
+| 15 | Pkw, EZ 2020-06, Plakette 2027-06 | – | nextDue(nach 2027-12-01) liegt außerhalb des Fensters (closes 2027-10-31): Alter im Dezember 2027 = 7, neue Fassung → 8, also 2028-12, AT-12 und AT-54 |
 
 Bei 11 und 15 war die Erstzulassung in der Vorgabe nicht genannt; gewählt wurden Werte, die
 zur Plakette passen.
@@ -284,11 +292,8 @@ zur Plakette passen.
 - **Fensterbeginn N1/Taxi/historisch:** Die Engine nimmt −1/0, AT-42 nennt für N und schwere
   Fahrzeuge −3/0 (OFFEN). Ein früherer Beginn würde nur den Zeitpunkt ändern, ab dem eine
   Begutachtung als „im Fenster“ gilt.
-- **Altersbasierte Folge bei historischen Fahrzeugen:** Liegt D bei ungeradem Alter (etwa
-  durch eine abweichende Lochung nach AT-11), ergibt die Folge 2, 4, 6, … nur 1 Jahr bis zur
-  nächsten Fälligkeit. Das ist konservativ, aber möglicherweise nicht gewollt.
 - **Schätzung ohne Plakette:** Ein Fahrzeug mit Erstzulassung 2024-06 wird als fällig 2027-06
   geschätzt (alte Fassung bei Erstzulassung), obwohl die neue Fassung 2028-06 ergäbe
   (Austauschplakette, AT-52). Das ist gewollt konservativ, deshalb gilt die Plakette (ADR-5).
-- **AT-54-Hinweis:** Er erscheint nur in `nextDue` innerhalb des Fensters, nicht in
-  `status`.
+- **AT-54-Hinweis:** Er erscheint nur in `nextDue` (innerhalb und außerhalb des Fensters),
+  nicht in `status`.

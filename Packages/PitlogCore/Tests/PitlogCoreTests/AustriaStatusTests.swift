@@ -125,6 +125,20 @@ let exchangeCases: [ExchangeCase] = [
           expected: ym(2029, 10)),
     .init(rules: "AT-21 AT-53", input: .init(category: .motorcycle, firstRegistration: ym(2025, 2), plaque: ym(2028, 2)),
           expected: ym(2029, 2)),
+    // AT-52/53: only plaques punched under the previous law.
+    // Regression: last inspection under the amended law, plaque 2029-04 must not yield 2029-06.
+    .init(rules: "AT-52 AT-53", input: .init(category: .passengerCar, firstRegistration: ym(2021, 4), plaque: ym(2029, 4),
+                                             lastInspection: day(2027, 6, 10)),
+          expected: nil),
+    .init(rules: "AT-52 AT-53", input: .init(category: .passengerCar, firstRegistration: ym(2021, 4), plaque: ym(2027, 4),
+                                             lastInspection: day(2027, 5, 19)),
+          expected: nil),
+    .init(rules: "AT-52 AT-53", input: .init(category: .passengerCar, firstRegistration: ym(2021, 4), plaque: ym(2027, 4),
+                                             lastInspection: day(2027, 5, 18)),
+          expected: ym(2029, 5)),
+    // Never inspected but the plaque is no longer the original first-inspection punch.
+    .init(rules: "AT-52 AT-53", input: .init(category: .passengerCar, firstRegistration: ym(2024, 6), plaque: ym(2028, 6)),
+          expected: nil),
     // Categories outside AT-30 never get a suggestion.
     .init(rules: "AT-32", input: .init(category: .lightCommercial, firstRegistration: ym(2026, 2), plaque: ym(2027, 2)),
           expected: nil),

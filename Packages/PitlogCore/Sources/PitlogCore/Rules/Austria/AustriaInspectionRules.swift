@@ -58,7 +58,7 @@ public struct AustriaInspectionRules: InspectionRuleSet {
 
         var suggestion: YearMonth?
         if source == .plaque, let plaque = input.plaque,
-           let candidate = exchangePlaqueCandidate(for: input), candidate > plaque {
+           let candidate = exchangePlaqueCandidate(for: input, plaque: plaque), candidate > plaque {
             suggestion = candidate
             notes.append(RuleNote(ruleID: "AT-53", kind: .openLegalQuestion))
         }
@@ -94,9 +94,8 @@ public struct AustriaInspectionRules: InspectionRuleSet {
             let ageAtDue = Self.age(at: dueMonth, firstRegistration: input.firstRegistration)
             let step = Self.yearsUntilNextInspection(
                 afterAge: ageAtDue, category: input.category, law: law)
-            if law == .amended, Self.isReformCategory(input.category), ageAtDue < 10, step == 1 {
-                notes.append(RuleNote(ruleID: "AT-54", kind: .openLegalQuestion))
-            }
+            notes += Self.transitionNotes(
+                age: ageAtDue, step: step, category: input.category, law: law)
             return NextInspectionDue(
                 dueMonth: dueMonth.adding(years: step),
                 notes: RuleNote.normalized(notes))
@@ -111,6 +110,8 @@ public struct AustriaInspectionRules: InspectionRuleSet {
         let step = Self.yearsUntilNextInspection(
             afterAge: ageAtInspection, category: input.category, law: law)
         notes.append(RuleNote(ruleID: "AT-12", kind: .outsideWindowRepunch))
+        notes += Self.transitionNotes(
+            age: ageAtInspection, step: step, category: input.category, law: law)
         return NextInspectionDue(
             dueMonth: inspectionMonth.adding(years: step),
             notes: RuleNote.normalized(notes))
@@ -142,7 +143,7 @@ public struct AustriaInspectionRules: InspectionRuleSet {
     /// The smallest age in the category's interval sequence that is greater than `age`.
     ///
     /// Sequences (AT-20 ... AT-30): previous law 3, 5, 6, 7, ...; amended law 4, 6, 8, 10, 11, ...;
-    /// N1 and taxi 1, 2, 3, ...; historic 2, 4, 6, ...
+    /// N1 and taxi 1, 2, 3, ...; historic: a fixed two years from the due month (AT-25).
     static func nextSequenceAge(afterAge age: Int, category: VehicleCategory, law: Law) -> Int {
         switch category {
         case .passengerCar, .motorcycle, .lightTrailer:
@@ -151,8 +152,15 @@ public struct AustriaInspectionRules: InspectionRuleSet {
         case .lightCommercial, .taxiOrAmbulance, .other:
             return max(1, age + 1)
         case .historic:
-            return (floorDivide(age, 2) + 1) * 2
+            return age + 2
         }
+    }
+
+    /// AT-54: under the amended law a one-year step for a reform vehicle below 10 years may
+    /// legally be two years. Shown for inspections inside and outside the window.
+    static func transitionNotes(age: Int, step: Int, category: VehicleCategory, law: Law) -> [RuleNote] {
+        guard law == .amended, isReformCategory(category), age < 10, step == 1 else { return [] }
+        return [RuleNote(ruleID: "AT-54", kind: .openLegalQuestion)]
     }
 
     static func yearsUntilNextInspection(afterAge age: Int, category: VehicleCategory, law: Law) -> Int {
@@ -264,13 +272,18 @@ public struct AustriaInspectionRules: InspectionRuleSet {
     }
 
     /// AT-52/53/54: suggested due month on an exchange plaque, or `nil` if there is no candidate.
-    private func exchangePlaqueCandidate(for input: InspectionInput) -> YearMonth? {
+    ///
+    /// Only plaques punched under the previous law qualify (AT-52/53): with a last inspection it
+    /// must lie before the cutoff, without one the plaque must still be the original punch.
+    private func exchangePlaqueCandidate(for input: InspectionInput, plaque: YearMonth) -> YearMonth? {
         guard Self.isReformCategory(input.category) else { return nil }
         if let last = input.lastInspection {
+            guard last < Self.cutoffDay else { return nil }
             let ageAtLast = Self.age(at: last.yearMonth, firstRegistration: input.firstRegistration)
             return ageAtLast <= 8 ? last.yearMonth.adding(years: 2) : nil
         }
-        if input.firstRegistration.adding(years: 3) >= Self.lastPreviousLawRegistrationMonth {
+        let firstInspection = input.firstRegistration.adding(years: 3)
+        if firstInspection >= Self.lastPreviousLawRegistrationMonth, plaque <= firstInspection {
             return input.firstRegistration.adding(years: 4)
         }
         return nil

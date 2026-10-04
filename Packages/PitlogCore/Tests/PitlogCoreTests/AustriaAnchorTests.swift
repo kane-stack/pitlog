@@ -126,11 +126,11 @@ import Testing
     #expect(next.dueMonth == ym(2029, 3))
 }
 
-@Test func anchor15_outsideTheWindow() throws { // AT-12
+@Test func anchor15_outsideTheWindow() throws { // AT-12, AT-54
     // Due month 2027-06 closes on 2027-10-31, so 2027-12-01 is outside. Age in 2027-12 is 7, the
     // amended sequence continues with 8, so the plaque is punched for 2028-12.
     let input = InspectionInput(category: .passengerCar, firstRegistration: ym(2020, 6), plaque: ym(2027, 6))
     let next = try austria.nextDue(after: day(2027, 12, 1), dueMonth: ym(2027, 6), input: input)
     #expect(next.dueMonth == ym(2028, 12))
-    #expect(next.notes == [note("AT-12", .outsideWindowRepunch)])
+    #expect(next.notes == [note("AT-12", .outsideWindowRepunch), note("AT-54", .openLegalQuestion)])
 }
