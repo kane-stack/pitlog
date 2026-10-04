@@ -60,14 +60,33 @@ struct VehicleFormView: View {
                     }
                     .textInputAutocapitalization(.characters)
                     .autocorrectionDisabled()
-                    Picker(selection: $category) {
-                        ForEach(VehicleCategory.allCases, id: \.self) { category in
-                            Text(category.title).tag(category)
+                    Menu {
+                        Picker(selection: $category) {
+                            ForEach(VehicleCategory.allCases, id: \.self) { category in
+                                Text(category.title).tag(category)
+                            }
+                        } label: {
+                            Text("Type", comment: "Vehicle form: vehicle category picker")
                         }
                     } label: {
-                        Text("Type", comment: "Vehicle form: vehicle category picker")
+                        // Explicit colors and wrapping text: the system picker value is secondary (contrast)
+                        // and truncates at large Dynamic Type sizes.
+                        HStack(alignment: .firstTextBaseline) {
+                            Text("Type", comment: "Vehicle form: vehicle category picker")
+                                .foregroundStyle(.primary)
+                            Spacer()
+                            Text(category.title)
+                                .foregroundStyle(Color.accentColor)
+                                .multilineTextAlignment(.trailing)
+                            Image(systemName: "chevron.up.chevron.down")
+                                .foregroundStyle(Color.accentColor)
+                                .accessibilityHidden(true)
+                        }
                     }
-                    .pickerStyle(.navigationLink)
+                    .accessibilityElement(children: .ignore)
+                    .accessibilityLabel(Text("Type", comment: "Vehicle form: vehicle category picker"))
+                    .accessibilityValue(Text(category.title))
+                    .accessibilityAddTraits(.isButton)
                 }
 
                 Section {

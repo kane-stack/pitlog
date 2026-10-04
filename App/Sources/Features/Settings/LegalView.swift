@@ -32,6 +32,8 @@ struct LegalView: View {
         }
         .navigationTitle(Text("Legal", comment: "Navigation title of the legal screen"))
         .navigationBarTitleDisplayMode(.inline)
+        // Pushed from Settings: hide the floating tab bar so it never overlaps the last rows.
+        .toolbar(.hidden, for: .tabBar)
     }
 
     /// In-row heading in the primary color: system section headers are secondary and fail the contrast audit.

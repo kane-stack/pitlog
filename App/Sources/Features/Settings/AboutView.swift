@@ -18,5 +18,7 @@ struct AboutView: View {
         }
         .navigationTitle(Text("About", comment: "Navigation title of the about screen"))
         .navigationBarTitleDisplayMode(.inline)
+        // Pushed from Settings: hide the floating tab bar so it never overlaps the last rows.
+        .toolbar(.hidden, for: .tabBar)
     }
 }

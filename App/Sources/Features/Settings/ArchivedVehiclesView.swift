@@ -51,6 +51,8 @@ struct ArchivedVehiclesView: View {
         }
         .navigationTitle(Text("Archived vehicles", comment: "Navigation title of the archived vehicles screen"))
         .navigationBarTitleDisplayMode(.inline)
+        // Pushed from Settings: hide the floating tab bar so it never overlaps the last rows.
+        .toolbar(.hidden, for: .tabBar)
         .confirmationDialog(
             Text("Delete this vehicle?", comment: "Confirmation title for deleting a vehicle"),
             isPresented: Binding(
