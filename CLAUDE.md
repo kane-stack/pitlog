@@ -104,6 +104,13 @@ AppTests/, AppUITests/          app-level tests (Xcode only)
 - **Core-Tests:** `swift test --package-path Packages/PitlogCore` (lokal mit Xcode 26 oder
   Swift 6.2). In der Cloud-Umgebung ist kein Swift-Toolchain verfügbar (download.swift.org
   ist gesperrt). Dort laufen die Tests nur über GitHub Actions (`.github/workflows/core-tests.yml`).
+- **App-Build in der Cloud:** `.github/workflows/app-build.yml` (macOS-Runner `macos-26`) erzeugt
+  das Projekt mit XcodeGen und führt `xcodebuild test -only-testing:PitlogTests` auf einem
+  automatisch gewählten iPhone-Simulator aus (`CODE_SIGNING_ALLOWED=NO`). Er startet bei Pushes auf
+  `claude/**`, wenn `App/**`, `AppTests/**`, `AppUITests/**`, `project.yml` oder `Packages/**`
+  geändert wurden, und ist die einzige Möglichkeit, die App ohne Xcode zu kompilieren.
+  Die UI-Tests mit Accessibility-Audit laufen nur manuell (`workflow_dispatch`, Job `ui-tests`).
+  Die App startet in Tests und mit `-UITestSampleData` mit einem In-Memory-Store ohne CloudKit.
 - **App:** `scripts/bootstrap.sh` (braucht `xcodegen`, `brew install xcodegen`), dann
   `Pitlog.xcodeproj` öffnen.
 
@@ -130,7 +137,7 @@ Prompt: `docs/research/local-session-prompt.md`.
 |---|---|---|---|
 | M0 | Okt 2026 | Gerüst, CLAUDE.md, Regeldoku, XcodeGen, PitlogCore, CI | erledigt |
 | M1 | Okt–Nov | Fristen-Engine und Tests (final erst nach Primärquellen-Abgleich) | Engine implementiert und gemergt, wartet auf Primärquellen-Abgleich |
-| M2 | Nov | Datenmodell (inkl. FIN-Feld), Fahrzeugverwaltung, Plaketten-Auswahl, Pickerl-Karte, Hinweis, Lokalisierung | |
+| M2 | Nov | Datenmodell (inkl. FIN-Feld), Fahrzeugverwaltung, Plaketten-Auswahl, Pickerl-Karte, Hinweis, Lokalisierung | implementiert, wartet auf Review |
 | M3 | Dez | Erinnerungen und Benachrichtigungen | |
 | M4 | Jan 2027 | Historie, manuelle Einträge, Kosten pro Jahr | |
 | M5 | Jan–Feb | Scan-Pipeline: Zulassungsschein-Scan, Spike Belegextraktion, dann Belegscan | |

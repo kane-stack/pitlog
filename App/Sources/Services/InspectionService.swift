@@ -2,7 +2,7 @@ import PitlogCore
 
 /// Maps a `Vehicle` to the rule engine's input and calls the country module.
 struct InspectionService: Sendable {
-    enum UnavailableReason: Hashable, Sendable {
+    enum UnavailableReason: Error, Hashable, Sendable {
         case missingFirstRegistration
         /// Category not covered by the country module: the user enters the date manually.
         case unsupportedCategory

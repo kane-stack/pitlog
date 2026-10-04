@@ -63,7 +63,10 @@ jobs:
             -destination "platform=iOS Simulator,id=$SIM_UDID" \
             -only-testing:PitlogTests \
             -resultBundlePath "$RUNNER_TEMP/unit.xcresult" \
-            $XCODEBUILD_FLAGS
+            $XCODEBUILD_FLAGS 2>&1 | tee "$RUNNER_TEMP/unit.log"
+      - name: Summarize errors
+        if: failure()
+        run: grep -E "error:|Test Case .* failed|Issue recorded|✘| failed \(" "$RUNNER_TEMP/unit.log" | sort -u | cut -c1-400 | head -80 || true
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
@@ -114,7 +117,10 @@ jobs:
             -destination "platform=iOS Simulator,id=$SIM_UDID" \
             -only-testing:PitlogUITests \
             -resultBundlePath "$RUNNER_TEMP/ui.xcresult" \
-            $XCODEBUILD_FLAGS
+            $XCODEBUILD_FLAGS 2>&1 | tee "$RUNNER_TEMP/ui.log"
+      - name: Summarize errors
+        if: failure()
+        run: grep -E "error:|Test Case .* failed|Issue recorded|✘| failed \(" "$RUNNER_TEMP/ui.log" | sort -u | cut -c1-400 | head -80 || true
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
