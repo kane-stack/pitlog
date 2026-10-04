@@ -1,83 +1,1273 @@
 {
-  "sourceLanguage": "en",
-  "strings": {
-    "Add a vehicle to keep track of inspections, service and costs.": {
-      "comment": "Empty state description on the Vehicles tab",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Füge ein Fahrzeug hinzu, um Begutachtungen, Service und Kosten im Blick zu behalten."
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%@ km" : {
+      "comment" : "Odometer value with unit, shown in the vehicle header",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ km"
           }
         }
       }
     },
-    "No vehicles": {
-      "comment": "Empty state title on the Vehicles tab",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Keine Fahrzeuge"
+    "%lld days until the window closes" : {
+      "comment" : "Days until the inspection window closes, plural",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld day until the window closes"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld days until the window closes"
+                }
+              }
+            }
+          }
+        },
+        "de" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Tag bis das Fenster schließt"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Tage bis das Fenster schließt"
+                }
+              }
+            }
           }
         }
       }
     },
-    "Nothing due": {
-      "comment": "Empty state title on the Upcoming tab",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nichts fällig"
+    "A VIN has 17 characters." : {
+      "comment" : "Vehicle form: hint when the VIN length is not 17",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eine FIN hat 17 Zeichen."
           }
         }
       }
     },
-    "Settings": {
-      "comment": "Tab bar item and navigation title for settings",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Einstellungen"
+    "About" : {
+      "comment" : "Settings row for the about screen; Navigation title of the about screen",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Über Pitlog"
           }
         }
       }
     },
-    "Upcoming": {
-      "comment": "Tab bar item and navigation title for upcoming deadlines",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Anstehend"
+    "Add a vehicle to keep track of inspections, service and costs." : {
+      "comment" : "Empty state description on the Vehicles tab",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Füge ein Fahrzeug hinzu, um Begutachtungen, Service und Kosten im Blick zu behalten."
           }
         }
       }
     },
-    "Upcoming inspections and reminders for all your vehicles will appear here.": {
-      "comment": "Empty state description on the Upcoming tab",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Anstehende Begutachtungen und Erinnerungen für alle deine Fahrzeuge erscheinen hier."
+    "Add odometer reading" : {
+      "comment" : "Button in the vehicle header when no odometer reading exists",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kilometerstand eintragen"
           }
         }
       }
     },
-    "Vehicles": {
-      "comment": "Tab bar item and navigation title for the vehicle list",
-      "localizations": {
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fahrzeuge"
+    "Add the first registration to see the deadline." : {
+      "comment" : "Shown when no inspection deadline can be calculated because the first registration is missing",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trage die Erstzulassung ein, um die Frist zu sehen."
+          }
+        }
+      }
+    },
+    "Add vehicle" : {
+      "comment" : "Toolbar button to add a vehicle",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fahrzeug hinzufügen"
+          }
+        }
+      }
+    },
+    "Adds an odometer reading." : {
+      "comment" : "VoiceOver hint of the odometer button",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fügt einen Kilometerstand hinzu."
+          }
+        }
+      }
+    },
+    "An exchange sticker may be possible. This is not binding." : {
+      "comment" : "Rule note AT-53: exchange sticker, non-binding",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eine Austauschplakette ist möglicherweise möglich. Das ist unverbindlich."
+          }
+        }
+      }
+    },
+    "Archive" : {
+      "comment" : "Swipe action to archive a vehicle",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Archivieren"
+          }
+        }
+      }
+    },
+    "Archived vehicles" : {
+      "comment" : "Settings row for archived vehicles; Navigation title of the archived vehicles screen",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Archivierte Fahrzeuge"
+          }
+        }
+      }
+    },
+    "Before you start" : {
+      "comment" : "First launch notice: title",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bevor du loslegst"
+          }
+        }
+      }
+    },
+    "Cancel" : {
+      "comment" : "Cancel button of a form",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abbrechen"
+          }
+        }
+      }
+    },
+    "Change photo" : {
+      "comment" : "Vehicle form: button to change the photo",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Foto ändern"
+          }
+        }
+      }
+    },
+    "Check the new sticker and adjust if needed." : {
+      "comment" : "Record inspection: ask the user to verify the proposal against the sticker",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prüfe die neue Plakette und passe die Eingabe bei Bedarf an."
+          }
+        }
+      }
+    },
+    "Choose photo" : {
+      "comment" : "Vehicle form: button to pick a photo",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Foto auswählen"
+          }
+        }
+      }
+    },
+    "Closes this month" : {
+      "comment" : "Inspection phase: the window closes within the current month",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Endet diesen Monat"
+          }
+        }
+      }
+    },
+    "Continue" : {
+      "comment" : "Button to continue to the next step",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weiter"
+          }
+        }
+      }
+    },
+    "Date" : {
+      "comment" : "Odometer entry: date of the reading",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datum"
+          }
+        }
+      }
+    },
+    "Delete" : {
+      "comment" : "Swipe action to delete a vehicle; Confirm deleting a vehicle",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Löschen"
+          }
+        }
+      }
+    },
+    "Delete this vehicle?" : {
+      "comment" : "Confirmation title for deleting a vehicle",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dieses Fahrzeug löschen?"
+          }
+        }
+      }
+    },
+    "Disclaimer" : {
+      "comment" : "Legal screen: section header",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Haftungsausschluss"
+          }
+        }
+      }
+    },
+    "Due" : {
+      "comment" : "Pickerl card: caption above the due month",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fällig"
+          }
+        }
+      }
+    },
+    "Due %@" : {
+      "comment" : "Upcoming list: due month of the inspection",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fällig: %@"
+          }
+        }
+      }
+    },
+    "Due in %lld months" : {
+      "comment" : "Status badge: months until the inspection is due, plural",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Due in %lld month"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Due in %lld months"
+                }
+              }
+            }
+          }
+        },
+        "de" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Fällig in %lld Monat"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Fällig in %lld Monaten"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Edit" : {
+      "comment" : "Toolbar button to edit a vehicle",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bearbeiten"
+          }
+        }
+      }
+    },
+    "Edit vehicle" : {
+      "comment" : "Navigation title of the edit vehicle form",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fahrzeug bearbeiten"
+          }
+        }
+      }
+    },
+    "Enter the month and year punched on your inspection sticker." : {
+      "comment" : "Vehicle form: explanation of the inspection sticker picker",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gib Monat und Jahr ein, die auf deiner Pickerl-Plakette gelocht sind."
+          }
+        }
+      }
+    },
+    "Estimated due" : {
+      "comment" : "Pickerl card: caption above an estimated due month",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voraussichtlich fällig"
+          }
+        }
+      }
+    },
+    "Estimated from the first registration. Check it against your inspection sticker." : {
+      "comment" : "Caption below the suggestion button of the sticker picker; Rule note AT-10: due month is an estimate",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aus der Erstzulassung geschätzt. Vergleiche mit deiner Pickerl-Plakette."
+          }
+        }
+      }
+    },
+    "Estimated inspection due %@. Last day %@. %@." : {
+      "comment" : "VoiceOver label of the Pickerl card when the due month is only estimated",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pickerl voraussichtlich fällig im %@. Letzter Tag: %@. %@."
+          }
+        }
+      }
+    },
+    "Exchange sticker suggestion: %@. Not binding." : {
+      "comment" : "Pickerl card: optional exchange sticker with the later due month",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vorschlag Austauschplakette: %@. Unverbindlich."
+          }
+        }
+      }
+    },
+    "First registration, month" : {
+      "comment" : "Vehicle form: month of the first registration",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erstzulassung, Monat"
+          }
+        }
+      }
+    },
+    "First registration, year" : {
+      "comment" : "Vehicle form: year of the first registration",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erstzulassung, Jahr"
+          }
+        }
+      }
+    },
+    "From %@ to %@" : {
+      "comment" : "Pickerl card: inspection window, from the first to the last day",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Von %@ bis %@"
+          }
+        }
+      }
+    },
+    "Historic vehicle" : {
+      "comment" : "Vehicle category",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Historisches Fahrzeug"
+          }
+        }
+      }
+    },
+    "I understand" : {
+      "comment" : "First launch notice: button to acknowledge",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verstanden"
+          }
+        }
+      }
+    },
+    "Inspected outside the window: enter the new punch from your inspection sticker." : {
+      "comment" : "Rule note AT-12: late inspection, the sticker is punched anew",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Außerhalb des Fensters begutachtet: Gib die neue Lochung von deiner Plakette ein."
+          }
+        }
+      }
+    },
+    "Inspected outside the window: enter the punch exactly as it appears on your new inspection sticker." : {
+      "comment" : "Record inspection: emphasised warning for a late inspection (AT-12)",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Außerhalb des Fensters begutachtet: Gib die Lochung genau so ein, wie sie auf deiner neuen Plakette steht."
+          }
+        }
+      }
+    },
+    "Inspection date" : {
+      "comment" : "Record inspection: date of the inspection",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datum der Begutachtung"
+          }
+        }
+      }
+    },
+    "Inspection due %@. %@." : {
+      "comment" : "VoiceOver label of the status badge in the vehicle list",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pickerl fällig im %@. %@."
+          }
+        }
+      }
+    },
+    "Inspection due %@. Last day %@. %@." : {
+      "comment" : "VoiceOver label of the Pickerl card: due month, last day of the window, phase",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pickerl fällig im %@. Letzter Tag: %@. %@."
+          }
+        }
+      }
+    },
+    "Inspection sticker" : {
+      "comment" : "VoiceOver label of the inspection sticker picker; Vehicle form: section header for the inspection sticker",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pickerl-Plakette"
+          }
+        }
+      }
+    },
+    "Inspection sticker: %@" : {
+      "comment" : "Pickerl card: the sticker month entered by the user when no deadline is calculated",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pickerl-Plakette: %@"
+          }
+        }
+      }
+    },
+    "Legal" : {
+      "comment" : "Settings row for the legal notice screen; Navigation title of the legal screen",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechtliches"
+          }
+        }
+      }
+    },
+    "License plate" : {
+      "comment" : "Vehicle form: license plate field",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kennzeichen"
+          }
+        }
+      }
+    },
+    "Light commercial vehicle (N1)" : {
+      "comment" : "Vehicle category, N1",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Leichtes Nutzfahrzeug (N1)"
+          }
+        }
+      }
+    },
+    "Light trailer (up to 3.5 t)" : {
+      "comment" : "Vehicle category, trailer O1/O2",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Leichter Anhänger (bis 3,5 t)"
+          }
+        }
+      }
+    },
+    "Make" : {
+      "comment" : "Vehicle form: make field",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Marke"
+          }
+        }
+      }
+    },
+    "Model" : {
+      "comment" : "Vehicle form: model field",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modell"
+          }
+        }
+      }
+    },
+    "Month" : {
+      "comment" : "Label of the month picker for the inspection sticker",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monat"
+          }
+        }
+      }
+    },
+    "Motorcycle or moped (class L)" : {
+      "comment" : "Vehicle category, EU class L",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Motorrad oder Moped (Klasse L)"
+          }
+        }
+      }
+    },
+    "Name" : {
+      "comment" : "Vehicle form: name field",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Name"
+          }
+        }
+      }
+    },
+    "New inspection sticker" : {
+      "comment" : "Record inspection: section header for the confirmation step",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neue Pickerl-Plakette"
+          }
+        }
+      }
+    },
+    "New vehicle" : {
+      "comment" : "Navigation title of the add vehicle form",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neues Fahrzeug"
+          }
+        }
+      }
+    },
+    "Next year" : {
+      "comment" : "VoiceOver label of the plus button of the sticker year",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nächstes Jahr"
+          }
+        }
+      }
+    },
+    "No archived vehicles" : {
+      "comment" : "Empty state title of the archived vehicles screen",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine archivierten Fahrzeuge"
+          }
+        }
+      }
+    },
+    "No vehicles" : {
+      "comment" : "Empty state title on the Vehicles tab",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine Fahrzeuge"
+          }
+        }
+      }
+    },
+    "Not calculated for this country yet." : {
+      "comment" : "Shown when the country has no rule set",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Für dieses Land wird noch nicht berechnet."
+          }
+        }
+      }
+    },
+    "Not calculated for this vehicle type. Enter the date manually." : {
+      "comment" : "Shown for vehicle types without a rule set",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Für diese Fahrzeugart wird nicht berechnet. Trage das Datum manuell ein."
+          }
+        }
+      }
+    },
+    "Not set" : {
+      "comment" : "VoiceOver value of the inspection sticker picker when nothing is entered; Picker option for no inspection sticker month; Picker option for no inspection sticker year; Picker option for no month; Picker option for no year",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nicht gesetzt"
+          }
+        }
+      }
+    },
+    "Not yet open" : {
+      "comment" : "Inspection phase: the window has not opened yet",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Noch nicht offen"
+          }
+        }
+      }
+    },
+    "Nothing due" : {
+      "comment" : "Empty state title on the Upcoming tab",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nichts fällig"
+          }
+        }
+      }
+    },
+    "OK" : {
+      "comment" : "Alert dismiss button",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        }
+      }
+    },
+    "Odometer (km)" : {
+      "comment" : "Odometer entry: kilometres; Vehicle form: current odometer in kilometres",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kilometerstand (km)"
+          }
+        }
+      }
+    },
+    "Odometer reading" : {
+      "comment" : "Navigation title of the odometer entry sheet",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kilometerstand"
+          }
+        }
+      }
+    },
+    "Official sources" : {
+      "comment" : "Legal screen: section header for the list of legal sources",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Offizielle Quellen"
+          }
+        }
+      }
+    },
+    "Open legal question for vehicles aged 9 to 10 years." : {
+      "comment" : "Rule note AT-54a: unclear rule at age 9 to 10",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Offene Rechtsfrage bei Fahrzeugen im Alter von 9 bis 10 Jahren."
+          }
+        }
+      }
+    },
+    "Other (enter date manually)" : {
+      "comment" : "Vehicle category for vehicles the app cannot calculate; the user enters the inspection date",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sonstiges (Datum manuell eintragen)"
+          }
+        }
+      }
+    },
+    "Overdue" : {
+      "comment" : "Inspection phase: the window has closed",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Überfällig"
+          }
+        }
+      }
+    },
+    "Passenger car" : {
+      "comment" : "Vehicle category",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pkw"
+          }
+        }
+      }
+    },
+    "Photo" : {
+      "comment" : "Vehicle form: section header for the photo",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Foto"
+          }
+        }
+      }
+    },
+    "Pitlog calculates inspection deadlines from the first registration and the date on your inspection sticker. Some rules of the 2027 inspection reform are still legally open. In doubt the app shows the earlier deadline. It does not replace the sticker, the registration certificate or advice from an inspection station." : {
+      "comment" : "Legal screen: full disclaimer",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pitlog berechnet Pickerl-Fristen aus der Erstzulassung und dem Datum auf deiner Plakette. Einzelne Regeln der Pickerl-Reform 2027 sind rechtlich noch offen. Im Zweifel zeigt die App die frühere Frist. Sie ersetzt weder die Plakette noch den Zulassungsschein noch die Beratung durch eine Prüfstelle."
+          }
+        }
+      }
+    },
+    "Pitlog helps you keep track of inspection deadlines. The calculation is a suggestion based on the first registration and the rules known today." : {
+      "comment" : "First launch notice: what the app does",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pitlog hilft dir, Pickerl-Fristen im Blick zu behalten. Die Berechnung ist ein Vorschlag auf Basis der Erstzulassung und der heute bekannten Regeln."
+          }
+        }
+      }
+    },
+    "Previous year" : {
+      "comment" : "VoiceOver label of the minus button of the sticker year",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vorheriges Jahr"
+          }
+        }
+      }
+    },
+    "Record inspection" : {
+      "comment" : "Button on the Pickerl card to record a completed inspection; Navigation title of the record inspection sheet",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Begutachtung eintragen"
+          }
+        }
+      }
+    },
+    "Remove photo" : {
+      "comment" : "Vehicle form: button to remove the photo",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Foto entfernen"
+          }
+        }
+      }
+    },
+    "Restore" : {
+      "comment" : "Swipe action to restore an archived vehicle",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wiederherstellen"
+          }
+        }
+      }
+    },
+    "Rule version" : {
+      "comment" : "Legal screen: label for the version of the rule set",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Regelversion"
+          }
+        }
+      }
+    },
+    "Rule version %@" : {
+      "comment" : "Pickerl card: version of the rule set, small print",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Regelversion %@"
+          }
+        }
+      }
+    },
+    "Save" : {
+      "comment" : "Save button of a form",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sichern"
+          }
+        }
+      }
+    },
+    "See the legal notes for this deadline." : {
+      "comment" : "Generic rule note, points to the legal notes",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Siehe die rechtlichen Hinweise zu dieser Frist."
+          }
+        }
+      }
+    },
+    "Settings" : {
+      "comment" : "Tab bar item for settings; Navigation title of the Settings tab",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einstellungen"
+          }
+        }
+      }
+    },
+    "Some rules of the 2027 inspection reform are still legally open. In doubt the app shows the earlier deadline." : {
+      "comment" : "First launch notice: open legal questions",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einzelne Regeln der Pickerl-Reform 2027 sind rechtlich noch offen. Im Zweifel zeigt die App die frühere Frist."
+          }
+        }
+      }
+    },
+    "Swipe up or down to change the month." : {
+      "comment" : "VoiceOver hint of the inspection sticker picker",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wische nach oben oder unten, um den Monat zu ändern."
+          }
+        }
+      }
+    },
+    "Taxi, ambulance or patient transport" : {
+      "comment" : "Vehicle category",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Taxi, Rettung oder Krankentransport"
+          }
+        }
+      }
+    },
+    "The date on which the vehicle passed the inspection." : {
+      "comment" : "Record inspection: explanation of the date field",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Datum, an dem das Fahrzeug die Begutachtung bestanden hat."
+          }
+        }
+      }
+    },
+    "The deadline may be extended until %@." : {
+      "comment" : "Rule note: possible extension of the deadline, with the date",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Frist könnte bis %@ verlängert sein."
+          }
+        }
+      }
+    },
+    "The entered dates do not fit together. Check the first registration and the sticker." : {
+      "comment" : "Shown when the rule engine rejects the input",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die eingegebenen Daten passen nicht zusammen. Prüfe Erstzulassung und Plakette."
+          }
+        }
+      }
+    },
+    "The vehicle and its odometer readings will be deleted. This cannot be undone." : {
+      "comment" : "Confirmation message for deleting a vehicle",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Fahrzeug und seine Kilometerstände werden gelöscht. Das lässt sich nicht rückgängig machen."
+          }
+        }
+      }
+    },
+    "Type" : {
+      "comment" : "Vehicle form: vehicle category picker",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Art"
+          }
+        }
+      }
+    },
+    "Upcoming" : {
+      "comment" : "Tab bar item for upcoming deadlines; Navigation title of the Upcoming tab",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anstehend"
+          }
+        }
+      }
+    },
+    "Upcoming inspections and reminders for all your vehicles will appear here." : {
+      "comment" : "Empty state description on the Upcoming tab",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anstehende Begutachtungen und Erinnerungen für alle deine Fahrzeuge erscheinen hier."
+          }
+        }
+      }
+    },
+    "Use suggestion: %@" : {
+      "comment" : "Button that fills the sticker picker with the estimated due month; the argument is the month",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vorschlag übernehmen: %@"
+          }
+        }
+      }
+    },
+    "VIN (optional)" : {
+      "comment" : "Vehicle form: vehicle identification number field",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FIN (optional)"
+          }
+        }
+      }
+    },
+    "Vehicle limit reached" : {
+      "comment" : "Alert title when the entitlement allows no more vehicles",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fahrzeuglimit erreicht"
+          }
+        }
+      }
+    },
+    "Vehicles" : {
+      "comment" : "Tab bar item for the vehicle list; Navigation title of the Vehicles tab",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fahrzeuge"
+          }
+        }
+      }
+    },
+    "Version" : {
+      "comment" : "About screen: app version label",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version"
+          }
+        }
+      }
+    },
+    "Window closed %lld days ago" : {
+      "comment" : "Days since the inspection window closed, plural",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Window closed %lld day ago"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Window closed %lld days ago"
+                }
+              }
+            }
+          }
+        },
+        "de" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Fenster vor %lld Tag geschlossen"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Fenster vor %lld Tagen geschlossen"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Window closes today" : {
+      "comment" : "The inspection window closes today",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Fenster schließt heute"
+          }
+        }
+      }
+    },
+    "Window open" : {
+      "comment" : "Inspection phase: the inspection can be done now",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fenster offen"
+          }
+        }
+      }
+    },
+    "Without guarantee. The date punched on your inspection sticker is authoritative." : {
+      "comment" : "Legal notice shown with every inspection deadline",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ohne Gewähr. Maßgeblich ist das auf der Plakette gelochte Datum."
+          }
+        }
+      }
+    },
+    "Year" : {
+      "comment" : "Label of the year picker for the inspection sticker",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jahr"
+          }
+        }
+      }
+    },
+    "You can look these provisions up in the Austrian Legal Information System (RIS)." : {
+      "comment" : "Legal screen: hint where to find the sources, no link on purpose",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diese Bestimmungen findest du im Rechtsinformationssystem des Bundes (RIS)."
+          }
+        }
+      }
+    },
+    "Your vehicles stay available. You can view them, but not add more." : {
+      "comment" : "Alert message when the vehicle limit is reached",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deine Fahrzeuge bleiben verfügbar. Du kannst sie ansehen, aber keine weiteren hinzufügen."
+          }
+        }
+      }
+    },
+    "§57a inspection" : {
+      "comment" : "Title of the Pickerl card (periodic vehicle inspection)",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pickerl (§ 57a KFG)"
           }
         }
       }
     }
   },
-  "version": "1.0"
+  "version" : "1.0"
 }

@@ -3,6 +3,7 @@ import Testing
 
 @testable import Pitlog
 
+@MainActor
 struct InspectionServiceTests {
     private let service = InspectionService()
     private let today = DayDate(year: 2027, month: 4, day: 1) ?? DayDate(year: 2000, month: 1, day: 1)!
