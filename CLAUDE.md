@@ -138,7 +138,7 @@ Prompt: `docs/research/local-session-prompt.md`.
 | # | Zeitraum | Inhalt | Status |
 |---|---|---|---|
 | M0 | Okt 2026 | Gerüst, CLAUDE.md, Regeldoku, XcodeGen, PitlogCore, CI | erledigt |
-| M1 | Okt–Nov | Fristen-Engine und Tests (final erst nach Primärquellen-Abgleich) | Engine implementiert und gemergt, wartet auf Primärquellen-Abgleich |
+| M1 | Okt–Nov | Fristen-Engine und Tests (final erst nach Primärquellen-Abgleich) | Engine an Primärquellen angepasst |
 | M2 | Nov | Datenmodell (inkl. FIN-Feld), Fahrzeugverwaltung, Plaketten-Auswahl, Pickerl-Karte, Hinweis, Lokalisierung | implementiert, wartet auf Review |
 | M3 | Dez | Erinnerungen und Benachrichtigungen | |
 | M4 | Jan 2027 | Historie, manuelle Einträge, Kosten pro Jahr | |
@@ -148,11 +148,16 @@ Prompt: `docs/research/local-session-prompt.md`.
 
 ## Offene Fragen
 
-1. **Primärquellen:** Alle Pickerl-Regeln sind bisher nur sekundär belegt (siehe Checkliste in
-   `docs/rules/AT-57a-KFG.md`, Abschnitt 8). Blockiert die Finalisierung von M1.
-2. **Übergangsfenster 2027 (AT-56):** Es gibt drei widersprüchliche Darstellungen.
-3. **Lochung der Austauschplakette für Fahrzeuge über 10 Jahre (AT-53/54).**
-4. **Reichweite des −4/0-Fensters (AT-43):** N1, Taxi, historische Fahrzeuge?
+1. **Primärquellen:** Weitgehend gelöst. Die Pickerl-Regeln sind gegen BGBl. I Nr. 79/2026, § 57a,
+   § 132 Abs. 37 und § 135 Abs. 51 geprüft (`docs/rules/AT-57a-KFG.md`, Quellen unter
+   `docs/sources/`), die Engine ist angepasst (Regelversion `AT-2026-10-primary`). Offen bleiben
+   nur AT-45 (spätester Tag nach neuer Fassung), AT-54a (Bedeutung „im zehnten Jahr“) und AT-57
+   (PBStV-Folgeregelungen).
+2. **Übergangsfenster 2027 (AT-56):** Gelöst (§ 132 Abs. 37 Z 3), in der Engine umgesetzt.
+3. **Lochung der Austauschplakette für Fahrzeuge über 10 Jahre (AT-53/54):** Weitgehend gelöst:
+   ab dem zehnten Jahr jährlich, keine Austauschplakette. Rest: AT-54a.
+4. **Reichweite des −4/0-Fensters (AT-43):** Gelöst: gilt für alle Fahrzeuge (N1, Taxi,
+   historische), in der Engine umgesetzt.
 5. **Testdaten Zulassungsschein:** 2 bis 3 geschwärzte Fotos echter österreichischer Zulassungsscheine
    (Papier und Scheckkarte) von Christopher. Zu klären ist, welche Formate aktuell im Umlauf sind,
    inklusive einer eventuellen digitalen Variante.

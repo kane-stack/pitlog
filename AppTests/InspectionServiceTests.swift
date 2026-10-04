@@ -89,6 +89,30 @@ struct InspectionServiceTests {
         #expect((try? result.get().dueMonth) != nil)
     }
 
+    @Test func derivedLastInspectionHasItsOwnText() {
+        let locale = Locale(identifier: "en_US")
+        let derived = RuleNoteText.text(for: RuleNote(ruleID: "AT-53", kind: .derivedLastInspection), locale: locale)
+        let exchange = RuleNoteText.text(for: RuleNote(ruleID: "AT-53", kind: .openLegalQuestion), locale: locale)
+        #expect(derived != exchange)
+    }
+
+    @Test("Exchange sticker availability is shown only before the cutoff day (AT-58)", arguments: [
+        (2027, 5, 18, true),
+        (2027, 5, 19, false),
+        (2028, 1, 1, false),
+    ])
+    func exchangeAvailability(year: Int, month: Int, day: Int, shown: Bool) {
+        let window = InspectionWindow(opens: today, closes: today)
+        let status = InspectionStatus(
+            dueMonth: ym(2027, 6), dueMonthSource: .plaque, window: window, phase: .open,
+            regime: .transition, notes: [], exchangePlaqueSuggestion: ym(2028, 6), ruleVersion: "test")
+        let now = DayDate(year: year, month: month, day: day) ?? today
+        let presentation = InspectionPresentation(status: status, today: now, locale: Locale(identifier: "en_GB"))
+        #expect((presentation.exchangeAvailabilityText != nil) == shown)
+        #expect(presentation.exchangeSuggestionText != nil)
+        if shown { #expect(presentation.exchangeAvailabilityText?.contains("2027") == true) }
+    }
+
     @Test func nextDueFailsWithoutRegistration() {
         let result = service.nextDue(for: Vehicle(name: "x"), inspectedOn: today, today: today)
         if case .failure(let reason) = result {
@@ -105,6 +129,7 @@ struct InspectionServiceTests {
             RuleNote(ruleID: "AT-12", kind: .outsideWindowRepunch),
             RuleNote(ruleID: "AT-53", kind: .openLegalQuestion),
             RuleNote(ruleID: "AT-54a", kind: .openLegalQuestion),
+            RuleNote(ruleID: "AT-53", kind: .derivedLastInspection),
             RuleNote(ruleID: "AT-99", kind: .openLegalQuestion),
         ] {
             #expect(!RuleNoteText.text(for: note, locale: locale).isEmpty)

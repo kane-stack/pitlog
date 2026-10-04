@@ -87,6 +87,26 @@ struct InspectionPresentation {
             comment: "VoiceOver label of the Pickerl card: due month, last day of the window, phase")
     }
 
+    /// Exchange sticker suggestion row (visible and in the VoiceOver label), or `nil`.
+    var exchangeSuggestionText: String? {
+        guard let suggestion = status.exchangePlaqueSuggestion else { return nil }
+        let month = suggestion.displayString(locale: locale)
+        return String(
+            localized: "Exchange sticker suggestion: \(month). Not binding.",
+            locale: locale,
+            comment: "Pickerl card: optional exchange sticker with the later due month")
+    }
+
+    /// AT-58: exchange stickers exist only from the cutoff day on.
+    var exchangeAvailabilityText: String? {
+        guard status.exchangePlaqueSuggestion != nil, today < AustriaInspectionRules.cutoffDay else { return nil }
+        let date = AustriaInspectionRules.cutoffDay.formatted(.long, locale: locale)
+        return String(
+            localized: "Available from \(date) at an authorised inspection station.",
+            locale: locale,
+            comment: "Pickerl card: exchange stickers are only issued from the cutoff date on (AT-58); the argument is the date")
+    }
+
     var badgeAccessibilityLabel: String {
         let due = dueMonthText
         let badge = badgeText
@@ -101,6 +121,20 @@ struct InspectionPresentation {
 /// engine case never breaks the build or shows nothing.
 enum RuleNoteText {
     static func text(for note: RuleNote, locale: Locale) -> String {
+        // Kind first: AT-53 is used by more than one kind.
+        switch note.kind {
+        case .derivedLastInspection:
+            return String(
+                localized: "Last inspection estimated from the sticker and first registration. Enter it for a precise suggestion.",
+                locale: locale, comment: "Rule note AT-53: the last inspection was derived, entering it gives a precise exchange sticker suggestion")
+        case .possibleExtension(let until):
+            let date = until.formatted(.long, locale: locale)
+            return String(
+                localized: "The deadline may be extended until \(date).",
+                locale: locale, comment: "Rule note: possible extension of the deadline, with the date")
+        default:
+            break
+        }
         switch note.ruleID {
         case "AT-10":
             return String(
@@ -118,15 +152,6 @@ enum RuleNoteText {
             return String(
                 localized: "Open legal question for vehicles aged 9 to 10 years.",
                 locale: locale, comment: "Rule note AT-54a: unclear rule at age 9 to 10")
-        default:
-            break
-        }
-        switch note.kind {
-        case .possibleExtension(let until):
-            let date = until.formatted(.long, locale: locale)
-            return String(
-                localized: "The deadline may be extended until \(date).",
-                locale: locale, comment: "Rule note: possible extension of the deadline, with the date")
         default:
             return String(
                 localized: "See the legal notes for this deadline.",

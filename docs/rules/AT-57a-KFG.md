@@ -6,8 +6,8 @@
 > Wortlaute liegen unter `docs/sources/`. Die Fundstellen stehen pro Regel in der Spalte
 > „Fundstelle“. Wo der Primärtext von der bisherigen Darstellung abweicht, steht das in der
 > Spalte „Befund“; die bisherige Formulierung der Regel ist dort bewusst stehen geblieben.
-> Der Algorithmus der Engine (§ 9) ist **nicht** angepasst. Seine Abweichungen vom Gesetz
-> stehen in § 10.
+> Die Engine (Regelversion `AT-2026-10-primary`, § 9) ist an die Primärquellen angepasst. Die
+> Abweichungen, die dabei behoben wurden, und ihr Status stehen in § 10.
 >
 > Anders als in `CLAUDE.md` („Recherche“) vermerkt, waren ris.bka.gv.at, parlament.gv.at und
 > oeamtc.at am 04.10.2026 aus der Cloud-Umgebung per Shell erreichbar.
@@ -96,7 +96,7 @@ welche Fassung gilt (siehe AT-41). Bestätigt: § 57a Abs. 3 aF gilt bis 18.05.2
 |---|---|---|---|---|
 | AT-10 | Gelocht wird grundsätzlich der **Monat der Erstzulassung**. Er bleibt der Bezugsmonat, auch wenn innerhalb des Fensters früher oder später begutachtet wird. | PRIMÄR | § 57a Abs. 3 Satz 1 aF/nF („jeweils zum Jahrestag der ersten Zulassung, auch wenn diese im Ausland erfolgte“); Satz 3 aF/nF („ohne Wirkung für den Zeitpunkt der nächsten Begutachtung“); PBStV § 9 Abs. 1 (Lochung von Jahr und Monat der nächsten Begutachtung) | bestätigt. Präzisierung: Das Gesetz spricht vom **Jahrestag**, die Plakette zeigt nur **Monat und Jahr**. |
 | AT-11 | Auf Antrag bei der Zulassungsbehörde kann ein anderer Begutachtungsmonat festgesetzt werden. | PRIMÄR | § 57a Abs. 3 Satz 2 | bestätigt. Wortlaut: „einen anderen **Tag** als den Jahrestag der ersten Zulassung“. |
-| AT-12 | Eine Begutachtung **außerhalb** des Fensters (z. B. verspätet) führt zu einer neuen Lochung ab dem Begutachtungsmonat. | OFFEN | nicht geregelt | Weder § 57a noch § 132 Abs. 37 noch die PBStV regeln die verspätete Begutachtung. Lesart A: Neue Lochung ab dem Begutachtungsmonat (bisherige Annahme, so verbreitete Praxis, nicht primär belegt). Lesart B: Der Jahrestag (Satz 1) bleibt maßgeblich, die Frist zählt weiter vom gelochten Monat; das ergibt den **früheren** nächsten Termin. Die Engine nimmt Lesart A (siehe § 10, D-09). |
+| AT-12 | Eine Begutachtung **außerhalb** des Fensters (z. B. verspätet) führt zu einer neuen Lochung ab dem Begutachtungsmonat. | OFFEN | nicht geregelt | Weder § 57a noch § 132 Abs. 37 noch die PBStV regeln die verspätete Begutachtung. Lesart A: Neue Lochung ab dem Begutachtungsmonat (bisherige Annahme, so verbreitete Praxis, nicht primär belegt). Lesart B: Der Jahrestag (Satz 1) bleibt maßgeblich, die Frist zählt weiter vom gelochten Monat; das ergibt den **früheren** nächsten Termin. Entscheidung (D-09, ADR-8): Die Engine liefert den **frühesten plausiblen** Fälligkeitsmonat und füllt damit nur die Plakettenauswahl vor; der Nutzer trägt die tatsächliche Lochung ein (siehe § 9.2, § 10). |
 | AT-13 | (neu) Fehlt der Nachweis der Erstzulassung, setzt die Behörde den Zeitpunkt der ersten Begutachtung fest. | PRIMÄR | § 57a Abs. 3 Satz 4 | neu aufgenommen, für die Engine ohne Folgen (Plakette ist führend) |
 
 **Konsequenz für die App:** Maßgeblich ist der auf der Plakette gelochte Monat und das Jahr.
@@ -145,58 +145,38 @@ Bestätigt durch § 132 Abs. 37 Z 2 und PBStV § 9 Abs. 1.
 | AT-52 | **Austauschplakette (optional):** Ergibt sich nach neuem Recht ein späterer Termin, kann der Halter bei einer berechtigten Stelle eine neu gelochte Plakette verlangen, ohne neue Begutachtung. Voraussetzung ist, dass das zuletzt gespeicherte Gutachten nicht negativ war (kein schwerer Mangel, keine Gefahr im Verzug). | PRIMÄR | § 132 Abs. 37 Z 1 Satz 2; Z 4 | bestätigt. Präzisierung zu Z 4: maßgeblich ist das letzte in der **Begutachtungsplakettendatenbank** gespeicherte Gutachten nach § 57a **oder § 56** mit schwerem Mangel oder Mangel mit Gefahr im Verzug. Wortlaut „nach dem 19. Mai 2027“; Z 1 tritt aber am 19.05.2027 in Kraft (§ 135 Abs. 51 Z 2), der ÖAMTC nennt den 19.05.2027 als ersten Tag. |
 | AT-53 | **Lochung der Austauschplakette:** Bei einem Fahrzeug, das noch nie begutachtet wurde, ist der Termin 4 Jahre nach Erstzulassung. Bei allen anderen sind es **2 Jahre nach dem letzten Gutachten**. | PRIMÄR | § 132 Abs. 37 Z 1 Satz 3 und 4 | bestätigt, aber **unvollständig**: Satz 4 begrenzt die zwei Jahre: „wobei spätestens im zehnten Jahr nach der Erstzulassung und danach, jährlich eine Begutachtung zu erfolgen hat“. Nie begutachtete Fahrzeuge: erste Begutachtung 4 Jahre nach EZ, danach § 57a Abs. 3 Z 3 nF. Bereits begutachtete: nächste **und jede weitere** Begutachtung 2 Jahre nach der letzten, mit der Grenze des zehnten Jahres. Die Materialien ergänzen: Der Abstand zwischen erster und zweiter Begutachtung darf nicht über zwei Jahre wachsen. |
 | AT-54 | Was bei Fahrzeugen in der jährlichen Phase gilt (über 10 Jahre) und an der Grenze zwischen den Phasen (9 bis 10 Jahre), ist unklar. Gibt AT-53 auch einem 12 Jahre alten Fahrzeug 2 Jahre? Das widerspräche AT-30. | PRIMÄR | § 132 Abs. 37 Z 1 Satz 4 und 5; Q-AB581 (Begründung zu Z 42) | **Gelöst:** Nein. Ab dem zehnten Jahr nach der Erstzulassung ist jährlich zu begutachten; ein 12 Jahre altes Fahrzeug bekommt keine längere Frist und damit keine Austauschplakette. **Neu und wichtig (Satz 5):** Wird trotzdem zum alten gelochten Termin begutachtet, folgt die nächste und jede weitere Begutachtung **zwei Jahre nach dieser Begutachtung**, ebenfalls mit der Grenze des zehnten Jahres. Die Materialien: „zweijähriges Intervall und ab zehn Jahren einjährig“. Zur Bedeutung von „im zehnten Jahr“ siehe AT-54a. |
-| AT-54a | (neu) Was heißt „spätestens im zehnten Jahr nach der Erstzulassung“? | OFFEN | § 132 Abs. 37 Z 1 Satz 4 und 5 | Lesart A: spätestens zum 10. Jahrestag der Erstzulassung (Alter 10), danach jährlich. Dafür sprechen das Schema 4-2-2-2-1 (4. Begutachtung bei Alter 10), die Materialien („nach 10 Jahren eine jährliche Überprüfung“, „Fahrzeuge älter als zehn Jahre“, „ab zehn Jahren einjährig“) und der ÖAMTC-Rechner (Fall X5: EZ 2018-09 → Austauschplakette 2028-09, Alter 10). Lesart B: innerhalb des zehnten Jahres, also zwischen 9. und 10. Jahrestag; das ergäbe eine Begutachtung schon bei Alter 9. Die Engine folgt Lesart A. Lesart B wäre die konservativere, widerspricht aber dem 4-2-2-2-1-Schema. Empfehlung: Lesart A beibehalten, Hinweis AT-54 nur in diesem Grenzfall. |
+| AT-54a | (neu) Was heißt „spätestens im zehnten Jahr nach der Erstzulassung“? | OFFEN | § 132 Abs. 37 Z 1 Satz 4 und 5 | Lesart A: spätestens zum 10. Jahrestag der Erstzulassung (Alter 10), danach jährlich. Dafür sprechen das Schema 4-2-2-2-1 (4. Begutachtung bei Alter 10), die Materialien („nach 10 Jahren eine jährliche Überprüfung“, „Fahrzeuge älter als zehn Jahre“, „ab zehn Jahren einjährig“) und der ÖAMTC-Rechner (Fall X5: EZ 2018-09 → Austauschplakette 2028-09, Alter 10). Lesart B: innerhalb des zehnten Jahres, also zwischen 9. und 10. Jahrestag; das ergäbe eine Begutachtung schon bei Alter 9. Die Engine folgt Lesart A. Lesart B wäre die konservativere, widerspricht aber dem 4-2-2-2-1-Schema. Empfehlung: Lesart A beibehalten, Hinweis `AT-54a` nur in diesem Grenzfall (Alter bei D = 9). |
 | AT-55 | Kostenersatz für die Austauschplakette: höchstens 10 € zusätzlich zum Plakettenpreis (§ 132 Abs. 37 Z 5), umsatzsteuerpflichtig. | PRIMÄR (Betrag), SEKUNDÄR (USt) | § 132 Abs. 37 Z 5 | Betrag bestätigt; gilt nur für eine Ausgabe, die „nicht im Zuge einer Begutachtung erfolgt“. Die Umsatzsteuerpflicht steht nur in der BMF-Fachinformation (Q-BMF), nicht im KFG. |
 | AT-56 | **Übergangsfenster 2027:** Es gibt drei unvereinbare Darstellungen. (a) Bei Fälligkeit Februar bis Juli 2027 gilt weiter −1/+4. (b) Bei Lochung Jänner bis Oktober 2027 gilt −1/+4, längstens bis 30.11.2027. (c) Bei Fälligkeit August bis Oktober 2027 wird bis November 2027 erstreckt; ab Ende November 2027 gibt es keine Überschreitung mehr. | PRIMÄR | § 132 Abs. 37 Z 3; § 57a Abs. 3 Satz 3 aF; § 135 Abs. 51 Z 2 | **Gelöst.** Richtig sind (a) und (c) zusammen, (b) ist falsch. Z 3 Satz 1: Stichtag **Februar bis Juli**: Für die Begutachtung 2027 gelten die Fristen des Satzes 3 **aF** weiter, also −1/+4 für Z 3 bis 5 (auch historische) und −3/0 für Z 1 und 2 (N, Taxi …). Z 3 Satz 2: Stichtag **August bis Oktober**: „zusätzlich eine Fristverlängerung bis inklusive November 2027“, also spätester Tag 30.11.2027. **Jänner 2027** ist nicht erfasst: Die Nachfrist aF endet mit Außerkrafttreten am 18.05.2027. Z 3 gilt für **alle Fahrzeuge**, nicht nur für Z 3-Fahrzeuge. „Stichtag“ ist in der App der gelochte Monat. |
 | AT-57 | Die Novelle wurde nach der Kundmachung nicht mehr geändert (Stand 04.10.2026). Offen ist, ob eine PBStV-Novelle die Plakettenlochung oder die Austauschplakette regelt. | OFFEN | RIS: § 57a, § 132 (Fassungslisten); PBStV (letzte Änderung BGBl. II Nr. 181/2023) | Die Novelle ist laut RIS-Fassungsliste seither nicht geändert. Die PBStV ist seit BGBl. II Nr. 181/2023 unverändert und regelt die Austauschplakette nicht. Ein PBStV-Entwurf 2026 wurde per Websuche nicht gefunden; die RIS-Suche nach Begutachtungsentwürfen war per Shell nicht abfragbar (Weiterleitung). Bleibt OFFEN. |
 | AT-58 | (neu) Die Austauschplakette kann erst ab 19.05.2027 ausgegeben werden. | PRIMÄR | § 135 Abs. 51 Z 2 (Inkrafttreten § 132 Abs. 37) | neu aufgenommen; ÖAMTC sagt dasselbe |
 
-### Konservative Auslegung, die die Engine bis zur Klärung verwendet
+### Entscheidungen der Engine (Regelversion `AT-2026-10-primary`)
 
-Stand M1 (Regelversion `AT-2026-10-draft`). Alle Entscheidungen sind Auslegungen, keine
-verifizierten Rechtsfolgen. Wo die Auslegung eine Annahme trifft, liefert die Engine eine
-`RuleNote` mit der Regel-ID, die die App als Hinweis anzeigt.
+Stand 04.10.2026, nach Abgleich mit den Primärquellen. Wo das Gesetz eine Frage offenlässt,
+gilt ADR-8 (konservative Auslegung, früherer spätester Termin) plus Hinweis in der UI. Die
+Engine liefert eine `RuleNote` mit Regel-ID nur noch dort, wo wirklich etwas offen ist:
 
-> **Hinweis (04.10.2026):** Dieser Unterabschnitt beschreibt unverändert, was die Engine in
-> M1 tut. Mehrere Punkte sind durch die Primärquellen überholt; die Abweichungen stehen in
-> § 10. Der Text unten wurde bewusst nicht angepasst.
-
-- **AT-56, Fälligkeit Jänner 2027:** Der späteste Termin ist **18.05.2027**, also der Tag
-  vor dem Stichtag. Nur die Darstellung (b) schließt den Jänner in die Übergangsregel ein;
-  nach alter Fassung wäre der 31.05.2027 der späteste Tag. Die App weist darauf hin, dass
-  eine Verlängerung bis 31.05.2027 möglich sein könnte (`possibleExtension`).
-- **AT-56, Fälligkeit Februar bis Juli 2027:** −1/+4 nach alter Fassung. Spätester Termin ist
-  das Ende des vierten Folgemonats, höchstens 30.11.2027 (Fälligkeit Juli). Die Darstellungen
-  (a) und (b) stimmen überein. Hinweis `openLegalQuestion`.
-- **AT-56, Fälligkeit August bis Oktober 2027:** Spätester Termin ist das **Ende des
-  Fälligkeitsmonats** (neue Fassung). Hinweis, dass laut einzelnen Quellen eine Verlängerung
-  bis 30.11.2027 möglich sein könnte (`possibleExtension`).
-- **AT-56, Fälligkeit ab November 2027:** nur neue Fassung (−4/0).
-- **Fensterbeginn:** Es zählt der früheste Tag, der nach dem am jeweiligen Tag geltenden Recht
-  im Fenster liegt. Vor dem 19.05.2027 gilt der Beginn des Vormonats (−1), ab dem 19.05.2027
-  vier Monate vor dem Fälligkeitsmonat (−4), frühestens aber der 19.05.2027.
-- **AT-53/54, nächste Fälligkeit nach einer Begutachtung:** Die Engine rechnet altersbasiert
-  (siehe § 9). Sie nimmt nie einen späteren Termin an als „2 Jahre nach der letzten
-  Begutachtung“. Wo die neue Fassung bei Fahrzeugen unter 10 Jahren nur 1 Jahr ergibt, kann
-  das Recht möglicherweise 2 Jahre zulassen; die App weist mit `AT-54` darauf hin.
-- **AT-53/54, Austauschplakette:** Die App zeigt sie nur als **Hinweis**, nie als Fälligkeit,
-  gekennzeichnet als „unverbindlich, bei der Prüfstelle klären“. Vorschlag: nie begutachtet
-  und Erstzulassung + 3 Jahre nicht vor Mai 2027: Erstzulassung + 4 Jahre. Begutachtet und
-  Fahrzeugalter bei der letzten Begutachtung höchstens 8 Jahre: letzte Begutachtung + 2 Jahre.
-  Sonst kein Vorschlag. Angezeigt wird er nur, wenn er später liegt als die Plakette.
-  Der Vorschlag gilt nur für Plaketten, die nach alter Fassung gelocht wurden: Mit letzter
-  Begutachtung nur, wenn sie vor dem Stichtag liegt; ohne letzte Begutachtung nur, wenn die
-  Plakette noch die ursprüngliche Lochung der ersten Begutachtung ist (Plakette höchstens
-  Erstzulassung + 3 Jahre).
-- **AT-43:** Kategorien außerhalb von AT-30 (N1, Taxi/Rettung, historische Fahrzeuge) verwenden
-  ein Fenster vom Beginn des Vormonats bis zum Ende des Fälligkeitsmonats. Hinweis AT-42
-  (Fälligkeit bis Mai 2027) bzw. AT-43 (danach).
-- **AT-12:** Liegt eine Begutachtung außerhalb des Fensters, rechnet die Engine ab dem
-  Begutachtungsmonat neu und fordert den Nutzer auf, die neue Lochung von der Plakette
-  einzutragen (`outsideWindowRepunch`).
-- **AT-23/24/25:** Intervalle für N1, Taxi und historische Fahrzeuge sind nur sekundär belegt;
-  die Engine gibt jeweils einen Hinweis `openLegalQuestion` aus. Historische Fahrzeuge haben
-  ein festes Intervall von 2 Jahren ab dem Fälligkeitsmonat (AT-25), unabhängig vom Alter.
+- **AT-56, Übergangsfenster 2027:** Fälligkeit Jänner: `closes` 2027-05-18 (Z3–5-Gruppe). Februar
+  bis Juli: −1/+4 nach alter Fassung (spätestens 2027-11-30). August bis Oktober: `closes`
+  2027-11-30 für alle Kategorien. Ab November 2027: −4/0. Keine Hinweise (D-01, D-07).
+- **AT-40/42/43, Fensterbeginn:** Die Z3–5-Gruppe (Pkw, L, O1/O2, historisch) öffnet in der
+  alten Fassung am Beginn des Vormonats, die Z1–2-Gruppe (N1, Taxi) drei Monate vorher; ab dem
+  Stichtag gilt für alle vier Monate vor D. `opens` ist der früheste gültige Kandidat (§ 9.3).
+  Keine Hinweise (D-02, D-03, D-04).
+- **AT-53/54, Schritt nach einer Begutachtung:** Neue Fassung: `ageAtD < 4`: 4 − `ageAtD`;
+  `4 ≤ ageAtD < 10`: min(2, 10 − `ageAtD`); sonst 1 (D-05, Lesart A von AT-54a). Hinweis
+  `AT-54a openLegalQuestion` nur bei `ageAtD` = 9.
+- **AT-53, Austauschplakette:** nur Hinweis, nie Fälligkeit, nur bei Pkw/L/O1/O2 und nur wenn
+  der Kandidat nach der Plakette liegt. Letzte Begutachtung aus Eingabe oder abgeleitet (D-11,
+  Hinweis `derivedLastInspection`); nie begutachtet: Erstzulassung + 4 Jahre ab Plakette 2027-02
+  (D-06). Hinweis `AT-53 openLegalQuestion` bei jedem Vorschlag.
+- **AT-12, Begutachtung außerhalb des Fensters (D-09, Entscheidung der koordinierenden Session
+  nach ADR-8):** Das Gesetz regelt den Fall nicht, der Wert füllt nur die Plakettenauswahl vor.
+  Die Engine liefert den **frühesten plausiblen** Fälligkeitsmonat (§ 9.2) und den Hinweis
+  `outsideWindowRepunch`: „neue Lochung von der Plakette eintragen“.
+- **AT-23/24/25:** Intervalle sind primär belegt, keine Hinweise (D-08). Historische Fahrzeuge
+  haben ein festes Intervall von 2 Jahren ab dem Fälligkeitsmonat (D-10).
 - **AT-26:** Schwere Fahrzeuge, Zugmaschinen und Ähnliches (`other`) unterstützt die Engine
   nicht. Sie meldet `unsupportedCategory`.
 
@@ -223,62 +203,81 @@ verifizierten Rechtsfolgen. Wo die Auslegung eine Annahme trifft, liefert die En
 - [ ] AT-44: Stenographisches Protokoll der 85. NR-Sitzung prüfen (nur der Vollständigkeit halber)
 - [x] Erläuterungen (Begründung des Abänderungsantrags im Ausschussbericht 581 d.B.) auf Beispiele geprüft, siehe § 11
 - [x] ÖAMTC-Pickerlrechner mit unseren Testfällen gegengeprüft, siehe § 12
-- [ ] Engine an § 10 anpassen (eigenes Coding-Paket; Reihenfolge laut CLAUDE.md: Doc, Test, Code)
+- [x] Engine an § 10 anpassen (Regelversion `AT-2026-10-primary`; Reihenfolge Doc, Test, Code)
 
 ## 9. Algorithmus der Engine
 
 Implementierung: `Packages/PitlogCore/Sources/PitlogCore/Rules/Austria/`. Regelversion
-`AT-2026-10-draft`, Stichtag `cutoffDay = 2027-05-19` (AT-02). Die Engine rechnet in
+`AT-2026-10-primary`, Stichtag `cutoffDay = 2027-05-19` (AT-02). Die Engine rechnet in
 Kalendermonaten (`YearMonth`) und Tagen (`DayDate`) mit reiner Ganzzahlarithmetik, `today`
-wird injiziert. Notation: **D** = gelochter Fälligkeitsmonat. **Alter bei D** =
+wird injiziert. Notation: **D** = gelochter Fälligkeitsmonat. **Alter bei D** (`ageAtD`) =
 `floor(Monate von der Erstzulassung bis D / 12)`. **Geltendes Recht an einem Tag T:** alte
-Fassung, wenn T vor dem Stichtag liegt, sonst neue Fassung.
+Fassung, wenn T vor dem Stichtag liegt, sonst neue Fassung. Der Algorithmus folgt den
+Primärquellen (Stand 04.10.2026); die Entscheidungen dazu stehen in § 10.
 
-### 9.1 Intervallfolgen (Alter in Jahren, bei dem eine Begutachtung fällig ist)
+### 9.1 Kategoriegruppen und Intervalle
+
+Gruppen nach § 57a Abs. 3 Z 1 bis 5. Sie bestimmen nur das **Fenster** (§ 9.3):
+
+| Gruppe | Kategorien | Grundlage |
+|---|---|---|
+| **Z3–5-Gruppe** | `passengerCar`, `motorcycle`, `lightTrailer`, `historic` | § 57a Abs. 3 Satz 3 aF: −1/+4 für „Z 3 bis Z 5“ (AT-40); Z 4 = historische Fahrzeuge |
+| **Z1–2-Gruppe** | `lightCommercial`, `taxiOrAmbulance` | § 57a Abs. 3 Satz 3 aF: −3/0 für „Z 1 und Z 2“ (AT-42) |
+
+Die **Intervalle** hängen von der Kategorie ab. Schritt = Anzahl Jahre von D bis zur nächsten
+Fälligkeit:
 
 | Kategorie | Alte Fassung | Neue Fassung | Regel |
 |---|---|---|---|
-| Pkw, Klasse L, Anhänger O1/O2 | 3, 5, 6, 7, 8, … | 4, 6, 8, 10, 11, 12, … | AT-20/21/22, AT-30 |
-| N1 | 1, 2, 3, … | 1, 2, 3, … | AT-23 (Hinweis) |
-| Taxi, Rettung, Krankentransport | 1, 2, 3, … | 1, 2, 3, … | AT-24 (Hinweis) |
-| Historisch | fest +2 Jahre ab Fälligkeitsmonat (Erstzulassung + 2, + 2, …) | wie alte Fassung | AT-25 (Hinweis) |
+| Pkw, Klasse L, Anhänger O1/O2 | Folge 3, 5, 6, 7, 8, …: kleinstes Folgenelement größer als `ageAtD`, ab Alter 6 jährlich | `ageAtD < 4`: 4 − `ageAtD`; `4 ≤ ageAtD < 10`: min(2, 10 − `ageAtD`); `ageAtD ≥ 10`: 1 | AT-20/21/22, AT-30, AT-53/54 (D-05) |
+| N1 | jährlich | jährlich | AT-23 |
+| Taxi, Rettung, Krankentransport | jährlich | jährlich | AT-24 |
+| Historisch | fest 2 Jahre ab D | fest 2 Jahre ab D | AT-25 |
 | Sonstige (`other`) | nicht unterstützt | nicht unterstützt | AT-26 |
+
+Die Schrittfunktion der neuen Fassung deckt reguläre Neufahrzeuge (Alter 0, 4, 6, 8, 10, 11, …)
+und Übergangsfahrzeuge nach § 132 Abs. 37 Z 1 Satz 4/5 ab (Lesart A von AT-54a: Grenze ist das
+10. Lebensjahr, danach jährlich).
 
 ### 9.2 Nächste Fälligkeit (`nextDue`) nach einer Begutachtung am Tag T
 
-- **T liegt im Fenster von D:** Es gilt die Folge des Rechts an T. Gesucht ist das erste
-  Folgenelement, das **größer** ist als das Alter bei D. Ergebnis: D plus (Folgenelement
-  minus Alter bei D) Jahre. Das ist bewusst altersbasiert und damit konservativ: nie später
-  als „2 Jahre nach der letzten Begutachtung“. Gilt die neue Fassung, ist die Kategorie
-  Pkw/L/O1/O2, das Alter bei D unter 10 und der Abstand genau 1 Jahr, kommt der Hinweis
-  `AT-54 openLegalQuestion`. Historische Fahrzeuge: immer D + 2 Jahre, ohne Altersfolge.
-- **T liegt außerhalb des Fensters (AT-12):** Neue Fälligkeit = Begutachtungsmonat plus
-  Abstand, berechnet mit dem Alter im Begutachtungsmonat und dem Recht an T. Hinweis
-  `AT-12 outsideWindowRepunch`. Der Hinweis `AT-54` gilt unter derselben Bedingung wie
-  innerhalb des Fensters (neue Fassung, Pkw/L/O1/O2, Alter unter 10, Abstand 1 Jahr), mit dem
-  Alter im Begutachtungsmonat.
+- **T liegt im Fenster von D:** Ergebnis = D plus Schritt(`ageAtD`) Jahre nach dem Recht an T
+  (§ 9.1). Historische Fahrzeuge: immer D + 2 Jahre. Hinweis `AT-54a openLegalQuestion` nur,
+  wenn die neue Fassung gilt, die Kategorie Pkw/L/O1/O2 ist und `ageAtD` = 9 (Schritt 1 bis
+  Alter 10, Lesart A). Sonst keine Hinweise.
+- **T liegt außerhalb des Fensters (AT-12, D-09):** Das Gesetz regelt die verspätete oder zu
+  frühe Begutachtung nicht. Die Engine liefert den **frühesten plausiblen** Fälligkeitsmonat; er
+  füllt nur die Plakettenauswahl vor, der Nutzer trägt die tatsächliche Lochung ein.
+  - Neue Fassung an T: D + 1 Jahr.
+  - Alte Fassung an T: min(`Monat(T)` + Schritt(`Alter bei Monat(T)`), D + Schritt(`ageAtD`)),
+    beide Schritte nach der alten Fassung.
+
+  Hinweis `AT-12 outsideWindowRepunch` („neue Lochung von der Plakette eintragen“). Kein
+  AT-54a-Hinweis, weil das Ergebnis nicht vom Schritt bis Alter 10 abhängt.
 
 ### 9.3 Fenster für den Fälligkeitsmonat D
 
-**Pkw, Klasse L, Anhänger O1/O2** (Spätester Termin `closes` hängt von D ab):
+`closes` nach D, für alle unterstützten Kategorien:
 
-| D | closes | Regime | Hinweis |
+| D | Z3–5-Gruppe | Z1–2-Gruppe | Regime |
 |---|---|---|---|
-| bis 2026-12 | letzter Tag von D+4 | alte Fassung | – |
-| 2027-01 | 2027-05-18 | Übergang | AT-56 `possibleExtension(until: 2027-05-31)` |
-| 2027-02 bis 2027-07 | letzter Tag von D+4 (spätestens 2027-11-30) | Übergang | AT-56 `openLegalQuestion` |
-| 2027-08 bis 2027-10 | letzter Tag von D | Übergang | AT-56 `possibleExtension(until: 2027-11-30)` |
-| ab 2027-11 | letzter Tag von D | neue Fassung | – |
+| bis 2026-12 | letzter Tag von D+4 | letzter Tag von D | alte Fassung |
+| 2027-01 | 2027-05-18 | letzter Tag von D | Übergang |
+| 2027-02 bis 2027-07 | letzter Tag von D+4 | letzter Tag von D | Übergang |
+| 2027-08 bis 2027-10 | 2027-11-30 | 2027-11-30 | Übergang |
+| ab 2027-11 | letzter Tag von D | letzter Tag von D | neue Fassung |
 
-`opens` ist der früheste Tag, der nach dem an diesem Tag geltenden Recht im Fenster liegt.
-Alter Kandidat: Erster Tag des Vormonats von D, gültig nur vor dem Stichtag. Neuer Kandidat:
-das spätere von „erster Tag von D−4 Monate“ und Stichtag, gültig nur, wenn er nicht nach
-`closes` liegt. `opens` ist der früheste gültige Kandidat. Beispiele: D = 2027-08 → 2027-05-19,
-D = 2027-06 → 2027-05-01, D = 2028-01 → 2027-09-01.
+`opens` ist der früheste gültige Kandidat von:
 
-**N1, Taxi/Rettung, historisch:** `opens` = erster Tag des Vormonats von D, `closes` = letzter
-Tag von D. Hinweis AT-42, wenn D bis 2027-05, sonst AT-43. Regime nach dem Recht am ersten
-Tag von D.
+- **alter Kandidat:** Z3–5-Gruppe: erster Tag von D−1 Monat; Z1–2-Gruppe: erster Tag von D−3
+  Monate. Gültig nur, wenn er vor dem Stichtag liegt.
+- **neuer Kandidat:** das spätere von „erster Tag von D−4 Monate“ und Stichtag. Gültig nur,
+  wenn er nicht nach `closes` liegt.
+
+Beispiele: Pkw D = 2027-08 → 2027-05-19; Pkw D = 2027-06 → 2027-05-01; Pkw D = 2028-01 →
+2027-09-01; N1 D = 2028-02 → 2027-10-01; N1 D = 2027-08 → **2027-05-01** (alter Kandidat D−3,
+gültig, weil vor dem Stichtag; der ÖAMTC-Rechner nennt 2027-05-19, siehe D-03 und § 12, X2).
+Es gibt keine Fensterhinweise mehr (AT-42, AT-43, AT-56 entfallen, D-07/D-08).
 
 ### 9.4 Phase relativ zu heute
 
@@ -290,18 +289,22 @@ heutige Monat: `closesThisMonth`. Sonst `open`.
 - **Mit Plakette:** D = Plakette, Quelle `plaque` (AT-51, ADR-5).
 - **Ohne Plakette (Schätzung, Hinweis AT-10 `checkPlaque`):** Erste Fälligkeit nach dem Recht
   bei der Erstzulassung (Erstzulassung bis Mai 2027 zählt als alte Fassung, Mai 2027
-  konservativ ebenfalls) plus erstes Folgenelement. Danach wird wiederholt `nextDue` so
-  angewendet, als wäre am ersten Tag von D begutachtet worden, bis das `closes` des Fensters
-  nicht vor heute liegt. Hinweise aus diesen Zwischenschritten (z. B. AT-54) werden verworfen,
-  AT-10 gilt für die ganze Schätzung.
-- **Austauschplakette (AT-52/53/54):** nur Pkw/L/O1/O2 und nur mit Quelle `plaque`.
-  Nur für Plaketten nach alter Fassung. Kandidat: nie begutachtet, Erstzulassung + 3 Jahre
-  nicht vor 2027-05 und Plakette höchstens Erstzulassung + 3 Jahre: Erstzulassung + 4 Jahre.
-  Begutachtet vor dem Stichtag und Alter bei der letzten Begutachtung höchstens 8: letzte
-  Begutachtung + 2 Jahre. Sonst keiner. Vorschlag nur, wenn der Kandidat nach der Plakette liegt, mit Hinweis
-  `AT-53 openLegalQuestion`.
-- Hinweise werden dedupliziert und nach Regel-ID sortiert. Zusätzlich gibt es den
-  Kategoriehinweis AT-23, AT-24 bzw. AT-25.
+  konservativ ebenfalls) plus erstes Folgenelement. Danach wird wiederholt der Schritt (§ 9.1)
+  mit dem Recht am ersten Tag von D angewendet, bis das `closes` des Fensters nicht vor heute
+  liegt.
+- **Austauschplakette (AT-52/53, D-06, D-11):** nur Pkw/L/O1/O2 und nur mit Quelle `plaque`.
+  Zuerst wird die letzte Begutachtung L bestimmt:
+  1. `lastInspection` gesetzt: L = diese. Voraussetzung `L < 2027-05-19`, sonst kein Vorschlag.
+  2. Sonst, wenn Plakette P > Erstzulassung + 3 Jahre: L aus der alten Folge ableiten (D-11):
+     Alter bei P = 5 → L = P − 2 Jahre; Alter bei P ≥ 6 → L = P − 1 Jahr; sonst keine
+     Ableitung. Voraussetzung `L < 2027-05`. Zusätzlicher Hinweis `AT-53 derivedLastInspection`.
+
+  Existiert L: Alter bei L ≤ 8 → Kandidat = Monat(L) + 2 Jahre; Alter bei L ≥ 9 → kein Kandidat.
+  Existiert kein L (nie begutachtet: P ≤ Erstzulassung + 3 Jahre) und P ≥ 2027-02: Kandidat =
+  Erstzulassung + 4 Jahre. Angezeigt wird der Kandidat nur, wenn er nach P liegt, mit Hinweis
+  `AT-53 openLegalQuestion` (immer bei einem Vorschlag). Die App zeigt ihn nur als **Hinweis**,
+  nie als Fälligkeit, „unverbindlich, bei der Prüfstelle klären“.
+- Hinweise werden dedupliziert und nach Regel-ID sortiert.
 - Eingaben mit Plakette oder letzter Begutachtung vor der Erstzulassung sind ungültig
   (`invalidInput`).
 
@@ -309,58 +312,70 @@ heutige Monat: `closesThisMonth`. Sonst `open`.
 
 | # | Eingabe | heute | Erwartet |
 |---|---|---|---|
-| 1 | Pkw, EZ 2020-03, Plakette 2027-03 | 2027-02-15 | opens 2027-02-01, closes 2027-07-31, Übergang, open, AT-56 |
-| 2 | wie 1 | – | nextDue(nach 2027-03-10) = 2028-03 (alt, Alter 7 → 8); nextDue(nach 2027-06-10) = 2028-03 (neu, 7 → 8, AT-54) |
-| 3 | Pkw, EZ 2024-06, Plakette 2027-06, nie begutachtet | 2027-04-01 | opens 2027-05-01, closes 2027-10-31, notYetOpen, Austauschvorschlag 2028-06, AT-53 |
+| 1 | Pkw, EZ 2020-03, Plakette 2027-03 | 2027-02-15 | opens 2027-02-01, closes 2027-07-31, Übergang, open; Austauschvorschlag 2028-03 (abgeleitete letzte Begutachtung), Hinweise AT-53 `openLegalQuestion` und `derivedLastInspection` |
+| 2 | wie 1 | – | nextDue(nach 2027-03-10) = 2028-03 (alt, Alter 7 → 8); nextDue(nach 2027-06-10) = 2029-03 (neu, Alter 7, Schritt 2), keine Hinweise |
+| 3 | Pkw, EZ 2024-06, Plakette 2027-06, nie begutachtet | 2027-04-01 | opens 2027-05-01, closes 2027-10-31, notYetOpen, Austauschvorschlag 2028-06, Hinweis AT-53 |
 | 4 | Pkw, EZ 2021-04, letzte Begutachtung 2026-04-12, Plakette 2027-04 | – | Austauschvorschlag 2028-04 (ÖAMTC-Beispiel); nextDue(nach 2027-04-05) = 2028-04; nextDue(nach 2027-06-01) = 2029-04 |
 | 5 | Pkw, EZ 2023-09, letzte Begutachtung 2026-09-20, Plakette 2028-09 | 2028-06-01 | opens 2028-05-01, closes 2028-09-30, neue Fassung, open, kein Austauschvorschlag |
 | 6 | Pkw, EZ 2028-03, keine Plakette | 2028-04-01 | geschätzt 2032-03, AT-10 |
-| 7 | Pkw, EZ 2015-07, Plakette 2027-08 | 2027-09-01 | closes 2027-08-31, overdue, AT-56 `possibleExtension(until: 2027-11-30)` |
+| 7 | Pkw, EZ 2015-07, Plakette 2027-08 | 2027-09-01 | closes **2027-11-30**, Phase **open**, keine Hinweise |
 | 8 | Motorrad, EZ 2019-05, Plakette 2027-05 | – | closes 2027-09-30; nextDue(nach 2027-05-10) = 2028-05; nextDue(nach 2027-05-25) = 2029-05 |
 | 9 | Leichtanhänger, EZ 2025-10, nie begutachtet, Plakette 2028-10 | – | opens 2028-06-01, closes 2028-10-31, Austauschvorschlag 2029-10 |
-| 10 | N1, EZ 2026-02, Plakette 2027-02 | – | opens 2027-01-01, closes 2027-02-28, AT-42; nextDue(nach 2027-02-10) = 2028-02 |
-| 11 | historisch, EZ 1976-04, Plakette 2028-04 | – | closes 2028-04-30, AT-43, nextDue +2 Jahre |
+| 10 | N1, EZ 2026-02, Plakette 2027-02 | – | opens **2026-11-01**, closes 2027-02-28, keine Hinweise; nextDue(nach 2027-02-10) = 2028-02 |
+| 11 | historisch, EZ 1976-04, Plakette 2028-04 | – | opens **2027-12-01**, closes 2028-04-30, keine Hinweise, nextDue +2 Jahre |
 | 12 | Kategorie `other` | – | wirft `unsupportedCategory(.other)` |
-| 13 | Pkw, EZ 2022-01, Plakette 2027-01 | – | closes 2027-05-18, AT-56 `possibleExtension(until: 2027-05-31)` |
+| 13 | Pkw, EZ 2022-01, Plakette 2027-01 | – | closes 2027-05-18, **keine Hinweise** |
 | 14 | Pkw, EZ 2010-03, Plakette 2028-03 | – | nextDue(nach 2028-03-15) = 2029-03 (Alter 18, jährlich) |
-| 15 | Pkw, EZ 2020-06, Plakette 2027-06 | – | nextDue(nach 2027-12-01) liegt außerhalb des Fensters (closes 2027-10-31): Alter im Dezember 2027 = 7, neue Fassung → 8, also 2028-12, AT-12 und AT-54 |
+| 15 | Pkw, EZ 2020-06, Plakette 2027-06 | – | nextDue(nach 2027-12-01): außerhalb des Fensters (closes 2027-10-31), neue Fassung → D + 1 Jahr = **2028-06**, Hinweis AT-12 |
 
 Bei 11 und 15 war die Erstzulassung in der Vorgabe nicht genannt; gewählt wurden Werte, die
 zur Plakette passen.
 
-### 9.7 Auffälligkeiten und offene Zweifel (Stand M1)
+### 9.7 Auffälligkeiten
 
-- **Fensterbeginn N1/Taxi/historisch:** Die Engine nimmt −1/0, AT-42 nennt für N und schwere
-  Fahrzeuge −3/0 (OFFEN). Ein früherer Beginn würde nur den Zeitpunkt ändern, ab dem eine
-  Begutachtung als „im Fenster“ gilt.
 - **Schätzung ohne Plakette:** Ein Fahrzeug mit Erstzulassung 2024-06 wird als fällig 2027-06
   geschätzt (alte Fassung bei Erstzulassung), obwohl die neue Fassung 2028-06 ergäbe
   (Austauschplakette, AT-52). Das ist gewollt konservativ, deshalb gilt die Plakette (ADR-5).
-- **AT-54-Hinweis:** Er erscheint nur in `nextDue` (innerhalb und außerhalb des Fensters),
-  nicht in `status`.
+- **Historische Fahrzeuge außerhalb des Fensters:** Der Wert D + 1 Jahr (neue Fassung, § 9.2)
+  gilt für alle Kategorien und liegt bei historischen Fahrzeugen unter dem Intervall von zwei
+  Jahren. Er ist der früheste plausible Wert für die Vorbelegung, keine Fälligkeit.
+- **X7 (ÖAMTC: keine Austauschplakette):** Plakette 2026-12, Erstzulassung 2019-12: Die Engine
+  leitet die letzte Begutachtung 2025-12 ab und schlägt 2027-12 vor; der ÖAMTC-Rechner nicht
+  (siehe § 12).
 
 ## 10. Abweichungen Engine vs. Gesetz
 
 Stand 04.10.2026, geprüft gegen § 57a Abs. 3 aF/nF, § 132 Abs. 37 und § 135 Abs. 51 (Wortlaute in
-`docs/sources/`). Der Algorithmus in § 9 und der Code sind **nicht** geändert. „früher“ heißt: Die
-Engine zeigt einen früheren spätesten Termin als das Gesetz (konservativ, aber falsch).
-„später“ heißt: Die Engine zeigt einen späteren Termin als das Gesetz (Haftungsrisiko).
-Die Engine-Werte wurden nach § 9 von Hand nachgerechnet; in der Cloud-Umgebung gibt es keine
-Swift-Toolchain, die Tests liefen hier also nicht.
+`docs/sources/`). Die Spalten „Gesetz sagt“ und „Engine macht“ beschreiben den Stand der Engine
+**vor** der Anpassung (`AT-2026-10-draft`); „Vorschlag“ ist das, was die Engine
+`AT-2026-10-primary` umsetzt (§ 9). „früher“ hieß: Die Engine zeigte einen früheren spätesten
+Termin als das Gesetz (konservativ, aber falsch). „später“ hieß: Die Engine zeigte einen
+späteren Termin als das Gesetz (Haftungsrisiko).
 
-| Nr | Regel-ID | Gesetz sagt | Engine macht | Vorschlag |
-|---|---|---|---|---|
-| D-01 | AT-56 | § 132 Abs. 37 Z 3 Satz 2: Stichtag August bis Oktober 2027 → „Fristverlängerung bis inklusive November 2027“, spätester Tag **30.11.2027**. Gilt für **alle** Fahrzeuge, auch N, Taxi, historische. | § 9.3: `closes` = letzter Tag von D (2027-08-31 … 2027-10-31), Hinweis `possibleExtension(until: 2027-11-30)`. Für N1/Taxi/historisch ebenfalls letzter Tag von D. **früher** (um 1 bis 3 Monate). | `closes` = 2027-11-30 für D = 2027-08 bis 2027-10, alle unterstützten Kategorien. Hinweis entfällt. Ankerfall 7 ändert sich: heute 2027-09-01 → `open` statt `overdue`. |
-| D-02 | AT-43, AT-41 | § 57a Abs. 3 Satz 3 nF: −4/0 für **alle** Fahrzeuge (Materialien: „für alle Fahrzeuge“). | § 9.3: N1, Taxi/Rettung, historisch: `opens` = erster Tag des Vormonats (−1/0). Engine öffnet **3 Monate zu spät**; eine Begutachtung in D−4 bis D−2 wird als „außerhalb des Fensters“ behandelt und löst AT-12 (`outsideWindowRepunch`) aus, obwohl sie „ohne Wirkung“ ist. | Für diese Kategorien dieselbe `opens`-Logik wie für Pkw (−4, frühestens 19.05.2027). Hinweis AT-43 entfällt. |
-| D-03 | AT-42 | § 57a Abs. 3 Satz 3 aF, erster Fall: Z 1 und Z 2 (N, Taxi, Rettung, Krankentransport) → „drei Monate vor dem vorgesehenen Begutachtungsmonat“ (−3/0). Über § 132 Abs. 37 Z 3 Satz 1 gilt das für Stichtag Februar bis Juli 2027 weiter. | `opens` = erster Tag des Vormonats (−1/0). Folge wie D-02. `closes` stimmt (letzter Tag von D). | Alte Fassung für N1/Taxi: `opens` = erster Tag von D−3. Für D = 2027-08: alter Kandidat 2027-05-01 liegt vor dem Stichtag und ist an diesem Tag gültig (−3); der ÖAMTC nennt dagegen 2027-05-19 (siehe § 12). |
-| D-04 | AT-40, AT-25 | § 57a Abs. 3 Satz 3 aF, zweiter Fall: −1/+4 gilt für „Z 3 bis Z 5“, also auch für **historische Fahrzeuge (Z 4)**. Über § 132 Abs. 37 Z 3 Satz 1 auch für Stichtag Februar bis Juli 2027. | Historische Fahrzeuge: `closes` = letzter Tag von D, auch nach alter Fassung. **früher** (um 4 Monate bis 2027-07, z. B. D = 2027-03: Engine 2027-03-31, Gesetz 2027-07-31). | Historische Fahrzeuge in der alten Fassung und im Übergang wie Pkw/L/O behandeln (Tabelle § 9.3 oben). Ab Stichtag November 2027 −4/0 wie alle. |
-| D-05 | AT-54, AT-53 | § 132 Abs. 37 Z 1 Satz 4 und 5: Für Fahrzeuge, die schon nach altem Recht begutachtet wurden, folgt nach der Austauschplakette **und** nach einer Begutachtung zum alten gelochten Termin (ab 19.05.2027) jede weitere Begutachtung **2 Jahre nach der letzten**, spätestens im zehnten Jahr nach der Erstzulassung, danach jährlich. Materialien: „zweijähriges Intervall und ab zehn Jahren einjährig“. | § 9.2: altersbasiert, nächstes Folgenelement aus 4, 6, 8, 10, 11, … größer als das Alter bei D. Bei ungeradem Alter bei D (5, 7, 9 aus der alten 3-2-1-Folge) ergibt das +1 statt +2. **früher** um 1 Jahr. Beispiele: Ankerfall 2 (`nextDue` nach 2027-06-10): Engine 2028-03, Gesetz 2029-03. ÖAMTC-Beispiel EZ 2021, Austauschplakette 2028: Engine danach 2029, Gesetz 2030. | Für Übergangsfahrzeuge (EZ vor 19.05.2027, mindestens eine Begutachtung nach altem Recht), Pkw/L/O, Recht an T = neue Fassung: `nextDue` = D + min(2, 10 − Alter bei D) Jahre, bei Alter bei D ≥ 10: D + 1 Jahr. Alle anderen Fälle wie bisher. Hinweis AT-54 nur noch für die Lesartfrage AT-54a (Alter 9/10). Wie sich der Monat verhält, wenn innerhalb des Fensters, aber nicht im gelochten Monat begutachtet wird, ist im Gesetz nicht gesagt („zwei Jahre nach dieser Begutachtung“); konservativ D + 2, nicht Begutachtungsmonat + 2. |
-| D-06 | AT-53 | § 132 Abs. 37 Z 1 Satz 3: Austauschplakette mit erster Begutachtung 4 Jahre nach EZ für **jedes** Fahrzeug, das „bislang noch keine erste Begutachtung absolviert“ hat (und für das ab 19.05.2027 eine längere Frist gilt). | § 9.5: nur, wenn EZ + 3 Jahre nicht vor 2027-05 liegt. Fahrzeuge mit erster Fälligkeit Februar bis April 2027, die wegen der Übergangsnachfrist (bis Juni bis August 2027) noch nicht begutachtet sind, bekommen **keinen** Vorschlag. Beispiel EZ 2024-03, Plakette 2027-03: ÖAMTC und Gesetz → Austausch 2028-03, Engine → keiner. Keine Fristverkürzung, nur ein fehlender Hinweis. | Bedingung ersetzen: „noch nie begutachtet und D ≥ 2027-02“ (bei D = 2027-01 endet die Frist am 18.05.2027, vor Inkrafttreten der Austauschplakette). |
-| D-07 | AT-56 | § 132 Abs. 37 Z 3 erfasst Jänner 2027 **nicht**; die Nachfrist aF endet mit 18.05.2027. Für Februar bis Juli ist −1/+4 ausdrücklich angeordnet. | Jänner: Hinweis `possibleExtension(until: 2027-05-31)`; Februar bis Juli: Hinweis `openLegalQuestion`. Termine selbst stimmen. | Beide Hinweise streichen (Jänner: Verlängerung ist durch den Wortlaut nicht gedeckt; die App sollte sie nicht in Aussicht stellen). |
-| D-08 | AT-23, AT-24, AT-25 | Intervalle sind primär belegt (§ 57a Abs. 3 Z 1 und Z 4). | Hinweis `openLegalQuestion` für N1, Taxi, historisch. Termine stimmen (jährlich bzw. alle 2 Jahre, siehe aber D-10). | Hinweise streichen. |
-| D-09 | AT-12 | Gesetz regelt die verspätete Begutachtung nicht (siehe AT-12, Lesarten A/B). Seit 19.05.2027 gibt es keine Nachfrist mehr; eine Begutachtung außerhalb des Fensters ist eine verspätete. | § 9.2: neue Fälligkeit ab dem **Begutachtungsmonat** (Lesart A). Das ist die Lesart mit dem **späteren** Termin und widerspricht ADR-8. Beispiel Ankerfall 15 (EZ 2020-06, Plakette 2027-06, Begutachtung 2027-12-01): Engine 2028-12; Lesart B mit der Zählweise des § 57a Abs. 3 Z 3 nF (vierte Begutachtung → ein Jahr) 2028-06. **später** (möglich). | Keine Gesetzesabweichung im engeren Sinn, aber gegen ADR-8: entweder Lesart B (Bezugsmonat bleibt) rechnen oder nur noch `outsideWindowRepunch` ausgeben und keinen Termin berechnen, bis die neue Lochung eingetragen ist. Vor M2 entscheiden. |
-| D-10 | AT-25 | § 57a Abs. 3 Z 4: „alle zwei Jahre“ (Intervall). | § 9.1/9.2: Folge 2, 4, 6, … nach Alter; liegt D bei ungeradem Alter (z. B. nach AT-11), ergibt sich +1 statt +2. **früher** um 1 Jahr. Schon in § 9.7 als Zweifel notiert. | `nextDue` = D + 2 Jahre für historische Fahrzeuge. **Erledigt** mit Commit 8a2029e (Review-Fix M1). |
-| D-11 | AT-53 (Eingabemodell, keine Gesetzesabweichung) | Ob eine Austauschplakette möglich ist, hängt von der letzten Begutachtung ab (§ 132 Abs. 37 Z 1). | § 9.5: Ohne eingetragene letzte Begutachtung schlägt die Engine nur bei nie begutachteten Fahrzeugen etwas vor. Der ÖAMTC leitet die letzte Begutachtung aus Erstzulassung und Plakette ab (Ankerfälle 1, 8, 15: Austausch 2028-03, 2028-05, 2028-06). | Optional: Ist keine letzte Begutachtung eingetragen, aber die Plakette liegt nach EZ + 3 Jahren, letzte Begutachtung = Plakette − 1 Jahr bzw. − 2 Jahre (nach alter Folge) annehmen und den Vorschlag als Schätzung kennzeichnen. Produktentscheidung. |
+Status: **done** = in Doc, Tests und Code umgesetzt; **decided** = Entscheidung getroffen, Gesetz
+regelt den Fall nicht; **open** = Rechtsfrage offen.
+
+| Nr | Regel-ID | Gesetz sagt | Engine macht | Vorschlag | Status |
+|---|---|---|---|---|---|
+| D-01 | AT-56 | § 132 Abs. 37 Z 3 Satz 2: Stichtag August bis Oktober 2027 → „Fristverlängerung bis inklusive November 2027“, spätester Tag **30.11.2027**. Gilt für **alle** Fahrzeuge, auch N, Taxi, historische. | § 9.3: `closes` = letzter Tag von D (2027-08-31 … 2027-10-31), Hinweis `possibleExtension(until: 2027-11-30)`. Für N1/Taxi/historisch ebenfalls letzter Tag von D. **früher** (um 1 bis 3 Monate). | `closes` = 2027-11-30 für D = 2027-08 bis 2027-10, alle unterstützten Kategorien. Hinweis entfällt. Ankerfall 7 ändert sich: heute 2027-09-01 → `open` statt `overdue`. | done |
+| D-02 | AT-43, AT-41 | § 57a Abs. 3 Satz 3 nF: −4/0 für **alle** Fahrzeuge (Materialien: „für alle Fahrzeuge“). | § 9.3: N1, Taxi/Rettung, historisch: `opens` = erster Tag des Vormonats (−1/0). Engine öffnet **3 Monate zu spät**; eine Begutachtung in D−4 bis D−2 wird als „außerhalb des Fensters“ behandelt und löst AT-12 (`outsideWindowRepunch`) aus, obwohl sie „ohne Wirkung“ ist. | Für diese Kategorien dieselbe `opens`-Logik wie für Pkw (−4, frühestens 19.05.2027). Hinweis AT-43 entfällt. | done |
+| D-03 | AT-42 | § 57a Abs. 3 Satz 3 aF, erster Fall: Z 1 und Z 2 (N, Taxi, Rettung, Krankentransport) → „drei Monate vor dem vorgesehenen Begutachtungsmonat“ (−3/0). Über § 132 Abs. 37 Z 3 Satz 1 gilt das für Stichtag Februar bis Juli 2027 weiter. | `opens` = erster Tag des Vormonats (−1/0). Folge wie D-02. `closes` stimmt (letzter Tag von D). | Alte Fassung für N1/Taxi: `opens` = erster Tag von D−3. Für D = 2027-08: alter Kandidat 2027-05-01 liegt vor dem Stichtag und ist an diesem Tag gültig (−3); der ÖAMTC nennt dagegen 2027-05-19 (siehe § 12). | done (Abweichung vom ÖAMTC bei N1/N, Fälligkeit 2027-08, bewusst: Gesetzestext, siehe § 12, X2) |
+| D-04 | AT-40, AT-25 | § 57a Abs. 3 Satz 3 aF, zweiter Fall: −1/+4 gilt für „Z 3 bis Z 5“, also auch für **historische Fahrzeuge (Z 4)**. Über § 132 Abs. 37 Z 3 Satz 1 auch für Stichtag Februar bis Juli 2027. | Historische Fahrzeuge: `closes` = letzter Tag von D, auch nach alter Fassung. **früher** (um 4 Monate bis 2027-07, z. B. D = 2027-03: Engine 2027-03-31, Gesetz 2027-07-31). | Historische Fahrzeuge in der alten Fassung und im Übergang wie Pkw/L/O behandeln (Tabelle § 9.3 oben). Ab Stichtag November 2027 −4/0 wie alle. | done |
+| D-05 | AT-54, AT-53 | § 132 Abs. 37 Z 1 Satz 4 und 5: Für Fahrzeuge, die schon nach altem Recht begutachtet wurden, folgt nach der Austauschplakette **und** nach einer Begutachtung zum alten gelochten Termin (ab 19.05.2027) jede weitere Begutachtung **2 Jahre nach der letzten**, spätestens im zehnten Jahr nach der Erstzulassung, danach jährlich. Materialien: „zweijähriges Intervall und ab zehn Jahren einjährig“. | § 9.2: altersbasiert, nächstes Folgenelement aus 4, 6, 8, 10, 11, … größer als das Alter bei D. Bei ungeradem Alter bei D (5, 7, 9 aus der alten 3-2-1-Folge) ergibt das +1 statt +2. **früher** um 1 Jahr. Beispiele: Ankerfall 2 (`nextDue` nach 2027-06-10): Engine 2028-03, Gesetz 2029-03. ÖAMTC-Beispiel EZ 2021, Austauschplakette 2028: Engine danach 2029, Gesetz 2030. | Für Übergangsfahrzeuge (EZ vor 19.05.2027, mindestens eine Begutachtung nach altem Recht), Pkw/L/O, Recht an T = neue Fassung: `nextDue` = D + min(2, 10 − Alter bei D) Jahre, bei Alter bei D ≥ 10: D + 1 Jahr. Alle anderen Fälle wie bisher. Hinweis AT-54 nur noch für die Lesartfrage AT-54a (Alter 9/10). Wie sich der Monat verhält, wenn innerhalb des Fensters, aber nicht im gelochten Monat begutachtet wird, ist im Gesetz nicht gesagt („zwei Jahre nach dieser Begutachtung“); konservativ D + 2, nicht Begutachtungsmonat + 2. | done (Lesart A; AT-54a bleibt open, Hinweis bei Alter bei D = 9) |
+| D-06 | AT-53 | § 132 Abs. 37 Z 1 Satz 3: Austauschplakette mit erster Begutachtung 4 Jahre nach EZ für **jedes** Fahrzeug, das „bislang noch keine erste Begutachtung absolviert“ hat (und für das ab 19.05.2027 eine längere Frist gilt). | § 9.5: nur, wenn EZ + 3 Jahre nicht vor 2027-05 liegt. Fahrzeuge mit erster Fälligkeit Februar bis April 2027, die wegen der Übergangsnachfrist (bis Juni bis August 2027) noch nicht begutachtet sind, bekommen **keinen** Vorschlag. Beispiel EZ 2024-03, Plakette 2027-03: ÖAMTC und Gesetz → Austausch 2028-03, Engine → keiner. Keine Fristverkürzung, nur ein fehlender Hinweis. | Bedingung ersetzen: „noch nie begutachtet und D ≥ 2027-02“ (bei D = 2027-01 endet die Frist am 18.05.2027, vor Inkrafttreten der Austauschplakette). | done |
+| D-07 | AT-56 | § 132 Abs. 37 Z 3 erfasst Jänner 2027 **nicht**; die Nachfrist aF endet mit 18.05.2027. Für Februar bis Juli ist −1/+4 ausdrücklich angeordnet. | Jänner: Hinweis `possibleExtension(until: 2027-05-31)`; Februar bis Juli: Hinweis `openLegalQuestion`. Termine selbst stimmen. | Beide Hinweise streichen (Jänner: Verlängerung ist durch den Wortlaut nicht gedeckt; die App sollte sie nicht in Aussicht stellen). | done |
+| D-08 | AT-23, AT-24, AT-25 | Intervalle sind primär belegt (§ 57a Abs. 3 Z 1 und Z 4). | Hinweis `openLegalQuestion` für N1, Taxi, historisch. Termine stimmen (jährlich bzw. alle 2 Jahre, siehe aber D-10). | Hinweise streichen. | done |
+| D-09 | AT-12 | Gesetz regelt die verspätete Begutachtung nicht (siehe AT-12, Lesarten A/B). Seit 19.05.2027 gibt es keine Nachfrist mehr; eine Begutachtung außerhalb des Fensters ist eine verspätete. | § 9.2: neue Fälligkeit ab dem **Begutachtungsmonat** (Lesart A). Das ist die Lesart mit dem **späteren** Termin und widerspricht ADR-8. Beispiel Ankerfall 15 (EZ 2020-06, Plakette 2027-06, Begutachtung 2027-12-01): Engine 2028-12; Lesart B mit der Zählweise des § 57a Abs. 3 Z 3 nF (vierte Begutachtung → ein Jahr) 2028-06. **später** (möglich). | Keine Gesetzesabweichung im engeren Sinn, aber gegen ADR-8: entweder Lesart B (Bezugsmonat bleibt) rechnen oder nur noch `outsideWindowRepunch` ausgeben und keinen Termin berechnen, bis die neue Lochung eingetragen ist. Vor M2 entscheiden. | decided (D-09: earliest plausible, prefill only) |
+| D-10 | AT-25 | § 57a Abs. 3 Z 4: „alle zwei Jahre“ (Intervall). | § 9.1/9.2: Folge 2, 4, 6, … nach Alter; liegt D bei ungeradem Alter (z. B. nach AT-11), ergibt sich +1 statt +2. **früher** um 1 Jahr. Schon in § 9.7 als Zweifel notiert. | `nextDue` = D + 2 Jahre für historische Fahrzeuge. **Erledigt** mit Commit 8a2029e (Review-Fix M1). | done |
+| D-11 | AT-53 (Eingabemodell, keine Gesetzesabweichung) | Ob eine Austauschplakette möglich ist, hängt von der letzten Begutachtung ab (§ 132 Abs. 37 Z 1). | § 9.5: Ohne eingetragene letzte Begutachtung schlägt die Engine nur bei nie begutachteten Fahrzeugen etwas vor. Der ÖAMTC leitet die letzte Begutachtung aus Erstzulassung und Plakette ab (Ankerfälle 1, 8, 15: Austausch 2028-03, 2028-05, 2028-06). | Optional: Ist keine letzte Begutachtung eingetragen, aber die Plakette liegt nach EZ + 3 Jahren, letzte Begutachtung = Plakette − 1 Jahr bzw. − 2 Jahre (nach alter Folge) annehmen und den Vorschlag als Schätzung kennzeichnen. Produktentscheidung. | done (letzte Begutachtung abgeleitet, Hinweis `derivedLastInspection`) |
+
+Offene Rechtsfragen ohne D-Nummer (die Engine wendet die Annahme an, siehe ADR-8):
+
+| Regel-ID | Frage | Status |
+|---|---|---|
+| AT-45 | Spätester Tag des Fensters nach neuer Fassung: Monatsende (Engine) oder Jahrestag | open |
+| AT-54a | Bedeutung „spätestens im zehnten Jahr nach der Erstzulassung“ (Engine: Lesart A, Alter 10) | open |
+| AT-57 | Folgeregelungen in der PBStV zur Plakettenlochung und Austauschplakette | open |
 
 Keine Abweichung gefunden bei: Pkw/L/O-Fenster bis 2026-12 (−1/+4), Jänner 2027 (`closes`
 2027-05-18), Februar bis Juli 2027 (−1/+4, spätestens 30.11.2027), ab November 2027 (−4/0, frühestens
@@ -374,7 +389,7 @@ die Plakette (§ 132 Abs. 37 Z 1: „längere Frist“), Plakette ist führend (
 Die Erläuterungen (Begründung des Abänderungsantrags im Ausschussbericht 581 d.B., Wortlaut in
 `docs/sources/Materialien_AB581_Auszug.md`) enthalten nur **ein** Zahlenbeispiel (M-01). Die
 übrigen Fälle setzen die dort beschriebenen Regeln mit von uns gewählten Werten um; sie sind als
-„abgeleitet“ markiert. Spalte „Engine M1“: Ergebnis nach § 9, von Hand gerechnet.
+„abgeleitet“ markiert. Spalte „Engine M1“: Ergebnis der Engine `AT-2026-10-draft`, von Hand gerechnet. Seit `AT-2026-10-primary` liefert die Engine in allen Zeilen das „Erwartete Ergebnis“ (Tests `AustriaMaterialienTests`).
 
 | Nr | Fundstelle | Aussage der Materialien | Eingabe | Erwartetes Ergebnis | Engine M1 |
 |---|---|---|---|---|---|
@@ -429,5 +444,5 @@ sich daher nicht vergleichen. Die Ankerfälle 2 und 12 sind nicht abfragbar.
 
 **Ergebnis:** Der ÖAMTC-Rechner stimmt in allen geprüften Punkten mit unserer Lesart des
 Gesetzes überein, mit einer Ausnahme beim Fensterbeginn für N im August 2027 (X2). Alle
-Abweichungen zur Engine sind in § 10 erfasst. Eine Abweichung, bei der die Engine einen
+Abweichungen der früheren Engine sind in § 10 erfasst und behoben (Tests `AustriaOeamtcTests`). Die Spalte „Engine“ zeigt den Stand `AT-2026-10-draft`. Verbleibende Unterschiede der Engine `AT-2026-10-primary`: X2 (`opens` 2027-05-01 statt 2027-05-19, D-03) und X7 (Engine schlägt eine Austauschplakette 2027-12 vor, ÖAMTC keine, siehe § 9.7). Eine Abweichung, bei der die Engine einen
 **späteren** Termin zeigt als der ÖAMTC, wurde nicht gefunden.

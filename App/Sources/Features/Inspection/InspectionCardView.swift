@@ -60,9 +60,14 @@ struct InspectionCardView: View {
                     .font(.footnote)
             }
 
-            if let suggestion = status.exchangePlaqueSuggestion {
+            if let exchange = presentation.exchangeSuggestionText {
                 Label {
-                    Text("Exchange sticker suggestion: \(suggestion.displayString(locale: locale)). Not binding.", comment: "Pickerl card: optional exchange sticker with the later due month")
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(exchange)
+                        if let availability = presentation.exchangeAvailabilityText {
+                            Text(availability)
+                        }
+                    }
                 } icon: {
                     Image(systemName: "arrow.triangle.2.circlepath")
                 }
@@ -75,7 +80,10 @@ struct InspectionCardView: View {
         }
         // One combined element that spells out due month, last day and status for VoiceOver.
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel(([presentation.accessibilityLabel] + noteTexts).joined(separator: " "))
+        .accessibilityLabel(
+            ([presentation.accessibilityLabel] + noteTexts
+                + [presentation.exchangeSuggestionText, presentation.exchangeAvailabilityText].compactMap { $0 })
+                .joined(separator: " "))
 
         recordButton
     }
