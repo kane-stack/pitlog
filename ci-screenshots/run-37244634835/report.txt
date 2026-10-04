@@ -1,0 +1,34 @@
+===== testAddVehicleFormPassesAccessibilityAudit / Debug description for `TextField (First Match)`_0_924D2026-9733-4DBD-B70F-C31CA93B52D2.txt
+Query chain:
+ →Find: Target Application 'com.example.pitlog'
+  ↪︎Find: Descendants matching type TextField
+    ↪︎Find: First Match
+
+===== testAddVehicleFormPassesAccessibilityAudit / Complete Issue Description.txt
+Contrast failed for SwiftUI.AccessibilityNode
+===== testEditVehicleFormPassesAccessibilityAudit / audit-form-edit-en_0_3016C939-6E7F-4557-985F-F00EA5372EE0.txt
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Cancel' id='cancelButton' frame=(20.0, 67.0, 76.66666666666667, 36.0)
+
+(ignored: system navigation bar button)
+
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Save' id='' frame=(307.6666666666667, 67.0, 62.333333333333314, 36.0)
+
+(ignored: system navigation bar button)
+===== testEditVehicleFormPassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testVehicleDetailPassesAccessibilityAuditInGerman / audit-detail-de_0_AA0E2C48-6190-4257-A743-74F012C33F2C.txt
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Bearbeiten' id='' frame=(263.3333333333333, 51.0, 106.66666666666669, 36.0)
+
+(ignored: system navigation bar button)
+===== testVehicleDetailWithPickerlCardPassesAccessibilityAudit / audit-detail-en_0_CBF482D6-395F-4DBE-B441-D5FAD7FC104C.txt
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Edit' id='' frame=(316.6666666666667, 51.0, 53.333333333333314, 36.0)
+
+(ignored: system navigation bar button)
