@@ -15,7 +15,6 @@ struct VehicleRow: View {
                 if !vehicle.name.isEmpty, !vehicle.licensePlate.isEmpty {
                     Text(vehicle.licensePlate)
                         .font(.subheadline)
-                        .foregroundStyle(.secondary)
                 }
                 InspectionBadge(outcome: outcome, today: today)
             }

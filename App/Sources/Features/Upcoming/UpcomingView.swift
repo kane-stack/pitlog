@@ -63,7 +63,8 @@ struct UpcomingView: View {
                     .padding(.horizontal)
                     .padding(.vertical, 8)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(.bar)
+                    // Opaque: text over a material cannot be checked for contrast and may scroll over busy content.
+                    .background(Color(.systemBackground))
             }
         }
     }

@@ -75,8 +75,7 @@ struct InspectionCardView: View {
             }
 
             Text("Rule version \(status.ruleVersion)", comment: "Pickerl card: version of the rule set, small print")
-                .font(.caption2)
-                .foregroundStyle(.secondary)
+                .font(.footnote)
         }
         // One combined element that spells out due month, last day and status for VoiceOver.
         .accessibilityElement(children: .ignore)

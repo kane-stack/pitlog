@@ -14,6 +14,7 @@ struct FirstLaunchNoticeView: View {
                     Text("Before you start", comment: "First launch notice: title")
                         .font(.title)
                         .fontWeight(.bold)
+                        .fixedSize(horizontal: false, vertical: true)
                     Text("Pitlog helps you keep track of inspection deadlines. The calculation is a suggestion based on the first registration and the rules known today.", comment: "First launch notice: what the app does")
                     Text("Without guarantee. The date punched on your inspection sticker is authoritative.", comment: "Legal notice shown with every inspection deadline")
                         .fontWeight(.semibold)
