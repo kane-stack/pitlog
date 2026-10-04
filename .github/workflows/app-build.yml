@@ -138,24 +138,12 @@ jobs:
         if: always()
         run: |
           mkdir -p "$RUNNER_TEMP/attachments"
-          xcrun xcresulttool export attachments --path "$RUNNER_TEMP/ui.xcresult" --output-path "$RUNNER_TEMP/attachments"
-          ls "$RUNNER_TEMP/attachments" | head -20
-      - name: Print audit issues
-        if: always()
-        run: |
-          python3 - <<'PY'
-          import json, os
-          root = os.path.join(os.environ["RUNNER_TEMP"], "attachments")
-          manifest = json.load(open(os.path.join(root, "manifest.json")))
-          for test in manifest:
-              for a in test.get("attachments", []):
-                  name = a.get("suggestedHumanReadableName", "")
-                  if name.startswith("audit-") and ".txt" in name or "Issue Description" in name:
-                      print("=====", test.get("testIdentifier"), name)
-                      print(open(os.path.join(root, a["exportedFileName"])).read())
-          PY
+          xcrun xcresulttool export attachments --path "$RUNNER_TEMP/ui.xcresult" --output-path "$RUNNER_TEMP/attachments" > /dev/null
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: ui-attachments
           path: ${{ runner.temp }}/attachments
+      - name: Audit summary
+        if: always()
+        run: grep -E "AUDIT\[|error:.*Audit|failed \(" "$RUNNER_TEMP/ui.log" | sort -u | cut -c1-330 || true
