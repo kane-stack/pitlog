@@ -43,6 +43,16 @@ final class AccessibilityAuditTests: XCTestCase {
             print("AUDIT[\(name)] \(issue.auditType) | \(issue.compactDescription) | \(element)")
             report.append(
                 "[\(issue.auditType)] \(issue.compactDescription)\n\(issue.detailedDescription)\nelement: \(element)")
+            // The only filter: UIKit bar button items of the system navigation bar ("Save", "Cancel")
+            // do not follow Dynamic Type and are not ours to change. Nothing else is ignored,
+            // and no whole audit category is switched off.
+            if issue.auditType == .dynamicType,
+               let target = issue.element,
+               target.elementType == .button,
+               app.navigationBars.firstMatch.frame.contains(target.frame) {
+                report.append("(ignored: system navigation bar button)")
+                return true
+            }
             return false
         }
         let screenshot = XCTAttachment(screenshot: app.screenshot())
