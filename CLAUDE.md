@@ -23,9 +23,14 @@ später folgen DE (HU) und UK (MOT).
 2. Pickerl-Frist (AT-Modul) mit Regel-Engine, Erinnerungen mit Vorlauf
 3. Erinnerungen: Reifenwechsel, Service (Datum und/oder km), Vignette, eigene
 4. Belegscan (VisionKit, Vision-OCR, Extraktion mit Bestätigung), Beleg verknüpft mit Historieneintrag
-5. Historie pro Fahrzeug, Kosten pro Jahr
+5. **Zulassungsschein-Scan:** füllt Fahrzeugdaten vor. Genutzt werden die EU-harmonisierten Feldcodes
+   A (Kennzeichen), B (Erstzulassung), E (FIN), J (Fahrzeugklasse), D.1/D.3 (Marke, Typ) und
+   F.2 (Gesamtgewicht). Gleiche Pipeline wie der Belegscan, der Nutzer bestätigt. Die Lochung der Plakette und
+   der Kilometerstand bleiben manuell. Für die Lochung gibt es ein Auswahlfeld, das wie die Plakette aussieht.
+6. Historie pro Fahrzeug, Kosten pro Jahr
 
-**Nicht in V1:** Tank-Tracking, Länder-Module außer AT, Widgets (vorgemerkt), Teilen von Fahrzeugen.
+**Nicht in V1:** Tank-Tracking, Länder-Module außer AT, Widgets (vorgemerkt), Teilen von Fahrzeugen,
+Online-Abfragen von FIN oder Kennzeichen. Externe FIN-Datenbanken würden Daten an Dritte senden (ADR-12).
 
 ## Architekturentscheidungen
 
@@ -41,6 +46,7 @@ später folgen DE (HU) und UK (MOT).
 | ADR-8 | Offene Rechtsfragen = **konservative Auslegung** (früherer spätester Termin) plus Hinweis in der UI | Haftung |
 | ADR-9 | Benachrichtigungen: reine Planung in Core, App plant die nächsten N neu (Limit 64). Jedes Gerät plant selbst. | Kein Backend; CloudKit synchronisiert nur Daten |
 | ADR-10 | Belegextraktion über das Protokoll `ReceiptExtractor`: Foundation Models (falls verfügbar), sonst Heuristik in Core | On-device, Datenschutz, testbar |
+| ADR-13 | Zulassungsschein-Extraktion als reine Heuristik in Core (`RegistrationDocumentParser`), die anhand der Feldcodes A/B/E/J/D/F.2 arbeitet. OCR über dieselbe Scan-Pipeline wie bei Belegen. | Feldcodes machen die Heuristik zuverlässig; Linux-testbar; DE nutzt dieselben Codes |
 | ADR-11 | Monetarisierung über das Protokoll `Entitlements` (`vehicleLimit`, `canScanReceipts`), bis M6 alles frei. Über dem Limit nie löschen, nur Lesezugriff. | StoreKit 2 später, Sync-sicher |
 | ADR-12 | Keine Drittanbieter-Abhängigkeiten in der App | Ziel: Datenschutz-Label „Keine Daten erfasst“ |
 
@@ -124,10 +130,10 @@ Prompt: `docs/research/local-session-prompt.md`.
 |---|---|---|---|
 | M0 | Okt 2026 | Gerüst, CLAUDE.md, Regeldoku, XcodeGen, PitlogCore, CI | erledigt |
 | M1 | Okt–Nov | Fristen-Engine und Tests (final erst nach Primärquellen-Abgleich) | in Arbeit (Branch `claude/m1-inspection-engine`) |
-| M2 | Nov | Datenmodell, Fahrzeugverwaltung, Pickerl-Karte, Hinweis, Lokalisierung | |
+| M2 | Nov | Datenmodell (inkl. FIN-Feld), Fahrzeugverwaltung, Plaketten-Auswahl, Pickerl-Karte, Hinweis, Lokalisierung | |
 | M3 | Dez | Erinnerungen und Benachrichtigungen | |
 | M4 | Jan 2027 | Historie, manuelle Einträge, Kosten pro Jahr | |
-| M5 | Jan–Feb | Spike Extraktion, dann Belegscan | |
+| M5 | Jan–Feb | Scan-Pipeline: Zulassungsschein-Scan, Spike Belegextraktion, dann Belegscan | |
 | M6 | Feb | StoreKit-2-Gating, Durchgang Barrierefreiheit, Datenschutz, TestFlight | |
 | M7 | März | Beta, rechtlicher Re-Check, Featuring-Nominierung, Einreichung | |
 
@@ -138,7 +144,10 @@ Prompt: `docs/research/local-session-prompt.md`.
 2. **Übergangsfenster 2027 (AT-56):** Es gibt drei widersprüchliche Darstellungen.
 3. **Lochung der Austauschplakette für Fahrzeuge über 10 Jahre (AT-53/54).**
 4. **Reichweite des −4/0-Fensters (AT-43):** N1, Taxi, historische Fahrzeuge?
-5. **Foundation Models:** Qualität bei deutschsprachigen Werkstattrechnungen erst im Spike
+5. **Testdaten Zulassungsschein:** 2 bis 3 geschwärzte Fotos echter österreichischer Zulassungsscheine
+   (Papier und Scheckkarte) von Christopher. Zu klären ist, welche Formate aktuell im Umlauf sind,
+   inklusive einer eventuellen digitalen Variante.
+6. **Foundation Models:** Qualität bei deutschsprachigen Werkstattrechnungen erst im Spike
    (M5) bewerten, mit 15 bis 20 echten, anonymisierten Belegen.
-6. **Bundle-ID, Team und CloudKit-Container:** finale Werte vor M6.
-7. **App-Name:** „Pitlog“ ist ein Arbeitsname. Markenrecherche vor der Einreichung.
+7. **Bundle-ID, Team und CloudKit-Container:** finale Werte vor M6.
+8. **App-Name:** „Pitlog“ ist ein Arbeitsname. Markenrecherche vor der Einreichung.
