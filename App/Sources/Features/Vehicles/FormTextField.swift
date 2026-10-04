@@ -10,6 +10,7 @@ struct FormTextField: View {
         LabeledContent {
             TextField(text: $text, prompt: Text(verbatim: "")) { title }
                 .multilineTextAlignment(.trailing)
+                .accessibilityLabel(title)
         } label: {
             title
                 .foregroundStyle(.primary)
@@ -26,6 +27,7 @@ struct FormNumberField: View {
             TextField(value: $value, format: .number, prompt: Text(verbatim: "")) { title }
                 .multilineTextAlignment(.trailing)
                 .keyboardType(.numberPad)
+                .accessibilityLabel(title)
         } label: {
             title
                 .foregroundStyle(.primary)
