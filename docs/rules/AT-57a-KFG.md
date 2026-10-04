@@ -119,21 +119,48 @@ Die App fragt beides ab. Die Berechnung aus der Erstzulassung ist nur ein Vorsch
 
 ### Konservative Auslegung, die die Engine bis zur Klärung verwendet
 
-- **AT-56, Fälligkeit Jänner bis Juli 2027:** −1/+4 nach alter Fassung. Spätester Termin
-  ist das Ende des vierten Folgemonats, also höchstens 30.11.2027 bei Fälligkeit Juli.
-  Für Februar bis Juli stimmen die Darstellungen (a) und (b) überein. Jänner stammt nur aus (b):
-  Jänner plus 4 Monate endet am 31.05.2027, nach dem Stichtag.
-- **AT-56, Fälligkeit August bis Oktober 2027:** Die App zeigt als spätesten Termin das
-  **Ende des Fälligkeitsmonats** (neue Fassung). Sie weist darauf hin, dass laut einzelnen
-  Quellen eine Verlängerung bis 30.11.2027 möglich sein könnte.
+Stand M1 (Regelversion `AT-2026-10-draft`). Alle Entscheidungen sind Auslegungen, keine
+verifizierten Rechtsfolgen. Wo die Auslegung eine Annahme trifft, liefert die Engine eine
+`RuleNote` mit der Regel-ID, die die App als Hinweis anzeigt.
+
+- **AT-56, Fälligkeit Jänner 2027:** Der späteste Termin ist **18.05.2027**, also der Tag
+  vor dem Stichtag. Nur die Darstellung (b) schließt den Jänner in die Übergangsregel ein;
+  nach alter Fassung wäre der 31.05.2027 der späteste Tag. Die App weist darauf hin, dass
+  eine Verlängerung bis 31.05.2027 möglich sein könnte (`possibleExtension`).
+- **AT-56, Fälligkeit Februar bis Juli 2027:** −1/+4 nach alter Fassung. Spätester Termin ist
+  das Ende des vierten Folgemonats, höchstens 30.11.2027 (Fälligkeit Juli). Die Darstellungen
+  (a) und (b) stimmen überein. Hinweis `openLegalQuestion`.
+- **AT-56, Fälligkeit August bis Oktober 2027:** Spätester Termin ist das **Ende des
+  Fälligkeitsmonats** (neue Fassung). Hinweis, dass laut einzelnen Quellen eine Verlängerung
+  bis 30.11.2027 möglich sein könnte (`possibleExtension`).
 - **AT-56, Fälligkeit ab November 2027:** nur neue Fassung (−4/0).
-- **AT-53/54:** Die Austauschplakette zeigt die App nur als **Hinweis**, nie als Fälligkeit.
-  Der Vorschlag lautet „max(Erstzulassung + 4 Jahre, letztes Gutachten + Intervall nach
-  AT-30 für das Fahrzeugalter)“, gekennzeichnet als „unverbindlich, bei der Prüfstelle klären“.
-- **AT-43:** Kategorien außerhalb von AT-30 verwenden ihr bisheriges Fenster, wenn es
-  bekannt ist. Sonst ist der späteste Termin das Ende des gelochten Monats.
-- **AT-12:** Liegt eine Begutachtung außerhalb des Fensters, fordert die App den Nutzer auf,
-  die neue Lochung von der Plakette einzutragen.
+- **Fensterbeginn:** Es zählt der früheste Tag, der nach dem am jeweiligen Tag geltenden Recht
+  im Fenster liegt. Vor dem 19.05.2027 gilt der Beginn des Vormonats (−1), ab dem 19.05.2027
+  vier Monate vor dem Fälligkeitsmonat (−4), frühestens aber der 19.05.2027.
+- **AT-53/54, nächste Fälligkeit nach einer Begutachtung:** Die Engine rechnet altersbasiert
+  (siehe § 9). Sie nimmt nie einen späteren Termin an als „2 Jahre nach der letzten
+  Begutachtung“. Wo die neue Fassung bei Fahrzeugen unter 10 Jahren nur 1 Jahr ergibt, kann
+  das Recht möglicherweise 2 Jahre zulassen; die App weist mit `AT-54` darauf hin.
+- **AT-53/54, Austauschplakette:** Die App zeigt sie nur als **Hinweis**, nie als Fälligkeit,
+  gekennzeichnet als „unverbindlich, bei der Prüfstelle klären“. Vorschlag: nie begutachtet
+  und Erstzulassung + 3 Jahre nicht vor Mai 2027: Erstzulassung + 4 Jahre. Begutachtet und
+  Fahrzeugalter bei der letzten Begutachtung höchstens 8 Jahre: letzte Begutachtung + 2 Jahre.
+  Sonst kein Vorschlag. Angezeigt wird er nur, wenn er später liegt als die Plakette.
+  Der Vorschlag gilt nur für Plaketten, die nach alter Fassung gelocht wurden: Mit letzter
+  Begutachtung nur, wenn sie vor dem Stichtag liegt; ohne letzte Begutachtung nur, wenn die
+  Plakette noch die ursprüngliche Lochung der ersten Begutachtung ist (Plakette höchstens
+  Erstzulassung + 3 Jahre).
+- **AT-43:** Kategorien außerhalb von AT-30 (N1, Taxi/Rettung, historische Fahrzeuge) verwenden
+  ein Fenster vom Beginn des Vormonats bis zum Ende des Fälligkeitsmonats. Hinweis AT-42
+  (Fälligkeit bis Mai 2027) bzw. AT-43 (danach).
+- **AT-12:** Liegt eine Begutachtung außerhalb des Fensters, rechnet die Engine ab dem
+  Begutachtungsmonat neu und fordert den Nutzer auf, die neue Lochung von der Plakette
+  einzutragen (`outsideWindowRepunch`).
+- **AT-23/24/25:** Intervalle für N1, Taxi und historische Fahrzeuge sind nur sekundär belegt;
+  die Engine gibt jeweils einen Hinweis `openLegalQuestion` aus. Historische Fahrzeuge haben
+  ein festes Intervall von 2 Jahren ab dem Fälligkeitsmonat (AT-25), unabhängig vom Alter.
+- **AT-26:** Schwere Fahrzeuge, Zugmaschinen und Ähnliches (`other`) unterstützt die Engine
+  nicht. Sie meldet `unsupportedCategory`.
 
 ## 7. Weitere Fristen (für Erinnerungen, nicht Teil der Pickerl-Engine)
 
@@ -156,3 +183,117 @@ Die App fragt beides ab. Die Berechnung aus der Erstzulassung ist nur ein Vorsch
 - [ ] AT-57: PBStV-Novelle(n) zur Umsetzung
 - [ ] Erläuterungen (Initiativantrag 952/A bzw. Abänderungsantrag im Ausschussbericht) auf Beispiele prüfen, die wir als Testfälle übernehmen können
 - [ ] ÖAMTC-Pickerlrechner mit unseren Testfällen gegenprüfen (Q-OTS-RECHNER)
+
+## 9. Algorithmus der Engine
+
+Implementierung: `Packages/PitlogCore/Sources/PitlogCore/Rules/Austria/`. Regelversion
+`AT-2026-10-draft`, Stichtag `cutoffDay = 2027-05-19` (AT-02). Die Engine rechnet in
+Kalendermonaten (`YearMonth`) und Tagen (`DayDate`) mit reiner Ganzzahlarithmetik, `today`
+wird injiziert. Notation: **D** = gelochter Fälligkeitsmonat. **Alter bei D** =
+`floor(Monate von der Erstzulassung bis D / 12)`. **Geltendes Recht an einem Tag T:** alte
+Fassung, wenn T vor dem Stichtag liegt, sonst neue Fassung.
+
+### 9.1 Intervallfolgen (Alter in Jahren, bei dem eine Begutachtung fällig ist)
+
+| Kategorie | Alte Fassung | Neue Fassung | Regel |
+|---|---|---|---|
+| Pkw, Klasse L, Anhänger O1/O2 | 3, 5, 6, 7, 8, … | 4, 6, 8, 10, 11, 12, … | AT-20/21/22, AT-30 |
+| N1 | 1, 2, 3, … | 1, 2, 3, … | AT-23 (Hinweis) |
+| Taxi, Rettung, Krankentransport | 1, 2, 3, … | 1, 2, 3, … | AT-24 (Hinweis) |
+| Historisch | fest +2 Jahre ab Fälligkeitsmonat (Erstzulassung + 2, + 2, …) | wie alte Fassung | AT-25 (Hinweis) |
+| Sonstige (`other`) | nicht unterstützt | nicht unterstützt | AT-26 |
+
+### 9.2 Nächste Fälligkeit (`nextDue`) nach einer Begutachtung am Tag T
+
+- **T liegt im Fenster von D:** Es gilt die Folge des Rechts an T. Gesucht ist das erste
+  Folgenelement, das **größer** ist als das Alter bei D. Ergebnis: D plus (Folgenelement
+  minus Alter bei D) Jahre. Das ist bewusst altersbasiert und damit konservativ: nie später
+  als „2 Jahre nach der letzten Begutachtung“. Gilt die neue Fassung, ist die Kategorie
+  Pkw/L/O1/O2, das Alter bei D unter 10 und der Abstand genau 1 Jahr, kommt der Hinweis
+  `AT-54 openLegalQuestion`. Historische Fahrzeuge: immer D + 2 Jahre, ohne Altersfolge.
+- **T liegt außerhalb des Fensters (AT-12):** Neue Fälligkeit = Begutachtungsmonat plus
+  Abstand, berechnet mit dem Alter im Begutachtungsmonat und dem Recht an T. Hinweis
+  `AT-12 outsideWindowRepunch`. Der Hinweis `AT-54` gilt unter derselben Bedingung wie
+  innerhalb des Fensters (neue Fassung, Pkw/L/O1/O2, Alter unter 10, Abstand 1 Jahr), mit dem
+  Alter im Begutachtungsmonat.
+
+### 9.3 Fenster für den Fälligkeitsmonat D
+
+**Pkw, Klasse L, Anhänger O1/O2** (Spätester Termin `closes` hängt von D ab):
+
+| D | closes | Regime | Hinweis |
+|---|---|---|---|
+| bis 2026-12 | letzter Tag von D+4 | alte Fassung | – |
+| 2027-01 | 2027-05-18 | Übergang | AT-56 `possibleExtension(until: 2027-05-31)` |
+| 2027-02 bis 2027-07 | letzter Tag von D+4 (spätestens 2027-11-30) | Übergang | AT-56 `openLegalQuestion` |
+| 2027-08 bis 2027-10 | letzter Tag von D | Übergang | AT-56 `possibleExtension(until: 2027-11-30)` |
+| ab 2027-11 | letzter Tag von D | neue Fassung | – |
+
+`opens` ist der früheste Tag, der nach dem an diesem Tag geltenden Recht im Fenster liegt.
+Alter Kandidat: Erster Tag des Vormonats von D, gültig nur vor dem Stichtag. Neuer Kandidat:
+das spätere von „erster Tag von D−4 Monate“ und Stichtag, gültig nur, wenn er nicht nach
+`closes` liegt. `opens` ist der früheste gültige Kandidat. Beispiele: D = 2027-08 → 2027-05-19,
+D = 2027-06 → 2027-05-01, D = 2028-01 → 2027-09-01.
+
+**N1, Taxi/Rettung, historisch:** `opens` = erster Tag des Vormonats von D, `closes` = letzter
+Tag von D. Hinweis AT-42, wenn D bis 2027-05, sonst AT-43. Regime nach dem Recht am ersten
+Tag von D.
+
+### 9.4 Phase relativ zu heute
+
+heute vor `opens`: `notYetOpen`. Heute nach `closes`: `overdue`. Monat von `closes` ist der
+heutige Monat: `closesThisMonth`. Sonst `open`.
+
+### 9.5 Status (`status(for:today:)`)
+
+- **Mit Plakette:** D = Plakette, Quelle `plaque` (AT-51, ADR-5).
+- **Ohne Plakette (Schätzung, Hinweis AT-10 `checkPlaque`):** Erste Fälligkeit nach dem Recht
+  bei der Erstzulassung (Erstzulassung bis Mai 2027 zählt als alte Fassung, Mai 2027
+  konservativ ebenfalls) plus erstes Folgenelement. Danach wird wiederholt `nextDue` so
+  angewendet, als wäre am ersten Tag von D begutachtet worden, bis das `closes` des Fensters
+  nicht vor heute liegt. Hinweise aus diesen Zwischenschritten (z. B. AT-54) werden verworfen,
+  AT-10 gilt für die ganze Schätzung.
+- **Austauschplakette (AT-52/53/54):** nur Pkw/L/O1/O2 und nur mit Quelle `plaque`.
+  Nur für Plaketten nach alter Fassung. Kandidat: nie begutachtet, Erstzulassung + 3 Jahre
+  nicht vor 2027-05 und Plakette höchstens Erstzulassung + 3 Jahre: Erstzulassung + 4 Jahre.
+  Begutachtet vor dem Stichtag und Alter bei der letzten Begutachtung höchstens 8: letzte
+  Begutachtung + 2 Jahre. Sonst keiner. Vorschlag nur, wenn der Kandidat nach der Plakette liegt, mit Hinweis
+  `AT-53 openLegalQuestion`.
+- Hinweise werden dedupliziert und nach Regel-ID sortiert. Zusätzlich gibt es den
+  Kategoriehinweis AT-23, AT-24 bzw. AT-25.
+- Eingaben mit Plakette oder letzter Begutachtung vor der Erstzulassung sind ungültig
+  (`invalidInput`).
+
+### 9.6 Ankerfälle (als Tests umgesetzt, `AustriaAnchorTests`)
+
+| # | Eingabe | heute | Erwartet |
+|---|---|---|---|
+| 1 | Pkw, EZ 2020-03, Plakette 2027-03 | 2027-02-15 | opens 2027-02-01, closes 2027-07-31, Übergang, open, AT-56 |
+| 2 | wie 1 | – | nextDue(nach 2027-03-10) = 2028-03 (alt, Alter 7 → 8); nextDue(nach 2027-06-10) = 2028-03 (neu, 7 → 8, AT-54) |
+| 3 | Pkw, EZ 2024-06, Plakette 2027-06, nie begutachtet | 2027-04-01 | opens 2027-05-01, closes 2027-10-31, notYetOpen, Austauschvorschlag 2028-06, AT-53 |
+| 4 | Pkw, EZ 2021-04, letzte Begutachtung 2026-04-12, Plakette 2027-04 | – | Austauschvorschlag 2028-04 (ÖAMTC-Beispiel); nextDue(nach 2027-04-05) = 2028-04; nextDue(nach 2027-06-01) = 2029-04 |
+| 5 | Pkw, EZ 2023-09, letzte Begutachtung 2026-09-20, Plakette 2028-09 | 2028-06-01 | opens 2028-05-01, closes 2028-09-30, neue Fassung, open, kein Austauschvorschlag |
+| 6 | Pkw, EZ 2028-03, keine Plakette | 2028-04-01 | geschätzt 2032-03, AT-10 |
+| 7 | Pkw, EZ 2015-07, Plakette 2027-08 | 2027-09-01 | closes 2027-08-31, overdue, AT-56 `possibleExtension(until: 2027-11-30)` |
+| 8 | Motorrad, EZ 2019-05, Plakette 2027-05 | – | closes 2027-09-30; nextDue(nach 2027-05-10) = 2028-05; nextDue(nach 2027-05-25) = 2029-05 |
+| 9 | Leichtanhänger, EZ 2025-10, nie begutachtet, Plakette 2028-10 | – | opens 2028-06-01, closes 2028-10-31, Austauschvorschlag 2029-10 |
+| 10 | N1, EZ 2026-02, Plakette 2027-02 | – | opens 2027-01-01, closes 2027-02-28, AT-42; nextDue(nach 2027-02-10) = 2028-02 |
+| 11 | historisch, EZ 1976-04, Plakette 2028-04 | – | closes 2028-04-30, AT-43, nextDue +2 Jahre |
+| 12 | Kategorie `other` | – | wirft `unsupportedCategory(.other)` |
+| 13 | Pkw, EZ 2022-01, Plakette 2027-01 | – | closes 2027-05-18, AT-56 `possibleExtension(until: 2027-05-31)` |
+| 14 | Pkw, EZ 2010-03, Plakette 2028-03 | – | nextDue(nach 2028-03-15) = 2029-03 (Alter 18, jährlich) |
+| 15 | Pkw, EZ 2020-06, Plakette 2027-06 | – | nextDue(nach 2027-12-01) liegt außerhalb des Fensters (closes 2027-10-31): Alter im Dezember 2027 = 7, neue Fassung → 8, also 2028-12, AT-12 und AT-54 |
+
+Bei 11 und 15 war die Erstzulassung in der Vorgabe nicht genannt; gewählt wurden Werte, die
+zur Plakette passen.
+
+### 9.7 Auffälligkeiten und offene Zweifel (Stand M1)
+
+- **Fensterbeginn N1/Taxi/historisch:** Die Engine nimmt −1/0, AT-42 nennt für N und schwere
+  Fahrzeuge −3/0 (OFFEN). Ein früherer Beginn würde nur den Zeitpunkt ändern, ab dem eine
+  Begutachtung als „im Fenster“ gilt.
+- **Schätzung ohne Plakette:** Ein Fahrzeug mit Erstzulassung 2024-06 wird als fällig 2027-06
+  geschätzt (alte Fassung bei Erstzulassung), obwohl die neue Fassung 2028-06 ergäbe
+  (Austauschplakette, AT-52). Das ist gewollt konservativ, deshalb gilt die Plakette (ADR-5).
+- **AT-54-Hinweis:** Er erscheint nur in `nextDue` (innerhalb und außerhalb des Fensters),
+  nicht in `status`.
