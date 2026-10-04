@@ -1,0 +1,122 @@
+name: App build
+
+on:
+  push:
+    branches:
+      - "claude/**"
+    paths:
+      - "App/**"
+      - "AppTests/**"
+      - "AppUITests/**"
+      - "project.yml"
+      - "Packages/**"
+      - ".github/workflows/app-build.yml"
+  workflow_dispatch:
+
+env:
+  # Simulator builds run unsigned, so the CloudKit entitlements are stripped (see CLAUDE.md).
+  XCODEBUILD_FLAGS: CODE_SIGNING_ALLOWED=NO
+
+jobs:
+  unit-tests:
+    name: Build and unit tests
+    runs-on: macos-26
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Select Xcode 26
+        run: |
+          ls /Applications | grep -i xcode || true
+          XCODE="$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1 || true)"
+          if [ -n "$XCODE" ]; then sudo xcode-select -s "$XCODE"; fi
+          xcodebuild -version
+          swift --version
+      - name: Install XcodeGen
+        run: brew install xcodegen
+      - name: Generate project
+        run: xcodegen generate
+      - name: Pick simulator
+        run: |
+          UDID="$(xcrun simctl list devices available -j | python3 -c '
+          import json, sys
+          data = json.load(sys.stdin)["devices"]
+          best = None
+          for runtime, devices in data.items():
+              if "iOS" not in runtime:
+                  continue
+              version = tuple(int(p) for p in runtime.split("iOS-")[-1].split("-") if p.isdigit())
+              for d in devices:
+                  if d["name"].startswith("iPhone") and d.get("isAvailable", True):
+                      key = (version, "Pro" not in d["name"] and "SE" not in d["name"])
+                      if best is None or key > best[0]:
+                          best = (key, d["udid"])
+          print(best[1] if best else "")
+          ')"
+          echo "Simulator: $UDID"
+          test -n "$UDID"
+          echo "SIM_UDID=$UDID" >> "$GITHUB_ENV"
+      - name: Unit tests
+        run: |
+          set -o pipefail
+          xcodebuild test \
+            -scheme Pitlog \
+            -destination "platform=iOS Simulator,id=$SIM_UDID" \
+            -only-testing:PitlogTests \
+            -resultBundlePath "$RUNNER_TEMP/unit.xcresult" \
+            $XCODEBUILD_FLAGS
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: unit-xcresult
+          path: ${{ runner.temp }}/unit.xcresult
+
+  ui-tests:
+    name: UI tests and accessibility audit
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: macos-26
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Select Xcode 26
+        run: |
+          XCODE="$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1 || true)"
+          if [ -n "$XCODE" ]; then sudo xcode-select -s "$XCODE"; fi
+          xcodebuild -version
+      - name: Install XcodeGen
+        run: brew install xcodegen
+      - name: Generate project
+        run: xcodegen generate
+      - name: Pick simulator
+        run: |
+          UDID="$(xcrun simctl list devices available -j | python3 -c '
+          import json, sys
+          data = json.load(sys.stdin)["devices"]
+          best = None
+          for runtime, devices in data.items():
+              if "iOS" not in runtime:
+                  continue
+              version = tuple(int(p) for p in runtime.split("iOS-")[-1].split("-") if p.isdigit())
+              for d in devices:
+                  if d["name"].startswith("iPhone") and d.get("isAvailable", True):
+                      key = (version, "Pro" not in d["name"] and "SE" not in d["name"])
+                      if best is None or key > best[0]:
+                          best = (key, d["udid"])
+          print(best[1] if best else "")
+          ')"
+          echo "Simulator: $UDID"
+          test -n "$UDID"
+          echo "SIM_UDID=$UDID" >> "$GITHUB_ENV"
+      - name: UI tests
+        run: |
+          set -o pipefail
+          xcodebuild test \
+            -scheme Pitlog \
+            -destination "platform=iOS Simulator,id=$SIM_UDID" \
+            -only-testing:PitlogUITests \
+            -resultBundlePath "$RUNNER_TEMP/ui.xcresult" \
+            $XCODEBUILD_FLAGS
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: ui-xcresult
+          path: ${{ runner.temp }}/ui.xcresult
