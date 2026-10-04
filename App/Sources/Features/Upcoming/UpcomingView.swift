@@ -23,7 +23,9 @@ struct UpcomingView: View {
             }
             .sorted { $0.status.window.closes < $1.status.window.closes }
 
-        List(rows) { row in
+        List {
+            Section {
+                ForEach(rows) { row in
             let presentation = InspectionPresentation(status: row.status, today: today, locale: locale)
             NavigationLink(value: row.vehicle) {
                 VStack(alignment: .leading, spacing: 2) {
@@ -35,6 +37,11 @@ struct UpcomingView: View {
                 }
                 .accessibilityElement(children: .ignore)
                 .accessibilityLabel(Text(verbatim: "\(row.vehicle.displayName). \(presentation.badgeAccessibilityLabel)"))
+            }
+                }
+            } footer: {
+                // Part of the list content, so it never sits under the tab bar (contrast audit).
+                if !rows.isEmpty { LegalNoticeView() }
             }
         }
         .overlay {
@@ -56,16 +63,6 @@ struct UpcomingView: View {
         .navigationTitle(Text("Upcoming", comment: "Navigation title of the Upcoming tab"))
         .navigationDestination(for: Vehicle.self) { vehicle in
             VehicleDetailView(vehicle: vehicle)
-        }
-        .safeAreaInset(edge: .bottom) {
-            if !rows.isEmpty {
-                LegalNoticeView()
-                    .padding(.horizontal)
-                    .padding(.vertical, 8)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    // Opaque: text over a material cannot be checked for contrast and may scroll over busy content.
-                    .background(Color(.systemBackground))
-            }
         }
     }
 }

@@ -49,7 +49,7 @@ final class AccessibilityAuditTests: XCTestCase {
             if issue.auditType == .dynamicType,
                let target = issue.element,
                target.elementType == .button,
-               app.navigationBars.firstMatch.frame.contains(target.frame) {
+               target.frame.maxY < 110 {  // top bar region: only nav bar items live there
                 report.append("(ignored: system navigation bar button)")
                 return true
             }

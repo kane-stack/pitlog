@@ -58,6 +58,7 @@ struct InspectionCardView: View {
             ForEach(Array(noteTexts.enumerated()), id: \.offset) { _, text in
                 Label(text, systemImage: "info.circle")
                     .font(.footnote)
+                    .fixedSize(horizontal: false, vertical: true)
             }
 
             if let exchange = presentation.exchangeSuggestionText {
@@ -72,6 +73,7 @@ struct InspectionCardView: View {
                     Image(systemName: "arrow.triangle.2.circlepath")
                 }
                 .font(.footnote)
+                .fixedSize(horizontal: false, vertical: true)
             }
 
             Text("Rule version \(status.ruleVersion)", comment: "Pickerl card: version of the rule set, small print")

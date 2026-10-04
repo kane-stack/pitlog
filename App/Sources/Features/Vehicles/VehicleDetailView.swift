@@ -51,7 +51,6 @@ struct VehicleDetailView: View {
                     .fontWeight(.semibold)
                 if !vehicle.name.isEmpty, !vehicle.licensePlate.isEmpty {
                     Text(vehicle.licensePlate)
-                        .foregroundStyle(.secondary)
                 }
                 Button {
                     showingOdometer = true
