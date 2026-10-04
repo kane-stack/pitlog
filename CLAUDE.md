@@ -110,6 +110,8 @@ AppTests/, AppUITests/          app-level tests (Xcode only)
   `claude/**`, wenn `App/**`, `AppTests/**`, `AppUITests/**`, `project.yml` oder `Packages/**`
   geändert wurden, und ist die einzige Möglichkeit, die App ohne Xcode zu kompilieren.
   Die UI-Tests mit Accessibility-Audit laufen nur manuell (`workflow_dispatch`, Job `ui-tests`).
+  Stand M2: Der UI-Audit-Lauf ist rot (Kontrast, „Dynamic Type partially unsupported“, abgeschnittener
+  Text im deutschen Hinweis-Sheet); das braucht Sichtprüfung im Simulator (Xcode-Previews/Screenshots).
   Die App startet in Tests und mit `-UITestSampleData` mit einem In-Memory-Store ohne CloudKit.
 - **App:** `scripts/bootstrap.sh` (braucht `xcodegen`, `brew install xcodegen`), dann
   `Pitlog.xcodeproj` öffnen.
