@@ -1,0 +1,133 @@
+# Pitlog (Arbeitsname)
+
+Fahrzeug-Wartungsheft fürs iPhone: Fristen, Erinnerungen und Wartungshistorie für die eigenen
+Autos an einem Ort. Startmarkt ist Österreich: Die Pickerl-Reform (§ 57a KFG, 42. KFG-Novelle)
+gilt ab **19.05.2027**. Die App ist international gedacht; Österreich ist das erste Länder-Modul,
+später folgen DE (HU) und UK (MOT).
+
+- **Ziel:** App-Store-reif bis **Ende März 2027**, rechtzeitig vor dem Stichtag.
+- **Apple-Featuring:** Die App soll dafür nominiert werden. Barrierefreiheit, Lokalisierung
+  und Datenschutz sind deshalb Pflicht und keine Kür.
+
+## Kommunikation und Sprache
+
+- **Mit Christopher:** Deutsch.
+- **Code, Kommentare, Commit-Nachrichten, Bezeichner:** Englisch.
+- **Doku unter `docs/`:** Deutsch, weil sie sich auf österreichisches Recht bezieht.
+  Fachbegriffe im Code: `inspection` = Begutachtung/Pickerl, `plaque` = Plakette,
+  `firstRegistration` = Erstzulassung, `window` = Begutachtungsfenster.
+
+## Umfang Version 1
+
+1. Fahrzeuge verwalten (mehrere): Kennzeichen, Erstzulassung, Fahrzeugart, Kilometerstand, Foto optional
+2. Pickerl-Frist (AT-Modul) mit Regel-Engine, Erinnerungen mit Vorlauf
+3. Erinnerungen: Reifenwechsel, Service (Datum und/oder km), Vignette, eigene
+4. Belegscan (VisionKit, Vision-OCR, Extraktion mit Bestätigung), Beleg verknüpft mit Historieneintrag
+5. Historie pro Fahrzeug, Kosten pro Jahr
+
+**Nicht in V1:** Tank-Tracking, Länder-Module außer AT, Widgets (vorgemerkt), Teilen von Fahrzeugen.
+
+## Architekturentscheidungen
+
+| # | Entscheidung | Begründung |
+|---|---|---|
+| ADR-1 | **SwiftData** mit CloudKit, nur privater Container, kein Teilen | Christopher will kein Teilen. SwiftData kann kein CKShare. Kommt Teilen doch, ist ein Wechsel auf Core Data nötig. |
+| ADR-2 | **Minimum iOS 26**, nur iPhone | Foundation Models API vorhanden; Fallback für Geräte ohne Apple Intelligence |
+| ADR-3 | Fachlogik in **`Packages/PitlogCore`**, nur Foundation, Linux-kompatibel | Tests laufen ohne Xcode (CI auf Linux); erzwingt reine Funktionen |
+| ADR-4 | Xcode-Projekt per **XcodeGen** (`project.yml`). `.xcodeproj` wird nicht eingecheckt. | Wird in der Cloud ohne Xcode erstellt, keine Merge-Konflikte in pbxproj |
+| ADR-5 | **Plakette ist führend.** Die App speichert den gelochten Monat und das Jahr. Die Berechnung aus der Erstzulassung ist nur ein Vorschlag. | Übergangsrecht (§ 132 Abs. 37): Die alte Lochung gilt weiter, die Austauschplakette ist optional. Haftung. |
+| ADR-6 | Länder-Modul = Protokoll `InspectionRuleSet` plus Registry nach Land | DE und UK ohne Umbau |
+| ADR-7 | Rechnen in **Kalendermonaten** (`YearMonth`, `DayDate`), nicht mit `Date` | Keine Zeitzonen- oder Monatsende-Fehler; `today` wird injiziert |
+| ADR-8 | Offene Rechtsfragen = **konservative Auslegung** (früherer spätester Termin) plus Hinweis in der UI | Haftung |
+| ADR-9 | Benachrichtigungen: reine Planung in Core, App plant die nächsten N neu (Limit 64). Jedes Gerät plant selbst. | Kein Backend; CloudKit synchronisiert nur Daten |
+| ADR-10 | Belegextraktion über das Protokoll `ReceiptExtractor`: Foundation Models (falls verfügbar), sonst Heuristik in Core | On-device, Datenschutz, testbar |
+| ADR-11 | Monetarisierung über das Protokoll `Entitlements` (`vehicleLimit`, `canScanReceipts`), bis M6 alles frei. Über dem Limit nie löschen, nur Lesezugriff. | StoreKit 2 später, Sync-sicher |
+| ADR-12 | Keine Drittanbieter-Abhängigkeiten in der App | Ziel: Datenschutz-Label „Keine Daten erfasst“ |
+
+## Struktur
+
+```
+CLAUDE.md
+project.yml                     XcodeGen spec (generate with scripts/bootstrap.sh)
+docs/rules/AT-57a-KFG.md        legal rules with IDs (AT-xx), sources, status
+docs/research/                  prompts for local research sessions (cloud cannot reach RIS)
+Packages/PitlogCore/            pure domain logic, Foundation only, Linux-compatible
+App/Sources/                    SwiftUI app (Model, Features, Services)
+App/Resources/                  String Catalogs, assets, privacy manifest
+AppTests/, AppUITests/          app-level tests (Xcode only)
+.github/workflows/              CI: PitlogCore tests on Linux
+```
+
+## Konventionen
+
+- **Swift 6** Language Mode, strikte Concurrency.
+- **Tests:** Swift Testing (`import Testing`), keine XCTest-Unit-Tests. Die UI-Tests bleiben bei
+  XCTest/XCUITest und nutzen `performAccessibilityAudit()`.
+- **Regeltests:** Jeder Testfall der Fristen-Engine nennt die Regel-ID aus
+  `docs/rules/AT-57a-KFG.md` (z. B. `// AT-41`). Tests sind tabellengetrieben (parametrisiert).
+  Ändert sich eine Regel, wird zuerst das Doc aktualisiert, dann der Test, dann der Code.
+- **PitlogCore:** keine Imports außer Foundation, keine Apple-only-APIs (kein SwiftData,
+  SwiftUI, Vision). Alles `Sendable`, Werttypen bevorzugt.
+- **SwiftData mit CloudKit:**
+  - Alle Attribute optional oder mit Default.
+  - Keine `.unique`-Attribute.
+  - Beziehungen optional und mit Inverse.
+  - Große Daten mit `.externalStorage`.
+  - Schemaänderungen nur über `VersionedSchema` und `SchemaMigrationPlan`.
+- **Geld:** als `Int` in Minor Units plus ISO-Währungscode. Kein `Double` für Beträge.
+- **Lokalisierung:**
+  - String Catalogs (`Localizable.xcstrings`, `InfoPlist.xcstrings`), Basissprache `en`,
+    `de` immer vollständig. `de-AT` nur für abweichende Begriffe.
+  - Schlüssel = englischer Quelltext. Jeder neue String bekommt einen `comment:` für Übersetzer.
+  - Datums- und Zahlenformate nur über `FormatStyle`, nie selbst zusammensetzen.
+  - Deutsche Ansprache mit „du“, wie Apple in seinen eigenen Apps.
+- **Barrierefreiheit:**
+  - Status nie nur über Farbe.
+  - Jede Fristangabe bekommt ein ausformuliertes VoiceOver-Label.
+  - Dynamic Type bis zu den Accessibility-Größen.
+  - Diagramme mit `accessibilityChartDescriptor`.
+- **Rechtlicher Hinweis:** Wo die App eine Pickerl-Frist zeigt, steht sichtbar „ohne Gewähr,
+  maßgeblich ist die Plakette“.
+- **Datenschutz:** Keine Netzwerkaufrufe außer CloudKit. Neue Required-Reason-APIs in
+  `App/Resources/PrivacyInfo.xcprivacy` eintragen.
+- **Platzhalter:** Bundle-ID `com.example.pitlog`, CloudKit-Container `iCloud.com.example.pitlog`.
+  Vor dem ersten TestFlight-Build ersetzen. Der Container-Name ist danach nicht mehr änderbar.
+
+## Bauen und Testen
+
+- **Core-Tests:** `swift test --package-path Packages/PitlogCore` (lokal mit Xcode 26 oder
+  Swift 6.2). In der Cloud-Umgebung ist kein Swift-Toolchain verfügbar (download.swift.org
+  ist gesperrt). Dort laufen die Tests nur über GitHub Actions (`.github/workflows/core-tests.yml`).
+- **App:** `scripts/bootstrap.sh` (braucht `xcodegen`, `brew install xcodegen`), dann
+  `Pitlog.xcodeproj` öffnen.
+
+## Recherche
+
+Die Cloud-Umgebung erreicht ris.bka.gv.at, parlament.gv.at, oeamtc.at, arboe.at und wko.at
+**nicht**. Recherche zu Primärquellen läuft in einer lokalen Session,
+Prompt: `docs/research/local-session-prompt.md`.
+
+## Meilensteine
+
+| # | Zeitraum | Inhalt | Status |
+|---|---|---|---|
+| M0 | Okt 2026 | Gerüst, CLAUDE.md, Regeldoku, XcodeGen, PitlogCore, CI | in Arbeit |
+| M1 | Okt–Nov | Fristen-Engine und Tests (final erst nach Primärquellen-Abgleich) | |
+| M2 | Nov | Datenmodell, Fahrzeugverwaltung, Pickerl-Karte, Hinweis, Lokalisierung | |
+| M3 | Dez | Erinnerungen und Benachrichtigungen | |
+| M4 | Jan 2027 | Historie, manuelle Einträge, Kosten pro Jahr | |
+| M5 | Jan–Feb | Spike Extraktion, dann Belegscan | |
+| M6 | Feb | StoreKit-2-Gating, Durchgang Barrierefreiheit, Datenschutz, TestFlight | |
+| M7 | März | Beta, rechtlicher Re-Check, Featuring-Nominierung, Einreichung | |
+
+## Offene Fragen
+
+1. **Primärquellen:** Alle Pickerl-Regeln sind bisher nur sekundär belegt (siehe Checkliste in
+   `docs/rules/AT-57a-KFG.md`, Abschnitt 8). Blockiert die Finalisierung von M1.
+2. **Übergangsfenster 2027 (AT-56):** Es gibt drei widersprüchliche Darstellungen.
+3. **Lochung der Austauschplakette für Fahrzeuge über 10 Jahre (AT-53/54).**
+4. **Reichweite des −4/0-Fensters (AT-43):** N1, Taxi, historische Fahrzeuge?
+5. **Foundation Models:** Qualität bei deutschsprachigen Werkstattrechnungen erst im Spike
+   (M5) bewerten, mit 15 bis 20 echten, anonymisierten Belegen.
+6. **Bundle-ID, Team und CloudKit-Container:** finale Werte vor M6.
+7. **App-Name:** „Pitlog“ ist ein Arbeitsname. Markenrecherche vor der Einreichung.

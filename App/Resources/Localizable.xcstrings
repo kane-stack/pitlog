@@ -1,0 +1,83 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "Add a vehicle to keep track of inspections, service and costs.": {
+      "comment": "Empty state description on the Vehicles tab",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Füge ein Fahrzeug hinzu, um Begutachtungen, Service und Kosten im Blick zu behalten."
+          }
+        }
+      }
+    },
+    "No vehicles": {
+      "comment": "Empty state title on the Vehicles tab",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keine Fahrzeuge"
+          }
+        }
+      }
+    },
+    "Nothing due": {
+      "comment": "Empty state title on the Upcoming tab",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nichts fällig"
+          }
+        }
+      }
+    },
+    "Settings": {
+      "comment": "Tab bar item and navigation title for settings",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Einstellungen"
+          }
+        }
+      }
+    },
+    "Upcoming": {
+      "comment": "Tab bar item and navigation title for upcoming deadlines",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anstehend"
+          }
+        }
+      }
+    },
+    "Upcoming inspections and reminders for all your vehicles will appear here.": {
+      "comment": "Empty state description on the Upcoming tab",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anstehende Begutachtungen und Erinnerungen für alle deine Fahrzeuge erscheinen hier."
+          }
+        }
+      }
+    },
+    "Vehicles": {
+      "comment": "Tab bar item and navigation title for the vehicle list",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fahrzeuge"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}
