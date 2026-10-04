@@ -1,0 +1,18 @@
+===== testAddVehicleFormPassesAccessibilityAudit / Complete Issue Description.txt
+This UITextField is missing useful accessibility information.
+===== testSettingsAndLegalPassAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testUpcomingTabPassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testVehicleDetailPassesAccessibilityAuditInGerman / audit-detail-de_0_3CFC076E-CF1C-421C-8C72-ED6555324A7E.txt
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Bearbeiten' id='' frame=(263.3333333333333, 51.0, 106.66666666666669, 36.0)
+
+(ignored: system navigation bar button)
+===== testVehicleDetailWithPickerlCardPassesAccessibilityAudit / audit-detail-en_0_F4C59A24-4840-4997-ACC1-68566E61766E.txt
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Edit' id='' frame=(316.6666666666667, 51.0, 53.333333333333314, 36.0)
+
+(ignored: system navigation bar button)
