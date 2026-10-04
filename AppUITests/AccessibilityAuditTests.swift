@@ -1,8 +1,12 @@
 import XCTest
 
 final class AccessibilityAuditTests: XCTestCase {
+    /// Issue descriptions of the running audit (the issue handler is escaping, so this is a property).
+    private var auditReport: [String] = []
+
     override func setUp() {
         continueAfterFailure = false
+        auditReport = []
     }
 
     // MARK: Launch
@@ -26,10 +30,9 @@ final class AccessibilityAuditTests: XCTestCase {
     /// Runs the audit, attaches every issue as text and never filters anything by itself.
     @MainActor
     private func audit(_ app: XCUIApplication, _ name: String) throws {
-        var report: [String] = []
         defer {
-            if !report.isEmpty {
-                let attachment = XCTAttachment(string: report.joined(separator: "\n\n"))
+            if !auditReport.isEmpty {
+                let attachment = XCTAttachment(string: auditReport.joined(separator: "\n\n"))
                 attachment.name = "audit-\(name).txt"
                 attachment.lifetime = .keepAlways
                 add(attachment)
@@ -39,11 +42,11 @@ final class AccessibilityAuditTests: XCTestCase {
         // an infrastructure error, not a finding, so it is retried once. Findings are never retried.
         for attempt in 1...2 {
             do {
-                try runAudit(app, name, &report)
+                try runAudit(app, name)
                 break
             } catch let error as NSError
                 where error.domain == "com.apple.xcode.xctest.accessibilityAudit" && error.code == -56 && attempt == 1 {
-                report.append("(audit timed out, retrying)")
+                auditReport.append("(audit timed out, retrying)")
                 continue
             }
         }
@@ -54,14 +57,14 @@ final class AccessibilityAuditTests: XCTestCase {
     }
 
     @MainActor
-    private func runAudit(_ app: XCUIApplication, _ name: String, _ report: inout [String]) throws {
+    private func runAudit(_ app: XCUIApplication, _ name: String) throws {
         try app.performAccessibilityAudit { issue in
             let element = issue.element.map {
                 "type=\($0.elementType.rawValue) label='\($0.label)' id='\($0.identifier)' frame=\($0.frame)"
             } ?? "no element"
             // Printed so the CI log shows it even without access to the .xcresult.
             print("AUDIT[\(name)] \(issue.auditType) | \(issue.compactDescription) | \(element)")
-            report.append(
+            self.auditReport.append(
                 "[\(issue.auditType)] \(issue.compactDescription)\n\(issue.detailedDescription)\nelement: \(element)")
             // The only filter: UIKit bar button items of the system navigation bar ("Save", "Cancel")
             // do not follow Dynamic Type and are not ours to change. Nothing else is ignored,
@@ -70,7 +73,7 @@ final class AccessibilityAuditTests: XCTestCase {
                let target = issue.element,
                target.elementType == .button,
                target.frame.maxY < 110 {  // top bar region: only nav bar items live there
-                report.append("(ignored: system navigation bar button)")
+                self.auditReport.append("(ignored: system navigation bar button)")
                 return true
             }
             return false
