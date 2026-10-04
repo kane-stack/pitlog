@@ -39,10 +39,10 @@ struct UpcomingView: View {
                 .accessibilityLabel(Text(verbatim: "\(row.vehicle.displayName). \(presentation.badgeAccessibilityLabel)"))
             }
                 }
-            }
-            if !rows.isEmpty {
-                // A row, not a footer: part of the list content and in the primary color.
-                Section { LegalNoticeView() }
+                if !rows.isEmpty {
+                    // The last row of the list: part of the content, primary color, wraps at any size.
+                    LegalNoticeView()
+                }
             }
         }
         .overlay {

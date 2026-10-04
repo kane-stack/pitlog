@@ -52,12 +52,8 @@ struct VehicleFormView: View {
         NavigationStack {
             Form {
                 Section {
-                    TextField(text: $name) {
-                        Text("Name", comment: "Vehicle form: name field")
-                    }
-                    TextField(text: $licensePlate) {
-                        Text("License plate", comment: "Vehicle form: license plate field")
-                    }
+                    FormTextField(title: Text("Name", comment: "Vehicle form: name field"), text: $name)
+                    FormTextField(title: Text("License plate", comment: "Vehicle form: license plate field"), text: $licensePlate)
                     .textInputAutocapitalization(.characters)
                     .autocorrectionDisabled()
                     Menu {
@@ -90,15 +86,9 @@ struct VehicleFormView: View {
                 }
 
                 Section {
-                    TextField(text: $make) {
-                        Text("Make", comment: "Vehicle form: make field")
-                    }
-                    TextField(text: $model) {
-                        Text("Model", comment: "Vehicle form: model field")
-                    }
-                    TextField(text: $vin) {
-                        Text("VIN (optional)", comment: "Vehicle form: vehicle identification number field")
-                    }
+                    FormTextField(title: Text("Make", comment: "Vehicle form: make field"), text: $make)
+                    FormTextField(title: Text("Model", comment: "Vehicle form: model field"), text: $model)
+                    FormTextField(title: Text("VIN (optional)", comment: "Vehicle form: vehicle identification number field"), text: $vin)
                     .textInputAutocapitalization(.characters)
                     .autocorrectionDisabled()
                     .onChange(of: vin) { _, newValue in
@@ -128,10 +118,7 @@ struct VehicleFormView: View {
                     } label: {
                         Text("First registration, year", comment: "Vehicle form: year of the first registration")
                     }
-                    TextField(value: $kilometers, format: .number) {
-                        Text("Odometer (km)", comment: "Vehicle form: current odometer in kilometres")
-                    }
-                    .keyboardType(.numberPad)
+                    FormNumberField(title: Text("Odometer (km)", comment: "Vehicle form: current odometer in kilometres"), value: $kilometers)
                 }
 
                 Section {
