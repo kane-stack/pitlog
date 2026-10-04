@@ -8,7 +8,7 @@ struct LegalNoticeView: View {
         } icon: {
             Image(systemName: "info.circle")
         }
+        // Primary color on purpose: the notice must stay readable on any background (audit contrast).
         .font(.footnote)
-        .foregroundStyle(.secondary)
     }
 }

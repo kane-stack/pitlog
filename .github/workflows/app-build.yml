@@ -128,7 +128,7 @@ jobs:
             $XCODEBUILD_FLAGS 2>&1 | tee "$RUNNER_TEMP/ui.log"
       - name: Summarize errors
         if: failure()
-        run: grep -E "error:|Test Case .* failed|Issue recorded|✘| failed \(" "$RUNNER_TEMP/ui.log" | sort -u | cut -c1-400 | head -80 || true
+        run: grep -E "AUDIT\[|error:|Test Case .* failed|Issue recorded|✘| failed \(" "$RUNNER_TEMP/ui.log" | sort -u | cut -c1-400 | head -80 || true
       - uses: actions/upload-artifact@v4
         if: failure()
         with:

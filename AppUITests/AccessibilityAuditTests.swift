@@ -36,7 +36,11 @@ final class AccessibilityAuditTests: XCTestCase {
             }
         }
         try app.performAccessibilityAudit { issue in
-            let element = issue.element.map { String(describing: $0) } ?? "no element"
+            let element = issue.element.map {
+                "type=\($0.elementType.rawValue) label='\($0.label)' id='\($0.identifier)' frame=\($0.frame)"
+            } ?? "no element"
+            // Printed so the CI log shows it even without access to the .xcresult.
+            print("AUDIT[\(name)] \(issue.auditType) | \(issue.compactDescription) | \(element)")
             report.append(
                 "[\(issue.auditType)] \(issue.compactDescription)\n\(issue.detailedDescription)\nelement: \(element)")
             return false
