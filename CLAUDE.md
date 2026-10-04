@@ -123,7 +123,7 @@ Prompt: `docs/research/local-session-prompt.md`.
 | # | Zeitraum | Inhalt | Status |
 |---|---|---|---|
 | M0 | Okt 2026 | Gerüst, CLAUDE.md, Regeldoku, XcodeGen, PitlogCore, CI | erledigt |
-| M1 | Okt–Nov | Fristen-Engine und Tests (final erst nach Primärquellen-Abgleich) | in Arbeit (Branch `claude/m1-inspection-engine`) |
+| M1 | Okt–Nov | Fristen-Engine und Tests (final erst nach Primärquellen-Abgleich) | Engine implementiert, wartet auf Primärquellen-Abgleich (Branch `claude/m1-inspection-engine`) |
 | M2 | Nov | Datenmodell, Fahrzeugverwaltung, Pickerl-Karte, Hinweis, Lokalisierung | |
 | M3 | Dez | Erinnerungen und Benachrichtigungen | |
 | M4 | Jan 2027 | Historie, manuelle Einträge, Kosten pro Jahr | |
