@@ -1,0 +1,14 @@
+===== testAddVehicleFormPassesAccessibilityAudit / Complete Issue Description.txt
+Contrast failed for SwiftUI.AccessibilityNode
+===== testVehicleDetailPassesAccessibilityAuditInGerman / audit-detail-de_0_A702F399-96E3-4CB2-8FCD-929AC5BEC381.txt
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Bearbeiten' id='' frame=(263.3333333333333, 51.0, 106.66666666666669, 36.0)
+
+(ignored: system navigation bar button)
+===== testVehicleDetailWithPickerlCardPassesAccessibilityAudit / audit-detail-en_0_DE4DDECC-3A84-40C5-BAB7-8BA56C965525.txt
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Edit' id='' frame=(316.6666666666667, 51.0, 53.333333333333314, 36.0)
+
+(ignored: system navigation bar button)
