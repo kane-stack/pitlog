@@ -1,7 +1,19 @@
 # Prompts für lokale Recherche-Sessions
 
 Die Cloud-Umgebung erreicht RIS und Parlament nicht. Diese Prompts in einer **lokalen**
-Claude-Code-Session im Repo `pitlog` ausführen. Ergebnis als Commit auf demselben Branch pushen.
+Claude-Code-Session im Repo `pitlog` ausführen.
+
+Git-Vorbereitung (der Branch basiert auf dem M1-Stand, damit Abschnitt 9 „Algorithmus der Engine“
+vorhanden ist):
+
+```
+git fetch origin
+git checkout -b claude/research-primary-sources origin/claude/m1-inspection-engine
+# am Ende:
+git push -u origin claude/research-primary-sources
+```
+
+Keinen Pull Request erstellen. Die koordinierende Session führt den Branch zusammen.
 
 ---
 
@@ -32,8 +44,14 @@ Vorgehen:
 - Löse besonders AT-53, AT-54, AT-56 (Übergangsfenster 2027) und AT-43 (Reichweite des
   −4/0-Fensters). Wenn der Text mehrdeutig bleibt, formuliere die möglichen Lesarten
   und markiere sie als OFFEN.
+- Prüfe den Abschnitt 9 „Algorithmus der Engine“ und die konservative Auslegung gegen den
+  Gesetzestext. Liste jede Stelle, an der der Algorithmus vom Gesetz abweicht, in einem neuen
+  Abschnitt „Abweichungen Engine vs. Gesetz“ (Regel-ID, Gesetz sagt, Engine macht,
+  Vorschlag). Den Algorithmus selbst nicht ändern.
 - Übernimm Beispiele aus den Erläuterungen als Testfälle in einen Abschnitt
   „Beispiele aus den Materialien“ (Eingabe → erwartetes Ergebnis, mit Fundstelle).
+- Gleiche die Anker-Testfälle aus Abschnitt 9 mit dem ÖAMTC-Pickerlrechner ab, soweit möglich,
+  und notiere Abweichungen.
 - Nicht an Code unter Packages/ oder App/ arbeiten.
 - Commit-Nachricht: "docs(rules): verify AT-57a rules against primary sources"
 ```
