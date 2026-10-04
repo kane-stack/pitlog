@@ -193,22 +193,25 @@ final class AccessibilityAuditTests: XCTestCase {
         // A valid form: a disabled "Save" is exempt from contrast rules, an enabled one must pass.
         nameField.tap()
         nameField.typeText("Test")
+        // Drop the keyboard focus so the caret is not part of the audited state.
+        app.navigationBars.staticTexts.firstMatch.tap()
         try audit(app, "form-en")
     }
 
-    /// Same form, scrolled down to the inspection sticker picker: tells apart findings of the top and the bottom half.
+    /// The edit form of a sample vehicle: valid from the start, no keyboard focus, sticker already entered.
     @MainActor
-    func testAddVehicleFormScrolledPassesAccessibilityAudit() throws {
+    func testEditVehicleFormPassesAccessibilityAudit() throws {
         let app = launch()
         app.tabBars.buttons.element(boundBy: 1).tap()
-        XCTAssertTrue(tap(app.buttons["addVehicleButton"]))
-        let nameField = app.textFields.firstMatch
-        XCTAssertTrue(nameField.waitForExistence(timeout: 5))
-        nameField.tap()
-        nameField.typeText("Test")
+        XCTAssertTrue(tap(app.cells.firstMatch))
+        XCTAssertTrue(app.buttons["recordInspectionButton"].waitForExistence(timeout: 5))
+        // "Edit" is the only button in the top right of the navigation bar.
+        app.navigationBars.buttons.element(boundBy: app.navigationBars.buttons.count - 1).tap()
+        XCTAssertTrue(app.buttons["cancelButton"].waitForExistence(timeout: 5))
+        try audit(app, "form-edit-en")
         app.swipeUp()
         app.swipeUp()
-        try audit(app, "form-scrolled-en")
+        try audit(app, "form-edit-scrolled-en")
     }
 
     @MainActor
