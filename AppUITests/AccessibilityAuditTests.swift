@@ -56,8 +56,18 @@ final class AccessibilityAuditTests: XCTestCase {
         add(screenshot)
     }
 
+    /// Labels of the buttons inside the navigation bars, collected before the audit starts.
+    private var navigationBarButtonLabels: Set<String> = []
+
+    /// Structural check: the issue's button has the label of a button inside a navigation bar.
+    private func isNavigationBarButton(_ element: XCUIElement) -> Bool {
+        navigationBarButtonLabels.contains(element.label)
+    }
+
     @MainActor
     private func runAudit(_ app: XCUIApplication, _ name: String) throws {
+        navigationBarButtonLabels = Set(
+            app.navigationBars.buttons.allElementsBoundByIndex.map(\.label).filter { !$0.isEmpty })
         try app.performAccessibilityAudit { issue in
             let element = issue.element.map {
                 "type=\($0.elementType.rawValue) label='\($0.label)' id='\($0.identifier)' frame=\($0.frame)"
@@ -72,7 +82,7 @@ final class AccessibilityAuditTests: XCTestCase {
             if issue.auditType == .dynamicType,
                let target = issue.element,
                target.elementType == .button,
-               target.frame.maxY < 110 {  // top bar region: only nav bar items live there
+               self.isNavigationBarButton(target) {
                 self.auditReport.append("(ignored: system navigation bar button)")
                 return true
             }
@@ -184,6 +194,21 @@ final class AccessibilityAuditTests: XCTestCase {
         nameField.tap()
         nameField.typeText("Test")
         try audit(app, "form-en")
+    }
+
+    /// Same form, scrolled down to the inspection sticker picker: tells apart findings of the top and the bottom half.
+    @MainActor
+    func testAddVehicleFormScrolledPassesAccessibilityAudit() throws {
+        let app = launch()
+        app.tabBars.buttons.element(boundBy: 1).tap()
+        XCTAssertTrue(tap(app.buttons["addVehicleButton"]))
+        let nameField = app.textFields.firstMatch
+        XCTAssertTrue(nameField.waitForExistence(timeout: 5))
+        nameField.tap()
+        nameField.typeText("Test")
+        app.swipeUp()
+        app.swipeUp()
+        try audit(app, "form-scrolled-en")
     }
 
     @MainActor
