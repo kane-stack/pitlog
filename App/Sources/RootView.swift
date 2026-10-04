@@ -1,25 +1,13 @@
 import SwiftUI
 
-/// Top-level navigation. Each tab is a placeholder until its milestone lands.
+/// Top-level navigation: Upcoming, Vehicles, Settings.
 struct RootView: View {
+    @AppStorage("legalNoticeAcknowledged") private var acknowledged = false
+
     var body: some View {
         TabView {
             Tab {
-                NavigationStack {
-                    ContentUnavailableView {
-                        Label {
-                            Text("Nothing due", comment: "Empty state title on the Upcoming tab")
-                        } icon: {
-                            Image(systemName: "calendar")
-                        }
-                    } description: {
-                        Text(
-                            "Upcoming inspections and reminders for all your vehicles will appear here.",
-                            comment: "Empty state description on the Upcoming tab"
-                        )
-                    }
-                    .navigationTitle(Text("Upcoming", comment: "Navigation title of the Upcoming tab"))
-                }
+                NavigationStack { UpcomingView() }
             } label: {
                 Label {
                     Text("Upcoming", comment: "Tab bar item for upcoming deadlines")
@@ -29,21 +17,7 @@ struct RootView: View {
             }
 
             Tab {
-                NavigationStack {
-                    ContentUnavailableView {
-                        Label {
-                            Text("No vehicles", comment: "Empty state title on the Vehicles tab")
-                        } icon: {
-                            Image(systemName: "car")
-                        }
-                    } description: {
-                        Text(
-                            "Add a vehicle to keep track of inspections, service and costs.",
-                            comment: "Empty state description on the Vehicles tab"
-                        )
-                    }
-                    .navigationTitle(Text("Vehicles", comment: "Navigation title of the Vehicles tab"))
-                }
+                NavigationStack { VehicleListView() }
             } label: {
                 Label {
                     Text("Vehicles", comment: "Tab bar item for the vehicle list")
@@ -53,10 +27,7 @@ struct RootView: View {
             }
 
             Tab {
-                NavigationStack {
-                    List {}
-                        .navigationTitle(Text("Settings", comment: "Navigation title of the Settings tab"))
-                }
+                NavigationStack { SettingsView() }
             } label: {
                 Label {
                     Text("Settings", comment: "Tab bar item for settings")
@@ -65,14 +36,19 @@ struct RootView: View {
                 }
             }
         }
+        .sheet(isPresented: Binding(get: { !acknowledged }, set: { _ in })) {
+            FirstLaunchNoticeView { acknowledged = true }
+        }
     }
 }
 
 #Preview {
     RootView()
+        .modelContainer(PreviewData.container())
 }
 
 #Preview("German") {
     RootView()
+        .modelContainer(PreviewData.container())
         .environment(\.locale, Locale(identifier: "de_AT"))
 }
