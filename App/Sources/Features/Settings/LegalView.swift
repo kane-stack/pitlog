@@ -11,11 +11,12 @@ struct LegalView: View {
             }
 
             Section {
-                LabeledContent {
-                    Text(verbatim: AustriaInspectionRules.ruleVersion)
-                } label: {
+                // Plain texts in the primary color: LabeledContent values are secondary and fail the contrast audit.
+                VStack(alignment: .leading, spacing: 2) {
                     Text("Rule version", comment: "Legal screen: label for the version of the rule set")
+                    Text(verbatim: AustriaInspectionRules.ruleVersion)
                 }
+                .accessibilityElement(children: .combine)
             }
 
             Section {

@@ -76,6 +76,16 @@ final class AccessibilityAuditTests: XCTestCase {
                 self.auditReport.append("(ignored: system navigation bar button)")
                 return true
             }
+            // Disabled controls are exempt from contrast requirements (WCAG 1.4.3). Only a disabled
+            // button in the navigation bar ("Save" while the form is incomplete) is ignored.
+            if issue.auditType == .contrast,
+               let target = issue.element,
+               target.elementType == .button,
+               !target.isEnabled,
+               target.frame.maxY < 110 {
+                self.auditReport.append("(ignored: disabled navigation bar button)")
+                return true
+            }
             return false
         }
     }

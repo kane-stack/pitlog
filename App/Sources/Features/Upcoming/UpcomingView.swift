@@ -39,9 +39,10 @@ struct UpcomingView: View {
                 .accessibilityLabel(Text(verbatim: "\(row.vehicle.displayName). \(presentation.badgeAccessibilityLabel)"))
             }
                 }
-            } footer: {
-                // Part of the list content, so it never sits under the tab bar (contrast audit).
-                if !rows.isEmpty { LegalNoticeView() }
+            }
+            if !rows.isEmpty {
+                // A row, not a footer: part of the list content and in the primary color.
+                Section { LegalNoticeView() }
             }
         }
         .overlay {

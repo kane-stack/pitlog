@@ -20,6 +20,7 @@ struct FirstLaunchNoticeView: View {
                     Text("Without guarantee. The date punched on your inspection sticker is authoritative.", comment: "Legal notice shown with every inspection deadline")
                         .fontWeight(.semibold)
                         .fixedSize(horizontal: false, vertical: true)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     Text("Some rules of the 2027 inspection reform are still legally open. In doubt the app shows the earlier deadline.", comment: "First launch notice: open legal questions")
                         .fixedSize(horizontal: false, vertical: true)
                 }

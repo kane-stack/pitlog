@@ -10,11 +10,11 @@ struct AboutView: View {
 
     var body: some View {
         List {
-            LabeledContent {
-                Text(verbatim: version)
-            } label: {
+            VStack(alignment: .leading, spacing: 2) {
                 Text("Version", comment: "About screen: app version label")
+                Text(verbatim: version)
             }
+            .accessibilityElement(children: .combine)
         }
         .navigationTitle(Text("About", comment: "Navigation title of the about screen"))
         .navigationBarTitleDisplayMode(.inline)

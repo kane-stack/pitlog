@@ -55,24 +55,16 @@ struct InspectionCardView: View {
                 .font(.subheadline)
 
             ForEach(Array(noteTexts.enumerated()), id: \.offset) { _, text in
-                Label(text, systemImage: "info.circle")
+                InfoRow(verbatim: text, systemImage: "info.circle")
                     .font(.footnote)
-                    .fixedSize(horizontal: false, vertical: true)
             }
 
             if let exchange = presentation.exchangeSuggestionText {
-                Label {
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text(exchange)
-                        if let availability = presentation.exchangeAvailabilityText {
-                            Text(availability)
-                        }
-                    }
-                } icon: {
-                    Image(systemName: "arrow.triangle.2.circlepath")
-                }
+                InfoRow(
+                    Text(exchange) + Text(presentation.exchangeAvailabilityText.map { " " + $0 } ?? ""),
+                    systemImage: "arrow.triangle.2.circlepath"
+                )
                 .font(.footnote)
-                .fixedSize(horizontal: false, vertical: true)
             }
 
             Text("Rule version \(status.ruleVersion)", comment: "Pickerl card: version of the rule set, small print")
@@ -93,7 +85,7 @@ struct InspectionCardView: View {
     @ViewBuilder
     private func unavailable(_ reason: InspectionService.UnavailableReason) -> some View {
         VStack(alignment: .leading, spacing: 8) {
-            Label(reason.text(locale: locale), systemImage: "questionmark.circle")
+            InfoRow(verbatim: reason.text(locale: locale), systemImage: "questionmark.circle")
             if let plaque = vehicle.plaque {
                 Text("Inspection sticker: \(plaque.displayString(locale: locale))", comment: "Pickerl card: the sticker month entered by the user when no deadline is calculated")
                     .fontWeight(.semibold)
