@@ -83,6 +83,8 @@ jobs:
     if: github.event_name == 'workflow_dispatch'
     runs-on: macos-26
     timeout-minutes: 60
+    permissions:
+      contents: write  # only this job: it commits screenshots to the branch (see "Publish screenshots")
     steps:
       - uses: actions/checkout@v4
       - name: Select Xcode 26
@@ -144,6 +146,39 @@ jobs:
         with:
           name: ui-attachments
           path: ${{ runner.temp }}/attachments
+      # The artifact host is blocked in the cloud environment, git is not: commit downscaled PNGs and the
+      # audit report below ci-screenshots/ on the dispatched branch. They are removed again after review.
+      - name: Publish screenshots
+        if: always()
+        run: |
+          OUT="ci-screenshots/run-${{ github.run_id }}"
+          mkdir -p "$OUT"
+          python3 - "$RUNNER_TEMP/attachments" "$OUT" <<'PY'
+          import json, os, re, shutil, subprocess, sys
+          src, out = sys.argv[1], sys.argv[2]
+          report = []
+          for test in json.load(open(os.path.join(src, "manifest.json"))):
+              tname = test["testIdentifier"].split("/")[-1].replace("()", "")
+              for a in test.get("attachments", []):
+                  human = a.get("suggestedHumanReadableName", "")
+                  path = os.path.join(src, a["exportedFileName"])
+                  if a["exportedFileName"].endswith(".png"):
+                      base = re.sub(r"_\d+_[0-9A-F-]{36}", "", human)
+                      dest = os.path.join(out, f"{tname}__{base}")
+                      shutil.copy(path, dest)
+                      subprocess.run(["sips", "-Z", "1200", dest], capture_output=True)
+                  elif a["exportedFileName"].endswith(".txt"):
+                      report.append(f"===== {tname} / {human}\n" + open(path).read())
+          open(os.path.join(out, "report.txt"), "w").write("\n".join(report))
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$OUT"
+          git commit -m "ci: screenshots and audit report of run ${{ github.run_id }}" || exit 0
+          for attempt in 1 2 3; do
+            git pull --rebase origin "${{ github.ref_name }}" && git push origin "HEAD:${{ github.ref_name }}" && break
+            sleep 5
+          done
       - name: Audit summary
         if: always()
         run: grep -E "AUDIT\[|error:.*Audit|failed \(" "$RUNNER_TEMP/ui.log" | sort -u | cut -c1-330 || true
