@@ -80,6 +80,7 @@ struct VehicleListView: View {
                         Image(systemName: "plus")
                     }
                 }
+                .accessibilityIdentifier("addVehicleButton")
             }
         }
         .sheet(isPresented: $showingForm) {

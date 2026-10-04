@@ -30,6 +30,7 @@ struct OdometerEntryView: View {
                     } label: {
                         Text("Cancel", comment: "Cancel button of a form")
                     }
+                    .accessibilityIdentifier("cancelButton")
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button {

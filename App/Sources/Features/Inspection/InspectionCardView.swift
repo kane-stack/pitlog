@@ -110,5 +110,6 @@ struct InspectionCardView: View {
             }
         }
         .buttonStyle(.borderedProminent)
+        .accessibilityIdentifier("recordInspectionButton")
     }
 }

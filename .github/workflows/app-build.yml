@@ -126,3 +126,14 @@ jobs:
         with:
           name: ui-xcresult
           path: ${{ runner.temp }}/ui.xcresult
+      - name: Export attachments (screenshots, audit issues)
+        if: always()
+        run: |
+          mkdir -p "$RUNNER_TEMP/attachments"
+          xcrun xcresulttool export attachments --path "$RUNNER_TEMP/ui.xcresult" --output-path "$RUNNER_TEMP/attachments"
+          ls "$RUNNER_TEMP/attachments" | head -20
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ui-attachments
+          path: ${{ runner.temp }}/attachments

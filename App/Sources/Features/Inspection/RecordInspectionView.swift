@@ -40,12 +40,14 @@ struct RecordInspectionView: View {
                     } label: {
                         Text("Cancel", comment: "Cancel button of a form")
                     }
+                    .accessibilityIdentifier("cancelButton")
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     if proposal == nil {
                         Button(action: calculate) {
                             Text("Continue", comment: "Button to continue to the next step")
                         }
+                        .accessibilityIdentifier("continueButton")
                     } else {
                         Button(action: save) {
                             Text("Save", comment: "Save button of a form")

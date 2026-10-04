@@ -28,6 +28,7 @@ struct FirstLaunchNoticeView: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .controlSize(.large)
+                .accessibilityIdentifier("acknowledgeButton")
                 .padding()
                 .background(.bar)
             }
