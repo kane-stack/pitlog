@@ -130,6 +130,33 @@ Parser geschrieben hat, und das OCR-Rauschen ist ein einfaches Modell (O/l/S/B-T
 heißt: Der Parser deckt die selbst gedachten Fälle ab. Die Gegenprobe sind Christophers echte Belege von
 2 Werkstätten (README, offener Punkt 5).
 
+## Holdout v1 (blind)
+
+25 Belege, die eine unabhängige Session ohne Kenntnis des Parsers geschrieben hat
+(`Fixtures/ReceiptsHoldout/`). Erster Lauf **vor jeder Parser-Änderung**, Commit `c429d8e`, Core-CI
+https://github.com/kane-stack/pitlog/actions/runs/37309644285. Gemessen vom Test `holdoutReport`
+(nur Bericht, scheitert nie an der Genauigkeit). Kennzeichen werden kompakt, Werkstattnamen ohne
+Groß-/Kleinschreibung verglichen.
+
+| Feld | richtig | fehlend | **falsch** |
+|---|---|---|---|
+| Gesamtbetrag (Minor Units) | 76,0 % | 24,0 % | 0,0 % |
+| Währung | 76,0 % | 24,0 % | 0,0 % |
+| Leistungsdatum | 100 % | 0 % | 0 % |
+| Rechnungsdatum | 96,0 % | 4,0 % | 0 % |
+| Historiendatum | 100 % | 0 % | 0 % |
+| Werkstattname | 68,0 % | 8,0 % | **24,0 %** |
+| Werkstatt-UID | 100 % | 0 % | 0 % |
+| Kilometerstand | 96,0 % | 4,0 % | 0 % |
+| Kennzeichen | 80,0 % | 20,0 % | 0 % |
+| FIN | 100 % | 0 % | 0 % |
+| Kategorie | 88,0 % | 4,0 % | **8,0 %** |
+| **Alle Felder (275)** | **89,1 %** | **8,0 %** | **2,9 %** |
+
+Die 8 falschen Werte: Werkstattname 6× (Kundenblock `Autohaus Mayrhofer` statt der Werkstatt im Fuß;
+OCR-Ziffern im Namen `H1NTERBERGER`, `ELEKTR0`, `Fol1en`; Abschnitt bei `|` mitten im Wort `Sch|osserei`;
+`Pruefstelle`/`Prüfstelle`), Kategorie 2× (`otherWorkshop` wurde als `repair` geraten).
+
 ## Grenzen
 
 - Bezeichnung und Betrag müssen in derselben Zeile stehen. Zerlegt die OCR eine Tabelle in Spalten,
