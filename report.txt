@@ -1,0 +1,42 @@
+===== testAddVehicleFormPassesAccessibilityAudit / audit-form-en_0_10FD8BEA-9E7D-47F1-A1C0-0FFAE9426642.txt
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Save' id='' frame=(307.6666666666667, 67.0, 62.333333333333314, 36.0)
+
+(ignored: system navigation bar button)
+
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Cancel' id='cancelButton' frame=(20.0, 67.0, 76.66666666666667, 36.0)
+
+(ignored: system navigation bar button)
+
+[XCUIAccessibilityAuditType(rawValue: 1)] Contrast failed
+Contrast failed for SwiftUI.AccessibilityNode
+element: type=9 label='Save' id='' frame=(307.6666666666667, 67.0, 62.333333333333314, 36.0)
+
+(ignored: disabled navigation bar button)
+===== testEditVehicleFormPassesAccessibilityAudit / audit-form-edit-en_0_962DA966-E6C7-43BA-B46C-A869C75EC3EA.txt
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Cancel' id='cancelButton' frame=(20.0, 67.0, 76.66666666666667, 36.0)
+
+(ignored: system navigation bar button)
+
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Save' id='' frame=(307.6666666666667, 67.0, 62.333333333333314, 36.0)
+
+(ignored: system navigation bar button)
+===== testVehicleDetailPassesAccessibilityAuditInGerman / audit-detail-de_0_E5F2501C-52AE-40F7-BF6E-ECB92FB9B15D.txt
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Bearbeiten' id='' frame=(263.3333333333333, 51.0, 106.66666666666669, 36.0)
+
+(ignored: system navigation bar button)
+===== testVehicleDetailWithPickerlCardPassesAccessibilityAudit / audit-detail-en_0_B1F17455-F25D-4AC5-8C76-A87A10AD2C78.txt
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Edit' id='' frame=(316.6666666666667, 51.0, 53.333333333333314, 36.0)
+
+(ignored: system navigation bar button)
