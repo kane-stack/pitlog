@@ -105,7 +105,7 @@ struct ServiceRecordPDFTests {
         #expect(text.contains("Servicenachweis"))
         #expect(text.contains("Kennzeichen"))
         #expect(text.contains("Erstzulassung"))
-        #expect(text.contains("14.03.2026"))
+        #expect(text.contains("14.3.2026"))
         #expect(text.contains("Angaben vom Fahrzeughalter erfasst, nicht geprüft. Erstellt mit Pitlog."))
         #expect(text.contains("Seite 1 von 1"))
     }

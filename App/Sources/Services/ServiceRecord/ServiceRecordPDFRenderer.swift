@@ -198,7 +198,7 @@ struct ServiceRecordPDFRenderer: Sendable {
         let rows = record.items.map { item in
             cellTexts(texts.cells(for: item, receiptsAttached: record.options.includeReceiptAttachments))
         }
-        let maxRowHeight = Self.bodyBottom - Self.marginTop - headerHeight - 4
+        let maxRowHeight = Self.bodyBottom - Self.marginTop - headingHeight - headerHeight - 4
         let heights = rows.map { min(tableHeight($0, columns: columns, page: page) + 2 * Self.rowPadding, maxRowHeight) }
 
         page.ensureSpace(headingHeight + headerHeight + (heights.first ?? 0))

@@ -7,6 +7,12 @@ import PitlogCore
 struct ServiceRecordTexts: Sendable {
     let locale: Locale
 
+    /// Looks the string up in the language of `locale`. `String(localized:locale:)` only formats with the locale
+    /// and keeps the device language for the lookup; a `LocalizedStringResource` carries the locale into both.
+    private func string(_ value: String.LocalizationValue, _ comment: StaticString) -> String {
+        String(localized: LocalizedStringResource(value, locale: locale, comment: comment))
+    }
+
     /// One line of the vehicle block: label, value and an optional small note under the value.
     struct Row: Equatable, Sendable {
         let label: String
@@ -30,54 +36,54 @@ struct ServiceRecordTexts: Sendable {
     // MARK: Document
 
     var title: String {
-        String(localized: "Service record", locale: locale, comment: "Title of the service record PDF and of its export screens. Also the start of the file name")
+        string("Service record", "Title of the service record PDF and of its export screens. Also the start of the file name")
     }
 
     func createdLine(_ day: DayDate) -> String {
         let date = day.formatted(.long, locale: locale)
-        return String(localized: "Created on \(date)", locale: locale, comment: "Service record PDF: creation date under the title. Argument: the date")
+        return string("Created on \(date)", "Service record PDF: creation date under the title. Argument: the date")
     }
 
     var footer: String {
-        String(localized: "Entered by the vehicle owner, not verified. Created with Pitlog.", locale: locale, comment: "Service record PDF: footer on every page. States that the data was entered by the owner and not checked")
+        string("Entered by the vehicle owner, not verified. Created with Pitlog.", "Service record PDF: footer on every page. States that the data was entered by the owner and not checked")
     }
 
     func pageNumber(_ page: Int, of total: Int) -> String {
-        String(localized: "Page \(page) of \(total)", locale: locale, comment: "Service record PDF: page number in the footer. First argument: this page, second: number of pages")
+        string("Page \(page) of \(total)", "Service record PDF: page number in the footer. First argument: this page, second: number of pages")
     }
 
     // MARK: Vehicle
 
     var vehicleHeading: String {
-        String(localized: "Vehicle", locale: locale, comment: "Service record PDF: heading of the vehicle data")
+        string("Vehicle", "Service record PDF: heading of the vehicle data")
     }
 
     var notRecorded: String {
-        String(localized: "Not recorded", locale: locale, comment: "Service record PDF: a vehicle value that the owner did not enter")
+        string("Not recorded", "Service record PDF: a vehicle value that the owner did not enter")
     }
 
     func vehicleRows(_ record: ServiceRecord) -> [Row] {
         let vehicle = record.vehicle
         var rows: [Row] = []
         rows.append(Row(
-            label: String(localized: "License plate", locale: locale, comment: "Service record PDF: label of the license plate"),
+            label: string("License plate", "Service record PDF: label of the license plate"),
             value: vehicle.licensePlate.isEmpty ? notRecorded : vehicle.licensePlate))
 
         if let name = makeAndModel(vehicle) {
             rows.append(Row(
-                label: String(localized: "Make and model", locale: locale, comment: "Service record PDF: label of make and model"),
+                label: string("Make and model", "Service record PDF: label of make and model"),
                 value: name))
         }
         if record.options.includeVIN {
             rows.append(Row(
-                label: String(localized: "VIN", locale: locale, comment: "Service record PDF: label of the vehicle identification number"),
+                label: string("VIN", "Service record PDF: label of the vehicle identification number"),
                 value: (vehicle.vin ?? "").isEmpty ? notRecorded : (vehicle.vin ?? "")))
         }
         rows.append(Row(
-            label: String(localized: "First registration", locale: locale, comment: "Service record PDF: label of the month of the first registration"),
+            label: string("First registration", "Service record PDF: label of the month of the first registration"),
             value: vehicle.firstRegistration?.displayString(locale: locale) ?? notRecorded))
         rows.append(Row(
-            label: String(localized: "Vehicle type", locale: locale, comment: "Service record PDF: label of the vehicle class such as passenger car"),
+            label: string("Vehicle type", "Service record PDF: label of the vehicle class such as passenger car"),
             value: categoryTitle(vehicle.category)))
         rows.append(Row(label: odometerLabel, value: odometerValue(record.odometer)))
         rows.append(plaqueRow(vehicle.plaque))
@@ -100,75 +106,75 @@ struct ServiceRecordTexts: Sendable {
     }
 
     private var odometerLabel: String {
-        String(localized: "Odometer", locale: locale, comment: "Service record PDF: label of the latest known odometer value")
+        string("Odometer", "Service record PDF: label of the latest known odometer value")
     }
 
     func kilometersText(_ kilometers: Int) -> String {
-        String(localized: "\(kilometers.formatted(.number.locale(locale))) km", locale: locale, comment: "Odometer value with unit, shown in the vehicle header")
+        string("\(kilometers.formatted(.number.locale(locale))) km", "Odometer value with unit, shown in the vehicle header")
     }
 
     private func odometerValue(_ statement: OdometerStatement?) -> String {
         guard let statement else { return notRecorded }
         let km = kilometersText(statement.kilometers)
         let date = statement.date.formatted(.long, locale: locale)
-        return String(localized: "\(km) (as of \(date))", locale: locale, comment: "Service record PDF: odometer value and the day it was read. First argument: the value with unit, second: the date")
+        return string("\(km) (as of \(date))", "Service record PDF: odometer value and the day it was read. First argument: the value with unit, second: the date")
     }
 
     private func plaqueRow(_ plaque: YearMonth?) -> Row {
-        let label = String(localized: "Inspection sticker (Pickerl)", locale: locale, comment: "Service record PDF: label of the month punched on the inspection sticker")
+        let label = string("Inspection sticker (Pickerl)", "Service record PDF: label of the month punched on the inspection sticker")
         guard let plaque else { return Row(label: label, value: notRecorded) }
-        let note = String(localized: "Month as entered from the sticker. The sticker on the vehicle is authoritative.", locale: locale, comment: "Service record PDF: note under the punched month of the inspection sticker. Not a calculated deadline")
+        let note = string("Month as entered from the sticker. The sticker on the vehicle is authoritative.", "Service record PDF: note under the punched month of the inspection sticker. Not a calculated deadline")
         return Row(label: label, value: plaque.displayString(locale: locale), note: note)
     }
 
     // MARK: History
 
     var historyHeading: String {
-        String(localized: "Maintenance history", locale: locale, comment: "Service record PDF: heading of the list of history entries")
+        string("Maintenance history", "Service record PDF: heading of the list of history entries")
     }
 
     func periodLine(_ period: ServiceRecordPeriod) -> String {
         let value: String
         switch period {
         case .all:
-            value = String(localized: "all entries", locale: locale, comment: "Service record PDF: period value, all entries are listed. Lowercase, used inside a sentence")
+            value = string("all entries", "Service record PDF: period value, all entries are listed. Lowercase, used inside a sentence")
         case .since(let day):
             let date = day.formatted(.long, locale: locale)
-            value = String(localized: "from \(date)", locale: locale, comment: "Service record PDF: period value, entries from a date on. Lowercase, used inside a sentence. Argument: the date")
+            value = string("from \(date)", "Service record PDF: period value, entries from a date on. Lowercase, used inside a sentence. Argument: the date")
         }
-        return String(localized: "Period: \(value)", locale: locale, comment: "Service record PDF: the period of the listed entries. Argument: all entries, or from a date")
+        return string("Period: \(value)", "Service record PDF: the period of the listed entries. Argument: all entries, or from a date")
     }
 
     var emptyHistory: String {
-        String(localized: "No entries in the selected period.", locale: locale, comment: "Service record PDF: shown when the history has no entries in the period")
+        string("No entries in the selected period.", "Service record PDF: shown when the history has no entries in the period")
     }
 
     var numberHeader: String {
-        String(localized: "No.", locale: locale, comment: "Service record PDF: table header, number of the entry. Keep it very short")
+        string("No.", "Service record PDF: table header, number of the entry. Keep it very short")
     }
 
     var dateHeader: String {
-        String(localized: "Date", locale: locale, comment: "Service record PDF: table header, date of the work")
+        string("Date", "Service record PDF: table header, date of the work")
     }
 
     var kilometersHeader: String {
-        String(localized: "km", locale: locale, comment: "Service record PDF: table header of the odometer column. Keep it very short")
+        string("km", "Service record PDF: table header of the odometer column. Keep it very short")
     }
 
     var categoryHeader: String {
-        String(localized: "Category", locale: locale, comment: "Service record PDF: table header, kind of work")
+        string("Category", "Service record PDF: table header, kind of work")
     }
 
     var workHeader: String {
-        String(localized: "Workshop and work", locale: locale, comment: "Service record PDF: table header, workshop name and what was done")
+        string("Workshop and work", "Service record PDF: table header, workshop name and what was done")
     }
 
     var amountHeader: String {
-        String(localized: "Amount", locale: locale, comment: "Service record PDF: table header, cost of the entry")
+        string("Amount", "Service record PDF: table header, cost of the entry")
     }
 
     var receiptHeader: String {
-        String(localized: "Receipt", locale: locale, comment: "Service record PDF: table header, whether a receipt exists. Keep it short")
+        string("Receipt", "Service record PDF: table header, whether a receipt exists. Keep it short")
     }
 
     func cells(for item: ServiceRecordItem, receiptsAttached: Bool) -> EntryCells {
@@ -177,9 +183,9 @@ struct ServiceRecordTexts: Sendable {
         if entry.receiptCount == 0 {
             receipt = "–"
         } else if receiptsAttached {
-            receipt = String(localized: "Attached", locale: locale, comment: "Service record PDF: table cell, the receipt is attached at the end of the document")
+            receipt = string("Attached", "Service record PDF: table cell, the receipt is attached at the end of the document")
         } else {
-            receipt = String(localized: "Yes", locale: locale, comment: "Service record PDF: table cell, a receipt exists for the entry")
+            receipt = string("Yes", "Service record PDF: table cell, a receipt exists for the entry")
         }
         return EntryCells(
             number: item.number.formatted(.number.grouping(.never).locale(locale)),
@@ -195,15 +201,15 @@ struct ServiceRecordTexts: Sendable {
     // MARK: Costs
 
     var costsHeading: String {
-        String(localized: "Costs", locale: locale, comment: "Chart axis: the amount of money")
+        string("Costs", "Chart axis: the amount of money")
     }
 
     var costsNote: String {
-        String(localized: "Sums of the listed entries, per currency.", locale: locale, comment: "Service record PDF: note under the costs. Currencies are never converted")
+        string("Sums of the listed entries, per currency.", "Service record PDF: note under the costs. Currencies are never converted")
     }
 
     var totalLabel: String {
-        String(localized: "Total", locale: locale, comment: "Costs chart: the total of all categories")
+        string("Total", "Costs chart: the total of all categories")
     }
 
     func yearText(_ year: Int) -> String {
@@ -217,7 +223,7 @@ struct ServiceRecordTexts: Sendable {
     // MARK: Attachments
 
     var attachmentsHeading: String {
-        String(localized: "Attached receipts", locale: locale, comment: "Service record PDF: heading of the receipts at the end of the document")
+        string("Attached receipts", "Service record PDF: heading of the receipts at the end of the document")
     }
 
     func attachmentCaption(_ item: ServiceRecordItem) -> String {
@@ -225,17 +231,17 @@ struct ServiceRecordTexts: Sendable {
         let parts = [entry.date.formatted(.long, locale: locale), entry.category.title(locale: locale), entry.workshop]
             .filter { !$0.isEmpty }
         let summary = parts.joined(separator: ", ")
-        return String(localized: "Receipt for entry \(item.number): \(summary)", locale: locale, comment: "Service record PDF: caption above an attached receipt. First argument: the number of the entry in the table, second: its date, category and workshop")
+        return string("Receipt for entry \(item.number): \(summary)", "Service record PDF: caption above an attached receipt. First argument: the number of the entry in the table, second: its date, category and workshop")
     }
 
     func receiptPosition(_ index: Int, of count: Int, page: Int, of pages: Int) -> String {
-        let receipt = String(localized: "Receipt \(index) of \(count)", locale: locale, comment: "Service record PDF: position of an attached receipt among the receipts of one entry. First argument: this receipt, second: number of receipts")
+        let receipt = string("Receipt \(index) of \(count)", "Service record PDF: position of an attached receipt among the receipts of one entry. First argument: this receipt, second: number of receipts")
         guard pages > 1 else { return receipt }
-        let pageText = String(localized: "page \(page) of \(pages)", locale: locale, comment: "Service record PDF: page of a multi-page receipt, lowercase, after the receipt position. First argument: this page, second: number of pages")
+        let pageText = string("page \(page) of \(pages)", "Service record PDF: page of a multi-page receipt, lowercase, after the receipt position. First argument: this page, second: number of pages")
         return "\(receipt), \(pageText)"
     }
 
     var receiptUnavailable: String {
-        String(localized: "This receipt could not be shown.", locale: locale, comment: "Service record PDF: placeholder where an attached receipt cannot be read or is not on this device yet")
+        string("This receipt could not be shown.", "Service record PDF: placeholder where an attached receipt cannot be read or is not on this device yet")
     }
 }
