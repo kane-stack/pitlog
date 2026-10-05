@@ -36,7 +36,8 @@ struct ServiceRecordExportView: View {
                 }
             }
             .navigationTitle(Text("Service record", comment: "Title of the service record PDF and of its export screens. Also the start of the file name"))
-            .navigationBarTitleDisplayMode(.inline)
+            // A large title wraps; the inline one was clipped between the two buttons at the largest sizes in German.
+            .navigationBarTitleDisplayMode(.large)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button {
