@@ -18,6 +18,7 @@ struct HistoryView: View {
     @State private var filter: MaintenanceCategory?
     @State private var entryToDelete: MaintenanceEntry?
     @State private var showingDeleteConfirmation = false
+    @State private var showingServiceRecord = false
 
     private var entries: [MaintenanceEntry] { vehicle.maintenanceEntries ?? [] }
 
@@ -43,6 +44,7 @@ struct HistoryView: View {
             filterRow
             addRow
             addFromReceiptRow
+            exportRow
             if entries.isEmpty {
                 note(Text("No entries yet. Add service, repairs and other workshop visits.", comment: "History: empty state"))
             } else if groups.isEmpty {
@@ -65,6 +67,9 @@ struct HistoryView: View {
         }
         .sheet(item: $editorTarget) { target in
             EntryEditorView(vehicle: vehicle, entry: target.entry, prefill: target.prefill)
+        }
+        .sheet(isPresented: $showingServiceRecord, onDismiss: { ServiceRecordTempFiles.sweep() }) {
+            ServiceRecordExportView(vehicle: vehicle)
         }
         .confirmationDialog(
             Text("Delete this entry?", comment: "History: title of the delete confirmation"),
@@ -149,6 +154,27 @@ struct HistoryView: View {
                 ? Text("Add from receipt, requires Pitlog Pro", comment: "VoiceOver label of the receipt scan row while the user has no Pro")
                 : nil
         ) { startScan() }
+    }
+
+    private var exportRow: some View {
+        let locked = !entitlements.canExportServiceRecord
+        let title = Text("Export service record", comment: "History: button that creates a PDF service record of the vehicle")
+        return ActionRow(
+            title: title, systemImage: "doc.richtext", showsProBadge: locked,
+            identifier: "exportServiceRecordRow",
+            accessibilityLabelText: locked
+                ? Text("Export service record, requires Pitlog Pro", comment: "VoiceOver label of the service record row while the user has no Pro")
+                : nil
+        ) { startExport() }
+    }
+
+    /// Reading a record is not an edit, so it works on read-only vehicles too, but it is a Pro feature.
+    private func startExport() {
+        guard entitlements.canExportServiceRecord else {
+            paywall = .serviceRecordExport
+            return
+        }
+        showingServiceRecord = true
     }
 
     private func startScan() {

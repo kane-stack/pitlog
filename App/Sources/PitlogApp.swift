@@ -24,6 +24,8 @@ struct PitlogApp: App {
         // The delegate and the background task must be in place before the app finishes launching.
         UNUserNotificationCenter.current().delegate = delegate
         coordinator.registerBackgroundTask()
+        // An export that was open when the app ended must not leave a copy of the PDF behind.
+        ServiceRecordTempFiles.sweep()
 
         self.container = container
         self.coordinator = coordinator

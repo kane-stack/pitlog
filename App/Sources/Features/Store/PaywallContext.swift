@@ -8,6 +8,7 @@ enum PaywallContext: String, Identifiable, Hashable {
     case reminders
     case receiptScan
     case costs
+    case serviceRecordExport
 
     var id: String { rawValue }
 
@@ -18,6 +19,7 @@ enum PaywallContext: String, Identifiable, Hashable {
         case .reminders: .proReminders
         case .receiptScan: .receiptScan
         case .costs: .multiYearCosts
+        case .serviceRecordExport: .serviceRecordExport
         }
     }
 }

@@ -36,6 +36,10 @@ struct PaywallView: View {
                 id: .costs, systemImage: "chart.bar",
                 title: Text("Costs over the years", comment: "Pitlog Pro benefit"),
                 detail: Text("Earlier years and the chart across all years.", comment: "Pitlog Pro benefit: costs over several years")),
+            Benefit(
+                id: .serviceRecordExport, systemImage: "doc.richtext",
+                title: Text("Service record", comment: "Pitlog Pro benefit"),
+                detail: Text("A PDF of the history of a vehicle, for example for selling it.", comment: "Pitlog Pro benefit: PDF service record")),
         ]
     }
 
@@ -99,6 +103,8 @@ struct PaywallView: View {
             Text("Reminders for tyres, service, vignette and your own are part of Pitlog Pro. The inspection reminder stays free.", comment: "Paywall: shown when the user wanted a locked reminder")
         case .receiptScan:
             Text("Scanning receipts is part of Pitlog Pro. You can still attach receipts as photos or files.", comment: "Paywall: shown when the user wanted to scan a receipt")
+        case .serviceRecordExport:
+            Text("The service record as a PDF is part of Pitlog Pro. Your history stays free.", comment: "Paywall: shown when the user wanted to export the service record")
         case .costs:
             Text("Costs of earlier years and the chart across all years are part of Pitlog Pro. The current year stays free.", comment: "Paywall: shown when the user wanted the costs of earlier years")
         }

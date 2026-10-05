@@ -820,4 +820,119 @@ final class AccessibilityAuditTests: XCTestCase {
         XCTAssertTrue(scrollUntilVisible(add, in: app))
         XCTAssertTrue(add.label.contains("Pitlog Pro"))
     }
+
+    // MARK: Service record (M6b)
+
+    /// The history of the first sample vehicle (Pro), up to the options sheet of the service record.
+    @MainActor
+    private func openServiceRecordOptions(
+        german: Bool = false, largeText: Bool = false, extraArguments: [String] = []
+    ) -> XCUIApplication {
+        let app = launch(german: german, largeText: largeText, extraArguments: extraArguments)
+        app.tabBars.buttons.element(boundBy: 1).tap()
+        XCTAssertTrue(tap(app.cells.firstMatch))
+        XCTAssertTrue(app.buttons["recordInspectionButton"].waitForExistence(timeout: 10))
+        let history = app.descendants(matching: .any)["historyRow"]
+        XCTAssertTrue(scrollUntilVisible(history, in: app))
+        history.tap()
+        let export = app.descendants(matching: .any)["exportServiceRecordRow"]
+        XCTAssertTrue(export.waitForExistence(timeout: 15))
+        XCTAssertTrue(scrollUntilVisible(export, in: app))
+        export.tap()
+        XCTAssertTrue(app.buttons["createServiceRecordButton"].waitForExistence(timeout: 10))
+        return app
+    }
+
+    /// Creates the PDF from the options sheet and waits for the preview.
+    @MainActor
+    private func openServiceRecordPreview(
+        german: Bool = false, largeText: Bool = false
+    ) -> XCUIApplication {
+        let app = openServiceRecordOptions(german: german, largeText: largeText)
+        app.buttons["createServiceRecordButton"].tap()
+        XCTAssertTrue(app.descendants(matching: .any)["shareServiceRecordButton"].waitForExistence(timeout: 30))
+        XCTAssertTrue(app.descendants(matching: .any)["serviceRecordPreview"].waitForExistence(timeout: 15))
+        return app
+    }
+
+    @MainActor
+    func testServiceRecordOptionsPassAccessibilityAudit() throws {
+        let app = openServiceRecordOptions()
+        try audit(app, "service-record-options-en")
+    }
+
+    @MainActor
+    func testServiceRecordOptionsPassAccessibilityAuditInGerman() throws {
+        let app = openServiceRecordOptions(german: true)
+        try audit(app, "service-record-options-de")
+    }
+
+    @MainActor
+    func testServiceRecordOptionsPassAccessibilityAuditWithLargeText() throws {
+        let app = openServiceRecordOptions(largeText: true)
+        try audit(app, "service-record-options-xxxl-en")
+    }
+
+    @MainActor
+    func testServiceRecordOptionsPassAccessibilityAuditWithLargeTextInGerman() throws {
+        let app = openServiceRecordOptions(german: true, largeText: true)
+        try audit(app, "service-record-options-xxxl-de")
+    }
+
+    @MainActor
+    func testServiceRecordPreviewPassesAccessibilityAudit() throws {
+        let app = openServiceRecordPreview()
+        try audit(app, "service-record-preview-en")
+    }
+
+    @MainActor
+    func testServiceRecordPreviewPassesAccessibilityAuditInGerman() throws {
+        let app = openServiceRecordPreview(german: true)
+        try audit(app, "service-record-preview-de")
+    }
+
+    @MainActor
+    func testServiceRecordPreviewPassesAccessibilityAuditWithLargeText() throws {
+        let app = openServiceRecordPreview(largeText: true)
+        try audit(app, "service-record-preview-xxxl-en")
+    }
+
+    /// Free: the row stays visible with the Pro mark and is part of the audit of the history.
+    @MainActor
+    private func openFreeHistory(german: Bool = false) -> XCUIApplication {
+        let app = launch(german: german, extraArguments: ["-UITestFree"])
+        app.tabBars.buttons.element(boundBy: 1).tap()
+        XCTAssertTrue(tap(app.cells.firstMatch))
+        XCTAssertTrue(app.buttons["recordInspectionButton"].waitForExistence(timeout: 10))
+        let history = app.descendants(matching: .any)["historyRow"]
+        XCTAssertTrue(scrollUntilVisible(history, in: app))
+        history.tap()
+        XCTAssertTrue(app.descendants(matching: .any)["costsEarlierYearsRow"].waitForExistence(timeout: 15))
+        let export = app.descendants(matching: .any)["exportServiceRecordRow"]
+        XCTAssertTrue(scrollUntilVisible(export, in: app))
+        return app
+    }
+
+    @MainActor
+    func testLockedServiceRecordRowPassesAccessibilityAudit() throws {
+        let app = openFreeHistory()
+        XCTAssertTrue(app.descendants(matching: .any)["exportServiceRecordRow"].label.contains("Pitlog Pro"))
+        try audit(app, "service-record-locked-en")
+    }
+
+    @MainActor
+    func testLockedServiceRecordRowPassesAccessibilityAuditInGerman() throws {
+        let app = openFreeHistory(german: true)
+        XCTAssertTrue(app.descendants(matching: .any)["exportServiceRecordRow"].label.contains("Pitlog Pro"))
+        try audit(app, "service-record-locked-de")
+    }
+
+    @MainActor
+    func testWithoutProTheServiceRecordOpensThePaywall() {
+        let app = openFreeHistory()
+        app.descendants(matching: .any)["exportServiceRecordRow"].tap()
+        XCTAssertTrue(app.buttons["paywallBuy-yearly"].waitForExistence(timeout: 15))
+        XCTAssertTrue(app.descendants(matching: .any)["paywallContextNote"].exists)
+        XCTAssertFalse(app.buttons["createServiceRecordButton"].exists)
+    }
 }

@@ -30,7 +30,7 @@ Dieses Dokument beschreibt, wie es umgesetzt ist, wie man es testet und was Chri
 | Zulassungsschein-Scan, Historie, manuelle Einträge, Belege als Foto/Datei | ja | ja |
 | Belegscan | Zeile mit „Pro“, Tippen öffnet die Paywall | ja |
 | Kosten | laufendes Jahr | alle Jahre, Diagramm und Tabelle über Jahre |
-| PDF-Servicenachweis | (kommt in M6b, nur die Eigenschaft `canExportServiceRecord` existiert) | ja |
+| PDF-Servicenachweis | Zeile mit „Pro“, Tippen öffnet die Paywall | ja (`docs/service-record.md`) |
 
 Ohne Pro versteckt die Übersicht „Anstehend“ die nicht geplanten Pro-Erinnerungen; in der Erinnerungsliste des Fahrzeugs bleiben sie sichtbar.
 
