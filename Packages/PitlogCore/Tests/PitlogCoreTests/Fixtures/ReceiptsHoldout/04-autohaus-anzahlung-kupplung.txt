@@ -1,0 +1,23 @@
+Autohaus Kerschbaumer GmbH & Co KG
+Marktplatz 4, 6700 Bludenz
+UID ATU 48820716  FN 188305 f
+Rechnung Nr. 26-3318
+Kunde: Elisabeth Moosbrugger, Alpenstr. 9, 6700 Bludenz
+Fahrzeug  VW Caddy  Kz. VB-345CD
+FIN WVWZZZ3CZJE456789
+Auftrag vom 24.08.2026   Anzahlung erhalten 25.08.2026
+Fertigstellung 09.09.2026 Leistungsdatum 09.09.2026
+Rechnungsdatum 10.09.2026
+Kilometerstand 112.340
+Kupplung tauschen inkl. Aus-/Einbau 6,5 Std 148,00 962,00
+Kupplungssatz 689,00
+Zweimassenschwungrad 842,50
+Getriebeöl 2,0 l 19,80 39,60
+Teile gesamt 1.571,10
+./. Rabatt 10 % auf Teile -157,11
+Summe netto 2.375,99
+USt 20 % 475,20
+Rechnungsbetrag brutto 2.851,19
+abzüglich Anzahlung vom 25.08.2026 -1.000,00
+Noch zu zahlen 1.851,19
+Zahlbar bis 17.09.2026 auf IBAN AT48 2060 4000 0123 4567

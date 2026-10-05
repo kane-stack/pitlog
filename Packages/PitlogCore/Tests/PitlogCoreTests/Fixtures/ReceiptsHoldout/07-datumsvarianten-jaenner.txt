@@ -1,0 +1,22 @@
+Autoservice Reiterer GmbH
+Wiener Straße 61, 4030 Linz
+UID ATU 29553017
+Rechnung 2026-0017                    € 1.234,56
+Rechnungsdatum: 9. Jänner 2026
+Leistungsdatum: 08. Jänner 2026
+Kennzeichen LL-321GH
+FIN VF1RFB00X66123456
+Erstzulassung 02/2020
+Kilometerstand: 98.730
+Großes Service nach Herstellervorgabe
+Arbeitszeit 6,0 Std  Std.-Satz 135,-   810,00
+Motoröl 5W-30 5,0 l                    72,50
+Ölfilter                               19,80
+Luftfilter                             28,50
+Innenraumfilter                        22,00
+Zündkerzen 4 Stk                       72,00
+Entsorgungspauschale                    4,00
+Nettobetrag                         1.028,80
+USt 20 %                              205,76
+Zahlbetrag 1234,56 EUR
+Nächstes Service 01/2027 oder 15.000 km
