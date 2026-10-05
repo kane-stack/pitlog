@@ -103,7 +103,7 @@ enum TextNormalizer {
     /// Lower case, umlauts and ß replaced, nothing but letters and digits: for comparing names across sources.
     static func folded(_ text: String) -> String {
         var result = text.lowercased()
-        for (from, to) in [("ä", "a"), ("ö", "o"), ("ü", "u"), ("ß", "ss"), ("é", "e"), ("è", "e")] {
+        for (from, to) in [("ä", "ae"), ("ö", "oe"), ("ü", "ue"), ("ß", "ss"), ("é", "e"), ("è", "e")] {
             result = result.replacingOccurrences(of: from, with: to)
         }
         return String(result.filter { $0.isLetter || $0.isNumber })

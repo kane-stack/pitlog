@@ -32,7 +32,7 @@ private func draft(
 private let rksvPayload =
     "_R1-AT1_KASSE01_2041_2026-03-14T14:23:11_74,92_0,00_0,00_0,00_0,00_eHl6Xw==_1A2B3C_dGVzdHNpZ25hdHVyZQ"
 private let rksvCancellation =
-    "_R1-AT1_K_1_2026-03-14T09:00:00_-1,00_0,00_0,00_0,00_U1RP_y_z"
+    "_R1-AT1_K_1_2026-03-14T09:00:00_-1,00_0,00_0,00_0,00_0,00_U1RP_y_z"
 
 struct ReceiptMergeTests {
     // MARK: Both extractors ran
