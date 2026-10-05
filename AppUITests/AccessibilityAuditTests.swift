@@ -278,7 +278,8 @@ final class AccessibilityAuditTests: XCTestCase {
         let row = app.descendants(matching: .any)["remindersRow"]
         XCTAssertTrue(scrollUntilVisible(row, in: app))
         row.tap()
-        XCTAssertTrue(app.buttons["addReminderButton"].waitForExistence(timeout: 5))
+        // The top of the list: with locked reminders the add row can lie below the fold.
+        XCTAssertTrue(app.switches["inspectionRemindersToggle"].waitForExistence(timeout: 10))
         return app
     }
 
@@ -296,6 +297,7 @@ final class AccessibilityAuditTests: XCTestCase {
 
     @MainActor
     private func openEditor(_ app: XCUIApplication, menuItem: String) {
+        XCTAssertTrue(scrollUntilVisible(app.buttons["addReminderButton"], in: app))
         XCTAssertTrue(tap(app.buttons["addReminderButton"]))
         var item = app.buttons[menuItem]
         if !item.waitForExistence(timeout: 5) {
@@ -726,7 +728,9 @@ final class AccessibilityAuditTests: XCTestCase {
     @MainActor
     func testTappingAddReminderWithoutProOpensThePaywall() {
         let app = openReminderList(extraArguments: ["-UITestFree"])
-        app.descendants(matching: .any)["addReminderButton"].tap()
+        let add = app.descendants(matching: .any)["addReminderButton"]
+        XCTAssertTrue(scrollUntilVisible(add, in: app))
+        add.tap()
         XCTAssertTrue(app.buttons["paywallBuy-yearly"].waitForExistence(timeout: 15))
         XCTAssertFalse(app.buttons["saveReminderButton"].exists)
     }
