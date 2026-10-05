@@ -1,6 +1,17 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%@ (as of %@)" : {
+      "comment" : "Service record PDF: odometer value and the day it was read. First argument: the value with unit, second: the date",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ (Stand: %@)"
+          }
+        }
+      }
+    },
     "%@ and %lld more" : {
       "comment" : "History row: the first work items, then how many more there are. First argument: a list of work items, second: the number of further items",
       "localizations" : {
@@ -103,24 +114,6 @@
     "%lld days" : {
       "comment" : "Number of days in a picker value, plural",
       "localizations" : {
-        "en" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "%lld day"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "%lld days"
-                }
-              }
-            }
-          }
-        },
         "de" : {
           "variations" : {
             "plural" : {
@@ -138,30 +131,30 @@
               }
             }
           }
-        }
-      }
-    },
-    "%lld days until the window closes" : {
-      "comment" : "Days until the inspection window closes, plural",
-      "localizations" : {
+        },
         "en" : {
           "variations" : {
             "plural" : {
               "one" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "%lld day until the window closes"
+                  "value" : "%lld day"
                 }
               },
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "%lld days until the window closes"
+                  "value" : "%lld days"
                 }
               }
             }
           }
-        },
+        }
+      }
+    },
+    "%lld days until the window closes" : {
+      "comment" : "Days until the inspection window closes, plural",
+      "localizations" : {
         "de" : {
           "variations" : {
             "plural" : {
@@ -179,30 +172,30 @@
               }
             }
           }
-        }
-      }
-    },
-    "%lld entries" : {
-      "comment" : "Vehicle detail: number of history entries, plural",
-      "localizations" : {
+        },
         "en" : {
           "variations" : {
             "plural" : {
               "one" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "%lld entry"
+                  "value" : "%lld day until the window closes"
                 }
               },
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "%lld entries"
+                  "value" : "%lld days until the window closes"
                 }
               }
             }
           }
-        },
+        }
+      }
+    },
+    "%lld entries" : {
+      "comment" : "Vehicle detail: number of history entries, plural",
+      "localizations" : {
         "de" : {
           "variations" : {
             "plural" : {
@@ -216,6 +209,24 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "%lld Einträge"
+                }
+              }
+            }
+          }
+        },
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld entry"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld entries"
                 }
               }
             }
@@ -237,24 +248,6 @@
     "%lld months" : {
       "comment" : "Number of months in a picker value, plural",
       "localizations" : {
-        "en" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "%lld month"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "%lld months"
-                }
-              }
-            }
-          }
-        },
         "de" : {
           "variations" : {
             "plural" : {
@@ -272,30 +265,30 @@
               }
             }
           }
-        }
-      }
-    },
-    "%lld receipts" : {
-      "comment" : "History row: number of attached receipts, plural",
-      "localizations" : {
+        },
         "en" : {
           "variations" : {
             "plural" : {
               "one" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "%lld receipt"
+                  "value" : "%lld month"
                 }
               },
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "%lld receipts"
+                  "value" : "%lld months"
                 }
               }
             }
           }
-        },
+        }
+      }
+    },
+    "%lld receipts" : {
+      "comment" : "History row: number of attached receipts, plural",
+      "localizations" : {
         "de" : {
           "variations" : {
             "plural" : {
@@ -313,12 +306,48 @@
               }
             }
           }
+        },
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld receipt"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld receipts"
+                }
+              }
+            }
+          }
         }
       }
     },
     "%lld receipts attached" : {
       "comment" : "VoiceOver: a history entry has receipts attached, plural",
       "localizations" : {
+        "de" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Beleg angehängt"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Belege angehängt"
+                }
+              }
+            }
+          }
+        },
         "en" : {
           "variations" : {
             "plural" : {
@@ -336,23 +365,16 @@
               }
             }
           }
-        },
+        }
+      }
+    },
+    "A PDF of the history of a vehicle, for example for selling it." : {
+      "comment" : "Pitlog Pro benefit: PDF service record",
+      "localizations" : {
         "de" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "%lld Beleg angehängt"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "%lld Belege angehängt"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ein PDF mit der Historie eines Fahrzeugs, zum Beispiel für den Verkauf."
           }
         }
       }
@@ -577,6 +599,17 @@
         }
       }
     },
+    "All entries" : {
+      "comment" : "Service record export: period value, every entry",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle Einträge"
+          }
+        }
+      }
+    },
     "Allow notifications" : {
       "comment" : "Button to start the notification permission flow",
       "localizations" : {
@@ -698,6 +731,39 @@
         }
       }
     },
+    "Attach receipts" : {
+      "comment" : "Service record export: switch to append the receipt images at the end of the PDF",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Belege als Anhang"
+          }
+        }
+      }
+    },
+    "Attached" : {
+      "comment" : "Service record PDF: table cell, the receipt is attached at the end of the document",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Angehängt"
+          }
+        }
+      }
+    },
+    "Attached receipts" : {
+      "comment" : "Service record PDF: heading of the receipts at the end of the document",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Angehängte Belege"
+          }
+        }
+      }
+    },
     "Available from %@ at an authorised inspection station." : {
       "comment" : "Pickerl card: exchange stickers are only issued from the cutoff date on (AT-58); the argument is the date",
       "localizations" : {
@@ -727,6 +793,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kaufen für %@"
+          }
+        }
+      }
+    },
+    "Buyers can check the VIN against the vehicle." : {
+      "comment" : "Service record export: explains the VIN switch",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Käufer können die FIN mit dem Fahrzeug abgleichen."
           }
         }
       }
@@ -1028,6 +1105,50 @@
         }
       }
     },
+    "Create" : {
+      "comment" : "Service record export: button that creates the PDF and opens the preview",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erstellen"
+          }
+        }
+      }
+    },
+    "Created on %@" : {
+      "comment" : "Service record PDF: creation date under the title. Argument: the date",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erstellt am %@"
+          }
+        }
+      }
+    },
+    "Creates a PDF of the history of this vehicle, for example for selling it. The PDF is created on your device. It leaves your device only when you share it." : {
+      "comment" : "Service record export: explains what the PDF is and that it is created on the device",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erstellt ein PDF mit der Historie dieses Fahrzeugs, zum Beispiel für den Verkauf. Das PDF entsteht auf deinem Gerät. Es verlässt dein Gerät erst, wenn du es teilst."
+          }
+        }
+      }
+    },
+    "Creating the PDF…" : {
+      "comment" : "Service record export: shown while the PDF is being created",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PDF wird erstellt …"
+          }
+        }
+      }
+    },
     "Currency" : {
       "comment" : "Entry editor and costs: the currency of an amount",
       "localizations" : {
@@ -1174,24 +1295,6 @@
     "Due in %lld months" : {
       "comment" : "Status badge: months until the inspection is due, plural",
       "localizations" : {
-        "en" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Due in %lld month"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Due in %lld months"
-                }
-              }
-            }
-          }
-        },
         "de" : {
           "variations" : {
             "plural" : {
@@ -1205,6 +1308,24 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "Fällig in %lld Monaten"
+                }
+              }
+            }
+          }
+        },
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Due in %lld month"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Due in %lld months"
                 }
               }
             }
@@ -1285,6 +1406,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gib Monat und Jahr ein, die auf deiner Pickerl-Plakette gelocht sind."
+          }
+        }
+      }
+    },
+    "Entered by the vehicle owner, not verified. Created with Pitlog." : {
+      "comment" : "Service record PDF: footer on every page. States that the data was entered by the owner and not checked",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Angaben vom Fahrzeughalter erfasst, nicht geprüft. Erstellt mit Pitlog."
           }
         }
       }
@@ -1388,6 +1520,28 @@
         }
       }
     },
+    "Export service record" : {
+      "comment" : "History: button that creates a PDF service record of the vehicle",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Servicenachweis exportieren"
+          }
+        }
+      }
+    },
+    "Export service record, requires Pitlog Pro" : {
+      "comment" : "VoiceOver label of the service record row while the user has no Pro",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Servicenachweis exportieren, erfordert Pitlog Pro"
+          }
+        }
+      }
+    },
     "Family Sharing included" : {
       "comment" : "Paywall: the product can be shared with the family",
       "localizations" : {
@@ -1443,6 +1597,17 @@
         }
       }
     },
+    "From" : {
+      "comment" : "Service record export: first day of the period",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ab"
+          }
+        }
+      }
+    },
     "From %@ to %@" : {
       "comment" : "Pickerl card: inspection window, from the first to the last day",
       "localizations" : {
@@ -1494,6 +1659,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Verstanden"
+          }
+        }
+      }
+    },
+    "Include VIN" : {
+      "comment" : "Service record export: switch to show the vehicle identification number",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FIN einschließen"
+          }
+        }
+      }
+    },
+    "Include amounts" : {
+      "comment" : "Service record export: switch to show the costs of the entries and the sums",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beträge einschließen"
           }
         }
       }
@@ -1577,6 +1764,17 @@
     },
     "Inspection sticker" : {
       "comment" : "VoiceOver label of the inspection sticker picker; Vehicle form: section header for the inspection sticker",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pickerl-Plakette"
+          }
+        }
+      }
+    },
+    "Inspection sticker (Pickerl)" : {
+      "comment" : "Service record PDF: label of the month punched on the inspection sticker",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1751,6 +1949,17 @@
         }
       }
     },
+    "Maintenance history" : {
+      "comment" : "Service record PDF: heading of the list of history entries",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wartungshistorie"
+          }
+        }
+      }
+    },
     "Make" : {
       "comment" : "Vehicle form: make field",
       "localizations" : {
@@ -1758,6 +1967,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Marke"
+          }
+        }
+      }
+    },
+    "Make and model" : {
+      "comment" : "Service record PDF: label of make and model",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Marke und Typ"
           }
         }
       }
@@ -1813,6 +2033,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Monat"
+          }
+        }
+      }
+    },
+    "Month as entered from the sticker. The sticker on the vehicle is authoritative." : {
+      "comment" : "Service record PDF: note under the punched month of the inspection sticker. Not a calculated deadline",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monat laut Plakette, vom Halter erfasst. Maßgeblich ist die Plakette am Fahrzeug."
           }
         }
       }
@@ -1982,6 +2213,17 @@
         }
       }
     },
+    "No entries in the selected period." : {
+      "comment" : "Service record PDF: shown when the history has no entries in the period",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine Einträge im gewählten Zeitraum."
+          }
+        }
+      }
+    },
     "No entries in this category." : {
       "comment" : "History: empty state when the category filter matches nothing",
       "localizations" : {
@@ -2011,6 +2253,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Keine Fahrzeuge"
+          }
+        }
+      }
+    },
+    "No." : {
+      "comment" : "Service record PDF: table header, number of the entry. Keep it very short",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nr."
           }
         }
       }
@@ -2055,6 +2308,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Jetzt nicht"
+          }
+        }
+      }
+    },
+    "Not recorded" : {
+      "comment" : "Service record PDF: a vehicle value that the owner did not enter",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nicht erfasst"
           }
         }
       }
@@ -2176,6 +2440,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "OK"
+          }
+        }
+      }
+    },
+    "Odometer" : {
+      "comment" : "Service record PDF: label of the latest known odometer value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kilometerstand"
           }
         }
       }
@@ -2381,6 +2656,24 @@
     "PDF receipt, %lld pages" : {
       "comment" : "Entry editor: an attached PDF receipt with its number of pages, plural",
       "localizations" : {
+        "de" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "PDF-Beleg, %lld Seite"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "PDF-Beleg, %lld Seiten"
+                }
+              }
+            }
+          }
+        },
         "en" : {
           "variations" : {
             "plural" : {
@@ -2398,23 +2691,16 @@
               }
             }
           }
-        },
+        }
+      }
+    },
+    "Page %lld of %lld" : {
+      "comment" : "Service record PDF: page number in the footer. First argument: this page, second: number of pages",
+      "localizations" : {
         "de" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "PDF-Beleg, %lld Seite"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "PDF-Beleg, %lld Seiten"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seite %lld von %lld"
           }
         }
       }
@@ -2437,6 +2723,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Die Zahlung wird deinem Apple-Account belastet, wenn du den Kauf bestätigst. Das Abo verlängert sich jedes Jahr zum angezeigten Preis, wenn du nicht mindestens 24 Stunden vor Ende des laufenden Zeitraums kündigst. Du kannst es in den Einstellungen deines Apple-Accounts verwalten und kündigen. Der Gratiszeitraum geht automatisch in das kostenpflichtige Abo über, wenn du nicht vor seinem Ende kündigst. Der Einmalkauf wird nur einmal bezahlt und verlängert sich nicht."
+          }
+        }
+      }
+    },
+    "Period" : {
+      "comment" : "Service record export: which entries to include",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeitraum"
+          }
+        }
+      }
+    },
+    "Period: %@" : {
+      "comment" : "Service record PDF: the period of the listed entries. Argument: all entries, or from a date",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeitraum: %@"
           }
         }
       }
@@ -2503,6 +2811,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bitte prüfen"
+          }
+        }
+      }
+    },
+    "Preview" : {
+      "comment" : "Service record export: navigation title of the PDF preview",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vorschau"
           }
         }
       }
@@ -2672,6 +2991,28 @@
         }
       }
     },
+    "Receipt %lld of %lld" : {
+      "comment" : "Service record PDF: position of an attached receipt among the receipts of one entry. First argument: this receipt, second: number of receipts",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beleg %lld von %lld"
+          }
+        }
+      }
+    },
+    "Receipt for entry %lld: %@" : {
+      "comment" : "Service record PDF: caption above an attached receipt. First argument: the number of the entry in the table, second: its date, category and workshop",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beleg zu Eintrag %lld: %@"
+          }
+        }
+      }
+    },
     "Receipt scan" : {
       "comment" : "Pitlog Pro benefit",
       "localizations" : {
@@ -2701,6 +3042,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Belege"
+          }
+        }
+      }
+    },
+    "Receipts can contain your name and address. Pitlog does not black anything out. The PDF gets larger." : {
+      "comment" : "Service record export: privacy warning for the receipts switch",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Belege können deinen Namen und deine Anschrift enthalten. Pitlog schwärzt nichts. Das PDF wird größer."
           }
         }
       }
@@ -3068,6 +3420,17 @@
         }
       }
     },
+    "Service record" : {
+      "comment" : "Title of the service record PDF and of its export screens. Also the start of the file name",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Servicenachweis"
+          }
+        }
+      }
+    },
     "Service, by date" : {
       "comment" : "Settings: default lead time of service reminders by date",
       "localizations" : {
@@ -3112,6 +3475,17 @@
         }
       }
     },
+    "Share" : {
+      "comment" : "Service record export: button that opens the share sheet for the PDF",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Teilen"
+          }
+        }
+      }
+    },
     "Show costs as" : {
       "comment" : "Costs: accessibility label of the switch between chart and table",
       "localizations" : {
@@ -3119,6 +3493,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kosten anzeigen als"
+          }
+        }
+      }
+    },
+    "Shows the cost of each entry and the sums per year." : {
+      "comment" : "Service record export: explains the amounts switch",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeigt die Kosten jedes Eintrags und die Summen pro Jahr."
+          }
+        }
+      }
+    },
+    "Since a date" : {
+      "comment" : "Service record export: period value, entries from a chosen date on",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ab einem Datum"
           }
         }
       }
@@ -3189,6 +3585,17 @@
         }
       }
     },
+    "Sums of the listed entries, per currency." : {
+      "comment" : "Service record PDF: note under the costs. Currencies are never converted",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Summen der aufgeführten Einträge, je Währung."
+          }
+        }
+      }
+    },
     "Swipe up or down to change the month." : {
       "comment" : "VoiceOver hint of the inspection sticker picker",
       "localizations" : {
@@ -3240,6 +3647,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nutzungsbedingungen"
+          }
+        }
+      }
+    },
+    "The PDF could not be created." : {
+      "comment" : "Service record export: alert title when the PDF cannot be created",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das PDF konnte nicht erstellt werden."
           }
         }
       }
@@ -3486,6 +3904,17 @@
         }
       }
     },
+    "The service record as a PDF is part of Pitlog Pro. Your history stays free." : {
+      "comment" : "Paywall: shown when the user wanted to export the service record",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Servicenachweis als PDF gehört zu Pitlog Pro. Deine Historie bleibt gratis."
+          }
+        }
+      }
+    },
     "The subscription could not be renewed. Pro stays on while the App Store retries the payment. Check your payment method." : {
       "comment" : "Settings: status of a subscription in its grace period",
       "localizations" : {
@@ -3574,6 +4003,17 @@
         }
       }
     },
+    "This receipt could not be shown." : {
+      "comment" : "Service record PDF: placeholder where an attached receipt cannot be read or is not on this device yet",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dieser Beleg konnte nicht angezeigt werden."
+          }
+        }
+      }
+    },
     "Time of day" : {
       "comment" : "Settings: time of day reminder notifications arrive",
       "localizations" : {
@@ -3636,6 +4076,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Versuche es noch einmal oder wähle ein Foto oder eine Datei."
+          }
+        }
+      }
+    },
+    "Try again. If it keeps failing, leave out the receipts." : {
+      "comment" : "Service record export: alert message when the PDF cannot be created",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versuche es noch einmal. Klappt es weiterhin nicht, lass die Belege weg."
           }
         }
       }
@@ -3959,6 +4410,17 @@
         }
       }
     },
+    "Vehicle type" : {
+      "comment" : "Service record PDF: label of the vehicle class such as passenger car",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fahrzeugart"
+          }
+        }
+      }
+    },
     "Vehicles" : {
       "comment" : "Tab bar item for the vehicle list; Navigation title of the Vehicles tab",
       "localizations" : {
@@ -4028,24 +4490,6 @@
     "Window closed %lld days ago" : {
       "comment" : "Days since the inspection window closed, plural",
       "localizations" : {
-        "en" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Window closed %lld day ago"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Window closed %lld days ago"
-                }
-              }
-            }
-          }
-        },
         "de" : {
           "variations" : {
             "plural" : {
@@ -4059,6 +4503,24 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "Fenster vor %lld Tagen geschlossen"
+                }
+              }
+            }
+          }
+        },
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Window closed %lld day ago"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Window closed %lld days ago"
                 }
               }
             }
@@ -4176,6 +4638,17 @@
         }
       }
     },
+    "Workshop and work" : {
+      "comment" : "Service record PDF: table header, workshop name and what was done",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Werkstatt und Arbeiten"
+          }
+        }
+      }
+    },
     "Workshop costs" : {
       "comment" : "History: header of the costs section",
       "localizations" : {
@@ -4216,6 +4689,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Jahr"
+          }
+        }
+      }
+    },
+    "Yes" : {
+      "comment" : "Service record PDF: table cell, a receipt exists for the entry",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ja"
           }
         }
       }
@@ -4264,27 +4748,31 @@
         }
       }
     },
+    "all entries" : {
+      "comment" : "Service record PDF: period value, all entries are listed. Lowercase, used inside a sentence",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "alle Einträge"
+          }
+        }
+      }
+    },
+    "from %@" : {
+      "comment" : "Service record PDF: period value, entries from a date on. Lowercase, used inside a sentence. Argument: the date",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ab %@"
+          }
+        }
+      }
+    },
     "in %lld days" : {
       "comment" : "Relative day: number of days from now, plural, used inside a sentence",
       "localizations" : {
-        "en" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "in %lld day"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "in %lld days"
-                }
-              }
-            }
-          }
-        },
         "de" : {
           "variations" : {
             "plural" : {
@@ -4302,6 +4790,35 @@
               }
             }
           }
+        },
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "in %lld day"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "in %lld days"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "km" : {
+      "comment" : "Service record PDF: table header of the odometer column. Keep it very short",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "km"
+          }
         }
       }
     },
@@ -4312,6 +4829,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "zuletzt %@"
+          }
+        }
+      }
+    },
+    "page %lld of %lld" : {
+      "comment" : "Service record PDF: page of a multi-page receipt, lowercase, after the receipt position. First argument: this page, second: number of pages",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seite %lld von %lld"
           }
         }
       }
