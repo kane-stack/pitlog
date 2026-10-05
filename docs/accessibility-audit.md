@@ -147,3 +147,28 @@ Behoben und im Lauf bestätigt: die Kennung am Lesemodus-Banner (Tests „nur le
 ### Dritter Lauf (Commit `0289464`, Lauf <https://github.com/kane-stack/pitlog/actions/runs/37359498681>)
 
 Keine funktionalen Testfehler mehr (alle `XCTAssert`-Aufbauten laufen durch, auch die Tests mit gesperrten Erinnerungen, nur lesbarem Fahrzeug und dem Belegscan-Tipp auf die Paywall). Rot bleibt der Audit selbst, mit denselben Befunden wie in M3 bis M5: je ein wechselndes `StaticText` oder ein Bar-Button mit „Dynamic Type (partially) unsupported“, ohne Element in `history-list-*` und `registration-review-de`. „Text clipped“ erscheint weiter wechselnd an anderen Elementen (`paywall-de`: „Frühere Jahre und das Diagramm über alle Jahre.“, `reminders-locked-de`: „Pickerl-Erinnerungen“, `settings-pro-pro-en` ohne Element); in den Screenshots sind die Texte vollständig. Das Element wechselt von Lauf zu Lauf, was für einen Messartefakt spricht (nicht belegt). Prüfung mit dem Accessibility Inspector auf dem Gerät bleibt in M6.
+
+## M6b: PDF-Servicenachweis (Optionen-Sheet, Vorschau, gesperrter Einstieg)
+
+Stand: Branch `claude/m6b-service-record`. Läufe (UI-Job, `screenshots: true`): 37362070137 (Commit `0655cbd`), 37378648685 (`6a6f61c`), 37383228969 (`5de446a`, Merge von `claude/practical-edison-jhlpos`), jeweils rot, Unit-Tests grün. Zwei weitere Läufe (37365716944, 37372129475) wurden nach 15 Minuten abgebrochen, ohne dass der UI-Job einen Runner bekam; das ist kein Workflow-Timeout (dort stehen 60 Minuten). **Nichts wurde gefiltert**, es gelten nur die zwei Filter aus CLAUDE.md.
+
+Neue Tests: Optionen-Sheet (EN, DE, größte Schrift EN und DE), Vorschau (EN, DE, größte Schrift EN), gesperrte Historienzeile im Gratis-Tarif (EN, DE), Tippen ohne Pro öffnet die Paywall (grün).
+
+### Echte Befunde, behoben
+
+| Befund | Ursache | Behebung |
+|---|---|---|
+| Zwei Tests (Pro) fanden die Zeile „Servicenachweis exportieren“ nicht | Die Zeile liegt unter dem Diagramm; eine `List` legt sie erst beim Scrollen an | Test wartet nicht mehr auf die Zeile, sondern scrollt; im größten deutschen Schriftgrad wartet er auf die Zurück-Taste |
+| `service-record-options-xxxl-de`: „Text clipped“ am Navigationstitel „Servicenachweis“ | Der Inline-Titel passt bei AX3 nicht zwischen „Abbrechen“ und „Erstellen“ | Großer Titel (`.large`), der umbricht. Im Lauf nach `cf0b837` bestätigt, siehe unten |
+
+### Befunde, nicht von M6b verursacht oder nicht behebbar
+
+- **Dynamic Type „(partially) unsupported“ auf je einem Textelement** (Typ 48) in den Optionen (EN und DE), in der gesperrten Historie (EN und DE) und an den Navigationsleisten-Buttons „Cancel“/„Create“ (gefiltert, siehe CLAUDE.md). Das Element wechselt von Lauf zu Lauf (Toggle-Beschriftung, Fußnote, Jahresüberschrift). Dasselbe Muster zeigt der Lauf auf allen älteren Bildschirmen (siehe M5b und M6a oben), auch auf Bildschirmen, die M6b nicht berührt. Offen für den Durchgang mit dem Accessibility Inspector in M6.
+- **Vorschau DE: „Hit area is too small“** an `UICGPDFNodeAccessibilityElement` mit dem Label „Nr.“ (Tabellenkopf, Rahmen 12,5 × 7,5 pt auf dem Bildschirm). PDFKit macht jedes Textstück einer Seite zu einem Zugänglichkeitselement; kleine Schrift (8 pt im Druckdokument) ergibt kleine Trefferflächen. In EN meldete der Audit das nicht (anderes Element, anderer Lauf). Das ist eine Eigenschaft von PDFKit und der Schriftgröße im PDF, nicht der App-Oberfläche. Nicht behoben; Optionen: größere Schrift im PDF (wäre dann mehr Seiten) oder eigene VoiceOver-Beschreibung der Vorschau. Beides ist eine Entscheidung für M6.
+- `history-list-*` „Contrast failed“ und die Dynamic-Type-Befunde der älteren Bildschirme: wie in M4 bis M6a dokumentiert.
+
+### Offen für M6 (Gerät)
+
+1. Vorschau mit VoiceOver: liest PDFKit den Seitentext sinnvoll (ohne Tabellenstruktur, das PDF ist nicht getaggt)? Ist „Teilen“ erreichbar?
+2. Optionen-Sheet mit VoiceOver und Dynamic Type bis AX5 auf dem Gerät; Menü „Zeitraum“ und Datumsauswahl.
+3. Geteiltes PDF in Mail, Dateien und Vorschau öffnen (Dateiname, Seitenzahlen, Umlaute).
