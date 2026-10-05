@@ -47,7 +47,6 @@ struct RemindersSection: View {
                 NotificationPermissionRow()
             }
         } header: {
-            // Primary color: the secondary header color fails the contrast audit.
             Text("Reminders", comment: "Section header on the vehicle detail: reminders")
                 .foregroundStyle(.primary)
                 .accessibilityAddTraits(.isHeader)

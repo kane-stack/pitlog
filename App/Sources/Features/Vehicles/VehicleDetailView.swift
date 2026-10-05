@@ -33,6 +33,9 @@ struct VehicleDetailView: View {
         .listStyle(.plain)
         // Rows scrolling under a transparent bar break the contrast of its buttons.
         .toolbarBackground(.visible, for: .navigationBar)
+        .scrollEdgeEffectStyle(.hard, for: .all)
+        // Pushed screen: hide the floating tab bar so it never overlaps the last rows (as in About).
+        .toolbar(.hidden, for: .tabBar)
         .navigationTitle(vehicle.displayName)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

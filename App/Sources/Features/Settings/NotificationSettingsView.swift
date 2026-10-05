@@ -24,6 +24,13 @@ struct NotificationSettingsView: View {
             })
     }
 
+    /// Explanations are rows, not section footers: footers use a secondary color that fails the contrast audit.
+    private func note(_ text: Text) -> some View {
+        text
+            .font(.footnote)
+            .foregroundStyle(.primary)
+    }
+
     var body: some View {
         List {
             Section {
@@ -42,14 +49,15 @@ struct NotificationSettingsView: View {
                     Text("Time of day", comment: "Settings: time of day reminder notifications arrive")
                 }
                 NotificationPermissionRow(showsWhenAuthorized: true)
-            } footer: {
-                Text(
+                note(Text(
                     "Notifications arrive at this time on the day of each reminder. They are planned on this device only.",
-                    comment: "Settings footer below the notification time")
-                .foregroundStyle(.primary)
+                    comment: "Settings footer below the notification time"))
             }
 
             Section {
+                Text("Default lead times", comment: "Settings: section header for default lead times")
+                    .font(.headline)
+                    .accessibilityAddTraits(.isHeader)
                 Stepper(value: $tyreLeadDays, in: 0...90) {
                     Text("Tyres: \(tyreLeadDays) days before", comment: "Settings: default lead time of tyre reminders in days, plural")
                 }
@@ -65,14 +73,9 @@ struct NotificationSettingsView: View {
                 Stepper(value: $customLeadDays, in: 0...90) {
                     Text("Own reminders: \(customLeadDays) days before", comment: "Settings: default lead time of custom reminders in days, plural")
                 }
-            } header: {
-                Text("Default lead times", comment: "Settings: section header for default lead times")
-                    .foregroundStyle(.primary)
-            } footer: {
-                Text(
+                note(Text(
                     "Used for new reminders. Existing reminders keep their own lead time.",
-                    comment: "Settings footer below the default lead times")
-                .foregroundStyle(.primary)
+                    comment: "Settings footer below the default lead times"))
             }
         }
         .navigationTitle(Text("Notifications", comment: "Navigation title of the notification settings"))

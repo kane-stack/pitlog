@@ -89,6 +89,7 @@ struct UpcomingView: View {
                     }
                 }
             }
+            .scrollEdgeEffectStyle(.hard, for: .bottom)
             .overlay {
                 if items.isEmpty {
                     ContentUnavailableView {

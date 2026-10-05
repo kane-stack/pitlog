@@ -53,10 +53,7 @@ struct ReminderEditorView: View {
                 leadSection
                 repeatSection
                 Section {
-                    TextField(text: $note, axis: .vertical) {
-                        Text("Note", comment: "Reminder editor: optional note")
-                    }
-                    .accessibilityLabel(Text("Note", comment: "Reminder editor: optional note"))
+                    FormTextField(title: Text("Note", comment: "Reminder editor: optional note"), text: $note)
                 }
             }
             .navigationTitle(navigationTitle)
@@ -131,8 +128,10 @@ struct ReminderEditorView: View {
             } else {
                 datePicker
             }
-        } footer: {
-            dueFooter.foregroundStyle(.primary)
+            // A row instead of a section footer: footers use a secondary color that fails the contrast audit.
+            dueFooter
+                .font(.footnote)
+                .foregroundStyle(.primary)
         }
     }
 
@@ -214,11 +213,11 @@ struct ReminderEditorView: View {
                         Text("Every \(repeatKm) km", comment: "Service reminder editor: repeat interval in kilometres")
                     }
                 }
-            } footer: {
                 Text(
                     "When you mark the service as done, the next one counts from that day and the current odometer reading.",
                     comment: "Service reminder editor footer: how repeating works")
-                .foregroundStyle(.primary)
+                    .font(.footnote)
+                    .foregroundStyle(.primary)
             }
         } else if isCustom {
             Section {
