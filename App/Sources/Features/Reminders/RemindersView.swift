@@ -104,7 +104,7 @@ struct RemindersView: View {
             }
             .accessibilityIdentifier("inspectionRemindersToggle")
             Text(
-                "When the window opens, a month ahead, in the due month and a week before the window closes. Check the date on your sticker.",
+                "When the window opens, the month before it is due, in the due month and a week before the window closes. Check the date on your sticker.",
                 comment: "Explanation below the inspection reminders toggle"
             )
             .font(.footnote)
