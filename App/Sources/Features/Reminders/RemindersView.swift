@@ -20,6 +20,10 @@ struct RemindersView: View {
     @State private var editorTarget: ReminderEditorTarget?
     @State private var showingPermissionPrompt = false
     @State private var showingAddDialog = false
+    /// Set when a service was marked done: the user is asked whether to log it in the history.
+    @State private var historyOffer: EntryPrefill?
+    @State private var showingHistoryOffer = false
+    @State private var historyEditor: EntryEditorTarget?
     @State private var today = CalendarDay.today(in: .current)
 
     private let builder = ReminderScheduleBuilder()
@@ -55,6 +59,16 @@ struct RemindersView: View {
             ReminderEditorView(vehicle: vehicle, category: target.category, reminder: target.reminder)
         }
         .notificationPermissionPrompt(isPresented: $showingPermissionPrompt)
+        .historyOfferAlert(
+            isPresented: $showingHistoryOffer, offer: $historyOffer, editor: $historyEditor,
+            message: Text("Log this service in the history of this vehicle, for example with the invoice.", comment: "Alert after marking a service reminder as done: offer to add it to the history")
+        )
+        // Its own node: two sheets on one view do not mix reliably.
+        .background {
+            Color.clear.sheet(item: $historyEditor) { target in
+                EntryEditorView(vehicle: vehicle, entry: target.entry, prefill: target.prefill)
+            }
+        }
     }
 
     private var hasActiveReminders: Bool {
@@ -157,6 +171,11 @@ struct RemindersView: View {
             defaults: builder.defaults(for: vehicle),
             today: today,
             km: vehicle.currentOdometerKm)
+        if reminder.category == .service {
+            historyOffer = EntryPrefill(
+                category: .service, date: today, km: vehicle.currentOdometerKm, workItems: reminder.title)
+            showingHistoryOffer = true
+        }
     }
 
     // MARK: Add

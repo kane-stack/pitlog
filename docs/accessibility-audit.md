@@ -47,3 +47,32 @@ Lauf-Verlauf (Anzahl rote UI-Tests): erster Lauf 11, danach 9, 9, 8, 7. Änderun
 2. VoiceOver: Erinnerungszeilen (kombiniertes Label, Hinweis, Aktionen „Erledigt“, „Bearbeiten“, „Löschen“ über Wischen), Hinzufügen-Zeile, Berechtigungszeile.
 3. Prüfen, ob Zeilen mit Tippgeste und `.isButton` für Switch Control und Sprachsteuerung ausreichen oder ob echte `Button`s mit eigener Formatierung nötig sind.
 4. Die vier Befunde nach Einzelprüfung entweder beheben oder als dokumentierte Systemartefakte aus den Audit-Tests herausnehmen (dafür Freigabe der Koordination, siehe CLAUDE.md „Gefiltert werden genau zwei Dinge“).
+
+## M4: Historie, Kosten, Eintragseditor
+
+Stand: Branch `claude/m4-history`, Commit `a820f74`. Läufe (UI-Job, `screenshots: true`): 37295131418, 37297451248, 37299940021, jeweils rot, Unit-Tests grün. Es wurde **nichts zusätzlich gefiltert**; die zwei Filter aus CLAUDE.md gelten unverändert.
+
+Neue Tests (je EN und DE): Kosten-Diagramm, Kosten-Tabelle, Zeitleiste (ans Ende gescrollt), Eintragseditor. Im letzten Lauf laufen alle bis zum Audit durch. Die ersten Läufe scheiterten an Test-Setup (Zeile „Eintrag hinzufügen“ lag in DE unter dem Falz, Timeouts auf der langsamen Runner-Maschine, ID an einem `ForEach`); das ist behoben.
+
+### Befunde (letzter Lauf)
+
+| Test | Befund | Element | Bewertung |
+|---|---|---|---|
+| Diagramm EN / DE | Dynamic Type „partially unsupported“ | EN „Repair“ (Legende), DE „€ 509,00“ | Systemartefakt, siehe unten |
+| Tabelle EN / DE | wie oben | EN „CHF 180.00“, DE „Gesamt 2026“ | wie oben |
+| Eintragseditor EN / DE | wie oben | „Add from Photos“ / „Aus Fotos hinzufügen“ (Tippzeile, wie „Add reminder“ in M3); DE zusätzlich „Sichern“ der Navigationsleiste (kein Filter-Treffer, schwankt) | wie oben |
+| Zeitleiste EN | Dynamic Type „unsupported“, **ohne Element** | gescrollter Zustand | Artefakt des Scrollens, siehe unten |
+| Zeitleiste DE | Kontrast, **ohne Element** | gescrollter Zustand | wie oben |
+
+### Belege für Systemartefakt
+
+- **Das Element wechselt von Lauf zu Lauf**, die Bildschirme sind gleich. Diagramm EN: „CHF 180.00“ (Lauf 1), „Total 2026“ (Lauf 2), „Repair“ (Lauf 3). Tabelle EN: „CHF 180.00“, „2026“, „CHF 180.00“. Tabelle DE: „Gesamt 2026“. Immer genau **ein** `StaticText` pro Bildschirm, immer mit reinen Text-Styles (`.headline`, `.subheadline`, `.footnote`), nie mit fester Größe. Dasselbe Muster wie die sieben Befunde aus M3 (Tabelle oben, Lauf-Verlauf).
+- Die Screenshots der Läufe zeigen die Texte in den erwarteten Größen; die Zeilen wachsen bei großen Schriftgrößen (`AmountLayout` wechselt ab den Accessibility-Größen auf eine vertikale Anordnung, nichts nutzt `minimumScaleFactor`).
+- **Zeitleiste ohne Element:** der Audit läuft im gescrollten Zustand. Dort liegen Inhalte unter der durchscheinenden Navigationsleiste (im Screenshot sichtbar: „Total 2026“ unscharf hinter der Leiste). Das ist dieselbe Ursache wie der Kontrast-Befund an der Tab-Leiste in M3 und der schon dokumentierte Fall „gescrollt, Zeile am Bildschirmrand“ im Test `testEditVehicleFormPassesAccessibilityAudit`. Ein Element nennt der Audit nicht.
+
+### Offen für M6 (Accessibility Inspector, echtes Gerät)
+
+1. Diagramm und Legende bei Dynamic Type bis AX5; Audio Graph (`accessibilityChartDescriptor`) mit VoiceOver anhören (eine Serie je Kategorie plus Gesamt).
+2. Die Zeitleiste ohne Scrollen prüfen (z. B. mit Kategorie-Filter, der die Kosten nach oben nicht verändert) oder auf dem Gerät.
+3. Zeilen der Historie mit Wischaktionen (Bearbeiten, Löschen mit Bestätigung) in VoiceOver; Vorschau (QuickLook) und Teilen eines Belegs.
+4. Die Tippzeilen „Aus Dateien / Aus Fotos hinzufügen“ für Switch Control (siehe M3, Punkt 3).

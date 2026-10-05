@@ -13,6 +13,24 @@ private final class BackgroundTaskBox: @unchecked Sendable {
     }
 }
 
+/// Persists the `OverdueNoticeLedger` (a few short strings) in the user defaults. Device-local on purpose:
+/// every device plans and delivers its own notifications (ADR-9).
+enum OverdueNoticeStore {
+    static let key = "overdueNoticeLedger"
+
+    static func load(from defaults: UserDefaults) -> OverdueNoticeLedger {
+        guard let data = defaults.data(forKey: key),
+              let ledger = try? JSONDecoder().decode(OverdueNoticeLedger.self, from: data)
+        else { return OverdueNoticeLedger() }
+        return ledger
+    }
+
+    static func save(_ ledger: OverdueNoticeLedger, to defaults: UserDefaults) {
+        guard let data = try? JSONEncoder().encode(ledger) else { return }
+        defaults.set(data, forKey: key)
+    }
+}
+
 /// Plans the notifications from the stored data and hands the plan to the scheduler. Triggers: scene
 /// becomes active, saves (debounced), setting changes and a daily background refresh.
 @MainActor
@@ -43,7 +61,11 @@ final class ReminderCoordinator {
         let schedules = vehicles.flatMap {
             builder.schedules(for: $0, today: today, inspectionToday: inspectionToday)
         }
-        let plan = NotificationPlanner.plan(schedules: schedules, today: today)
+        var ledger = OverdueNoticeStore.load(from: defaults)
+        let plan = NotificationPlanner.plan(schedules: schedules, today: today, ledger: ledger)
+        // An overdue notice fires once: remember its day so that later plans neither move nor repeat it.
+        ledger.record(plan)
+        OverdueNoticeStore.save(ledger, to: defaults)
         let names = Dictionary(
             vehicles.map { ($0.id.uuidString, $0.displayName) }, uniquingKeysWith: { first, _ in first })
         await scheduler.schedule(plan: plan, vehicleNames: names, settings: settings)

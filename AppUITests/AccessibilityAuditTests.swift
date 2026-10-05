@@ -111,7 +111,7 @@ final class AccessibilityAuditTests: XCTestCase {
     }
 
     @MainActor
-    private func tap(_ element: XCUIElement, timeout: TimeInterval = 5) -> Bool {
+    private func tap(_ element: XCUIElement, timeout: TimeInterval = 15) -> Bool {
         guard element.waitForExistence(timeout: timeout) else { return false }
         element.tap()
         return true
@@ -357,5 +357,96 @@ final class AccessibilityAuditTests: XCTestCase {
         // is the platform's translucent bar, not a text color.
         for _ in 0..<3 { app.swipeUp() }
         try audit(app, "upcoming-reminders-en")
+    }
+
+    // MARK: History and costs
+
+    /// The history of the first sample vehicle (the Golf, with sample entries in two currencies).
+    @MainActor
+    private func openHistory(german: Bool = false) -> XCUIApplication {
+        let app = launch(german: german)
+        app.tabBars.buttons.element(boundBy: 1).tap()
+        XCTAssertTrue(tap(app.cells.firstMatch))
+        XCTAssertTrue(app.buttons["recordInspectionButton"].waitForExistence(timeout: 5))
+        let row = app.descendants(matching: .any)["historyRow"]
+        XCTAssertTrue(scrollUntilVisible(row, in: app))
+        row.tap()
+        // The top of the screen: the add row can lie below the fold (long German texts), so it is not awaited.
+        XCTAssertTrue(app.segmentedControls["costsDisplayPicker"].waitForExistence(timeout: 15))
+        return app
+    }
+
+    @MainActor
+    private func showTable(_ app: XCUIApplication, german: Bool) {
+        let picker = app.segmentedControls["costsDisplayPicker"]
+        XCTAssertTrue(picker.waitForExistence(timeout: 5))
+        picker.buttons[german ? "Tabelle" : "Table"].tap()
+        XCTAssertTrue(app.descendants(matching: .any)["costsTableYear"].firstMatch.waitForExistence(timeout: 15))
+    }
+
+    /// Top of the history: the costs section with the chart and its legend.
+    @MainActor
+    func testHistoryCostsChartPassesAccessibilityAudit() throws {
+        let app = openHistory()
+        XCTAssertTrue(app.descendants(matching: .any)["costsChart"].waitForExistence(timeout: 5))
+        try audit(app, "history-chart-en")
+    }
+
+    @MainActor
+    func testHistoryCostsChartPassesAccessibilityAuditInGerman() throws {
+        let app = openHistory(german: true)
+        XCTAssertTrue(app.descendants(matching: .any)["costsChart"].waitForExistence(timeout: 5))
+        try audit(app, "history-chart-de")
+    }
+
+    @MainActor
+    func testHistoryCostsTablePassesAccessibilityAudit() throws {
+        let app = openHistory()
+        showTable(app, german: false)
+        try audit(app, "history-table-en")
+    }
+
+    @MainActor
+    func testHistoryCostsTablePassesAccessibilityAuditInGerman() throws {
+        let app = openHistory(german: true)
+        showTable(app, german: true)
+        try audit(app, "history-table-de")
+    }
+
+    /// The timeline, scrolled to the end.
+    @MainActor
+    func testHistoryTimelinePassesAccessibilityAudit() throws {
+        let app = openHistory()
+        for _ in 0..<4 { app.swipeUp() }
+        try audit(app, "history-list-en")
+    }
+
+    @MainActor
+    func testHistoryTimelinePassesAccessibilityAuditInGerman() throws {
+        let app = openHistory(german: true)
+        for _ in 0..<4 { app.swipeUp() }
+        try audit(app, "history-list-de")
+    }
+
+    @MainActor
+    private func openEntryEditor(_ app: XCUIApplication) {
+        let add = app.descendants(matching: .any)["addEntryButton"]
+        XCTAssertTrue(scrollUntilVisible(add, in: app))
+        add.tap()
+        XCTAssertTrue(app.buttons["saveEntryButton"].waitForExistence(timeout: 5))
+    }
+
+    @MainActor
+    func testEntryEditorPassesAccessibilityAudit() throws {
+        let app = openHistory()
+        openEntryEditor(app)
+        try audit(app, "entry-editor-en")
+    }
+
+    @MainActor
+    func testEntryEditorPassesAccessibilityAuditInGerman() throws {
+        let app = openHistory(german: true)
+        openEntryEditor(app)
+        try audit(app, "entry-editor-de")
     }
 }

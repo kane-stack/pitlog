@@ -6,6 +6,8 @@ import SwiftUI
 /// only a prefilled proposal.
 struct RecordInspectionView: View {
     let vehicle: Vehicle
+    /// Called with the inspection day after the new sticker was saved, before the sheet closes.
+    var onSaved: (DayDate) -> Void = { _ in }
 
     @Environment(\.dismiss) private var dismiss
     @Environment(\.locale) private var locale
@@ -118,6 +120,7 @@ struct RecordInspectionView: View {
     private func save() {
         vehicle.plaque = plaque
         vehicle.lastInspection = inspectionDay
+        onSaved(inspectionDay)
         dismiss()
     }
 }

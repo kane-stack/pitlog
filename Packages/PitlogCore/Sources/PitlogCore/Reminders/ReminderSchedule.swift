@@ -200,7 +200,14 @@ public struct ReminderSchedule: Hashable, Sendable {
 
     private func inspectionOccurrences(_ status: InspectionStatus, today: DayDate) -> [PlannedNotification] {
         let closes = status.window.closes
-        guard closes >= today else { return [] }
+        guard closes >= today else {
+            // One notice for the day after, with a stable ID per vehicle and due month. The ledger of the
+            // planner decides whether it has been delivered already.
+            return [PlannedNotification(
+                id: "\(vehicleID)/\(reminderID)/\(PlannedNotification.Kind.inspectionOverdue.rawValue)/\(status.dueMonth)",
+                vehicleID: vehicleID, reminderID: reminderID, kind: .inspectionOverdue,
+                fireDay: today.adding(days: 1), eventDay: closes, title: title, dueKm: nil, isEstimate: false)]
+        }
         // In priority order: an earlier entry wins if two fall on the same day (the previous law opens
         // the window exactly on the first day of the month before the due month).
         let candidates: [(PlannedNotification.Kind, DayDate, DayDate)] = [

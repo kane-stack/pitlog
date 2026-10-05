@@ -1,3 +1,4 @@
+import Foundation
 import Testing
 @testable import PitlogCore
 
@@ -79,17 +80,23 @@ let inspectionReminderCases: [InspectionReminderCase] = [
         status: status(dueMonth: ym(2028, 1), opens: day(2027, 9, 1), closes: day(2028, 1, 31), phase: .closesThisMonth),
         today: day(2028, 1, 10),
         expected: [fire(.inspectionClosingSoon, day(2028, 1, 24))]),
-    // overdue: the window has closed, nothing is planned
+    // overdue: the window has closed, one notice for the next day
     .init(
         rules: "AT-40",
         status: status(dueMonth: ym(2026, 1), opens: day(2025, 12, 1), closes: day(2026, 5, 31), phase: .overdue, regime: .previousLaw),
         today: day(2026, 10, 5),
-        expected: []),
-    // overdue in the transition window
+        expected: [fire(.inspectionOverdue, day(2026, 10, 6))]),
+    // overdue in the transition window, across a year end
     .init(
         rules: "AT-56",
         status: status(dueMonth: ym(2027, 8), opens: day(2027, 5, 19), closes: day(2027, 11, 30), phase: .overdue, regime: .transition),
-        today: day(2027, 12, 5),
+        today: day(2027, 12, 31),
+        expected: [fire(.inspectionOverdue, day(2028, 1, 1))]),
+    // the last day of the window is not overdue yet: nothing is left to plan
+    .init(
+        rules: "AT-56",
+        status: status(dueMonth: ym(2027, 8), opens: day(2027, 5, 19), closes: day(2027, 11, 30), phase: .closesThisMonth, regime: .transition),
+        today: day(2027, 11, 30),
         expected: []),
 ]
 
@@ -362,4 +369,71 @@ func completingARepeatingCustomReminder(_ c: AnchorCase) throws {
     let schedule = ReminderSchedule.inspection(
         vehicleID: "v", status: status(dueMonth: ym(2028, 1), opens: day(2027, 9, 1), closes: day(2028, 1, 31)))
     #expect(schedule.completed(on: day(2027, 9, 1), atKm: nil) == .finished)
+}
+
+// MARK: Overdue notice
+
+private func overdueSchedule(dueMonth: YearMonth = ym(2026, 1), vehicle: String = "v") -> ReminderSchedule {
+    .inspection(
+        vehicleID: vehicle,
+        status: status(dueMonth: dueMonth, opens: day(2025, 12, 1), closes: day(2026, 5, 31), phase: .overdue, regime: .previousLaw))
+}
+
+@Test func overdueNoticeHasAStableIDPerVehicleAndDueMonth() {
+    // AT-40
+    let first = NotificationPlanner.plan(schedules: [overdueSchedule()], today: day(2026, 10, 5))
+    let later = NotificationPlanner.plan(schedules: [overdueSchedule()], today: day(2026, 10, 9))
+    #expect(first.first?.id == "v/inspection/inspectionOverdue/2026-01")
+    #expect(first.map(\.id) == later.map(\.id))
+    let otherMonth = NotificationPlanner.plan(schedules: [overdueSchedule(dueMonth: ym(2026, 2))], today: day(2026, 10, 5))
+    let otherVehicle = NotificationPlanner.plan(schedules: [overdueSchedule(vehicle: "w")], today: day(2026, 10, 5))
+    #expect(first.first?.id != otherMonth.first?.id)
+    #expect(first.first?.id != otherVehicle.first?.id)
+    #expect(first.first?.eventDay == day(2026, 5, 31))
+}
+
+@Test func overdueNoticeIsNotRepeatedAfterItsDay() {
+    // AT-40: first noticed on 5 Oct, it fires on 6 Oct and never again
+    var ledger = OverdueNoticeLedger()
+    let schedules = [overdueSchedule()]
+    let first = NotificationPlanner.plan(schedules: schedules, today: day(2026, 10, 5), ledger: ledger)
+    ledger.record(first)
+    #expect(fires(first) == [fire(.inspectionOverdue, day(2026, 10, 6))])
+
+    // opening the app on the morning of 6 Oct must not push the notice to the 7th
+    let sameDay = NotificationPlanner.plan(schedules: schedules, today: day(2026, 10, 6), ledger: ledger)
+    #expect(fires(sameDay) == [fire(.inspectionOverdue, day(2026, 10, 6))])
+
+    // once the day has passed it is gone
+    for today in [day(2026, 10, 7), day(2026, 11, 1), day(2027, 6, 1)] {
+        #expect(NotificationPlanner.plan(schedules: schedules, today: today, ledger: ledger).isEmpty)
+    }
+}
+
+@Test func overdueNoticeIsKeptWhenReplannedOnTheSameDay() {
+    var ledger = OverdueNoticeLedger()
+    let schedules = [overdueSchedule()]
+    ledger.record(NotificationPlanner.plan(schedules: schedules, today: day(2026, 10, 5), ledger: ledger))
+    let again = NotificationPlanner.plan(schedules: schedules, today: day(2026, 10, 5), ledger: ledger)
+    #expect(fires(again) == [fire(.inspectionOverdue, day(2026, 10, 6))])
+    var twice = ledger
+    twice.record(again)
+    #expect(twice == ledger)
+}
+
+@Test func aNewDueMonthGetsANewOverdueNotice() {
+    var ledger = OverdueNoticeLedger()
+    ledger.record(NotificationPlanner.plan(schedules: [overdueSchedule()], today: day(2026, 10, 5), ledger: ledger))
+    let next = NotificationPlanner.plan(
+        schedules: [overdueSchedule(dueMonth: ym(2026, 2))], today: day(2026, 10, 20), ledger: ledger)
+    #expect(fires(next) == [fire(.inspectionOverdue, day(2026, 10, 21))])
+}
+
+@Test func ledgerIgnoresOtherKindsAndSurvivesCoding() throws {
+    var ledger = OverdueNoticeLedger()
+    ledger.record(NotificationPlanner.plan(
+        schedules: [overdueSchedule(), custom("c", due: day(2026, 11, 1))], today: day(2026, 10, 5)))
+    #expect(ledger.fireDays.count == 1)
+    let decoded = try JSONDecoder().decode(OverdueNoticeLedger.self, from: JSONEncoder().encode(ledger))
+    #expect(decoded == ledger)
 }

@@ -26,6 +26,7 @@ enum PreviewData {
         context.insert(OdometerReading(date: Date(timeIntervalSince1970: 1_750_000_000), kilometers: 60_000, vehicle: golf))
         context.insert(OdometerReading(date: Date(timeIntervalSince1970: 1_780_000_000), kilometers: 68_400, vehicle: golf))
         insertReminders(for: golf, into: context)
+        insertHistory(for: golf, into: context)
 
         let transporter = Vehicle(
             name: "Transporter",
@@ -78,5 +79,38 @@ enum PreviewData {
         insurance.leadDays = 7
         insurance.repeatRule = .yearly
         context.insert(insurance)
+    }
+}
+
+extension PreviewData {
+    /// History of the sample vehicle, relative to this year: entries two years ago and this year, nothing
+    /// last year (a zero year in the chart), one cost in Swiss francs and one entry without a cost.
+    @MainActor
+    fileprivate static func insertHistory(for vehicle: Vehicle, into context: ModelContext) {
+        let year = CalendarDay.today(in: .current).year
+        func add(
+            _ y: Int, _ m: Int, _ d: Int, _ category: MaintenanceCategory, _ amount: Int?, workshop: String,
+            work: String, km: Int? = nil, currency: String = "EUR"
+        ) {
+            let entry = MaintenanceEntry(
+                date: DayDate(year: y, month: m, day: d) ?? DayDate(year: y, month: 1, day: 1)!,
+                category: category, vehicle: vehicle)
+            entry.amountMinor = amount
+            entry.currencyCode = currency
+            entry.workshop = workshop
+            entry.workItems = work
+            entry.odometerKm = km
+            context.insert(entry)
+        }
+        add(year - 2, 3, 14, .service, 24_590, workshop: "Autohaus Müller",
+            work: "Oil change\nOil filter\nAir filter\nCabin filter", km: 41_200)
+        add(year - 2, 5, 22, .inspection, 4_150, workshop: "ÖAMTC Prüfzentrum", work: "§57a inspection", km: 42_900)
+        add(year - 2, 10, 30, .tyres, 38_000, workshop: "Reifen Huber", work: "Four winter tyres, mounting and balancing")
+        add(year, 2, 9, .repair, 42_000, workshop: "Autohaus Müller",
+            work: "Replace brake pads and discs, front", km: 66_300)
+        add(year, 4, 2, .tyres, 8_900, workshop: "Reifen Huber", work: "Tyre change")
+        add(year, 6, 18, .repair, 18_000, workshop: "Garage Bärtschi", work: "Replace windscreen wiper motor",
+            currency: "CHF")
+        add(year, 7, 3, .otherWorkshop, nil, workshop: "Car wash", work: "Interior cleaning")
     }
 }

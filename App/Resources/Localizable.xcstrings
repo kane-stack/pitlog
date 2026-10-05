@@ -1,6 +1,17 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%@ and %lld more" : {
+      "comment" : "History row: the first work items, then how many more there are. First argument: a list of work items, second: the number of further items",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ und %lld weitere"
+          }
+        }
+      }
+    },
     "%@ km" : {
       "comment" : "Odometer value with unit, shown in the vehicle header",
       "localizations" : {
@@ -94,6 +105,47 @@
         }
       }
     },
+    "%lld entries" : {
+      "comment" : "Vehicle detail: number of history entries, plural",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld entry"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld entries"
+                }
+              }
+            }
+          }
+        },
+        "de" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Eintrag"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Einträge"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "%lld km" : {
       "comment" : "Number of kilometres in a picker value",
       "localizations" : {
@@ -146,6 +198,88 @@
         }
       }
     },
+    "%lld receipts" : {
+      "comment" : "History row: number of attached receipts, plural",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld receipt"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld receipts"
+                }
+              }
+            }
+          }
+        },
+        "de" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Beleg"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Belege"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld receipts attached" : {
+      "comment" : "VoiceOver: a history entry has receipts attached, plural",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld receipt attached"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld receipts attached"
+                }
+              }
+            }
+          }
+        },
+        "de" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Beleg angehängt"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Belege angehängt"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "A VIN has 17 characters." : {
       "comment" : "Vehicle form: hint when the VIN length is not 17",
       "localizations" : {
@@ -190,6 +324,39 @@
         }
       }
     },
+    "Add entry" : {
+      "comment" : "History: button to add a new entry",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eintrag hinzufügen"
+          }
+        }
+      }
+    },
+    "Add from Files" : {
+      "comment" : "Entry editor: attach a receipt from the Files app",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aus Dateien hinzufügen"
+          }
+        }
+      }
+    },
+    "Add from Photos" : {
+      "comment" : "Entry editor: attach a receipt from the photo library",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aus Fotos hinzufügen"
+          }
+        }
+      }
+    },
     "Add odometer reading" : {
       "comment" : "Button in the vehicle header when no odometer reading exists",
       "localizations" : {
@@ -223,6 +390,28 @@
         }
       }
     },
+    "Add to history" : {
+      "comment" : "Alert button: open the new history entry",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zur Historie hinzufügen"
+          }
+        }
+      }
+    },
+    "Add to history?" : {
+      "comment" : "Alert title after an inspection or service: offer to log it in the history",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zur Historie hinzufügen?"
+          }
+        }
+      }
+    },
     "Add vehicle" : {
       "comment" : "Toolbar button to add a vehicle",
       "localizations" : {
@@ -245,6 +434,17 @@
         }
       }
     },
+    "All" : {
+      "comment" : "History: category filter value that shows every category",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle"
+          }
+        }
+      }
+    },
     "Allow notifications" : {
       "comment" : "Button to start the notification permission flow",
       "localizations" : {
@@ -263,6 +463,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mitteilungen erlauben?"
+          }
+        }
+      }
+    },
+    "Amount" : {
+      "comment" : "Entry editor: what the visit cost",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Betrag"
           }
         }
       }
@@ -366,6 +577,17 @@
         }
       }
     },
+    "Category" : {
+      "comment" : "History: category filter and entry editor field",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kategorie"
+          }
+        }
+      }
+    },
     "Change photo" : {
       "comment" : "Vehicle form: button to change the photo",
       "localizations" : {
@@ -373,6 +595,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Foto ändern"
+          }
+        }
+      }
+    },
+    "Chart" : {
+      "comment" : "Costs: show the costs as a chart",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diagramm"
           }
         }
       }
@@ -395,6 +628,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Prüfe die neue Plakette und passe die Eingabe bei Bedarf an."
+          }
+        }
+      }
+    },
+    "Choose a photo or a PDF of up to 20 MB." : {
+      "comment" : "Entry editor: alert message when a receipt file cannot be read",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wähle ein Foto oder ein PDF mit höchstens 20 MB."
           }
         }
       }
@@ -428,6 +672,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Weiter"
+          }
+        }
+      }
+    },
+    "Costs" : {
+      "comment" : "Chart axis: the amount of money",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kosten"
+          }
+        }
+      }
+    },
+    "Currency" : {
+      "comment" : "Entry editor and costs: the currency of an amount",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Währung"
           }
         }
       }
@@ -494,6 +760,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Löschen"
+          }
+        }
+      }
+    },
+    "Delete this entry?" : {
+      "comment" : "History: title of the delete confirmation",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diesen Eintrag löschen?"
           }
         }
       }
@@ -638,6 +915,17 @@
         }
       }
     },
+    "Enter the amount as a number, for example 120.50." : {
+      "comment" : "Entry editor: the amount field does not contain a valid number",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gib den Betrag als Zahl ein, zum Beispiel 120,50."
+          }
+        }
+      }
+    },
     "Enter the month and year punched on your inspection sticker." : {
       "comment" : "Vehicle form: explanation of the inspection sticker picker",
       "localizations" : {
@@ -645,6 +933,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gib Monat und Jahr ein, die auf deiner Pickerl-Plakette gelocht sind."
+          }
+        }
+      }
+    },
+    "Entries" : {
+      "comment" : "History: header above the list of entries",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einträge"
+          }
+        }
+      }
+    },
+    "Entry" : {
+      "comment" : "Navigation title of the history entry editor",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eintrag"
           }
         }
       }
@@ -755,6 +1065,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Historisches Fahrzeug"
+          }
+        }
+      }
+    },
+    "History" : {
+      "comment" : "Section header on the vehicle detail: maintenance history and costs",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Historie"
           }
         }
       }
@@ -880,6 +1201,17 @@
         }
       }
     },
+    "Latest entry on %@" : {
+      "comment" : "VoiceOver: date of the latest history entry. Argument: the date",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Letzter Eintrag am %@"
+          }
+        }
+      }
+    },
     "Legal" : {
       "comment" : "Settings row for the legal notice screen; Navigation title of the legal screen",
       "localizations" : {
@@ -887,6 +1219,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rechtliches"
+          }
+        }
+      }
+    },
+    "Legend" : {
+      "comment" : "Costs chart: accessibility label of the legend",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Legende"
           }
         }
       }
@@ -920,6 +1263,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Leichter Anhänger (bis 3,5 t)"
+          }
+        }
+      }
+    },
+    "Log the inspection in the history of this vehicle, for example with the fee you paid." : {
+      "comment" : "Alert after recording an inspection: offer to add it to the history",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trage das Pickerl in die Historie dieses Fahrzeugs ein, zum Beispiel mit den bezahlten Gebühren."
+          }
+        }
+      }
+    },
+    "Log this service in the history of this vehicle, for example with the invoice." : {
+      "comment" : "Alert after marking a service reminder as done: offer to add it to the history",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trage diesen Service in die Historie dieses Fahrzeugs ein, zum Beispiel mit der Rechnung."
           }
         }
       }
@@ -1045,6 +1410,50 @@
         }
       }
     },
+    "No costs" : {
+      "comment" : "Costs table: a year without any costs",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine Kosten"
+          }
+        }
+      }
+    },
+    "No costs yet. Add an amount to an entry to see your workshop costs per year." : {
+      "comment" : "Costs: empty state",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Noch keine Kosten. Gib bei einem Eintrag einen Betrag an, um deine Werkstattkosten pro Jahr zu sehen."
+          }
+        }
+      }
+    },
+    "No entries in this category." : {
+      "comment" : "History: empty state when the category filter matches nothing",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine Einträge in dieser Kategorie."
+          }
+        }
+      }
+    },
+    "No entries yet. Add service, repairs and other workshop visits." : {
+      "comment" : "History: empty state",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Noch keine Einträge. Füge Service, Reparaturen und andere Werkstattbesuche hinzu."
+          }
+        }
+      }
+    },
     "No vehicles" : {
       "comment" : "Empty state title on the Vehicles tab",
       "localizations" : {
@@ -1079,7 +1488,7 @@
       }
     },
     "Not now" : {
-      "comment" : "Alert button: do not ask for notification permission now",
+      "comment" : "Alert button: decline an offer for now",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1189,7 +1598,7 @@
       }
     },
     "Odometer (km)" : {
-      "comment" : "Odometer entry: kilometres; Vehicle form: current odometer in kilometres",
+      "comment" : "Entry editor: odometer reading at the visit, with unit",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1254,6 +1663,28 @@
         }
       }
     },
+    "Opens a preview. You can share the receipt from there." : {
+      "comment" : "VoiceOver hint of an attached receipt",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Öffnet eine Vorschau. Dort kannst du den Beleg teilen."
+          }
+        }
+      }
+    },
+    "Opens the entry for editing." : {
+      "comment" : "VoiceOver hint of a history row",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Öffnet den Eintrag zum Bearbeiten."
+          }
+        }
+      }
+    },
     "Opens the reminder for editing." : {
       "comment" : "VoiceOver hint of a reminder row",
       "localizations" : {
@@ -1272,6 +1703,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sonstiges (Datum manuell eintragen)"
+          }
+        }
+      }
+    },
+    "Other workshop" : {
+      "comment" : "History category: any other workshop work",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sonstige Werkstatt"
           }
         }
       }
@@ -1309,6 +1751,47 @@
         }
       }
     },
+    "PDF receipt, %lld pages" : {
+      "comment" : "Entry editor: an attached PDF receipt with its number of pages, plural",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "PDF receipt, %lld page"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "PDF receipt, %lld pages"
+                }
+              }
+            }
+          }
+        },
+        "de" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "PDF-Beleg, %lld Seite"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "PDF-Beleg, %lld Seiten"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "Passenger car" : {
       "comment" : "Vehicle category",
       "localizations" : {
@@ -1327,6 +1810,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Foto"
+          }
+        }
+      }
+    },
+    "Photo of a receipt" : {
+      "comment" : "Entry editor: an attached photo of a receipt",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Foto eines Belegs"
           }
         }
       }
@@ -1371,6 +1865,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vorheriges Jahr"
+          }
+        }
+      }
+    },
+    "Receipts" : {
+      "comment" : "Entry editor: header of the attached receipts",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Belege"
           }
         }
       }
@@ -1441,6 +1946,17 @@
         }
       }
     },
+    "Remove" : {
+      "comment" : "Entry editor: remove an attached receipt",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entfernen"
+          }
+        }
+      }
+    },
     "Remove photo" : {
       "comment" : "Vehicle form: button to remove the photo",
       "localizations" : {
@@ -1448,6 +1964,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Foto entfernen"
+          }
+        }
+      }
+    },
+    "Repair" : {
+      "comment" : "History category: a repair at a workshop",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reparatur"
           }
         }
       }
@@ -1628,6 +2155,17 @@
         }
       }
     },
+    "Service, repairs and costs." : {
+      "comment" : "Vehicle detail: history row when there are no entries yet",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Service, Reparaturen und Kosten."
+          }
+        }
+      }
+    },
     "Settings" : {
       "comment" : "Tab bar item for settings; Navigation title of the Settings tab",
       "localizations" : {
@@ -1635,6 +2173,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Einstellungen"
+          }
+        }
+      }
+    },
+    "Show costs as" : {
+      "comment" : "Costs: accessibility label of the switch between chart and table",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kosten anzeigen als"
           }
         }
       }
@@ -1668,6 +2217,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wische nach oben oder unten, um den Monat zu ändern."
+          }
+        }
+      }
+    },
+    "Table" : {
+      "comment" : "Costs: show the costs as a table",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tabelle"
           }
         }
       }
@@ -1712,6 +2272,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Die eingegebenen Daten passen nicht zusammen. Prüfe Erstzulassung und Plakette."
+          }
+        }
+      }
+    },
+    "The entry and its receipts are deleted from all your devices." : {
+      "comment" : "History: message of the delete confirmation",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Eintrag und seine Belege werden von allen deinen Geräten gelöscht."
           }
         }
       }
@@ -1771,6 +2342,17 @@
         }
       }
     },
+    "The receipt could not be added." : {
+      "comment" : "Entry editor: alert title when a receipt file cannot be read",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Beleg konnte nicht hinzugefügt werden."
+          }
+        }
+      }
+    },
     "The vehicle and its odometer readings will be deleted. This cannot be undone." : {
       "comment" : "Confirmation message for deleting a vehicle",
       "localizations" : {
@@ -1826,6 +2408,28 @@
         }
       }
     },
+    "Total" : {
+      "comment" : "Costs chart: the total of all categories",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gesamt"
+          }
+        }
+      }
+    },
+    "Total %@" : {
+      "comment" : "Costs: total of the current year. Argument: the year",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gesamt %@"
+          }
+        }
+      }
+    },
     "Type" : {
       "comment" : "Vehicle form: vehicle category picker",
       "localizations" : {
@@ -1838,7 +2442,7 @@
       }
     },
     "Tyres" : {
-      "comment" : "Settings: default lead time of tyre reminders",
+      "comment" : "History category: tyre change or purchase at a workshop",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -2131,8 +2735,63 @@
         }
       }
     },
+    "Work done" : {
+      "comment" : "Entry editor: what the workshop did, one item per line",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Durchgeführte Arbeiten"
+          }
+        }
+      }
+    },
+    "Workshop" : {
+      "comment" : "Entry editor: name of the workshop",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Werkstatt"
+          }
+        }
+      }
+    },
+    "Workshop costs" : {
+      "comment" : "History: header of the costs section",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Werkstattkosten"
+          }
+        }
+      }
+    },
+    "Workshop costs in %@, stacked by category" : {
+      "comment" : "Costs chart: summary for the audio graph. Argument: the currency",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Werkstattkosten in %@, nach Kategorie gestapelt"
+          }
+        }
+      }
+    },
+    "Workshop costs per year" : {
+      "comment" : "Costs chart: title for the audio graph",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Werkstattkosten pro Jahr"
+          }
+        }
+      }
+    },
     "Year" : {
-      "comment" : "Label of the year picker for the inspection sticker",
+      "comment" : "Chart axis: the calendar year",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -2227,6 +2886,17 @@
         }
       }
     },
+    "last %@" : {
+      "comment" : "Vehicle detail: date of the latest history entry, after the number of entries. Argument: the date",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "zuletzt %@"
+          }
+        }
+      }
+    },
     "today" : {
       "comment" : "Relative day: today, lowercase, used inside a sentence",
       "localizations" : {
@@ -2256,6 +2926,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pickerl (§ 57a KFG)"
+          }
+        }
+      }
+    },
+    "§57a inspection overdue — check the date on your sticker." : {
+      "comment" : "Notification body: the inspection window has closed. Sent once, the day after the app notices. The date on the inspection sticker is authoritative",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pickerl überfällig – Datum auf der Plakette prüfen."
           }
         }
       }

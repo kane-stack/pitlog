@@ -9,6 +9,10 @@ struct VehicleDetailView: View {
     @State private var showingEdit = false
     @State private var showingOdometer = false
     @State private var showingRecordInspection = false
+    /// Set by "Record inspection": after the sheet closed the user is asked whether to log it in the history.
+    @State private var historyOffer: EntryPrefill?
+    @State private var showingHistoryOffer = false
+    @State private var historyEditor: EntryEditorTarget?
 
     private let service = InspectionService()
 
@@ -25,6 +29,7 @@ struct VehicleDetailView: View {
             .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
             .listRowSeparator(.hidden)
             RemindersSummaryRow(vehicle: vehicle, today: CalendarDay.today(in: .current))
+            HistorySummaryRow(vehicle: vehicle)
         }
         .listStyle(.plain)
         // Hide the floating tab bar so it never overlaps the last rows (as in About).
@@ -42,8 +47,18 @@ struct VehicleDetailView: View {
         }
         .sheet(isPresented: $showingEdit) { VehicleFormView(vehicle: vehicle) }
         .sheet(isPresented: $showingOdometer) { OdometerEntryView(vehicle: vehicle) }
-        .sheet(isPresented: $showingRecordInspection) {
-            RecordInspectionView(vehicle: vehicle)
+        .sheet(isPresented: $showingRecordInspection, onDismiss: {
+            if historyOffer != nil { showingHistoryOffer = true }
+        }) {
+            RecordInspectionView(vehicle: vehicle) { day in
+                historyOffer = EntryPrefill(category: .inspection, date: day, km: vehicle.currentOdometerKm)
+            }
+        }
+        .historyOfferAlert(
+            isPresented: $showingHistoryOffer, offer: $historyOffer, editor: $historyEditor,
+            message: Text("Log the inspection in the history of this vehicle, for example with the fee you paid.", comment: "Alert after recording an inspection: offer to add it to the history"))
+        .sheet(item: $historyEditor) { target in
+            EntryEditorView(vehicle: vehicle, entry: target.entry, prefill: target.prefill)
         }
     }
 

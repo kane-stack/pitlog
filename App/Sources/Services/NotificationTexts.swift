@@ -31,7 +31,8 @@ enum NotificationTexts {
     /// Kind of the reminder; the user's own title for service and custom reminders.
     static func typeTitle(for item: PlannedNotification, locale: Locale) -> String {
         switch item.kind {
-        case .inspectionWindowOpens, .inspectionMonthBefore, .inspectionDueMonth, .inspectionClosingSoon:
+        case .inspectionWindowOpens, .inspectionMonthBefore, .inspectionDueMonth, .inspectionClosingSoon,
+            .inspectionOverdue:
             return String(localized: "Inspection", locale: locale, comment: "Notification title part: the periodic vehicle inspection (Pickerl)")
         case .tyreChangeWinter:
             return String(localized: "Winter tyres", locale: locale, comment: "Reminder type: winter tyre change")
@@ -67,6 +68,8 @@ enum NotificationTexts {
         case .inspectionClosingSoon:
             let text = String(localized: "The inspection window closes \(relative), on \(date).", locale: locale, comment: "Notification body: the inspection window closes soon. First argument: relative time such as 'in 7 days', second: the date")
             return "\(text) \(hint)"
+        case .inspectionOverdue:
+            return String(localized: "§57a inspection overdue — check the date on your sticker.", locale: locale, comment: "Notification body: the inspection window has closed. Sent once, the day after the app notices. The date on the inspection sticker is authoritative")
         case .tyreChangeWinter:
             return String(localized: "The winter tyre period starts on \(date), \(relative).", locale: locale, comment: "Notification body: winter tyres. First argument: the date, second: relative time such as 'in 14 days'")
         case .tyreChangeSummer:
