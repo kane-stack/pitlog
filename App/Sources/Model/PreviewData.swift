@@ -23,7 +23,9 @@ enum PreviewData {
         golf.make = "Volkswagen"
         golf.model = "Golf"
         context.insert(golf)
+        context.insert(OdometerReading(date: Date(timeIntervalSince1970: 1_750_000_000), kilometers: 60_000, vehicle: golf))
         context.insert(OdometerReading(date: Date(timeIntervalSince1970: 1_780_000_000), kilometers: 68_400, vehicle: golf))
+        insertReminders(for: golf, into: context)
 
         let transporter = Vehicle(
             name: "Transporter",
@@ -44,5 +46,37 @@ enum PreviewData {
 
         let manual = Vehicle(name: "Traktor", licensePlate: "", category: .other)
         context.insert(manual)
+    }
+
+    /// Reminders relative to today, so previews and UI tests always show upcoming dates.
+    @MainActor
+    private static func insertReminders(for vehicle: Vehicle, into context: ModelContext) {
+        let today = CalendarDay.today(in: .current)
+        let defaults = AustriaReminderDefaults()
+
+        let winter = Reminder(category: .tyreWinter, vehicle: vehicle)
+        winter.leadDays = defaults.tyreLeadDays
+        winter.dueDate = defaults.nextTyreChangeDay(for: .winter, from: today)
+        context.insert(winter)
+
+        let vignette = Reminder(category: .vignette, vehicle: vehicle)
+        vignette.leadDays = AustriaReminderDefaults.vignetteExpiryLeadDays
+        vignette.dueDate = defaults.nextVignetteExpiry(from: today)
+        context.insert(vignette)
+
+        // By odometer: the two readings of the sample vehicle give an estimated date.
+        let service = Reminder(category: .service, vehicle: vehicle)
+        service.title = "Oil service"
+        service.dueKm = 75_000
+        service.repeatMonths = 12
+        service.repeatKm = 15_000
+        context.insert(service)
+
+        let insurance = Reminder(category: .custom, vehicle: vehicle)
+        insurance.title = "Insurance"
+        insurance.dueDate = today.adding(months: 2)
+        insurance.leadDays = 7
+        insurance.repeatRule = .yearly
+        context.insert(insurance)
     }
 }

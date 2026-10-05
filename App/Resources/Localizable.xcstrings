@@ -12,6 +12,47 @@
         }
       }
     },
+    "%lld days" : {
+      "comment" : "Number of days in a picker value, plural",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld day"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld days"
+                }
+              }
+            }
+          }
+        },
+        "de" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Tag"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Tage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "%lld days until the window closes" : {
       "comment" : "Days until the inspection window closes, plural",
       "localizations" : {
@@ -53,6 +94,58 @@
         }
       }
     },
+    "%lld km" : {
+      "comment" : "Number of kilometres in a picker value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld km"
+          }
+        }
+      }
+    },
+    "%lld months" : {
+      "comment" : "Number of months in a picker value, plural",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld month"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld months"
+                }
+              }
+            }
+          }
+        },
+        "de" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Monat"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Monate"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "A VIN has 17 characters." : {
       "comment" : "Vehicle form: hint when the VIN length is not 17",
       "localizations" : {
@@ -86,6 +179,17 @@
         }
       }
     },
+    "Add an odometer reading to plan this reminder. Two readings at least two weeks apart are needed for an estimate." : {
+      "comment" : "Reminder status: a service by odometer needs odometer readings (two, two weeks apart) to estimate a date",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trage einen Kilometerstand ein, um diese Erinnerung zu planen. Für eine Schätzung braucht es zwei Stände im Abstand von mindestens zwei Wochen."
+          }
+        }
+      }
+    },
     "Add odometer reading" : {
       "comment" : "Button in the vehicle header when no odometer reading exists",
       "localizations" : {
@@ -93,6 +197,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kilometerstand eintragen"
+          }
+        }
+      }
+    },
+    "Add reminder" : {
+      "comment" : "Menu button on the vehicle detail to add a reminder",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erinnerung hinzufügen"
           }
         }
       }
@@ -130,6 +245,28 @@
         }
       }
     },
+    "Allow notifications" : {
+      "comment" : "Button to start the notification permission flow",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mitteilungen erlauben"
+          }
+        }
+      }
+    },
+    "Allow notifications?" : {
+      "comment" : "Alert title shown before the system asks for notification permission",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mitteilungen erlauben?"
+          }
+        }
+      }
+    },
     "An exchange sticker may be possible. This is not binding." : {
       "comment" : "Rule note AT-53: exchange sticker, non-binding",
       "localizations" : {
@@ -163,6 +300,17 @@
         }
       }
     },
+    "At %@ km, estimated around %@" : {
+      "comment" : "Reminder status: service by odometer with the estimated date. First argument: kilometres, second: date",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bei %@ km, geschätzt um den %@"
+          }
+        }
+      }
+    },
     "Available from %@ at an authorised inspection station." : {
       "comment" : "Pickerl card: exchange stickers are only issued from the cutoff date on (AT-58); the argument is the date",
       "localizations" : {
@@ -185,6 +333,28 @@
         }
       }
     },
+    "By date" : {
+      "comment" : "Service reminder: remind at a date",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nach Datum"
+          }
+        }
+      }
+    },
+    "By odometer" : {
+      "comment" : "Service reminder: remind at an odometer value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nach Kilometerstand"
+          }
+        }
+      }
+    },
     "Cancel" : {
       "comment" : "Cancel button of a form",
       "localizations" : {
@@ -203,6 +373,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Foto ändern"
+          }
+        }
+      }
+    },
+    "Check the date on your sticker." : {
+      "comment" : "Legal hint at the end of every inspection notification: the date on the inspection sticker is authoritative",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datum auf der Plakette prüfen."
           }
         }
       }
@@ -251,6 +432,17 @@
         }
       }
     },
+    "Custom reminder" : {
+      "comment" : "Menu item to add a reminder with a title and date of the user's choice",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eigene Erinnerung"
+          }
+        }
+      }
+    },
     "Date" : {
       "comment" : "Odometer entry: date of the reading",
       "localizations" : {
@@ -258,6 +450,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Datum"
+          }
+        }
+      }
+    },
+    "Dates for kilometres are estimated from your odometer readings. Add readings regularly." : {
+      "comment" : "Service reminder editor footer: the odometer based date is an estimate",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Termine nach Kilometern werden aus deinen Kilometerständen geschätzt. Trage regelmäßig Stände ein."
+          }
+        }
+      }
+    },
+    "Default for Austria: winter tyre period from %@ to %@, relevant in wintry road conditions (§ 102 Abs. 8a KFG). You can change the date. Without guarantee." : {
+      "comment" : "Tyre reminder editor footer. Arguments: start and end of the winter tyre period as day and month",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Standard für Österreich: Winterreifenperiode vom %@ bis %@, relevant bei winterlichen Fahrbahnverhältnissen (§ 102 Abs. 8a KFG). Du kannst das Datum ändern. Ohne Gewähr."
+          }
+        }
+      }
+    },
+    "Default lead times" : {
+      "comment" : "Settings: section header for default lead times",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Standard-Vorlaufzeiten"
           }
         }
       }
@@ -291,6 +516,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Haftungsausschluss"
+          }
+        }
+      }
+    },
+    "Done" : {
+      "comment" : "Reminder status: completed and not repeating",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erledigt"
           }
         }
       }
@@ -358,6 +594,28 @@
         }
       }
     },
+    "Due on %@, %@." : {
+      "comment" : "Notification body: custom reminder. First argument: the date, second: relative time such as 'in 14 days'",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fällig am %@, %@."
+          }
+        }
+      }
+    },
+    "Due: the odometer has reached %@ km" : {
+      "comment" : "Reminder status: the service odometer value has been reached, with kilometres",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fällig: Der Kilometerstand hat %@ km erreicht"
+          }
+        }
+      }
+    },
     "Edit" : {
       "comment" : "Toolbar button to edit a vehicle",
       "localizations" : {
@@ -420,6 +678,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pickerl voraussichtlich fällig im %@. Letzter Tag: %@. %@."
+          }
+        }
+      }
+    },
+    "Every few months" : {
+      "comment" : "Custom reminder repeat option: every N months",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle paar Monate"
+          }
+        }
+      }
+    },
+    "Every year" : {
+      "comment" : "Custom reminder repeat option: yearly",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jedes Jahr"
           }
         }
       }
@@ -512,6 +792,17 @@
         }
       }
     },
+    "Inspection" : {
+      "comment" : "Notification title part: the periodic vehicle inspection (Pickerl)",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pickerl"
+          }
+        }
+      }
+    },
     "Inspection date" : {
       "comment" : "Record inspection: date of the inspection",
       "localizations" : {
@@ -541,6 +832,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pickerl fällig im %@. Letzter Tag: %@. %@."
+          }
+        }
+      }
+    },
+    "Inspection reminders" : {
+      "comment" : "Toggle on the vehicle detail: notifications for the inspection deadline",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pickerl-Erinnerungen"
           }
         }
       }
@@ -677,6 +979,17 @@
         }
       }
     },
+    "Never" : {
+      "comment" : "Custom reminder repeat option: does not repeat",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nie"
+          }
+        }
+      }
+    },
     "New inspection sticker" : {
       "comment" : "Record inspection: section header for the confirmation step",
       "localizations" : {
@@ -695,6 +1008,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Neues Fahrzeug"
+          }
+        }
+      }
+    },
+    "New vignette from %@" : {
+      "comment" : "Reminder status: the new vignette is available from this date",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neue Vignette ab %@"
           }
         }
       }
@@ -754,6 +1078,17 @@
         }
       }
     },
+    "Not now" : {
+      "comment" : "Alert button: do not ask for notification permission now",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jetzt nicht"
+          }
+        }
+      }
+    },
     "Not set" : {
       "comment" : "VoiceOver value of the inspection sticker picker when nothing is entered; Picker option for no inspection sticker month; Picker option for no inspection sticker year; Picker option for no month; Picker option for no year",
       "localizations" : {
@@ -776,6 +1111,17 @@
         }
       }
     },
+    "Note" : {
+      "comment" : "Reminder editor: optional note",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notiz"
+          }
+        }
+      }
+    },
     "Nothing due" : {
       "comment" : "Empty state title on the Upcoming tab",
       "localizations" : {
@@ -783,6 +1129,50 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nichts fällig"
+          }
+        }
+      }
+    },
+    "Notifications" : {
+      "comment" : "Settings row for the notification settings",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mitteilungen"
+          }
+        }
+      }
+    },
+    "Notifications are allowed." : {
+      "comment" : "Settings: the notification permission is granted",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mitteilungen sind erlaubt."
+          }
+        }
+      }
+    },
+    "Notifications are turned off for Pitlog. You will not get reminders." : {
+      "comment" : "Shown when the user denied the notification permission",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mitteilungen sind für Pitlog ausgeschaltet. Du bekommst keine Erinnerungen."
+          }
+        }
+      }
+    },
+    "Notifications arrive at this time on the day of each reminder. They are planned on this device only." : {
+      "comment" : "Settings footer below the notification time",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mitteilungen kommen zu dieser Uhrzeit am Tag jeder Erinnerung. Sie werden nur auf diesem Gerät geplant."
           }
         }
       }
@@ -820,6 +1210,17 @@
         }
       }
     },
+    "Off" : {
+      "comment" : "Reminder status: switched off",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aus"
+          }
+        }
+      }
+    },
     "Official sources" : {
       "comment" : "Legal screen: section header for the list of legal sources",
       "localizations" : {
@@ -831,6 +1232,17 @@
         }
       }
     },
+    "Open Settings" : {
+      "comment" : "Link to the system settings of the app",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einstellungen öffnen"
+          }
+        }
+      }
+    },
     "Open legal question for vehicles aged 9 to 10 years." : {
       "comment" : "Rule note AT-54a: unclear rule at age 9 to 10",
       "localizations" : {
@@ -838,6 +1250,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Offene Rechtsfrage bei Fahrzeugen im Alter von 9 bis 10 Jahren."
+          }
+        }
+      }
+    },
+    "Opens the reminder for editing." : {
+      "comment" : "VoiceOver hint of a reminder row",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Öffnet die Erinnerung zum Bearbeiten."
           }
         }
       }
@@ -860,6 +1283,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Überfällig"
+          }
+        }
+      }
+    },
+    "Overdue since %@" : {
+      "comment" : "Reminder status: the date has passed, with the date",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Überfällig seit %@"
+          }
+        }
+      }
+    },
+    "Own reminders" : {
+      "comment" : "Settings: default lead time of custom reminders",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eigene Erinnerungen"
           }
         }
       }
@@ -908,6 +1353,17 @@
         }
       }
     },
+    "Pitlog reminds you of deadlines with notifications on this device. Nothing is sent to a server. Next, iOS asks for your permission." : {
+      "comment" : "Alert message explaining why notifications are needed, before the system prompt",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pitlog erinnert dich mit Mitteilungen auf diesem Gerät an Fristen. Es wird nichts an einen Server gesendet. Als Nächstes fragt iOS nach deiner Erlaubnis."
+          }
+        }
+      }
+    },
     "Previous year" : {
       "comment" : "VoiceOver label of the minus button of the sticker year",
       "localizations" : {
@@ -930,6 +1386,61 @@
         }
       }
     },
+    "Remind before" : {
+      "comment" : "Reminder editor: lead time before the date",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erinnerung vorher"
+          }
+        }
+      }
+    },
+    "Remind before, distance" : {
+      "comment" : "Service reminder editor: lead distance before the odometer value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erinnerung vorher, Strecke"
+          }
+        }
+      }
+    },
+    "Reminder" : {
+      "comment" : "Reminder type: custom reminder without a title",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erinnerung"
+          }
+        }
+      }
+    },
+    "Reminder on" : {
+      "comment" : "Reminder editor: switch the reminder on or off",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erinnerung aktiv"
+          }
+        }
+      }
+    },
+    "Reminders" : {
+      "comment" : "Section header on the vehicle detail: reminders",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erinnerungen"
+          }
+        }
+      }
+    },
     "Remove photo" : {
       "comment" : "Vehicle form: button to remove the photo",
       "localizations" : {
@@ -937,6 +1448,61 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Foto entfernen"
+          }
+        }
+      }
+    },
+    "Repeat" : {
+      "comment" : "Custom reminder editor: repeat picker",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wiederholen"
+          }
+        }
+      }
+    },
+    "Repeat by distance" : {
+      "comment" : "Service reminder editor: repeat after a number of kilometres",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nach Strecke wiederholen"
+          }
+        }
+      }
+    },
+    "Repeat by time" : {
+      "comment" : "Service reminder editor: repeat after a number of months",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nach Zeit wiederholen"
+          }
+        }
+      }
+    },
+    "Repeat every" : {
+      "comment" : "Reminder editor: repeat interval",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wiederholen alle"
+          }
+        }
+      }
+    },
+    "Repeat every, distance" : {
+      "comment" : "Service reminder editor: repeat interval in kilometres",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wiederholen alle, Strecke"
           }
         }
       }
@@ -996,6 +1562,72 @@
         }
       }
     },
+    "Service" : {
+      "comment" : "Reminder type: vehicle service",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Service"
+          }
+        }
+      }
+    },
+    "Service at (km)" : {
+      "comment" : "Service reminder: odometer value of the next service",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Service bei (km)"
+          }
+        }
+      }
+    },
+    "Service due at %@ km, expected around %@ (estimate)." : {
+      "comment" : "Notification body: service by odometer. First argument: kilometres, second: the estimated date",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Service bei %@ km fällig, voraussichtlich um den %@ (Schätzung)."
+          }
+        }
+      }
+    },
+    "Service due on %@, %@." : {
+      "comment" : "Notification body: service by date. First argument: the date, second: relative time such as 'in 14 days'",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Service fällig am %@, %@."
+          }
+        }
+      }
+    },
+    "Service, by date" : {
+      "comment" : "Settings: default lead time of service reminders by date",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Service nach Datum"
+          }
+        }
+      }
+    },
+    "Service, by distance" : {
+      "comment" : "Settings: default lead distance of service reminders by odometer",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Service nach Strecke"
+          }
+        }
+      }
+    },
     "Settings" : {
       "comment" : "Tab bar item for settings; Navigation title of the Settings tab",
       "localizations" : {
@@ -1014,6 +1646,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Einzelne Regeln der Pickerl-Reform 2027 sind rechtlich noch offen. Im Zweifel zeigt die App die frühere Frist."
+          }
+        }
+      }
+    },
+    "Summer tyres" : {
+      "comment" : "Reminder type: summer tyre change",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sommerreifen"
           }
         }
       }
@@ -1073,6 +1716,61 @@
         }
       }
     },
+    "The inspection is due next month." : {
+      "comment" : "Notification body: the inspection is due in the next month",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Pickerl ist nächsten Monat fällig."
+          }
+        }
+      }
+    },
+    "The inspection is due this month." : {
+      "comment" : "Notification body: the inspection is due in the current month",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Pickerl ist diesen Monat fällig."
+          }
+        }
+      }
+    },
+    "The inspection window closes %@, on %@." : {
+      "comment" : "Notification body: the inspection window closes soon. First argument: relative time such as 'in 7 days', second: the date",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Begutachtungsfenster schließt %@, am %@."
+          }
+        }
+      }
+    },
+    "The inspection window opens today." : {
+      "comment" : "Notification body: the inspection window opens",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Begutachtungsfenster öffnet heute."
+          }
+        }
+      }
+    },
+    "The new vignette is available from today." : {
+      "comment" : "Notification body: the new annual vignette can be bought from today (1 December in Austria)",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die neue Vignette ist ab heute erhältlich."
+          }
+        }
+      }
+    },
     "The vehicle and its odometer readings will be deleted. This cannot be undone." : {
       "comment" : "Confirmation message for deleting a vehicle",
       "localizations" : {
@@ -1084,6 +1782,50 @@
         }
       }
     },
+    "The winter tyre period ends on %@, %@." : {
+      "comment" : "Notification body: summer tyres. First argument: the date, second: relative time such as 'in 14 days'",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Winterreifenperiode endet am %@, %@."
+          }
+        }
+      }
+    },
+    "The winter tyre period starts on %@, %@." : {
+      "comment" : "Notification body: winter tyres. First argument: the date, second: relative time such as 'in 14 days'",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Winterreifenperiode beginnt am %@, %@."
+          }
+        }
+      }
+    },
+    "Time of day" : {
+      "comment" : "Settings: time of day reminder notifications arrive",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uhrzeit"
+          }
+        }
+      }
+    },
+    "Title" : {
+      "comment" : "Reminder editor: title of the reminder",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Titel"
+          }
+        }
+      }
+    },
     "Type" : {
       "comment" : "Vehicle form: vehicle category picker",
       "localizations" : {
@@ -1091,6 +1833,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Art"
+          }
+        }
+      }
+    },
+    "Tyres" : {
+      "comment" : "Settings: default lead time of tyre reminders",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reifen"
+          }
+        }
+      }
+    },
+    "Tyres, service, vignette and more." : {
+      "comment" : "Vehicle detail: reminders row when there is no upcoming reminder",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reifen, Service, Vignette und mehr."
           }
         }
       }
@@ -1128,6 +1892,17 @@
         }
       }
     },
+    "Used for new reminders. Existing reminders keep their own lead time." : {
+      "comment" : "Settings footer below the default lead times",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gilt für neue Erinnerungen. Bestehende Erinnerungen behalten ihre eigene Vorlaufzeit."
+          }
+        }
+      }
+    },
     "VIN (optional)" : {
       "comment" : "Vehicle form: vehicle identification number field",
       "localizations" : {
@@ -1135,6 +1910,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "FIN (optional)"
+          }
+        }
+      }
+    },
+    "Valid until" : {
+      "comment" : "Vignette reminder editor: last day of validity",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gültig bis"
+          }
+        }
+      }
+    },
+    "Valid until %@" : {
+      "comment" : "Reminder status: the vignette is valid until this date",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gültig bis %@"
           }
         }
       }
@@ -1168,6 +1965,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Version"
+          }
+        }
+      }
+    },
+    "Vignette" : {
+      "comment" : "Reminder type: motorway vignette",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vignette"
+          }
+        }
+      }
+    },
+    "When the window opens, the month before it is due, in the due month and a week before the window closes. Check the date on your sticker." : {
+      "comment" : "Explanation below the inspection reminders toggle",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wenn das Fenster öffnet, im Monat davor, im Fälligkeitsmonat und eine Woche, bevor das Fenster schließt. Datum auf der Plakette prüfen."
+          }
+        }
+      }
+    },
+    "When you mark the service as done, the next one counts from that day and the current odometer reading." : {
+      "comment" : "Service reminder editor footer: how repeating works",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wenn du den Service als erledigt markierst, zählt der nächste ab diesem Tag und dem aktuellen Kilometerstand."
           }
         }
       }
@@ -1235,6 +2065,61 @@
         }
       }
     },
+    "Winter period ends" : {
+      "comment" : "Tyre reminder editor: date the winter tyre period ends",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Winterperiode endet"
+          }
+        }
+      }
+    },
+    "Winter period ends %@" : {
+      "comment" : "Reminder status: winter tyre period end, with the date",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Winterperiode endet am %@"
+          }
+        }
+      }
+    },
+    "Winter period starts" : {
+      "comment" : "Tyre reminder editor: date the winter tyre period starts",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Winterperiode beginnt"
+          }
+        }
+      }
+    },
+    "Winter period starts %@" : {
+      "comment" : "Reminder status: winter tyre period start, with the date",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Winterperiode beginnt am %@"
+          }
+        }
+      }
+    },
+    "Winter tyres" : {
+      "comment" : "Reminder type: winter tyre change",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Winterreifen"
+          }
+        }
+      }
+    },
     "Without guarantee. The date punched on your inspection sticker is authoritative." : {
       "comment" : "Legal notice shown with every inspection deadline",
       "localizations" : {
@@ -1268,6 +2153,17 @@
         }
       }
     },
+    "You get a reminder on %@ when the new vignette is available, and before the old one expires. A vignette bought online may only be valid from the 18th day after purchase." : {
+      "comment" : "Vignette reminder editor footer. Argument: day and month the new vignette is available",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du bekommst am %@ eine Erinnerung, wenn die neue Vignette erhältlich ist, und vor dem Ablauf der alten. Eine online gekaufte Vignette gilt womöglich erst ab dem 18. Tag nach dem Kauf."
+          }
+        }
+      }
+    },
     "Your vehicles stay available. You can view them, but not add more." : {
       "comment" : "Alert message when the vehicle limit is reached",
       "localizations" : {
@@ -1275,6 +2171,80 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Deine Fahrzeuge bleiben verfügbar. Du kannst sie ansehen, aber keine weiteren hinzufügen."
+          }
+        }
+      }
+    },
+    "Your vignette is valid until %@. A vignette bought online may only be valid from the 18th day after purchase." : {
+      "comment" : "Notification body: the vignette expires soon, with the hint about the 18 day delay for online purchases. Argument: the date",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deine Vignette ist bis %@ gültig. Eine online gekaufte Vignette gilt womöglich erst ab dem 18. Tag nach dem Kauf."
+          }
+        }
+      }
+    },
+    "in %lld days" : {
+      "comment" : "Relative day: number of days from now, plural, used inside a sentence",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "in %lld day"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "in %lld days"
+                }
+              }
+            }
+          }
+        },
+        "de" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "in %lld Tag"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "in %lld Tagen"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "today" : {
+      "comment" : "Relative day: today, lowercase, used inside a sentence",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "heute"
+          }
+        }
+      }
+    },
+    "tomorrow" : {
+      "comment" : "Relative day: tomorrow, lowercase, used inside a sentence",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "morgen"
           }
         }
       }

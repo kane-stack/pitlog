@@ -15,15 +15,20 @@ struct VehicleDetailView: View {
     var body: some View {
         let today = CalendarDay.today(in: CalendarDay.austria)
         let outcome = service.evaluate(vehicle, today: today)
-        ScrollView {
-            VStack(alignment: .leading, spacing: 16) {
-                header
-                InspectionCardView(vehicle: vehicle, outcome: outcome, today: today) {
-                    showingRecordInspection = true
-                }
+        List {
+            header
+                .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                .listRowSeparator(.hidden)
+            InspectionCardView(vehicle: vehicle, outcome: outcome, today: today) {
+                showingRecordInspection = true
             }
-            .padding()
+            .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+            .listRowSeparator(.hidden)
+            RemindersSummaryRow(vehicle: vehicle, today: CalendarDay.today(in: .current))
         }
+        .listStyle(.plain)
+        // Hide the floating tab bar so it never overlaps the last rows (as in About).
+        .toolbar(.hidden, for: .tabBar)
         .navigationTitle(vehicle.displayName)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -69,6 +74,7 @@ struct VehicleDetailView: View {
                         }
                     }
                 }
+                .buttonStyle(.borderless)
                 .accessibilityHint(Text("Adds an odometer reading.", comment: "VoiceOver hint of the odometer button"))
             }
         }
@@ -82,4 +88,5 @@ struct VehicleDetailView: View {
         if let vehicle { VehicleDetailView(vehicle: vehicle) }
     }
     .modelContainer(container)
+    .environment(NotificationPermission(center: SystemNotificationCenter()))
 }

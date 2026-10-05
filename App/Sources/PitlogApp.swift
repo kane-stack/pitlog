@@ -1,18 +1,41 @@
 import SwiftData
 import SwiftUI
+import UserNotifications
 
 @main
 struct PitlogApp: App {
     private let container: ModelContainer
+    private let coordinator: ReminderCoordinator
+    /// The notification center only keeps a weak reference to its delegate.
+    private let notificationDelegate: NotificationDelegate
+    @State private var router: AppRouter
+    @State private var permission: NotificationPermission
 
     init() {
-        container = Self.makeContainer()
+        let container = Self.makeContainer()
+        let center = SystemNotificationCenter()
+        let router = AppRouter()
+        let delegate = NotificationDelegate(router: router)
+        let coordinator = ReminderCoordinator(container: container, scheduler: NotificationScheduler(center: center))
+
+        // The delegate and the background task must be in place before the app finishes launching.
+        UNUserNotificationCenter.current().delegate = delegate
+        coordinator.registerBackgroundTask()
+
+        self.container = container
+        self.coordinator = coordinator
+        self.notificationDelegate = delegate
+        self._router = State(initialValue: router)
+        self._permission = State(initialValue: NotificationPermission(center: center))
     }
 
     var body: some Scene {
         WindowGroup {
             RootView()
                 .environment(\.entitlements, UnlimitedEntitlements())
+                .environment(\.reminderCoordinator, coordinator)
+                .environment(router)
+                .environment(permission)
         }
         .modelContainer(container)
     }

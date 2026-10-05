@@ -2,6 +2,7 @@ import PitlogCore
 import SwiftData
 import SwiftUI
 
+/// Inspection deadlines and reminders of all vehicles, in one list sorted by date.
 struct UpcomingView: View {
     @Query(filter: #Predicate<Vehicle> { !$0.isArchived }, sort: \Vehicle.createdAt)
     private var vehicles: [Vehicle]
@@ -9,22 +10,60 @@ struct UpcomingView: View {
 
     private let service = InspectionService()
 
-    private struct Row: Identifiable {
+    /// One row: type and icon are always text, never color alone.
+    private struct Item: Identifiable {
+        let id: String
         let vehicle: Vehicle
-        let status: InspectionStatus
-        var id: PersistentIdentifier { vehicle.persistentModelID }
+        let typeTitle: String
+        let iconName: String
+        let lines: [String]
+        /// `nil` sorts last (a service by odometer without an estimate).
+        let sortDay: DayDate?
+        let accessibilityLabel: String
+    }
+
+    private func items(today: DayDate, reminderToday: DayDate) -> [Item] {
+        var result: [Item] = []
+        for vehicle in vehicles {
+            if let status = service.evaluate(vehicle, today: today).status {
+                let presentation = InspectionPresentation(status: status, today: today, locale: locale)
+                let typeTitle = String(localized: "Inspection", locale: locale, comment: "Notification title part: the periodic vehicle inspection (Pickerl)")
+                let due = String(localized: "Due \(presentation.dueMonthText)", locale: locale, comment: "Upcoming list: due month of the inspection")
+                result.append(
+                    Item(
+                        id: "\(vehicle.id.uuidString)/inspection", vehicle: vehicle, typeTitle: typeTitle,
+                        iconName: "checkmark.seal", lines: [due, presentation.badgeText],
+                        sortDay: status.window.closes,
+                        accessibilityLabel: "\(vehicle.displayName). \(typeTitle). \(presentation.badgeAccessibilityLabel)"))
+            }
+            for reminder in vehicle.reminders ?? [] where reminder.isEnabled {
+                let presentation = ReminderPresentation(
+                    reminder: reminder, vehicle: vehicle, today: reminderToday, locale: locale)
+                result.append(
+                    Item(
+                        id: "\(vehicle.id.uuidString)/\(reminder.id.uuidString)", vehicle: vehicle,
+                        typeTitle: presentation.title, iconName: presentation.iconName,
+                        lines: [presentation.dueText] + (presentation.relativeText.map { [$0] } ?? []),
+                        sortDay: presentation.sortDay,
+                        accessibilityLabel: "\(vehicle.displayName). \(presentation.accessibilityLabel)"))
+            }
+        }
+        return result.sorted { lhs, rhs in
+            switch (lhs.sortDay, rhs.sortDay) {
+            case let (left?, right?) where left != right: return left < right
+            case (_?, nil): return true
+            case (nil, _?): return false
+            default: return lhs.id < rhs.id
+            }
+        }
     }
 
     var body: some View {
         let today = CalendarDay.today(in: CalendarDay.austria)
-        let rows: [Row] = vehicles
-            .compactMap { vehicle in
-                service.evaluate(vehicle, today: today).status.map { Row(vehicle: vehicle, status: $0) }
-            }
-            .sorted { $0.status.window.closes < $1.status.window.closes }
+        let items = items(today: today, reminderToday: CalendarDay.today(in: .current))
 
         VStack(spacing: 0) {
-            if !rows.isEmpty {
+            if vehicles.contains(where: { service.evaluate($0, today: today).status != nil }) {
                 // Above the list, away from the floating tab bar (contrast) and outside the list cells.
                 LegalNoticeView()
                     .padding(.horizontal)
@@ -32,37 +71,39 @@ struct UpcomingView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             List {
-            Section {
-                ForEach(rows) { row in
-            let presentation = InspectionPresentation(status: row.status, today: today, locale: locale)
-            NavigationLink(value: row.vehicle) {
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(row.vehicle.displayName)
-                        .font(.headline)
-                    Text("Due \(presentation.dueMonthText)", comment: "Upcoming list: due month of the inspection")
-                    Label(presentation.badgeText, systemImage: presentation.iconName)
-                        .font(.subheadline)
-                }
-                .accessibilityElement(children: .ignore)
-                .accessibilityLabel(Text(verbatim: "\(row.vehicle.displayName). \(presentation.badgeAccessibilityLabel)"))
-            }
-                }
-            }
-            }
-        }
-        .overlay {
-            if rows.isEmpty {
-                ContentUnavailableView {
-                    Label {
-                        Text("Nothing due", comment: "Empty state title on the Upcoming tab")
-                    } icon: {
-                        Image(systemName: "calendar")
+                Section {
+                    ForEach(items) { item in
+                        NavigationLink(value: item.vehicle) {
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(item.vehicle.displayName)
+                                    .font(.headline)
+                                Label(item.typeTitle, systemImage: item.iconName)
+                                ForEach(Array(item.lines.enumerated()), id: \.offset) { _, line in
+                                    Text(line)
+                                        .font(.subheadline)
+                                }
+                            }
+                            .accessibilityElement(children: .ignore)
+                            .accessibilityLabel(Text(verbatim: item.accessibilityLabel))
+                        }
                     }
-                } description: {
-                    Text(
-                        "Upcoming inspections and reminders for all your vehicles will appear here.",
-                        comment: "Empty state description on the Upcoming tab"
-                    )
+                }
+            }
+            .scrollEdgeEffectStyle(.hard, for: .bottom)
+            .overlay {
+                if items.isEmpty {
+                    ContentUnavailableView {
+                        Label {
+                            Text("Nothing due", comment: "Empty state title on the Upcoming tab")
+                        } icon: {
+                            Image(systemName: "calendar")
+                        }
+                    } description: {
+                        Text(
+                            "Upcoming inspections and reminders for all your vehicles will appear here.",
+                            comment: "Empty state description on the Upcoming tab"
+                        )
+                    }
                 }
             }
         }
