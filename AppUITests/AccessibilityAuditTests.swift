@@ -835,8 +835,9 @@ final class AccessibilityAuditTests: XCTestCase {
         let history = app.descendants(matching: .any)["historyRow"]
         XCTAssertTrue(scrollUntilVisible(history, in: app))
         history.tap()
+        // The row lies below the chart and is not in the list until it is scrolled to.
+        XCTAssertTrue(app.segmentedControls["costsDisplayPicker"].waitForExistence(timeout: 15))
         let export = app.descendants(matching: .any)["exportServiceRecordRow"]
-        XCTAssertTrue(export.waitForExistence(timeout: 15))
         XCTAssertTrue(scrollUntilVisible(export, in: app))
         export.tap()
         XCTAssertTrue(app.buttons["createServiceRecordButton"].waitForExistence(timeout: 10))
