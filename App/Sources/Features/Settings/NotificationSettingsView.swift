@@ -59,11 +59,11 @@ struct NotificationSettingsView: View {
                 Text("Default lead times", comment: "Settings: section header for default lead times")
                     .font(.headline)
                     .accessibilityAddTraits(.isHeader)
-                LeadStepper(title: Text("Tyres: \(tyreLeadDays) days before", comment: "Settings: default lead time of tyre reminders in days, plural"), value: $tyreLeadDays, range: 0...90)
-                LeadStepper(title: Text("Vignette: \(vignetteLeadDays) days before", comment: "Settings: default lead time of the vignette expiry reminder in days, plural"), value: $vignetteLeadDays, range: 0...90)
-                LeadStepper(title: Text("Service: \(serviceLeadDays) days before", comment: "Settings: default lead time of service reminders in days, plural"), value: $serviceLeadDays, range: 0...90)
-                LeadStepper(title: Text("Service: \(serviceLeadKm) km before", comment: "Settings: default lead distance of service reminders in kilometres"), value: $serviceLeadKm, range: 0...5_000, step: 100)
-                LeadStepper(title: Text("Own reminders: \(customLeadDays) days before", comment: "Settings: default lead time of custom reminders in days, plural"), value: $customLeadDays, range: 0...90)
+                LeadPicker(title: Text("Tyres", comment: "Settings: default lead time of tyre reminders"), value: $tyreLeadDays, options: LeadOptions.days, valueText: LeadOptions.days)
+                LeadPicker(title: Text("Vignette", comment: "Settings: default lead time of the vignette expiry reminder"), value: $vignetteLeadDays, options: LeadOptions.days, valueText: LeadOptions.days)
+                LeadPicker(title: Text("Service, by date", comment: "Settings: default lead time of service reminders by date"), value: $serviceLeadDays, options: LeadOptions.days, valueText: LeadOptions.days)
+                LeadPicker(title: Text("Service, by distance", comment: "Settings: default lead distance of service reminders by odometer"), value: $serviceLeadKm, options: LeadOptions.leadKm, valueText: LeadOptions.kilometers)
+                LeadPicker(title: Text("Own reminders", comment: "Settings: default lead time of custom reminders"), value: $customLeadDays, options: LeadOptions.days, valueText: LeadOptions.days)
                 note(Text(
                     "Used for new reminders. Existing reminders keep their own lead time.",
                     comment: "Settings footer below the default lead times"))

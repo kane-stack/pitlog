@@ -12,6 +12,47 @@
         }
       }
     },
+    "%lld days" : {
+      "comment" : "Number of days in a picker value, plural",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld day"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld days"
+                }
+              }
+            }
+          }
+        },
+        "de" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Tag"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Tage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "%lld days until the window closes" : {
       "comment" : "Days until the inspection window closes, plural",
       "localizations" : {
@@ -46,6 +87,58 @@
                 "stringUnit" : {
                   "state" : "translated",
                   "value" : "%lld Tage bis das Fenster schließt"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld km" : {
+      "comment" : "Number of kilometres in a picker value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld km"
+          }
+        }
+      }
+    },
+    "%lld months" : {
+      "comment" : "Number of months in a picker value, plural",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld month"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld months"
+                }
+              }
+            }
+          }
+        },
+        "de" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Monat"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Monate"
                 }
               }
             }
@@ -534,17 +627,6 @@
         }
       }
     },
-    "Edit reminder" : {
-      "comment" : "Navigation title of the edit reminder form",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Erinnerung bearbeiten"
-          }
-        }
-      }
-    },
     "Edit vehicle" : {
       "comment" : "Navigation title of the edit vehicle form",
       "localizations" : {
@@ -596,58 +678,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pickerl voraussichtlich fällig im %@. Letzter Tag: %@. %@."
-          }
-        }
-      }
-    },
-    "Every %lld km" : {
-      "comment" : "Service reminder editor: repeat interval in kilometres",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Alle %lld km"
-          }
-        }
-      }
-    },
-    "Every %lld months" : {
-      "comment" : "Service reminder editor: repeat interval in months, plural",
-      "localizations" : {
-        "en" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Every %lld month"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Every %lld months"
-                }
-              }
-            }
-          }
-        },
-        "de" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Jeden Monat"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Alle %lld Monate"
-                }
-              }
-            }
           }
         }
       }
@@ -971,17 +1001,6 @@
         }
       }
     },
-    "New reminder" : {
-      "comment" : "Navigation title of the add reminder form",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Neue Erinnerung"
-          }
-        }
-      }
-    },
     "New vehicle" : {
       "comment" : "Navigation title of the add vehicle form",
       "localizations" : {
@@ -1279,43 +1298,13 @@
         }
       }
     },
-    "Own reminders: %lld days before" : {
-      "comment" : "Settings: default lead time of custom reminders in days, plural",
+    "Own reminders" : {
+      "comment" : "Settings: default lead time of custom reminders",
       "localizations" : {
-        "en" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Own reminders: %lld day before"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Own reminders: %lld days before"
-                }
-              }
-            }
-          }
-        },
         "de" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Eigene Erinnerungen: %lld Tag vorher"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Eigene Erinnerungen: %lld Tage vorher"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eigene Erinnerungen"
           }
         }
       }
@@ -1397,54 +1386,24 @@
         }
       }
     },
-    "Remind %lld days before" : {
-      "comment" : "Reminder editor: lead time in days, plural",
-      "localizations" : {
-        "en" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Remind %lld day before"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Remind %lld days before"
-                }
-              }
-            }
-          }
-        },
-        "de" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Erinnerung %lld Tag vorher"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Erinnerung %lld Tage vorher"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "Remind %lld km before" : {
-      "comment" : "Service reminder editor: lead distance in kilometres",
+    "Remind before" : {
+      "comment" : "Reminder editor: lead time before the date",
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Erinnerung %lld km vorher"
+            "value" : "Erinnerung vorher"
+          }
+        }
+      }
+    },
+    "Remind before, distance" : {
+      "comment" : "Service reminder editor: lead distance before the odometer value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erinnerung vorher, Strecke"
           }
         }
       }
@@ -1522,6 +1481,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nach Zeit wiederholen"
+          }
+        }
+      }
+    },
+    "Repeat every" : {
+      "comment" : "Reminder editor: repeat interval",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wiederholen alle"
+          }
+        }
+      }
+    },
+    "Repeat every, distance" : {
+      "comment" : "Service reminder editor: repeat interval in kilometres",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wiederholen alle, Strecke"
           }
         }
       }
@@ -1625,54 +1606,24 @@
         }
       }
     },
-    "Service: %lld days before" : {
-      "comment" : "Settings: default lead time of service reminders in days, plural",
-      "localizations" : {
-        "en" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Service: %lld day before"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Service: %lld days before"
-                }
-              }
-            }
-          }
-        },
-        "de" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Service: %lld Tag vorher"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Service: %lld Tage vorher"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "Service: %lld km before" : {
-      "comment" : "Settings: default lead distance of service reminders in kilometres",
+    "Service, by date" : {
+      "comment" : "Settings: default lead time of service reminders by date",
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Service: %lld km vorher"
+            "value" : "Service nach Datum"
+          }
+        }
+      }
+    },
+    "Service, by distance" : {
+      "comment" : "Settings: default lead distance of service reminders by odometer",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Service nach Strecke"
           }
         }
       }
@@ -1886,43 +1837,13 @@
         }
       }
     },
-    "Tyres: %lld days before" : {
-      "comment" : "Settings: default lead time of tyre reminders in days, plural",
+    "Tyres" : {
+      "comment" : "Settings: default lead time of tyre reminders",
       "localizations" : {
-        "en" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Tyres: %lld day before"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Tyres: %lld days before"
-                }
-              }
-            }
-          }
-        },
         "de" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Reifen: %lld Tag vorher"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Reifen: %lld Tage vorher"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reifen"
           }
         }
       }
@@ -2044,47 +1965,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vignette"
-          }
-        }
-      }
-    },
-    "Vignette: %lld days before" : {
-      "comment" : "Settings: default lead time of the vignette expiry reminder in days, plural",
-      "localizations" : {
-        "en" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Vignette: %lld day before"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Vignette: %lld days before"
-                }
-              }
-            }
-          }
-        },
-        "de" : {
-          "variations" : {
-            "plural" : {
-              "one" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Vignette: %lld Tag vorher"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Vignette: %lld Tage vorher"
-                }
-              }
-            }
           }
         }
       }

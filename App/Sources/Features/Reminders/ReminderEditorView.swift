@@ -83,9 +83,7 @@ struct ReminderEditorView: View {
     }
 
     private var navigationTitle: Text {
-        reminder == nil
-            ? Text("New reminder", comment: "Navigation title of the add reminder form")
-            : Text("Edit reminder", comment: "Navigation title of the edit reminder form")
+        Text("Reminder", comment: "Reminder type: custom reminder without a title")
     }
 
     // MARK: Sections
@@ -183,9 +181,9 @@ struct ReminderEditorView: View {
 
     private var leadSection: some View {
         Section {
-            LeadStepper(title: Text("Remind \(leadDays) days before", comment: "Reminder editor: lead time in days, plural"), value: $leadDays, range: 0...365)
+            LeadPicker(title: Text("Remind before", comment: "Reminder editor: lead time before the date"), value: $leadDays, options: LeadOptions.days, valueText: LeadOptions.days)
             if isService, hasKm {
-                LeadStepper(title: Text("Remind \(leadKm) km before", comment: "Service reminder editor: lead distance in kilometres"), value: $leadKm, range: 0...5_000, step: 100)
+                LeadPicker(title: Text("Remind before, distance", comment: "Service reminder editor: lead distance before the odometer value"), value: $leadKm, options: LeadOptions.leadKm, valueText: LeadOptions.kilometers)
             }
         }
     }
@@ -198,13 +196,13 @@ struct ReminderEditorView: View {
                     Text("Repeat by time", comment: "Service reminder editor: repeat after a number of months")
                 }
                 if repeatMonthsEnabled {
-                    LeadStepper(title: Text("Every \(repeatMonths) months", comment: "Service reminder editor: repeat interval in months, plural"), value: $repeatMonths, range: 1...120)
+                    LeadPicker(title: Text("Repeat every", comment: "Reminder editor: repeat interval"), value: $repeatMonths, options: LeadOptions.repeatMonths, valueText: LeadOptions.months)
                 }
                 Toggle(isOn: $repeatKmEnabled) {
                     Text("Repeat by distance", comment: "Service reminder editor: repeat after a number of kilometres")
                 }
                 if repeatKmEnabled {
-                    LeadStepper(title: Text("Every \(repeatKm) km", comment: "Service reminder editor: repeat interval in kilometres"), value: $repeatKm, range: 1_000...100_000, step: 1_000)
+                    LeadPicker(title: Text("Repeat every, distance", comment: "Service reminder editor: repeat interval in kilometres"), value: $repeatKm, options: LeadOptions.repeatKm, valueText: LeadOptions.kilometers)
                 }
                 Text(
                     "When you mark the service as done, the next one counts from that day and the current odometer reading.",
@@ -225,7 +223,7 @@ struct ReminderEditorView: View {
                     }
                 }
                 if repeatRule == .months {
-                    LeadStepper(title: Text("Every \(repeatMonths) months", comment: "Service reminder editor: repeat interval in months, plural"), value: $repeatMonths, range: 1...120)
+                    LeadPicker(title: Text("Repeat every", comment: "Reminder editor: repeat interval"), value: $repeatMonths, options: LeadOptions.repeatMonths, valueText: LeadOptions.months)
                 }
             }
         }
