@@ -156,7 +156,7 @@ final class AccessibilityAuditTests: XCTestCase {
 
         app.tabBars.buttons.element(boundBy: 2).tap()
         shot(app, "\(prefix)-07-settings")
-        for index in 0..<3 where app.cells.count > index {
+        for index in 0..<4 where app.cells.count > index {
             app.cells.element(boundBy: index).tap()
             shot(app, "\(prefix)-08-settings-\(index)")
             app.navigationBars.buttons.firstMatch.tap()
@@ -241,7 +241,99 @@ final class AccessibilityAuditTests: XCTestCase {
     func testSettingsAndLegalPassAccessibilityAudit() throws {
         let app = launch()
         app.tabBars.buttons.element(boundBy: 2).tap()
-        XCTAssertTrue(tap(app.cells.firstMatch))
+        // The first row is Notifications, the second Legal.
+        XCTAssertTrue(app.cells.firstMatch.waitForExistence(timeout: 5))
+        XCTAssertTrue(tap(app.cells.element(boundBy: 1)))
         try audit(app, "legal-en")
+    }
+
+    // MARK: Reminders
+
+    /// Swipes up until `element` can be tapped.
+    @MainActor
+    private func scrollUntilVisible(_ element: XCUIElement, in app: XCUIApplication) -> Bool {
+        for _ in 0..<8 {
+            if element.exists && element.isHittable { return true }
+            app.swipeUp()
+        }
+        return element.exists && element.isHittable
+    }
+
+    /// The detail of the first sample vehicle (the Golf, with sample reminders), scrolled to the reminders.
+    @MainActor
+    private func openReminderList(german: Bool = false) -> XCUIApplication {
+        let app = launch(german: german)
+        app.tabBars.buttons.element(boundBy: 1).tap()
+        XCTAssertTrue(tap(app.cells.firstMatch))
+        XCTAssertTrue(app.buttons["recordInspectionButton"].waitForExistence(timeout: 5))
+        XCTAssertTrue(scrollUntilVisible(app.buttons["addReminderButton"], in: app))
+        return app
+    }
+
+    @MainActor
+    func testReminderListPassesAccessibilityAudit() throws {
+        let app = openReminderList()
+        try audit(app, "reminders-en")
+    }
+
+    @MainActor
+    func testReminderListPassesAccessibilityAuditInGerman() throws {
+        let app = openReminderList(german: true)
+        try audit(app, "reminders-de")
+    }
+
+    @MainActor
+    private func openEditor(_ app: XCUIApplication, menuItem: String) {
+        XCTAssertTrue(tap(app.buttons["addReminderButton"]))
+        XCTAssertTrue(tap(app.buttons[menuItem]))
+        XCTAssertTrue(app.buttons["saveReminderButton"].waitForExistence(timeout: 5))
+    }
+
+    @MainActor
+    func testServiceReminderEditorPassesAccessibilityAudit() throws {
+        let app = openReminderList()
+        openEditor(app, menuItem: "Service")
+        try audit(app, "reminder-editor-service-en")
+    }
+
+    @MainActor
+    func testCustomReminderEditorPassesAccessibilityAudit() throws {
+        let app = openReminderList()
+        openEditor(app, menuItem: "Custom reminder")
+        try audit(app, "reminder-editor-custom-en")
+    }
+
+    @MainActor
+    func testVignetteReminderEditorPassesAccessibilityAuditInGerman() throws {
+        let app = openReminderList(german: true)
+        openEditor(app, menuItem: "Vignette")
+        try audit(app, "reminder-editor-vignette-de")
+    }
+
+    @MainActor
+    func testNotificationSettingsPassAccessibilityAudit() throws {
+        let app = launch()
+        app.tabBars.buttons.element(boundBy: 2).tap()
+        XCTAssertTrue(tap(app.cells.firstMatch))
+        XCTAssertTrue(app.switches["remindersEnabledToggle"].waitForExistence(timeout: 5))
+        try audit(app, "notification-settings-en")
+    }
+
+    @MainActor
+    func testNotificationSettingsPassAccessibilityAuditInGerman() throws {
+        let app = launch(german: true)
+        app.tabBars.buttons.element(boundBy: 2).tap()
+        XCTAssertTrue(tap(app.cells.firstMatch))
+        XCTAssertTrue(app.switches["remindersEnabledToggle"].waitForExistence(timeout: 5))
+        try audit(app, "notification-settings-de")
+    }
+
+    @MainActor
+    func testUpcomingTabShowsRemindersAndPassesAccessibilityAudit() throws {
+        let app = launch()
+        XCTAssertTrue(app.cells.firstMatch.waitForExistence(timeout: 5))
+        // The Golf has inspection plus four reminders, and the other vehicles have an inspection each.
+        XCTAssertGreaterThan(app.cells.count, 4)
+        try audit(app, "upcoming-reminders-en")
     }
 }

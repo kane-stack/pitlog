@@ -6,7 +6,7 @@ enum SchemaV1: VersionedSchema {
     static let versionIdentifier = Schema.Version(1, 0, 0)
 
     static var models: [any PersistentModel.Type] {
-        [Vehicle.self, OdometerReading.self]
+        [Vehicle.self, OdometerReading.self, Reminder.self]
     }
 }
 

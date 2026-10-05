@@ -31,10 +31,15 @@ final class Vehicle {
 
     @Attribute(.externalStorage) var photo: Data?
     var isArchived: Bool = false
+    /// Notifications for the inspection deadline. The reminders themselves are derived, not stored.
+    var inspectionRemindersEnabled: Bool = true
     var createdAt: Date = Date()
 
     @Relationship(deleteRule: .cascade, inverse: \OdometerReading.vehicle)
     var odometerReadings: [OdometerReading]? = []
+
+    @Relationship(deleteRule: .cascade, inverse: \Reminder.vehicle)
+    var reminders: [Reminder]? = []
 
     init(
         name: String = "",

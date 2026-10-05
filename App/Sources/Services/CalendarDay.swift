@@ -70,3 +70,16 @@ extension YearMonth {
         return date.formatted(format)
     }
 }
+
+extension MonthDay {
+    /// "1 December" / "1. Dezember": month and day without a year, via `FormatStyle`.
+    func displayString(locale: Locale) -> String {
+        let utc = TimeZone(secondsFromGMT: 0) ?? .gmt
+        // 2028 is a leap year, so 29 February formats as itself.
+        let date = CalendarDay.date(from: resolved(inYear: 2028), in: utc)
+        let style = Date.FormatStyle(locale: locale, calendar: CalendarDay.calendar(in: utc), timeZone: utc)
+            .month(.wide)
+            .day()
+        return date.formatted(style)
+    }
+}

@@ -9,21 +9,28 @@ struct VehicleDetailView: View {
     @State private var showingEdit = false
     @State private var showingOdometer = false
     @State private var showingRecordInspection = false
+    @State private var editorTarget: ReminderEditorTarget?
+    @State private var showingPermissionPrompt = false
 
     private let service = InspectionService()
 
     var body: some View {
         let today = CalendarDay.today(in: CalendarDay.austria)
         let outcome = service.evaluate(vehicle, today: today)
-        ScrollView {
-            VStack(alignment: .leading, spacing: 16) {
-                header
-                InspectionCardView(vehicle: vehicle, outcome: outcome, today: today) {
-                    showingRecordInspection = true
-                }
+        List {
+            header
+                .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                .listRowSeparator(.hidden)
+            InspectionCardView(vehicle: vehicle, outcome: outcome, today: today) {
+                showingRecordInspection = true
             }
-            .padding()
+            .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+            .listRowSeparator(.hidden)
+            RemindersSection(
+                vehicle: vehicle, today: CalendarDay.today(in: .current), editorTarget: $editorTarget,
+                showingPermissionPrompt: $showingPermissionPrompt)
         }
+        .listStyle(.plain)
         .navigationTitle(vehicle.displayName)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -40,6 +47,10 @@ struct VehicleDetailView: View {
         .sheet(isPresented: $showingRecordInspection) {
             RecordInspectionView(vehicle: vehicle)
         }
+        .sheet(item: $editorTarget) { target in
+            ReminderEditorView(vehicle: vehicle, category: target.category, reminder: target.reminder)
+        }
+        .notificationPermissionPrompt(isPresented: $showingPermissionPrompt)
     }
 
     private var header: some View {
@@ -69,6 +80,7 @@ struct VehicleDetailView: View {
                         }
                     }
                 }
+                .buttonStyle(.borderless)
                 .accessibilityHint(Text("Adds an odometer reading.", comment: "VoiceOver hint of the odometer button"))
             }
         }
@@ -82,4 +94,5 @@ struct VehicleDetailView: View {
         if let vehicle { VehicleDetailView(vehicle: vehicle) }
     }
     .modelContainer(container)
+    .environment(NotificationPermission(center: SystemNotificationCenter()))
 }

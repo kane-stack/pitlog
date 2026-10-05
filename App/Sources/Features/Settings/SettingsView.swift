@@ -5,6 +5,19 @@ struct SettingsView: View {
         List {
             Section {
                 NavigationLink {
+                    NotificationSettingsView()
+                } label: {
+                    Label {
+                        Text("Notifications", comment: "Settings row for the notification settings")
+                    } icon: {
+                        Image(systemName: "bell")
+                    }
+                }
+                .accessibilityIdentifier("settingsNotificationsRow")
+            }
+
+            Section {
+                NavigationLink {
                     LegalView()
                 } label: {
                     Label {
