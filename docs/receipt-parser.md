@@ -157,6 +157,63 @@ Die 8 falschen Werte: Werkstattname 6× (Kundenblock `Autohaus Mayrhofer` statt 
 OCR-Ziffern im Namen `H1NTERBERGER`, `ELEKTR0`, `Fol1en`; Abschnitt bei `|` mitten im Wort `Sch|osserei`;
 `Pruefstelle`/`Prüfstelle`), Kategorie 2× (`otherWorkshop` wurde als `repair` geraten).
 
+## Holdout v1 (nach Anpassung, nicht mehr blind)
+
+Dieselben 25 Belege nach den Regeländerungen unten, Commit `b2b5b49`, Core-CI
+https://github.com/kane-stack/pitlog/actions/runs/37310622956. **Das Set wurde zum Anpassen benutzt und ist
+damit kein Blindtest mehr.** Die Zahlen zeigen, wie gut die Regeln auf diese Belege passen, nicht, wie gut
+sie auf unbekannte passen. Der nächste Blindtest sind Christophers echte Belege. Die eigenen Fixtures
+bleiben bei 0 % falsch.
+
+| Feld | richtig | fehlend | **falsch** |
+|---|---|---|---|
+| Gesamtbetrag (Minor Units) | 96,0 % | 4,0 % | 0 % |
+| Währung | 96,0 % | 4,0 % | 0 % |
+| Leistungsdatum | 100 % | 0 % | 0 % |
+| Rechnungsdatum | 100 % | 0 % | 0 % |
+| Historiendatum | 100 % | 0 % | 0 % |
+| Werkstattname | 72,0 % | 24,0 % | **4,0 %** |
+| Werkstatt-UID | 100 % | 0 % | 0 % |
+| Kilometerstand | 100 % | 0 % | 0 % |
+| Kennzeichen | 100 % | 0 % | 0 % |
+| FIN | 100 % | 0 % | 0 % |
+| Kategorie | 100 % | 0 % | 0 % |
+| **Alle Felder (275)** | **96,7 %** | **2,9 %** | **0,4 %** |
+
+Der eine falsche Wert ist ein **strittiger Sollwert**: Beleg 23 druckt `PRUEFSTELLE KLEINHAPPL E.U.`, erwartet
+ist `Prüfstelle …`. Der Parser liefert den gedruckten Namen. Der Sollwert wurde nicht geändert.
+Fehlend: Gutschrift 08 (Betrag und Währung, gewollt `nil` plus `isCreditNote`) und 6 Werkstattnamen
+(03, 05, 12, 15, 20, 21; siehe unten).
+
+### Geänderte Regeln (alle allgemein, keine Sonderfälle je Beleg)
+
+1. **Betrag auf der Folgezeile:** Eine Bezeichnungszeile ohne Betrag (Gesamt, Netto, USt, zu zahlen) und
+   danach eine Zeile nur mit einem Betrag werden zu einer Zeile verbunden (`Gesamtbetrag` / `15 841,5O`).
+2. **Tausendertrenner mit OCR-Zeichen:** `15 841,5O` wird als ein Betrag gelesen. Vorher wurde der Rest
+   `841,5O` allein als 841,50 € gelesen, ein Fehlwert.
+3. **OCR „rn“ → „m“** bei Summenbezeichnungen (`Surnme` = Summe).
+4. **Betrag vor „inkl. USt“** (`EUR 89,90 inkl. 20% MwSt.`) zählt als schwacher Gesamtbetrag. Die USt-Zeile
+   `inkl. 20% USt 21,50` (Betrag nach „inkl.“) zählt nicht.
+5. **Datumsrolle:** `Schadendatum`, `Auftragsdatum` usw. (jedes `…datum` außer Rechnungs-/Belegdatum) sind
+   keine Rechnungsdaten mehr. Vorher blockierte `Schadendatum` das Rechnungsdatum.
+6. **Kilometerstand:** Füllwörter zwischen Bezeichnung und Zahl (`Km-Stand lt. Tacho 188.040`, `km bei Annahme`).
+7. **Kennzeichen:** auch hinter `Fahrzeug:` und als einzige Angabe in einer Zeile (`OW 321 AB`, `GU - 451AB`),
+   dann `medium`.
+8. **Kategorie:** Ohne Stichwort gilt `otherWorkshop` statt `repair` (Reparatur braucht einen Beleg).
+   Stichwörter werden auch mit `oe/ue/ae` statt Umlauten gelesen (`OELWECHSEL`). Neue Reparatur-Stichwörter:
+   Batterie, Einbau, Karosserie, Lackier, Stoßfänger, Kotflügel, Scheinwerfer. Kopfzeilen mit Rechtsform
+   zählen bei der Stichwortsuche ohne Preis nicht (Werkstattname „…Autoreparatur GmbH“ ist kein Hinweis).
+9. **Werkstattname:** Namen mit OCR-Schäden in Wörtern (`H1NTERBERGER`, `ELEKTR0`, `Fol1en`, `Sch|osserei`)
+   ergeben `nil` statt eines falschen Namens. `|` trennt nur noch mit Leerzeichen. Zeilen im Kundenblock
+   (drei Zeilen über einer Kunden-UID, zwei Zeilen nach „Rechnungsempfänger“) rangieren hinter allen anderen.
+
+### Offene Punkte aus dem Holdout
+
+- 6 Werkstattnamen fehlen: 4 wegen OCR-Schäden im Namen (bewusst `nil`), 03 (`AUT0HAUS` und Untertitel
+  gleichauf), 05 (Name über zwei Zeilen `Kfz-Werkstatt` / `Josef Gruber e.U.`).
+- Strittiger Sollwert in 23 (siehe oben).
+- Gutschrift 08: Das Set erwartet einen negativen Betrag. Der Parser gibt bewusst `nil` plus `isCreditNote`.
+
 ## Grenzen
 
 - Bezeichnung und Betrag müssen in derselben Zeile stehen. Zerlegt die OCR eine Tabelle in Spalten,
