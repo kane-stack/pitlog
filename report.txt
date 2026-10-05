@@ -1,0 +1,1244 @@
+===== testAddVehicleFormPassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testCustomReminderEditorPassesAccessibilityAudit / hierarchy-Custom reminder_0_9BABFAE2-6943-4E2A-B5DF-091E92F5ED53.txt
+Attributes: Application, 0x113596080, pid: 8937, label: 'Pitlog'
+Element subtree:
+ →Application, 0x113596080, pid: 8937, label: 'Pitlog'
+    Window (Main), 0x1135961c0, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x113596300, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x113594dc0, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x113594f00, {{0.0, 0.0}, {390.0, 844.0}}
+          Other, 0x113595040, {{0.0, 0.0}, {390.0, 844.0}}
+            Other, 0x113597c00, {{0.0, 0.0}, {390.0, 844.0}}
+              Other, 0x1135966c0, {{0.0, 0.0}, {390.0, 844.0}}
+                Other, 0x113596bc0, {{0.0, 0.0}, {390.0, 844.0}}
+                  Other, 0x113596e40, {{0.0, 0.0}, {390.0, 844.0}}
+                    Other, 0x113596d00, {{0.0, 0.0}, {390.0, 844.0}}
+                      Other, 0x113596800, {{0.0, 0.0}, {390.0, 844.0}}
+                        Other, 0x113596940, {{0.0, 0.0}, {390.0, 844.0}}
+                          Other, 0x113596a80, {{0.0, 0.0}, {390.0, 844.0}}
+                            NavigationBar, 0x113595b80, {{0.0, 47.0}, {390.0, 54.0}}, identifier: 'Reminders'
+                              Button, 0x113595a40, {{16.0, 47.0}, {44.0, 44.0}}, identifier: 'BackButton', label: 'Golf'
+                              StaticText, 0x113595cc0, {{152.3, 58.7}, {85.0, 20.7}}, label: 'Reminders'
+                            Other, 0x113596f80, {{0.0, 0.0}, {390.0, 844.0}}
+                              Other, 0x1135970c0, {{0.0, 0.0}, {390.0, 844.0}}
+                                Other, 0x113597340, {{0.0, 0.0}, {390.0, 844.0}}
+                                  Other, 0x113597200, {{0.0, 0.0}, {390.0, 844.0}}
+                                    CollectionView, 0x113597480, {{0.0, 0.0}, {390.0, 844.0}}
+                                      Other, 0x1135975c0, {{-16.0, -1587.0}, {422.0, 4050.0}}
+                                      Other, 0x113597ac0, {{0.0, 0.0}, {390.0, 844.0}}
+                                      Other, 0x113597700, {{0.0, 0.0}, {390.0, 844.0}}
+                                      Cell, 0x113595180, {{16.0, 136.0}, {358.0, 52.0}}
+                                        Other, 0x113597d40, {{16.0, 136.0}, {358.0, 52.0}}
+                                          Other, 0x113597e80, {{16.0, 136.0}, {358.0, 52.0}}
+                                        Other, 0x1135952c0, {{16.0, 136.0}, {358.0, 52.0}}
+                                          Other, 0x113595400, {{16.0, 136.0}, {358.0, 52.0}}
+                                            Other, 0x1136bc000, {{16.0, 136.0}, {358.0, 52.0}}
+                                              Switch, 0x1136bc140, {{16.0, 136.0}, {358.0, 52.0}}, identifier: 'inspectionRemindersToggle', label: 'Inspection reminders', value: 1
+                                                StaticText, 0x1136bc280, {{32.0, 151.8}, {160.0, 20.3}}, label: 'Inspection reminders'
+                                                Switch, 0x1136bc3c0, {{297.0, 148.0}, {63.0, 28.0}}, value: 1
+                                      Cell, 0x1136bc500, {{16.0, 188.0}, {358.0, 81.7}}
+                                        Other, 0x1136bc640, {{16.0, 188.0}, {358.0, 81.7}}
+                                          Other, 0x1136bc780, {{16.0, 188.0}, {358.0, 81.7}}
+                                        Other, 0x1136bc8c0, {{16.0, 188.0}, {358.0, 81.7}}
+                                          Other, 0x1136bca00, {{16.0, 188.0}, {358.0, 81.7}}
+                                            Other, 0x1136bcb40, {{16.0, 188.0}, {358.0, 81.7}}
+                                              StaticText, 0x1136bcc80, {{16.0, 188.0}, {358.0, 81.7}}, label: 'When the window opens, the month before it is due, in the due month and a week before the window closes. Check the date on your sticker.'
+                                      Other, 0x1136bcdc0, {{32.0, 187.0}, {326.0, 1.0}}
+                                      Cell, 0x1136bcf00, {{16.0, 269.7}, {358.0, 90.3}}
+                                        Other, 0x1136bd040, {{16.0, 269.7}, {358.0, 90.3}}
+                                          Other, 0x1136bd180, {{16.0, 269.7}, {358.0, 90.3}}
+                                        Other, 0x1136bd2c0, {{16.0, 269.7}, {358.0, 90.3}}
+                                          Other, 0x1136bd400, {{16.0, 269.7}, {358.0, 90.3}}
+                                            Other, 0x1136bd540, {{16.0, 269.7}, {358.0, 90.3}}
+                                              Button, 0x1136bd680, {{16.0, 269.7}, {358.0, 90.3}}, label: 'Winter tyres. Winter period starts November 1, 2026. in 27 days.'
+                                                Image, 0x1136bd7c0, {{34.3, 284.0}, {19.7, 22.0}}, identifier: 'snowflake', label: 'Snow Flurry'
+                                                StaticText, 0x1136bd900, {{34.3, 284.0}, {135.7, 22.0}}, label: 'Winter tyres'
+                                                StaticText, 0x1136bda40, {{32.0, 307.0}, {265.7, 18.0}}, label: 'Winter period starts November 1, 2026'
+                                                StaticText, 0x1136bdb80, {{32.0, 327.0}, {69.3, 18.0}}, label: 'in 27 days'
+                                      Other, 0x1136bdcc0, {{32.0, 268.7}, {326.0, 1.0}}
+                                      Cell, 0x1136bde00, {{16.0, 360.0}, {358.0, 90.3}}
+                                        Other, 0x1136bdf40, {{16.0, 360.0}, {358.0, 90.3}}
+                                          Other, 0x1136be080, {{16.0, 360.0}, {358.0, 90.3}}
+                                        Other, 0x1136be1c0, {{16.0, 360.0}, {358.0, 90.3}}
+                                          Other, 0x1136be300, {{16.0, 360.0}, {358.0, 90.3}}
+                                            Other, 0x1136be440, {{16.0, 360.0}, {358.0, 90.3}}
+                                              Button, 0x1136be580, {{16.0, 360.0}, {358.0, 90.3}}, label: 'Vignette. New vignette from December 1, 2026. in 57 days.'
+                                                Image, 0x1136be6c0, {{28.0, 377.0}, {32.3, 16.7}}, identifier: 'road.lanes', label: 'road.lanes'
+                                                StaticText, 0x1136be800, {{28.0, 375.0}, {112.0, 20.3}}, label: 'Vignette'
+                                                StaticText, 0x1136be940, {{32.0, 397.3}, {256.3, 18.0}}, label: 'New vignette from December 1, 2026'
+                                                StaticText, 0x1136bea80, {{32.0, 417.3}, {69.7, 18.0}}, label: 'in 57 days'
+                                      Other, 0x1136bebc0, {{72.0, 359.0}, {286.0, 1.0}}
+                                      Cell, 0x1136bed00, {{16.0, 450.3}, {358.0, 90.3}}
+                                        Other, 0x1136bee40, {{16.0, 450.3}, {358.0, 90.3}}
+                                          Other, 0x1136bef80, {{16.0, 450.3}, {358.0, 90.3}}
+                                        Other, 0x1136bf0c0, {{16.0, 450.3}, {358.0, 90.3}}
+                                          Other, 0x1136bf200, {{16.0, 450.3}, {358.0, 90.3}}
+                                            Other, 0x1136bf340, {{16.0, 450.3}, {358.0, 90.3}}
+                                              Button, 0x1136bf480, {{16.0, 450.3}, {358.0, 90.3}}, label: 'Insurance. Due December 5, 2026. in 61 days.'
+                                                Image, 0x1136bf5c0, {{33.7, 464.3}, {21.0, 22.7}}, identifier: 'bell', label: 'Notifications'
+                                                StaticText, 0x1136bf700, {{33.7, 464.3}, {116.7, 22.7}}, label: 'Insurance'
+                                                StaticText, 0x1136bf840, {{32.0, 487.7}, {159.7, 18.0}}, label: 'Due December 5, 2026'
+                                                StaticText, 0x1136bf980, {{32.0, 507.7}, {68.3, 18.0}}, label: 'in 61 days'
+                                      Other, 0x1136bfac0, {{72.0, 449.3}, {286.0, 1.0}}
+                                      Cell, 0x1136bfc00, {{16.0, 540.7}, {358.0, 110.3}}
+                                        Other, 0x1136bfd40, {{16.0, 540.7}, {358.0, 110.3}}
+                                          Other, 0x1136bfe80, {{16.0, 540.7}, {358.0, 110.3}}
+                                        Other, 0x106348000, {{16.0, 540.7}, {358.0, 110.3}}
+                                          Other, 0x106348140, {{16.0, 540.7}, {358.0, 110.3}}
+                                            Other, 0x106348280, {{16.0, 540.7}, {358.0, 110.3}}
+                                              Button, 0x1063483c0, {{16.0, 540.7}, {358.0, 110.3}}, label: 'Oil service. At 75,000 km, estimated around February 25, 2027. in 143 days.'
+                                                Image, 0x106348500, {{30.7, 552.7}, {26.7, 26.3}}, identifier: 'wrench.and.screwdriver', label: 'wrench.and.screwdriver'
+                                                StaticText, 0x106348640, {{30.7, 552.7}, {124.7, 26.3}}, label: 'Oil service'
+                                                StaticText, 0x106348780, {{32.0, 578.0}, {288.7, 38.0}}, label: 'At 75,000 km, estimated around February 25, 2027'
+                                                StaticText, 0x1063488c0, {{32.0, 618.0}, {77.3, 18.0}}, label: 'in 143 days'
+                                      Other, 0x106348a00, {{72.0, 539.7}, {286.0, 1.0}}
+                                      Cell, 0x106348b40, {{16.0, 651.0}, {358.0, 52.0}}
+                                        Other, 0x106348c80, {{16.0, 651.0}, {358.0, 52.0}}
+                                          Other, 0x106348dc0, {{16.0, 651.0}, {358.0, 52.0}}
+                                        Other, 0x106348f00, {{16.0, 651.0}, {358.0, 52.0}}
+                                          Other, 0x106349040, {{16.0, 651.0}, {358.0, 52.0}}
+                                            Other, 0x106349180, {{16.0, 651.0}, {358.0, 52.0}}
+                                              Button, 0x1063492c0, {{16.0, 651.0}, {358.0, 52.0}}, identifier: 'addReminderButton', label: 'Add reminder'
+                                                Image, 0x106349400, {{33.3, 666.3}, {21.7, 21.7}}, identifier: 'plus.circle', label: 'Add'
+                                                StaticText, 0x106349540, {{32.0, 667.0}, {326.0, 20.3}}, label: 'Add reminder'
+                                      Other, 0x106349680, {{72.0, 650.0}, {286.0, 1.0}}
+                                      Cell, 0x1063497c0, {{16.0, 703.0}, {358.0, 52.0}}
+                                        Other, 0x106349900, {{16.0, 703.0}, {358.0, 52.0}}
+                                          Other, 0x106349a40, {{16.0, 703.0}, {358.0, 52.0}}
+                                        Other, 0x106349b80, {{16.0, 703.0}, {358.0, 52.0}}
+                                          Other, 0x106349cc0, {{16.0, 703.0}, {358.0, 52.0}}
+                                            Other, 0x106349e00, {{16.0, 703.0}, {358.0, 52.0}}
+                                              Button, 0x106349f40, {{16.0, 703.0}, {358.0, 52.0}}, identifier: 'allowNotificationsButton', label: 'Allow notifications'
+                                                Image, 0x10634a080, {{33.7, 719.7}, {16.0, 18.7}}, identifier: 'bell.badge', label: 'bell.badge'
+                                                StaticText, 0x10634a1c0, {{32.0, 718.7}, {326.0, 21.0}}, label: 'Allow notifications'
+                                      Other, 0x10634a300, {{72.0, 702.0}, {286.0, 1.0}}
+                                      Other, 0x10634a440, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertical scroll bar, 1 page', value: 0%
+                                        Other, 0x10634a580, {{384.0, 139.0}, {3.0, 654.7}}
+                                      Other, 0x10634a6c0, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertical scroll bar, 1 page', value: 0%
+                                        Other, 0x10634a800, {{384.0, 139.0}, {3.0, 654.7}}
+                            Other, 0x10634a940, {{0.0, 0.0}, {390.0, 844.0}}
+                              Other, 0x10634aa80, {{0.0, 0.0}, {390.0, 844.0}}
+                Other, 0x10634abc0, {{0.0, 761.0}, {390.0, 83.0}}
+                  Other, 0x10634ad00, {{0.0, 0.0}, {390.0, 844.0}}
+                  Other, 0x10634ae40, {{0.0, 761.0}, {390.0, 83.0}}
+      Other, 0x10634af80, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x10634b0c0, {{0.0, 0.0}, {390.0, 844.0}}, identifier: 'PopoverDismissRegion', label: 'dismiss popup'
+        Popover, 0x10634b200, {{75.0, 350.0}, {240.0, 317.0}}
+          Image, 0x10634b340, {{-75.0, 200.0}, {540.0, 604.0}}
+          Other, 0x10634b480, {{75.0, 350.0}, {240.0, 304.0}}
+            Sheet, 0x10634b5c0, {{75.0, 350.0}, {240.0, 304.0}}
+              Other, 0x10634b700, {{75.0, 350.0}, {240.0, 304.0}}
+                Other, 0x10634b840, {{75.0, 350.0}, {240.0, 304.0}}
+                  Other, 0x10634b980, {{75.0, 350.0}, {240.0, 304.0}}
+                  Other, 0x10634bac0, {{75.0, 350.0}, {240.0, 304.0}}
+                    ScrollView, 0x10634bc00, {{75.0, 350.0}, {240.0, 304.0}}
+                      Other, 0x10634bd40, {{75.0, 350.0}, {240.0, 304.0}}
+                        Other, 0x10634be80, {{91.0, 366.0}, {208.0, 272.0}}
+                          Button, 0x10634c000, {{91.0, 366.0}, {208.0, 48.0}}, label: 'Winter tyres'
+                          Button, 0x10634c140, {{91.0, 422.0}, {208.0, 48.0}}, label: 'Summer tyres'
+                          Button, 0x10634c280, {{91.0, 478.0}, {208.0, 48.0}}, label: 'Service'
+                          Button, 0x10634c3c0, {{91.0, 534.0}, {208.0, 48.0}}, label: 'Vignette'
+                          Button, 0x10634c500, {{91.0, 590.0}, {208.0, 48.0}}, label: 'Custom reminder'
+                      Other, 0x10634c640, {{282.0, 384.0}, {30.0, 249.0}}, label: 'Vertical scroll bar, 1 page', value: 0%
+                        Other, 0x10634c780, {{309.0, 440.0}, {3.0, 7.0}}
+                      Other, 0x10634c8c0, {{96.0, 621.0}, {198.0, 30.0}}, label: 'Horizontal scroll bar, 1 page', value: 0%
+                        Other, 0x10634ca00, {{165.0, 648.0}, {7.0, 3.0}}
+                      Other, 0x10634cb40, {{282.0, 384.0}, {30.0, 249.0}}, label: 'Vertical scroll bar, 1 page', value: 0%
+                        Other, 0x10634cc80, {{309.0, 440.0}, {3.0, 7.0}}
+                      Other, 0x10634cdc0, {{96.0, 621.0}, {198.0, 30.0}}, label: 'Horizontal scroll bar, 1 page', value: 0%
+                        Other, 0x10634cf00, {{165.0, 648.0}, {7.0, 3.0}}
+          Other, 0x10634d040, {{75.0, 350.0}, {240.0, 317.0}}
+            Other, 0x10634d180, {{75.0, 350.0}, {240.0, 317.0}}
+              Other, 0x10634d2c0, {{75.0, 350.0}, {240.0, 317.0}}
+                Other, 0x10634d400, {{75.0, 350.0}, {240.0, 317.0}}
+                  Other, 0x10634d540, {{75.0, 350.0}, {240.0, 317.0}}
+                    Other, 0x10634d680, {{75.0, 350.0}, {0.0, 0.0}}
+                      Other, 0x10634d7c0, {{75.0, 350.0}, {240.0, 317.0}}
+                        Other, 0x10634d900, {{75.0, 350.0}, {240.0, 317.0}}
+                          Other, 0x10634da40, {{75.0, 350.0}, {240.0, 317.0}}
+                            Other, 0x10634db80, {{75.0, 350.0}, {240.0, 317.0}}
+    Window, 0x10634dcc0, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x10634de00, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x10634df40, {{0.0, 0.0}, {390.0, 844.0}}
+Path to element:
+ →Application, 0x113596080, pid: 8937, label: 'Pitlog'
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  Output: {
+    Application, 0x10634e080, pid: 8937, label: 'Pitlog'
+  }
+
+===== testCustomReminderEditorPassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testEditVehicleFormPassesAccessibilityAudit / audit-form-edit-en_0_CC4CB75C-6733-4147-ACB7-FB3782E7085E.txt
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Cancel' id='cancelButton' frame=(20.0, 67.0, 76.66666666666667, 36.0)
+
+(ignored: system navigation bar button)
+
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Save' id='' frame=(307.6666666666667, 67.0, 62.333333333333314, 36.0)
+
+(ignored: system navigation bar button)
+===== testEntryEditorPassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testEntryEditorPassesAccessibilityAuditInGerman / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testFreeCostsPassAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testHistoryCostsChartPassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testHistoryCostsChartPassesAccessibilityAuditInGerman / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testHistoryCostsTablePassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testHistoryCostsTablePassesAccessibilityAuditInGerman / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testHistoryTimelinePassesAccessibilityAudit / Complete Issue Description.txt
+Contrast failed for SwiftUI.AccessibilityNode
+===== testHistoryTimelinePassesAccessibilityAuditInGerman / Complete Issue Description.txt
+Contrast failed for SwiftUI.AccessibilityNode
+===== testLockedRemindersPassAccessibilityAudit / App UI hierarchy for com.kane_0_2CAB081E-5968-4298-9755-C7B76FCAE5E4.pitlog
+Application, 0x1149303c0, pid: 26807, label: 'Pitlog' <App element pid: 26807>
+  Window (Main), 0x114930140, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 26807, elementOrHash.elementID: 4361422848.3>
+    Other, 0x114930280, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 26807, elementOrHash.elementID: 4410229760.4>
+      Other, 0x1149321c0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 26807, elementOrHash.elementID: 4409192320.5>
+        Other, 0x114932300, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 26807, elementOrHash.elementID: 4361421824.6>
+          Other, 0x114932440, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 26807, elementOrHash.elementID: 4408808256.7>
+            Other, 0x114932580, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 26807, elementOrHash.elementID: 4409398080.8>
+              Other, 0x1149326c0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 26807, elementOrHash.elementID: 4410232832.9>
+                Other, 0x114932800, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 26807, elementOrHash.elementID: 4361635136.11>
+                  Other, 0x114932940, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 26807, elementOrHash.elementID: 4361426944.109>
+                    Other, 0x114932a80, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 26807, elementOrHash.elementID: 4408810048.110>
+                      Other, 0x114932bc0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 26807, elementOrHash.elementID: 4408810496.111>
+                        Other, 0x114932d00, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 26807, elementOrHash.elementID: 4408869312.112>
+                          NavigationBar, 0x114932e40, {{0.0, 47.0}, {390.0, 54.0}}, identifier: 'Reminders' <AX element pid: 26807, elementOrHash.elementID: 4410603008.113>
+                            Button, 0x114932f80, {{16.0, 47.0}, {44.0, 44.0}}, identifier: 'BackButton', label: 'Golf' <AX element pid: 26807, elementOrHash.elementID: 4408689088.192>
+                            StaticText, 0x1149330c0, {{152.3, 58.7}, {85.0, 20.7}}, label: 'Reminders' <AX element pid: 26807, elementOrHash.elementID: 4666254080.270>
+                          Other, 0x114933200, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 26807, elementOrHash.elementID: 4408869760.114>
+                            Other, 0x114933340, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 26807, elementOrHash.elementID: 4408909248.118>
+                              Other, 0x114933480, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 26807, elementOrHash.elementID: 4666251392.271>
+                                Other, 0x1149335c0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 26807, elementOrHash.elementID: 4409023040.272>
+                                  CollectionView, 0x114933700, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 26807, elementOrHash.elementID: 4680433664.273>
+                                    Other, 0x114933840, {{-16.0, -1587.0}, {422.0, 4355.7}} <AX element pid: 26807, elementOrHash.elementID: 4685842432.274>
+                                    Other, 0x114933980, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 26807, elementOrHash.elementID: 4409059392.275>
+                                    Other, 0x114933ac0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 26807, elementOrHash.elementID: 4409054016.276>
+                                    Cell, 0x114933c00, {{16.0, 136.0}, {358.0, 52.0}} <AX element pid: 26807, elementOrHash.elementID: 4577619200.277>
+                                      Other, 0x114933d40, {{16.0, 136.0}, {358.0, 52.0}} <AX element pid: 26807, elementOrHash.elementID: 4679507456.289>
+                                        Other, 0x114933e80, {{16.0, 136.0}, {358.0, 52.0}} <AX element pid: 26807, elementOrHash.elementID: 4409121792.302>
+                                      Other, 0x1148c3840, {{16.0, 136.0}, {358.0, 52.0}} <AX element pid: 26807, elementOrHash.elementID: 4409121344.290>
+                                        Other, 0x1148c26c0, {{16.0, 136.0}, {358.0, 52.0}} <AX element pid: 26807, elementOrHash.elementID: 4666570240.303>
+                                          Other, 0x1148c3480, {{16.0, 136.0}, {358.0, 52.0}} <AX element pid: 26807, elementOrHash.elementID: 4408876480.314>
+                                            Switch, 0x1148c3700, {{16.0, 136.0}, {358.0, 52.0}}, identifier: 'inspectionRemindersToggle', label: 'Inspection reminders', value: 1 <AX element pid: 26807, elementOrHash.elementID: 4409025280.320>
+                                              StaticText, 0x1148c3d40, {{32.0, 151.8}, {160.0, 20.3}}, label: 'Inspection reminders' <AX element pid: 26807, elementOrHash.elementID: 4409023936.326>
+                                              Switch, 0x1148c3ac0, {{297.0, 148.0}, {63.0, 28.0}}, value: 1 <AX element pid: 26807, elementOrHash.elementID: 4666176000.327>
+                                    Cell, 0x1148c2a80, {{16.0, 188.0}, {358.0, 81.7}} <AX element pid: 26807, elementOrHash.elementID: 4680810496.278>
+                                      Other, 0x1148c3340, {{16.0, 188.0}, {358.0, 81.7}} <AX element pid: 26807, elementOrHash.elementID: 4679508992.291>
+                                        Other, 0x1148c3c00, {{16.0, 188.0}, {358.0, 81.7}} <AX element pid: 26807, elementOrHash.elementID: 4409138624.304>
+                                      Other, 0x1148c3980, {{16.0, 188.0}, {358.0, 81.7}} <AX element pid: 26807, elementOrHash.elementID: 4409138176.292>
+                                        Other, 0x1148c3200, {{16.0, 188.0}, {358.0, 81.7}} <AX element pid: 26807, elementOrHash.elementID: 4666568704.305>
+                                          Other, 0x1148c2bc0, {{16.0, 188.0}, {358.0, 81.7}} <AX element pid: 26807, elementOrHash.elementID: 4408930112.315>
+                                            StaticText, 0x1148c30c0, {{16.0, 188.0}, {358.0, 81.7}}, label: 'When the window opens, the month before it is due, in the due month and a week before the window closes. Check the date on your sticker.' <AX element pid: 26807, elementOrHash.elementID: 4408873344.321>
+                                    Other, 0x1148c2800, {{32.0, 187.0}, {326.0, 1.0}} <AX element pid: 26807, elementOrHash.elementID: 4685842944.279>
+                                    Cell, 0x1148c35c0, {{16.0, 269.7}, {358.0, 159.0}} <AX element pid: 26807, elementOrHash.elementID: 4680811776.280>
+                                      Other, 0x1148c2940, {{16.0, 269.7}, {358.0, 159.0}} <AX element pid: 26807, elementOrHash.elementID: 4679510528.293>
+                                        Other, 0x1148c2e40, {{16.0, 269.7}, {358.0, 159.0}} <AX element pid: 26807, elementOrHash.elementID: 4409139968.306>
+                                      Other, 0x11492d180, {{16.0, 269.7}, {358.0, 159.0}} <AX element pid: 26807, elementOrHash.elementID: 4409139520.294>
+                                        Other, 0x11492c780, {{16.0, 269.7}, {358.0, 159.0}} <AX element pid: 26807, elementOrHash.elementID: 4360890880.307>
+                                          Other, 0x11492c280, {{16.0, 269.7}, {358.0, 159.0}} <AX element pid: 26807, elementOrHash.elementID: 4408928320.316>
+                                            Button, 0x11492c500, {{16.0, 269.7}, {358.0, 159.0}}, label: 'Winter tyres. Requires Pitlog Pro, not active. Winter period starts November 1, 2026.' <AX element pid: 26807, elementOrHash.elementID: 4408925632.322>
+                                              Image, 0x11492d040, {{34.3, 284.0}, {19.7, 22.0}}, identifier: 'snowflake', label: 'Snow Flurry' <AX element pid: 26807, elementOrHash.elementID: 4408929664.328>
+                                              StaticText, 0x11492c8c0, {{34.3, 284.0}, {135.7, 22.0}}, label: 'Winter tyres' <AX element pid: 26807, elementOrHash.elementID: 4408929216.329>
+                                              Other, 0x11492fac0, {{302.0, 287.7}, {56.0, 50.3}}, label: 'Requires Pitlog Pro' <AX element pid: 26807, elementOrHash.elementID: 4408931904.330>
+                                                Image, 0x11492d680, {{316.7, 305.0}, {10.7, 15.3}}, identifier: 'lock.fill', label: 'Lock' <AX element pid: 26807, elementOrHash.elementID: 4408930560.353>
+                                                StaticText, 0x11492d400, {{316.7, 305.0}, {10.7, 15.3}}, label: 'Pro' <AX element pid: 26807, elementOrHash.elementID: 4408932352.354>
+                                              StaticText, 0x11492d540, {{32.0, 339.9}, {265.7, 18.0}}, label: 'Winter period starts November 1, 2026' <AX element pid: 26807, elementOrHash.elementID: 4408926528.331>
+                                              StaticText, 0x11492d900, {{32.0, 359.9}, {69.3, 18.0}}, label: 'in 27 days' <AX element pid: 26807, elementOrHash.elementID: 4408927424.332>
+                                              StaticText, 0x11492db80, {{32.0, 379.9}, {312.0, 33.7}}, label: 'Not active without Pitlog Pro. Your reminder is kept and works again with Pro.' <AX element pid: 26807, elementOrHash.elementID: 4408926976.333>
+                                    Other, 0x11492d7c0, {{32.0, 268.7}, {326.0, 1.0}} <AX element pid: 26807, elementOrHash.elementID: 4685843456.281>
+                                    Cell, 0x11492d2c0, {{16.0, 428.7}, {358.0, 159.0}} <AX element pid: 26807, elementOrHash.elementID: 4680813056.282>
+                                      Other, 0x11492fc00, {{16.0, 428.7}, {358.0, 159.0}} <AX element pid: 26807, elementOrHash.elementID: 4679514112.295>
+                                        Other, 0x11492fd40, {{16.0, 428.7}, {358.0, 159.0}} <AX element pid: 26807, elementOrHash.elementID: 4409141760.308>
+                                      Other, 0x11492fe80, {{16.0, 428.7}, {358.0, 159.0}} <AX element pid: 26807, elementOrHash.elementID: 4409140864.296>
+                                        Other, 0x11492cb40, {{16.0, 428.7}, {358.0, 159.0}} <AX element pid: 26807, elementOrHash.elementID: 4685250560.309>
+                                          Other, 0x11492cc80, {{16.0, 428.7}, {358.0, 159.0}} <AX element pid: 26807, elementOrHash.elementID: 4408915072.317>
+                                            Button, 0x11492cdc0, {{16.0, 428.7}, {358.0, 159.0}}, label: 'Vignette. Requires Pitlog Pro, not active. New vignette from December 1, 2026.' <AX element pid: 26807, elementOrHash.elementID: 4408915520.323>
+                                              Image, 0x11492f980, {{28.0, 445.7}, {32.3, 16.7}}, identifier: 'road.lanes', label: 'road.lanes' <AX element pid: 26807, elementOrHash.elementID: 4408927872.334>
+                                              StaticText, 0x11492cf00, {{28.0, 443.8}, {112.0, 20.3}}, label: 'Vignette' <AX element pid: 26807, elementOrHash.elementID: 4408919360.335>
+                                              Other, 0x11492c140, {{302.0, 446.7}, {56.0, 50.3}}, label: 'Requires Pitlog Pro' <AX element pid: 26807, elementOrHash.elementID: 4408717120.336>
+                                                Image, 0x11492ca00, {{316.7, 464.0}, {10.7, 15.3}}, identifier: 'lock.fill', label: 'Lock' <AX element pid: 26807, elementOrHash.elementID: 4408919808.355>
+                                                StaticText, 0x11492c640, {{316.7, 464.0}, {10.7, 15.3}}, label: 'Pro' <AX element pid: 26807, elementOrHash.elementID: 4408705024.356>
+                                              StaticText, 0x11499c000, {{32.0, 498.9}, {256.3, 18.0}}, label: 'New vignette from December 1, 2026' <AX element pid: 26807, elementOrHash.elementID: 4408916416.337>
+                                              StaticText, 0x11499c140, {{32.0, 518.9}, {69.7, 18.0}}, label: 'in 57 days' <AX element pid: 26807, elementOrHash.elementID: 4408917312.338>
+                                              StaticText, 0x11499c280, {{32.0, 538.9}, {312.0, 33.7}}, label: 'Not active without Pitlog Pro. Your reminder is kept and works again with Pro.' <AX element pid: 26807, elementOrHash.elementID: 4408915968.339>
+                                    Other, 0x11499c3c0, {{72.0, 427.7}, {286.0, 1.0}} <AX element pid: 26807, elementOrHash.elementID: 4685843968.283>
+                                    Cell, 0x11499c500, {{16.0, 587.7}, {358.0, 159.0}} <AX element pid: 26807, elementOrHash.elementID: 4680814336.284>
+                                      Other, 0x11499c640, {{16.0, 587.7}, {358.0, 159.0}} <AX element pid: 26807, elementOrHash.elementID: 4410238464.297>
+                                        Other, 0x11499c780, {{16.0, 587.7}, {358.0, 159.0}} <AX element pid: 26807, elementOrHash.elementID: 4409142656.310>
+                                      Other, 0x11499c8c0, {{16.0, 587.7}, {358.0, 159.0}} <AX element pid: 26807, elementOrHash.elementID: 4409142208.298>
+                                        Other, 0x11499ca00, {{16.0, 587.7}, {358.0, 159.0}} <AX element pid: 26807, elementOrHash.elementID: 4685252096.311>
+                                          Other, 0x11499cb40, {{16.0, 587.7}, {358.0, 159.0}} <AX element pid: 26807, elementOrHash.elementID: 4409123584.318>
+                                            Button, 0x11499cc80, {{16.0, 587.7}, {358.0, 159.0}}, label: 'Insurance. Requires Pitlog Pro, not active. Due December 5, 2026.' <AX element pid: 26807, elementOrHash.elementID: 4409115968.324>
+                                              Image, 0x11499cdc0, {{33.7, 601.7}, {21.0, 22.7}}, identifier: 'bell', label: 'Notifications' <AX element pid: 26807, elementOrHash.elementID: 4408914624.340>
+                                              StaticText, 0x11499cf00, {{33.7, 601.7}, {116.7, 22.7}}, label: 'Insurance' <AX element pid: 26807, elementOrHash.elementID: 4408914176.341>
+                                              Other, 0x11499d040, {{302.0, 605.7}, {56.0, 50.3}}, label: 'Requires Pitlog Pro' <AX element pid: 26807, elementOrHash.elementID: 4409119552.342>
+                                                Image, 0x11499d180, {{316.7, 623.0}, {10.7, 15.3}}, identifier: 'lock.fill', label: 'Lock' <AX element pid: 26807, elementOrHash.elementID: 4408858304.357>
+                                                StaticText, 0x11499d2c0, {{316.7, 623.0}, {10.7, 15.3}}, label: 'Pro' <AX element pid: 26807, elementOrHash.elementID: 4409115520.358>
+                                              StaticText, 0x11499d400, {{32.0, 657.9}, {159.7, 18.0}}, label: 'Due December 5, 2026' <AX element pid: 26807, elementOrHash.elementID: 4409119104.343>
+                                              StaticText, 0x11499d540, {{32.0, 677.9}, {68.3, 18.0}}, label: 'in 61 days' <AX element pid: 26807, elementOrHash.elementID: 4409120000.344>
+                                              StaticText, 0x11499d680, {{32.0, 697.9}, {312.0, 33.7}}, label: 'Not active without Pitlog Pro. Your reminder is kept and works again with Pro.' <AX element pid: 26807, elementOrHash.elementID: 4409120448.345>
+                                    Other, 0x11499d7c0, {{72.0, 586.7}, {286.0, 1.0}} <AX element pid: 26807, elementOrHash.elementID: 4685844480.285>
+                                    Cell, 0x11499d900, {{16.0, 746.7}, {358.0, 178.7}} <AX element pid: 26807, elementOrHash.elementID: 4680815616.286>
+                                      Other, 0x11499da40, {{16.0, 746.7}, {358.0, 178.7}} <AX element pid: 26807, elementOrHash.elementID: 4677923328.299>
+                                        Other, 0x11499db80, {{16.0, 746.7}, {358.0, 178.7}} <AX element pid: 26807, elementOrHash.elementID: 4409144000.312>
+                                      Other, 0x11499dcc0, {{16.0, 746.7}, {358.0, 178.7}} <AX element pid: 26807, elementOrHash.elementID: 4409143104.300>
+                                        Other, 0x11499de00, {{16.0, 746.7}, {358.0, 178.7}} <AX element pid: 26807, elementOrHash.elementID: 4685253632.313>
+                                          Other, 0x11499df40, {{16.0, 746.7}, {358.0, 178.7}} <AX element pid: 26807, elementOrHash.elementID: 4409012032.319>
+                                            Button, 0x11499e080, {{16.0, 746.7}, {358.0, 178.7}}, label: 'Oil service. Requires Pitlog Pro, not active. At 75,000 km, estimated around February 25, 2027.' <AX element pid: 26807, elementOrHash.elementID: 4409012928.325>
+                                              Image, 0x11499e1c0, {{30.7, 758.7}, {26.7, 26.3}}, identifier: 'wrench.and.screwdriver', label: 'wrench.and.screwdriver' <AX element pid: 26807, elementOrHash.elementID: 4409124032.346>
+                                              StaticText, 0x11499e300, {{30.7, 758.7}, {124.7, 26.3}}, label: 'Oil service' <AX element pid: 26807, elementOrHash.elementID: 4409114624.347>
+                                              Other, 0x11499e440, {{302.0, 764.3}, {56.0, 50.3}}, label: 'Requires Pitlog Pro' <AX element pid: 26807, elementOrHash.elementID: 4409014272.348>
+                                                Image, 0x11499e580, {{316.7, 781.7}, {10.7, 15.3}}, identifier: 'lock.fill', label: 'Lock' <AX element pid: 26807, elementOrHash.elementID: 4408814080.359>
+                                                StaticText, 0x11499e6c0, {{316.7, 781.7}, {10.7, 15.3}}, label: 'Pro' <AX element pid: 26807, elementOrHash.elementID: 4408814528.360>
+                                              StaticText, 0x11499e800, {{32.0, 816.7}, {288.7, 38.0}}, label: 'At 75,000 km, estimated around February 25, 2027' <AX element pid: 26807, elementOrHash.elementID: 4409013824.349>
+                                              StaticText, 0x11499e940, {{32.0, 856.7}, {77.3, 18.0}}, label: 'in 143 days' <AX element pid: 26807, elementOrHash.elementID: 4409009344.350>
+                                              StaticText, 0x11499ea80, {{32.0, 876.7}, {312.0, 33.7}}, label: 'Not active without Pitlog Pro. Your reminder is kept and works again with Pro.' <AX element pid: 26807, elementOrHash.elementID: 4409013376.351>
+                                    Other, 0x11499ebc0, {{72.0, 745.7}, {286.0, 1.0}} <AX element pid: 26807, elementOrHash.elementID: 4685844992.287>
+                                    Other, 0x11499ed00, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertical scroll bar, 2 pages', value: 0% <AX element pid: 26807, elementOrHash.elementID: 4679505408.288>
+                                      Other, 0x11499ee40, {{384.0, 104.0}, {3.0, 522.3}} <AX element pid: 26807, elementOrHash.elementID: 4409120896.301>
+                                    Other, 0x11499ef80, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertical scroll bar, 2 pages', value: 0% <AX element pid: 26807, elementOrHash.elementID: 4679505408.288>
+                                      Other, 0x11499f0c0, {{384.0, 104.0}, {3.0, 522.3}} <AX element pid: 26807, elementOrHash.elementID: 4409120896.301>
+                          Other, 0x11499f200, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 26807, elementOrHash.elementID: 4664711168.115>
+                            Other, 0x11499f340, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 26807, elementOrHash.elementID: 4664713216.119>
+              Other, 0x11499f480, {{0.0, 761.0}, {390.0, 83.0}} <AX element pid: 26807, elementOrHash.elementID: 4409398528.10>
+                Other, 0x11499f5c0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 26807, elementOrHash.elementID: 4409407040.12>
+                Other, 0x11499f700, {{0.0, 761.0}, {390.0, 83.0}} <AX element pid: 26807, elementOrHash.elementID: 4410231296.13>
+===== testLockedRemindersPassAccessibilityAudit / Debug description for `"addReminderButton" Button`_0_D8DDBDBE-6F9A-42E3-A9BC-7D1196941C31.txt
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  ↪︎Find: Descendants matching type Button
+    ↪︎Find: Elements matching predicate '"addReminderButton" IN identifiers'
+
+===== testLockedRemindersPassAccessibilityAudit / Debug description for `"addReminderButton" Button`_0_BBA902F2-93F4-4914-B3C6-DE1A1BBACD28.txt
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  ↪︎Find: Descendants matching type Button
+    ↪︎Find: Elements matching predicate '"addReminderButton" IN identifiers'
+
+===== testLockedRemindersPassAccessibilityAudit / Debug description for `"addReminderButton" Button`_0_4C0A3EF2-E2FE-492F-BC1B-671F6661652D.txt
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  ↪︎Find: Descendants matching type Button
+    ↪︎Find: Elements matching predicate '"addReminderButton" IN identifiers'
+
+===== testLockedRemindersPassAccessibilityAudit / Debug description for `"addReminderButton" Button`_0_4AA5D90A-5753-4CFA-A29B-CAFDD4FD992F.txt
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  ↪︎Find: Descendants matching type Button
+    ↪︎Find: Elements matching predicate '"addReminderButton" IN identifiers'
+
+===== testLockedRemindersPassAccessibilityAudit / Debug description for `"addReminderButton" Button`_0_F3DE8078-7494-45C3-B29B-E90EDFFA0C06.txt
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  ↪︎Find: Descendants matching type Button
+    ↪︎Find: Elements matching predicate '"addReminderButton" IN identifiers'
+
+===== testLockedRemindersPassAccessibilityAuditInGerman / App UI hierarchy for com.kane_0_EAF6651A-DC2A-46BD-AA7E-D12CDBD5148C.pitlog
+Application, 0x1149d30c0, pid: 27533, label: 'Pitlog' <App element pid: 27533>
+  Window (Main), 0x1149d1680, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 27533, elementOrHash.elementID: 4390750208.3>
+    Other, 0x1149d17c0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 27533, elementOrHash.elementID: 4439278592.4>
+      Other, 0x1149d1900, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 27533, elementOrHash.elementID: 4438519680.5>
+        Other, 0x1149d1a40, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 27533, elementOrHash.elementID: 4390749184.6>
+          Other, 0x1149d1b80, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 27533, elementOrHash.elementID: 4438115200.7>
+            Other, 0x1149d1cc0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 27533, elementOrHash.elementID: 4438758208.8>
+              Other, 0x1149d1e00, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 27533, elementOrHash.elementID: 4439281664.9>
+                Other, 0x1149d1f40, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 27533, elementOrHash.elementID: 4391273344.11>
+                  Other, 0x1149d2080, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 27533, elementOrHash.elementID: 4390754304.109>
+                    Other, 0x1149d21c0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 27533, elementOrHash.elementID: 4438118784.110>
+                      Other, 0x1149d2300, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 27533, elementOrHash.elementID: 4438119680.111>
+                        Other, 0x1149d2440, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 27533, elementOrHash.elementID: 4438174656.112>
+                          NavigationBar, 0x1149d2580, {{0.0, 47.0}, {390.0, 54.0}}, identifier: 'Erinnerungen' <AX element pid: 27533, elementOrHash.elementID: 4439995904.113>
+                            Button, 0x1149d26c0, {{16.0, 47.0}, {44.0, 44.0}}, identifier: 'BackButton', label: 'Golf' <AX element pid: 27533, elementOrHash.elementID: 4724533248.192>
+                            StaticText, 0x1149d2800, {{141.3, 58.7}, {107.0, 20.7}}, label: 'Erinnerungen' <AX element pid: 27533, elementOrHash.elementID: 4715569920.269>
+                          Other, 0x1149d2940, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 27533, elementOrHash.elementID: 4438175552.114>
+                            Other, 0x1149d2a80, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 27533, elementOrHash.elementID: 4438217536.118>
+                              Other, 0x1149d2bc0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 27533, elementOrHash.elementID: 4715567232.270>
+                                Other, 0x1149d2d00, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 27533, elementOrHash.elementID: 4391281408.271>
+                                  CollectionView, 0x1149d2e40, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 27533, elementOrHash.elementID: 4725489664.272>
+                                    Other, 0x1149d2f80, {{-16.0, -1587.0}, {422.0, 4355.7}} <AX element pid: 27533, elementOrHash.elementID: 4726768640.273>
+                                    Other, 0x1149d3980, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 27533, elementOrHash.elementID: 4438240192.274>
+                                    Other, 0x1149d3ac0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 27533, elementOrHash.elementID: 4438239744.275>
+                                    Cell, 0x1149d3c00, {{16.0, 136.0}, {358.0, 52.0}} <AX element pid: 27533, elementOrHash.elementID: 4717717504.276>
+                                      Other, 0x1149d3d40, {{16.0, 136.0}, {358.0, 52.0}} <AX element pid: 27533, elementOrHash.elementID: 4724596736.288>
+                                        Other, 0x1149d3e80, {{16.0, 136.0}, {358.0, 52.0}} <AX element pid: 27533, elementOrHash.elementID: 4438443328.301>
+                                      Other, 0x11499f980, {{16.0, 136.0}, {358.0, 52.0}} <AX element pid: 27533, elementOrHash.elementID: 4438442880.289>
+                                        Other, 0x11499fac0, {{16.0, 136.0}, {358.0, 52.0}} <AX element pid: 27533, elementOrHash.elementID: 4718042624.302>
+                                          Other, 0x11499fc00, {{16.0, 136.0}, {358.0, 52.0}} <AX element pid: 27533, elementOrHash.elementID: 4438364544.313>
+                                            Switch, 0x11499fd40, {{16.0, 136.0}, {358.0, 52.0}}, identifier: 'inspectionRemindersToggle', label: 'Pickerl-Erinnerungen', value: 1 <AX element pid: 27533, elementOrHash.elementID: 4438364096.319>
+                                              StaticText, 0x11499fe80, {{32.0, 151.8}, {160.0, 20.3}}, label: 'Pickerl-Erinnerungen' <AX element pid: 27533, elementOrHash.elementID: 4438366336.325>
+                                              Switch, 0x114930000, {{297.0, 148.0}, {63.0, 28.0}}, value: 1 <AX element pid: 27533, elementOrHash.elementID: 4715426304.326>
+                                    Cell, 0x1149d4000, {{16.0, 188.0}, {358.0, 81.7}} <AX element pid: 27533, elementOrHash.elementID: 4717718784.277>
+                                      Other, 0x1149d4140, {{16.0, 188.0}, {358.0, 81.7}} <AX element pid: 27533, elementOrHash.elementID: 4724598272.290>
+                                        Other, 0x1149d4280, {{16.0, 188.0}, {358.0, 81.7}} <AX element pid: 27533, elementOrHash.elementID: 4438462400.303>
+                                      Other, 0x1149d43c0, {{16.0, 188.0}, {358.0, 81.7}} <AX element pid: 27533, elementOrHash.elementID: 4438461952.291>
+                                        Other, 0x1149d4500, {{16.0, 188.0}, {358.0, 81.7}} <AX element pid: 27533, elementOrHash.elementID: 4718041088.304>
+                                          Other, 0x1149d4640, {{16.0, 188.0}, {358.0, 81.7}} <AX element pid: 27533, elementOrHash.elementID: 4438164352.314>
+                                            StaticText, 0x1149d4780, {{16.0, 188.0}, {358.0, 81.7}}, label: 'Wenn das Fenster öffnet, im Monat davor, im Fälligkeitsmonat und eine Woche, bevor das Fenster schließt. Datum auf der Plakette prüfen.' <AX element pid: 27533, elementOrHash.elementID: 4438364992.320>
+                                    Other, 0x1149d48c0, {{32.0, 187.0}, {326.0, 1.0}} <AX element pid: 27533, elementOrHash.elementID: 4726769152.278>
+                                    Cell, 0x1149d4a00, {{16.0, 269.7}, {358.0, 159.0}} <AX element pid: 27533, elementOrHash.elementID: 4717720064.279>
+                                      Other, 0x1149d4b40, {{16.0, 269.7}, {358.0, 159.0}} <AX element pid: 27533, elementOrHash.elementID: 4724599808.292>
+                                        Other, 0x1149d4c80, {{16.0, 269.7}, {358.0, 159.0}} <AX element pid: 27533, elementOrHash.elementID: 4438463296.305>
+                                      Other, 0x1149d4dc0, {{16.0, 269.7}, {358.0, 159.0}} <AX element pid: 27533, elementOrHash.elementID: 4438462848.293>
+                                        Other, 0x1149d4f00, {{16.0, 269.7}, {358.0, 159.0}} <AX element pid: 27533, elementOrHash.elementID: 4718044160.306>
+                                          Other, 0x1149d5040, {{16.0, 269.7}, {358.0, 159.0}} <AX element pid: 27533, elementOrHash.elementID: 4438242432.315>
+                                            Button, 0x1149d5180, {{16.0, 269.7}, {358.0, 159.0}}, label: 'Winterreifen. Benötigt Pitlog Pro, nicht aktiv. Winterperiode beginnt am 1. November 2026.' <AX element pid: 27533, elementOrHash.elementID: 4438459712.321>
+                                              Image, 0x1149d52c0, {{34.3, 284.0}, {19.7, 22.0}}, identifier: 'snowflake', label: 'Wirbelnder Schnee' <AX element pid: 27533, elementOrHash.elementID: 4438163904.327>
+                                              StaticText, 0x1149d5400, {{34.3, 284.0}, {136.7, 22.0}}, label: 'Winterreifen' <AX element pid: 27533, elementOrHash.elementID: 4438187008.328>
+                                              Other, 0x1149d5540, {{302.0, 287.7}, {56.0, 50.3}}, label: 'Benötigt Pitlog Pro' <AX element pid: 27533, elementOrHash.elementID: 4438194176.329>
+                                                Image, 0x1149d5680, {{316.7, 305.0}, {10.7, 15.3}}, identifier: 'lock.fill', label: 'Schloss' <AX element pid: 27533, elementOrHash.elementID: 4438191040.352>
+                                                StaticText, 0x1149d57c0, {{316.7, 305.0}, {10.7, 15.3}}, label: 'Pro' <AX element pid: 27533, elementOrHash.elementID: 4438191488.353>
+                                              StaticText, 0x1149d5900, {{32.0, 339.9}, {308.0, 18.0}}, label: 'Winterperiode beginnt am 1. November 2026' <AX element pid: 27533, elementOrHash.elementID: 4438461056.330>
+                                              StaticText, 0x1149d5a40, {{32.0, 359.9}, {78.7, 18.0}}, label: 'in 27 Tagen' <AX element pid: 27533, elementOrHash.elementID: 4438461504.331>
+                                              StaticText, 0x1149d5b80, {{32.0, 379.9}, {312.7, 33.7}}, label: 'Ohne Pitlog Pro nicht aktiv. Deine Erinnerung bleibt gespeichert und läuft mit Pro wieder.' <AX element pid: 27533, elementOrHash.elementID: 4438460160.332>
+                                    Other, 0x1149d5cc0, {{32.0, 268.7}, {326.0, 1.0}} <AX element pid: 27533, elementOrHash.elementID: 4726769664.280>
+                                    Cell, 0x1149d5e00, {{16.0, 428.7}, {358.0, 159.0}} <AX element pid: 27533, elementOrHash.elementID: 4717721344.281>
+                                      Other, 0x1149d5f40, {{16.0, 428.7}, {358.0, 159.0}} <AX element pid: 27533, elementOrHash.elementID: 4724603392.294>
+                                        Other, 0x1149d6080, {{16.0, 428.7}, {358.0, 159.0}} <AX element pid: 27533, elementOrHash.elementID: 4438464192.307>
+                                      Other, 0x1149d61c0, {{16.0, 428.7}, {358.0, 159.0}} <AX element pid: 27533, elementOrHash.elementID: 4438463744.295>
+                                        Other, 0x1149d6300, {{16.0, 428.7}, {358.0, 159.0}} <AX element pid: 27533, elementOrHash.elementID: 4718045696.308>
+                                          Other, 0x1149d6440, {{16.0, 428.7}, {358.0, 159.0}} <AX element pid: 27533, elementOrHash.elementID: 4438231680.316>
+                                            Button, 0x1149d6580, {{16.0, 428.7}, {358.0, 159.0}}, label: 'Vignette. Benötigt Pitlog Pro, nicht aktiv. Neue Vignette ab 1. Dezember 2026.' <AX element pid: 27533, elementOrHash.elementID: 4438240640.322>
+                                              Image, 0x1149d66c0, {{28.0, 445.7}, {32.3, 16.7}}, identifier: 'road.lanes', label: 'road.lanes' <AX element pid: 27533, elementOrHash.elementID: 4438241984.333>
+                                              StaticText, 0x1149d6800, {{28.0, 443.8}, {112.0, 20.3}}, label: 'Vignette' <AX element pid: 27533, elementOrHash.elementID: 4438236160.334>
+                                              Other, 0x1149d6940, {{302.0, 446.7}, {56.0, 50.3}}, label: 'Benötigt Pitlog Pro' <AX element pid: 27533, elementOrHash.elementID: 4438237056.335>
+                                                Image, 0x1149d6a80, {{316.7, 464.0}, {10.7, 15.3}}, identifier: 'lock.fill', label: 'Schloss' <AX element pid: 27533, elementOrHash.elementID: 4438236608.354>
+                                                StaticText, 0x1149d6bc0, {{316.7, 464.0}, {10.7, 15.3}}, label: 'Pro' <AX element pid: 27533, elementOrHash.elementID: 4438237504.355>
+                                              StaticText, 0x1149d6d00, {{32.0, 498.9}, {248.3, 18.0}}, label: 'Neue Vignette ab 1. Dezember 2026' <AX element pid: 27533, elementOrHash.elementID: 4438238400.336>
+                                              StaticText, 0x1149d6e40, {{32.0, 518.9}, {79.0, 18.0}}, label: 'in 57 Tagen' <AX element pid: 27533, elementOrHash.elementID: 4438237952.337>
+                                              StaticText, 0x1149d6f80, {{32.0, 538.9}, {312.7, 33.7}}, label: 'Ohne Pitlog Pro nicht aktiv. Deine Erinnerung bleibt gespeichert und läuft mit Pro wieder.' <AX element pid: 27533, elementOrHash.elementID: 4438230336.338>
+                                    Other, 0x1149d70c0, {{72.0, 427.7}, {286.0, 1.0}} <AX element pid: 27533, elementOrHash.elementID: 4726770176.282>
+                                    Cell, 0x1149d7200, {{16.0, 587.7}, {358.0, 159.0}} <AX element pid: 27533, elementOrHash.elementID: 4726341632.283>
+                                      Other, 0x1149d7340, {{16.0, 587.7}, {358.0, 159.0}} <AX element pid: 27533, elementOrHash.elementID: 4716531200.296>
+                                        Other, 0x1149d7480, {{16.0, 587.7}, {358.0, 159.0}} <AX element pid: 27533, elementOrHash.elementID: 4438465536.309>
+                                      Other, 0x1149d75c0, {{16.0, 587.7}, {358.0, 159.0}} <AX element pid: 27533, elementOrHash.elementID: 4438465088.297>
+                                        Other, 0x1149d7700, {{16.0, 587.7}, {358.0, 159.0}} <AX element pid: 27533, elementOrHash.elementID: 4718047232.310>
+                                          Other, 0x1149d7840, {{16.0, 587.7}, {358.0, 159.0}} <AX element pid: 27533, elementOrHash.elementID: 4438454976.317>
+                                            Button, 0x1149d7980, {{16.0, 587.7}, {358.0, 159.0}}, label: 'Insurance. Benötigt Pitlog Pro, nicht aktiv. Fällig: 5. Dezember 2026.' <AX element pid: 27533, elementOrHash.elementID: 4438454080.323>
+                                              Image, 0x1149d7ac0, {{33.7, 601.7}, {21.0, 22.7}}, identifier: 'bell', label: 'Mitteilungen' <AX element pid: 27533, elementOrHash.elementID: 4438453632.339>
+                                              StaticText, 0x1149d7c00, {{33.7, 601.7}, {116.7, 22.7}}, label: 'Insurance' <AX element pid: 27533, elementOrHash.elementID: 4438455872.340>
+                                              Other, 0x1149d7d40, {{302.0, 605.7}, {56.0, 50.3}}, label: 'Benötigt Pitlog Pro' <AX element pid: 27533, elementOrHash.elementID: 4438457216.341>
+                                                Image, 0x1149d7e80, {{316.7, 623.0}, {10.7, 15.3}}, identifier: 'lock.fill', label: 'Schloss' <AX element pid: 27533, elementOrHash.elementID: 4438452736.356>
+                                                StaticText, 0x1149d8000, {{316.7, 623.0}, {10.7, 15.3}}, label: 'Pro' <AX element pid: 27533, elementOrHash.elementID: 4438456768.357>
+                                              StaticText, 0x1149d8140, {{32.0, 657.9}, {171.3, 18.0}}, label: 'Fällig: 5. Dezember 2026' <AX element pid: 27533, elementOrHash.elementID: 4438457664.342>
+                                              StaticText, 0x1149d8280, {{32.0, 677.9}, {77.7, 18.0}}, label: 'in 61 Tagen' <AX element pid: 27533, elementOrHash.elementID: 4438445120.343>
+                                              StaticText, 0x1149d83c0, {{32.0, 697.9}, {312.7, 33.7}}, label: 'Ohne Pitlog Pro nicht aktiv. Deine Erinnerung bleibt gespeichert und läuft mit Pro wieder.' <AX element pid: 27533, elementOrHash.elementID: 4438446016.344>
+                                    Other, 0x1149d8500, {{72.0, 586.7}, {286.0, 1.0}} <AX element pid: 27533, elementOrHash.elementID: 4726770688.284>
+                                    Cell, 0x1149d8640, {{16.0, 746.7}, {358.0, 178.7}} <AX element pid: 27533, elementOrHash.elementID: 4726342912.285>
+                                      Other, 0x1149d8780, {{16.0, 746.7}, {358.0, 178.7}} <AX element pid: 27533, elementOrHash.elementID: 4722926080.298>
+                                        Other, 0x1149d88c0, {{16.0, 746.7}, {358.0, 178.7}} <AX element pid: 27533, elementOrHash.elementID: 4438466880.311>
+                                      Other, 0x1149d8a00, {{16.0, 746.7}, {358.0, 178.7}} <AX element pid: 27533, elementOrHash.elementID: 4438466432.299>
+                                        Other, 0x1149d8b40, {{16.0, 746.7}, {358.0, 178.7}} <AX element pid: 27533, elementOrHash.elementID: 4718048768.312>
+                                          Other, 0x1149d8c80, {{16.0, 746.7}, {358.0, 178.7}} <AX element pid: 27533, elementOrHash.elementID: 4438217088.318>
+                                            Button, 0x1149d8dc0, {{16.0, 746.7}, {358.0, 178.7}}, label: 'Oil service. Benötigt Pitlog Pro, nicht aktiv. Bei 75.000 km, geschätzt um den 25. Februar 2027.' <AX element pid: 27533, elementOrHash.elementID: 4438222464.324>
+                                              Image, 0x1149d8f00, {{30.7, 758.7}, {26.7, 26.3}}, identifier: 'wrench.and.screwdriver', label: 'wrench.and.screwdriver' <AX element pid: 27533, elementOrHash.elementID: 4438216640.345>
+                                              StaticText, 0x1149d9040, {{30.7, 758.7}, {124.7, 26.3}}, label: 'Oil service' <AX element pid: 27533, elementOrHash.elementID: 4438225152.346>
+                                              Other, 0x1149d9180, {{302.0, 764.3}, {56.0, 50.3}}, label: 'Benötigt Pitlog Pro' <AX element pid: 27533, elementOrHash.elementID: 4438225600.347>
+                                                Image, 0x1149d92c0, {{316.7, 781.7}, {10.7, 15.3}}, identifier: 'lock.fill', label: 'Schloss' <AX element pid: 27533, elementOrHash.elementID: 4438226496.358>
+                                                StaticText, 0x1149d9400, {{316.7, 781.7}, {10.7, 15.3}}, label: 'Pro' <AX element pid: 27533, elementOrHash.elementID: 4438226048.359>
+                                              StaticText, 0x1149d9540, {{32.0, 816.7}, {316.3, 38.0}}, label: 'Bei 75.000 km, geschätzt um den 25. Februar 2027' <AX element pid: 27533, elementOrHash.elementID: 4438224704.348>
+                                              StaticText, 0x1149d9680, {{32.0, 856.7}, {87.0, 18.0}}, label: 'in 143 Tagen' <AX element pid: 27533, elementOrHash.elementID: 4438224256.349>
+                                              StaticText, 0x1149d97c0, {{32.0, 876.7}, {312.7, 33.7}}, label: 'Ohne Pitlog Pro nicht aktiv. Deine Erinnerung bleibt gespeichert und läuft mit Pro wieder.' <AX element pid: 27533, elementOrHash.elementID: 4438223360.350>
+                                    Other, 0x1149d9900, {{72.0, 745.7}, {286.0, 1.0}} <AX element pid: 27533, elementOrHash.elementID: 4726771200.286>
+                                    Other, 0x1149d9a40, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertikaler Rollbalken, 2 Seiten', value: 0 % <AX element pid: 27533, elementOrHash.elementID: 4724594688.287>
+                                      Other, 0x1149d9b80, {{384.0, 104.0}, {3.0, 522.3}} <AX element pid: 27533, elementOrHash.elementID: 4438442432.300>
+                                    Other, 0x1149d9cc0, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertikaler Rollbalken, 2 Seiten', value: 0 % <AX element pid: 27533, elementOrHash.elementID: 4724594688.287>
+                                      Other, 0x1149d9e00, {{384.0, 104.0}, {3.0, 522.3}} <AX element pid: 27533, elementOrHash.elementID: 4438442432.300>
+                          Other, 0x1149d9f40, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 27533, elementOrHash.elementID: 4645402112.115>
+                            Other, 0x1149da080, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 27533, elementOrHash.elementID: 4608461312.119>
+              Other, 0x1149da1c0, {{0.0, 761.0}, {390.0, 83.0}} <AX element pid: 27533, elementOrHash.elementID: 4438759104.10>
+                Other, 0x1149da300, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 27533, elementOrHash.elementID: 4438767168.12>
+                Other, 0x1149da440, {{0.0, 761.0}, {390.0, 83.0}} <AX element pid: 27533, elementOrHash.elementID: 4439280128.13>
+===== testLockedRemindersPassAccessibilityAuditInGerman / Debug description for `"addReminderButton" Button`_0_B095B4DE-7D63-420C-AD8A-F2F4EE1895FC.txt
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  ↪︎Find: Descendants matching type Button
+    ↪︎Find: Elements matching predicate '"addReminderButton" IN identifiers'
+
+===== testLockedRemindersPassAccessibilityAuditInGerman / Debug description for `"addReminderButton" Button`_0_358F9F73-04E3-457C-A09A-A51A9D9CB3E4.txt
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  ↪︎Find: Descendants matching type Button
+    ↪︎Find: Elements matching predicate '"addReminderButton" IN identifiers'
+
+===== testLockedRemindersPassAccessibilityAuditInGerman / Debug description for `"addReminderButton" Button`_0_56D9B11B-F84D-4599-B217-12BF6EDCD002.txt
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  ↪︎Find: Descendants matching type Button
+    ↪︎Find: Elements matching predicate '"addReminderButton" IN identifiers'
+
+===== testLockedRemindersPassAccessibilityAuditInGerman / Debug description for `"addReminderButton" Button`_0_F60546B0-8106-4F2B-8FA7-F6D7F7A38461.txt
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  ↪︎Find: Descendants matching type Button
+    ↪︎Find: Elements matching predicate '"addReminderButton" IN identifiers'
+
+===== testLockedRemindersPassAccessibilityAuditInGerman / Debug description for `"addReminderButton" Button`_0_23370D7F-8025-4423-A8FF-34E894A4387B.txt
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  ↪︎Find: Descendants matching type Button
+    ↪︎Find: Elements matching predicate '"addReminderButton" IN identifiers'
+
+===== testLockedServiceRecordRowPassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testLockedServiceRecordRowPassesAccessibilityAuditInGerman / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testPaywallPassesAccessibilityAudit / audit-paywall-en_0_8817A191-D3CA-45D0-BDDF-52C74527A00E.txt
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Close' id='paywallCloseButton' frame=(19.999999999999996, 67.0, 67.0, 36.0)
+
+(ignored: system navigation bar button)
+===== testPaywallPassesAccessibilityAuditInGerman / Complete Issue Description.txt
+Text of this SwiftUI.AccessibilityNode may be clipped at larger Dynamic Type sizes.
+===== testPaywallPassesAccessibilityAuditWithLargeText / audit-paywall-xxxl-en_0_5BFB7943-6C81-4CA5-B021-CEC5653E4104.txt
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Close' id='paywallCloseButton' frame=(20.0, 67.0, 76.0, 36.0)
+
+(ignored: system navigation bar button)
+===== testReadOnlyVehiclePassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testReadOnlyVehiclePassesAccessibilityAuditInGerman / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testReceiptReviewPassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testReceiptReviewPassesAccessibilityAuditInGerman / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testReceiptReviewPassesAccessibilityAuditWithLargeText / audit-receipt-review-xxxl-en_0_09BDA4E6-1906-4852-BE4F-D55C186B71EC.txt
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Cancel' id='receiptReviewCancelButton' frame=(20.000000000000004, 67.0, 87.66666666666667, 36.0)
+
+(ignored: system navigation bar button)
+
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Add entry' id='receiptReviewApplyButton' frame=(251.66666666666666, 67.0, 118.33333333333334, 36.0)
+
+(ignored: system navigation bar button)
+===== testRegistrationReviewPassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testRegistrationReviewPassesAccessibilityAuditInGerman / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testRegistrationReviewPassesAccessibilityAuditWithLargeText / audit-registration-review-xxxl-en_0_DC6ECD29-E893-4A01-8AFD-B19909FD56E6.txt
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Cancel' id='registrationReviewCancelButton' frame=(20.000000000000004, 77.0, 87.66666666666667, 36.0)
+
+(ignored: system navigation bar button)
+
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Apply' id='registrationReviewApplyButton' frame=(290.3333333333333, 77.0, 79.66666666666669, 36.0)
+
+(ignored: system navigation bar button)
+===== testRegistrationReviewUnsupportedClassPassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testReminderListPassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testReminderListPassesAccessibilityAuditInGerman / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testServiceRecordOptionsPassAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testServiceRecordOptionsPassAccessibilityAuditInGerman / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testServiceRecordOptionsPassAccessibilityAuditWithLargeText / audit-service-record-options-xxxl-en_0_2C26C40E-7FDF-43A9-87E8-310311C3408E.txt
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Create' id='createServiceRecordButton' frame=(281.6666666666667, 67.0, 88.33333333333331, 36.0)
+
+(ignored: system navigation bar button)
+
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Cancel' id='cancelButton' frame=(20.000000000000004, 67.0, 87.66666666666667, 36.0)
+
+(ignored: system navigation bar button)
+===== testServiceRecordOptionsPassAccessibilityAuditWithLargeTextInGerman / App UI hierarchy for com.kane_0_0B026A73-7B95-4913-9FFB-C601ED7E0A13.pitlog
+Application, 0x1149f0b40, pid: 60400, label: 'Pitlog' <App element pid: 60400>
+  Window (Main), 0x1149f2940, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 60400, elementOrHash.elementID: 4344645632.3>
+    Other, 0x1149f3e80, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 60400, elementOrHash.elementID: 4393468928.4>
+      Other, 0x1149f0500, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 60400, elementOrHash.elementID: 4392415104.5>
+        Other, 0x1149f1f40, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 60400, elementOrHash.elementID: 4344644608.6>
+          Other, 0x1149f30c0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 60400, elementOrHash.elementID: 4392028352.7>
+            Other, 0x1149f2bc0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 60400, elementOrHash.elementID: 4392636800.8>
+              Other, 0x1149f12c0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 60400, elementOrHash.elementID: 4393472000.9>
+                Other, 0x1149f0a00, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 60400, elementOrHash.elementID: 4344958016.11>
+                  Other, 0x1149d1540, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 60400, elementOrHash.elementID: 4344647680.79>
+                    Other, 0x1149dd180, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 60400, elementOrHash.elementID: 4392089600.80>
+                      Other, 0x1149dd680, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 60400, elementOrHash.elementID: 4392089152.81>
+                        Other, 0x1149dee40, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 60400, elementOrHash.elementID: 4392093440.82>
+                          NavigationBar, 0x1149dd040, {{0.0, 47.0}, {390.0, 54.0}}, identifier: 'Historie' <AX element pid: 60400, elementOrHash.elementID: 4394333696.83>
+                            Button, 0x1149dfe80, {{16.0, 47.0}, {44.0, 44.0}}, identifier: 'BackButton', label: 'Golf' <AX element pid: 60400, elementOrHash.elementID: 4391852928.134>
+                            StaticText, 0x1149df340, {{157.3, 56.3}, {75.0, 25.3}}, label: 'Historie' <AX element pid: 60400, elementOrHash.elementID: 4673824384.223>
+                          Other, 0x1149de1c0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 60400, elementOrHash.elementID: 4392094784.84>
+                            Other, 0x1149dc3c0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 60400, elementOrHash.elementID: 4392103296.88>
+                              Other, 0x1149dcb40, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 60400, elementOrHash.elementID: 4673815424.224>
+                                Other, 0x1149ddf40, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 60400, elementOrHash.elementID: 4344964288.225>
+                                  CollectionView, 0x1149dcc80, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 60400, elementOrHash.elementID: 4681973760.226>
+                                    Other, 0x1149dc500, {{0.0, -1587.0}, {390.0, 5099.3}} <AX element pid: 60400, elementOrHash.elementID: 4683649536.227>
+                                    Other, 0x1149dda40, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 60400, elementOrHash.elementID: 4392240000.228>
+                                      Other, 0x1149ddcc0, {{0.0, 0.0}, {390.0, 155.8}} <AX element pid: 60400, elementOrHash.elementID: 4392278144.239>
+                                    Other, 0x1149dd2c0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 60400, elementOrHash.elementID: 4392239552.229>
+                                    Cell, 0x1149df840, {{0.0, 101.0}, {390.0, 160.7}} <AX element pid: 60400, elementOrHash.elementID: 4676132352.230>
+                                      Other, 0x1149dc280, {{0.0, 101.0}, {390.0, 160.7}} <AX element pid: 60400, elementOrHash.elementID: 4393477120.240>
+                                        Other, 0x1149dfac0, {{0.0, 101.0}, {390.0, 160.7}} <AX element pid: 60400, elementOrHash.elementID: 4392253888.251>
+                                      Other, 0x1149dfd40, {{0.0, 101.0}, {390.0, 160.7}} <AX element pid: 60400, elementOrHash.elementID: 4392253440.241>
+                                        Other, 0x1149de800, {{0.0, 101.0}, {390.0, 160.7}} <AX element pid: 60400, elementOrHash.elementID: 4681960448.252>
+                                          Other, 0x1149de6c0, {{0.0, 101.0}, {390.0, 160.7}} <AX element pid: 60400, elementOrHash.elementID: 4344963840.261>
+                                            StaticText, 0x1149dd540, {{0.0, 101.0}, {390.0, 160.7}}, label: 'Werkstattkosten' <AX element pid: 60400, elementOrHash.elementID: 4344955776.266>
+                                    Cell, 0x1149df200, {{0.0, 261.7}, {390.0, 155.3}} <AX element pid: 60400, elementOrHash.elementID: 4676133632.231>
+                                      Other, 0x1149dc000, {{0.0, 261.7}, {390.0, 155.3}} <AX element pid: 60400, elementOrHash.elementID: 4672551936.242>
+                                        Other, 0x1149debc0, {{0.0, 261.7}, {390.0, 155.3}} <AX element pid: 60400, elementOrHash.elementID: 4392104640.253>
+                                      Other, 0x1149dc8c0, {{0.0, 261.7}, {390.0, 155.3}} <AX element pid: 60400, elementOrHash.elementID: 4392254336.243>
+                                        Other, 0x1149dc640, {{0.0, 261.7}, {390.0, 155.3}} <AX element pid: 60400, elementOrHash.elementID: 4681961984.254>
+                                          Other, 0x1149dea80, {{0.0, 261.7}, {390.0, 155.3}} <AX element pid: 60400, elementOrHash.elementID: 4392185216.262>
+                                            Button, 0x1149df5c0, {{0.0, 261.7}, {390.0, 155.3}}, identifier: 'costsCurrency', label: 'Währung', value: Euro (EUR) <AX element pid: 60400, elementOrHash.elementID: 4392184320.267>
+                                              Button, 0x1149de940, {{16.0, 276.7}, {358.0, 125.3}}, label: 'Währung, Euro (EUR)' <AX element pid: 60400, elementOrHash.elementID: 4392187008.271>
+                                                Button, 0x1149dcdc0, {{16.0, 276.7}, {358.0, 125.3}} <AX element pid: 60400, elementOrHash.elementID: 4673822592.280>
+                                                  StaticText, 0x1149de440, {{16.0, 276.7}, {124.7, 125.3}}, label: 'Währung' <AX element pid: 60400, elementOrHash.elementID: 4344965184.282>
+                                                  StaticText, 0x1149dd7c0, {{173.0, 276.7}, {145.0, 125.3}}, label: 'Euro (EUR)' <AX element pid: 60400, elementOrHash.elementID: 4344964736.283>
+                                                  Image, 0x1149df0c0, {{332.7, 283.3}, {34.7, 50.0}}, identifier: 'chevron.up.chevron.down', label: 'Auf- Und Abwärtszeigende Chevrons' <AX element pid: 60400, elementOrHash.elementID: 4344956672.284>
+                                    Cell, 0x1149df480, {{0.0, 417.0}, {390.0, 160.7}} <AX element pid: 60400, elementOrHash.elementID: 4676134912.232>
+                                      Other, 0x1149de580, {{0.0, 417.0}, {390.0, 160.7}} <AX element pid: 60400, elementOrHash.elementID: 4674663424.244>
+                                        Other, 0x1149df980, {{0.0, 417.0}, {390.0, 160.7}} <AX element pid: 60400, elementOrHash.elementID: 4392128448.255>
+                                      Other, 0x1149dbac0, {{0.0, 417.0}, {390.0, 160.7}} <AX element pid: 60400, elementOrHash.elementID: 4392098368.245>
+                                        Other, 0x1149daa80, {{0.0, 417.0}, {390.0, 160.7}} <AX element pid: 60400, elementOrHash.elementID: 4681963520.256>
+                                          Other, 0x1149db840, {{0.0, 417.0}, {390.0, 160.7}} <AX element pid: 60400, elementOrHash.elementID: 4392141248.263>
+                                            StaticText, 0x1149db480, {{0.0, 417.0}, {390.0, 160.7}}, identifier: 'costsCurrentYearTotal', label: 'Gesamt 2026, € 509,00' <AX element pid: 60400, elementOrHash.elementID: 4392148416.268>
+                                              StaticText, 0x1149dbc00, {{16.0, 432.0}, {327.3, 63.3}}, label: 'Gesamt 2026' <AX element pid: 60400, elementOrHash.elementID: 4392185664.272>
+                                              StaticText, 0x1149db5c0, {{16.0, 499.3}, {225.0, 63.3}}, label: '€ 509,00' <AX element pid: 60400, elementOrHash.elementID: 4392186112.273>
+                                    Other, 0x1149dae40, {{16.0, 416.0}, {358.0, 1.0}} <AX element pid: 60400, elementOrHash.elementID: 4683650048.233>
+                                    Cell, 0x1149daf80, {{0.0, 577.7}, {390.0, 151.3}} <AX element pid: 60400, elementOrHash.elementID: 4676136192.234>
+                                      Other, 0x1149db0c0, {{0.0, 577.7}, {390.0, 151.3}} <AX element pid: 60400, elementOrHash.elementID: 4683645952.246>
+                                        Other, 0x1149db340, {{0.0, 577.7}, {390.0, 151.3}} <AX element pid: 60400, elementOrHash.elementID: 4392237504.257>
+                                      Other, 0x1149ec000, {{0.0, 577.7}, {390.0, 151.3}} <AX element pid: 60400, elementOrHash.elementID: 4392038208.247>
+                                        Other, 0x1149ec140, {{0.0, 577.7}, {390.0, 151.3}} <AX element pid: 60400, elementOrHash.elementID: 4681965056.258>
+                                          Other, 0x1149ec280, {{0.0, 577.7}, {390.0, 151.3}} <AX element pid: 60400, elementOrHash.elementID: 4392026112.264>
+                                            Other, 0x1149ec3c0, {{0.0, 577.7}, {390.0, 151.3}}, label: 'Reparatur, € 420,00' <AX element pid: 60400, elementOrHash.elementID: 4391862272.269>
+                                              Image, 0x1149ec500, {{25.0, 597.3}, {49.3, 48.3}}, identifier: 'hammer', label: 'Kompilieren' <AX element pid: 60400, elementOrHash.elementID: 4392140800.274>
+                                              StaticText, 0x1149ec640, {{25.0, 592.7}, {278.7, 58.7}}, label: 'Reparatur' <AX element pid: 60400, elementOrHash.elementID: 4392142592.275>
+                                              StaticText, 0x1149ec780, {{16.0, 655.3}, {198.7, 58.7}}, label: '€ 420,00' <AX element pid: 60400, elementOrHash.elementID: 4392142144.276>
+                                    Other, 0x1149ec8c0, {{16.0, 576.7}, {358.0, 1.0}} <AX element pid: 60400, elementOrHash.elementID: 4683650560.235>
+                                    Cell, 0x1149eca00, {{0.0, 729.0}, {390.0, 151.3}} <AX element pid: 60400, elementOrHash.elementID: 4676137472.236>
+                                      Other, 0x1149ecb40, {{0.0, 729.0}, {390.0, 151.3}} <AX element pid: 60400, elementOrHash.elementID: 4683648000.248>
+                                        Other, 0x1149ecc80, {{0.0, 729.0}, {390.0, 151.3}} <AX element pid: 60400, elementOrHash.elementID: 4392149312.259>
+                                      Other, 0x1149ecdc0, {{0.0, 729.0}, {390.0, 151.3}} <AX element pid: 60400, elementOrHash.elementID: 4392149760.249>
+                                        Other, 0x1149ecf00, {{0.0, 729.0}, {390.0, 151.3}} <AX element pid: 60400, elementOrHash.elementID: 4681966592.260>
+                                          Other, 0x1149ed040, {{0.0, 729.0}, {390.0, 151.3}} <AX element pid: 60400, elementOrHash.elementID: 4392127552.265>
+                                            Other, 0x1149ed180, {{0.0, 729.0}, {390.0, 151.3}}, label: 'Reifen, € 89,00' <AX element pid: 60400, elementOrHash.elementID: 4392126208.270>
+                                              Image, 0x1149ed2c0, {{30.3, 754.0}, {38.7, 38.7}}, identifier: 'circle.circle', label: 'circle.circle' <AX element pid: 60400, elementOrHash.elementID: 4392032384.277>
+                                              StaticText, 0x1149ed400, {{30.3, 744.0}, {199.3, 58.7}}, label: 'Reifen' <AX element pid: 60400, elementOrHash.elementID: 4392033728.278>
+                                              StaticText, 0x1149ed540, {{16.0, 806.7}, {170.7, 58.7}}, label: '€ 89,00' <AX element pid: 60400, elementOrHash.elementID: 4392106880.279>
+                                    Other, 0x1149ed680, {{16.0, 728.0}, {358.0, 1.0}} <AX element pid: 60400, elementOrHash.elementID: 4683651072.237>
+                                    Other, 0x1149ed7c0, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertikaler Rollbalken, 3 Seiten', value: 0 % <AX element pid: 60400, elementOrHash.elementID: 4681332736.238>
+                                      Other, 0x1149ed900, {{384.0, 792.0}, {3.0, 7.0}} <AX element pid: 60400, elementOrHash.elementID: 4392252544.250>
+                                    Other, 0x1149eda40, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertikaler Rollbalken, 3 Seiten', value: 0 % <AX element pid: 60400, elementOrHash.elementID: 4681332736.238>
+                                      Other, 0x1149edb80, {{384.0, 792.0}, {3.0, 7.0}} <AX element pid: 60400, elementOrHash.elementID: 4392252544.250>
+                          Other, 0x1149edcc0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 60400, elementOrHash.elementID: 4410969600.85>
+                            Other, 0x1149ede00, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 60400, elementOrHash.elementID: 4672537600.89>
+              Other, 0x1149edf40, {{0.0, 761.0}, {390.0, 83.0}} <AX element pid: 60400, elementOrHash.elementID: 4392637248.10>
+                Other, 0x1149ee080, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 60400, elementOrHash.elementID: 4392645760.12>
+                Other, 0x1149ee1c0, {{0.0, 761.0}, {390.0, 83.0}} <AX element pid: 60400, elementOrHash.elementID: 4393470464.13>
+===== testServiceRecordOptionsPassAccessibilityAuditWithLargeTextInGerman / Debug description for `"costsDisplayPicker" SegmentedControl`_0_46E285AB-D10A-4505-8833-35C60BD5A67C.txt
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  ↪︎Find: Descendants matching type SegmentedControl
+    ↪︎Find: Elements matching predicate '"costsDisplayPicker" IN identifiers'
+
+===== testServiceRecordOptionsPassAccessibilityAuditWithLargeTextInGerman / Debug description for `"costsDisplayPicker" SegmentedControl`_0_2AF71B62-F36A-45AD-838B-AE12C8A7ABA8.txt
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  ↪︎Find: Descendants matching type SegmentedControl
+    ↪︎Find: Elements matching predicate '"costsDisplayPicker" IN identifiers'
+
+===== testServiceRecordOptionsPassAccessibilityAuditWithLargeTextInGerman / Debug description for `"costsDisplayPicker" SegmentedControl`_0_651EF410-D1EE-4D70-9BA4-4AB9D5BDC1B9.txt
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  ↪︎Find: Descendants matching type SegmentedControl
+    ↪︎Find: Elements matching predicate '"costsDisplayPicker" IN identifiers'
+
+===== testServiceRecordOptionsPassAccessibilityAuditWithLargeTextInGerman / Debug description for `"costsDisplayPicker" SegmentedControl`_0_85C72C0D-0C40-49C0-AC96-BE2A4F748F61.txt
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  ↪︎Find: Descendants matching type SegmentedControl
+    ↪︎Find: Elements matching predicate '"costsDisplayPicker" IN identifiers'
+
+===== testServiceRecordOptionsPassAccessibilityAuditWithLargeTextInGerman / Debug description for `"costsDisplayPicker" SegmentedControl`_0_7410DE78-154F-4ED1-BF08-6E6A87A8CCF5.txt
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  ↪︎Find: Descendants matching type SegmentedControl
+    ↪︎Find: Elements matching predicate '"costsDisplayPicker" IN identifiers'
+
+===== testServiceRecordOptionsPassAccessibilityAuditWithLargeTextInGerman / Debug description for `"costsDisplayPicker" SegmentedControl`_0_DC138CB6-F263-4BA7-927D-8A08655EA062.txt
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  ↪︎Find: Descendants matching type SegmentedControl
+    ↪︎Find: Elements matching predicate '"costsDisplayPicker" IN identifiers'
+
+===== testServiceRecordOptionsPassAccessibilityAuditWithLargeTextInGerman / Debug description for `"costsDisplayPicker" SegmentedControl`_0_DBB0647A-152A-4CD0-870A-720F901F2159.txt
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  ↪︎Find: Descendants matching type SegmentedControl
+    ↪︎Find: Elements matching predicate '"costsDisplayPicker" IN identifiers'
+
+===== testServiceRecordOptionsPassAccessibilityAuditWithLargeTextInGerman / Debug description for `"costsDisplayPicker" SegmentedControl`_0_E83F7618-3945-4274-A792-4CDBEDC1F30C.txt
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  ↪︎Find: Descendants matching type SegmentedControl
+    ↪︎Find: Elements matching predicate '"costsDisplayPicker" IN identifiers'
+
+===== testServiceRecordOptionsPassAccessibilityAuditWithLargeTextInGerman / Debug description for `"costsDisplayPicker" SegmentedControl`_0_7CF08EF5-4064-477F-9B8D-E0F6F8F2F7B4.txt
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  ↪︎Find: Descendants matching type SegmentedControl
+    ↪︎Find: Elements matching predicate '"costsDisplayPicker" IN identifiers'
+
+===== testServiceRecordOptionsPassAccessibilityAuditWithLargeTextInGerman / Debug description for `"costsDisplayPicker" SegmentedControl`_0_D225E927-FE23-4881-B91F-53C6C4A59173.txt
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  ↪︎Find: Descendants matching type SegmentedControl
+    ↪︎Find: Elements matching predicate '"costsDisplayPicker" IN identifiers'
+
+===== testServiceRecordOptionsPassAccessibilityAuditWithLargeTextInGerman / Debug description for `"costsDisplayPicker" SegmentedControl`_0_7A3A33F3-EE44-43EB-9B5F-DEF5BA1678F3.txt
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  ↪︎Find: Descendants matching type SegmentedControl
+    ↪︎Find: Elements matching predicate '"costsDisplayPicker" IN identifiers'
+
+===== testServiceRecordOptionsPassAccessibilityAuditWithLargeTextInGerman / Debug description for `"costsDisplayPicker" SegmentedControl`_0_3DC4643D-7153-4273-9E7A-3E514E15C6D2.txt
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  ↪︎Find: Descendants matching type SegmentedControl
+    ↪︎Find: Elements matching predicate '"costsDisplayPicker" IN identifiers'
+
+===== testServiceRecordOptionsPassAccessibilityAuditWithLargeTextInGerman / Debug description for `"costsDisplayPicker" SegmentedControl`_0_E97C9521-C366-4F5B-88EF-18B8843EF79C.txt
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  ↪︎Find: Descendants matching type SegmentedControl
+    ↪︎Find: Elements matching predicate '"costsDisplayPicker" IN identifiers'
+
+===== testServiceRecordOptionsPassAccessibilityAuditWithLargeTextInGerman / Debug description for `"costsDisplayPicker" SegmentedControl`_0_164E4A77-9404-435A-8832-FECC5B4DC401.txt
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  ↪︎Find: Descendants matching type SegmentedControl
+    ↪︎Find: Elements matching predicate '"costsDisplayPicker" IN identifiers'
+
+===== testServiceRecordOptionsPassAccessibilityAuditWithLargeTextInGerman / Debug description for `"costsDisplayPicker" SegmentedControl`_0_93276981-D321-43A8-BAB3-CA8A7320F602.txt
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  ↪︎Find: Descendants matching type SegmentedControl
+    ↪︎Find: Elements matching predicate '"costsDisplayPicker" IN identifiers'
+
+===== testServiceRecordPreviewPassesAccessibilityAuditInGerman / Complete Issue Description.txt
+The size of this UICGPDFNodeAccessibilityElement is too small for user to interact.
+===== testServiceReminderEditorPassesAccessibilityAudit / hierarchy-Service_0_398A671E-C409-4CE5-BC58-9AE1F3C9776A.txt
+Attributes: Application, 0x114a0b340, pid: 68094, label: 'Pitlog'
+Element subtree:
+ →Application, 0x114a0b340, pid: 68094, label: 'Pitlog'
+    Window (Main), 0x114a0b200, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x114a09e00, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x114a0a080, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x114a09f40, {{0.0, 0.0}, {390.0, 844.0}}
+          Other, 0x114a08780, {{0.0, 0.0}, {390.0, 844.0}}
+            Other, 0x114a088c0, {{0.0, 0.0}, {390.0, 844.0}}
+              Other, 0x114a09a40, {{0.0, 0.0}, {390.0, 844.0}}
+                Other, 0x114a09cc0, {{0.0, 0.0}, {390.0, 844.0}}
+                  Other, 0x114a0abc0, {{0.0, 0.0}, {390.0, 844.0}}
+                    Other, 0x114a0a800, {{0.0, 0.0}, {390.0, 844.0}}
+                      Other, 0x114a09180, {{0.0, 0.0}, {390.0, 844.0}}
+                        Other, 0x114a08000, {{0.0, 0.0}, {390.0, 844.0}}
+                          Other, 0x114a092c0, {{0.0, 0.0}, {390.0, 844.0}}
+                            NavigationBar, 0x114a0b480, {{0.0, 47.0}, {390.0, 54.0}}, identifier: 'Reminders'
+                              Button, 0x114a0b5c0, {{16.0, 47.0}, {44.0, 44.0}}, identifier: 'BackButton', label: 'Golf'
+                              StaticText, 0x114a09040, {{152.3, 58.7}, {85.0, 20.7}}, label: 'Reminders'
+                            Other, 0x114a0a940, {{0.0, 0.0}, {390.0, 844.0}}
+                              Other, 0x114a0aa80, {{0.0, 0.0}, {390.0, 844.0}}
+                                Other, 0x114a0a440, {{0.0, 0.0}, {390.0, 844.0}}
+                                  Other, 0x114a0ae40, {{0.0, 0.0}, {390.0, 844.0}}
+                                    CollectionView, 0x114a0ad00, {{0.0, 0.0}, {390.0, 844.0}}
+                                      Other, 0x114a0b700, {{-16.0, -1587.0}, {422.0, 4050.0}}
+                                      Other, 0x114a08280, {{0.0, 0.0}, {390.0, 844.0}}
+                                      Other, 0x114a0b840, {{0.0, 0.0}, {390.0, 844.0}}
+                                      Cell, 0x114a083c0, {{16.0, 136.0}, {358.0, 52.0}}
+                                        Other, 0x114a08640, {{16.0, 136.0}, {358.0, 52.0}}
+                                          Other, 0x114a08500, {{16.0, 136.0}, {358.0, 52.0}}
+                                        Other, 0x114a0a1c0, {{16.0, 136.0}, {358.0, 52.0}}
+                                          Other, 0x114a0a300, {{16.0, 136.0}, {358.0, 52.0}}
+                                            Other, 0x114a08a00, {{16.0, 136.0}, {358.0, 52.0}}
+                                              Switch, 0x114a08b40, {{16.0, 136.0}, {358.0, 52.0}}, identifier: 'inspectionRemindersToggle', label: 'Inspection reminders', value: 1
+                                                StaticText, 0x114a0bd40, {{32.0, 151.8}, {160.0, 20.3}}, label: 'Inspection reminders'
+                                                Switch, 0x114a0be80, {{297.0, 148.0}, {63.0, 28.0}}, value: 1
+                                      Cell, 0x114a09b80, {{16.0, 188.0}, {358.0, 81.7}}
+                                        Other, 0x1149f0c80, {{16.0, 188.0}, {358.0, 81.7}}
+                                          Other, 0x1149eed00, {{16.0, 188.0}, {358.0, 81.7}}
+                                        Other, 0x1149eee40, {{16.0, 188.0}, {358.0, 81.7}}
+                                          Other, 0x1149eef80, {{16.0, 188.0}, {358.0, 81.7}}
+                                            Other, 0x1149ef0c0, {{16.0, 188.0}, {358.0, 81.7}}
+                                              StaticText, 0x1149ef200, {{16.0, 188.0}, {358.0, 81.7}}, label: 'When the window opens, the month before it is due, in the due month and a week before the window closes. Check the date on your sticker.'
+                                      Other, 0x1149ef480, {{32.0, 187.0}, {326.0, 1.0}}
+                                      Cell, 0x1149ee6c0, {{16.0, 269.7}, {358.0, 90.3}}
+                                        Other, 0x1149ee800, {{16.0, 269.7}, {358.0, 90.3}}
+                                          Other, 0x1149efac0, {{16.0, 269.7}, {358.0, 90.3}}
+                                        Other, 0x1149ef5c0, {{16.0, 269.7}, {358.0, 90.3}}
+                                          Other, 0x1149efc00, {{16.0, 269.7}, {358.0, 90.3}}
+                                            Other, 0x1149efe80, {{16.0, 269.7}, {358.0, 90.3}}
+                                              Button, 0x1149ee440, {{16.0, 269.7}, {358.0, 90.3}}, label: 'Winter tyres. Winter period starts November 1, 2026. in 27 days.'
+                                                Image, 0x1149efd40, {{34.3, 284.0}, {19.7, 22.0}}, identifier: 'snowflake', label: 'Snow Flurry'
+                                                StaticText, 0x1149ee940, {{34.3, 284.0}, {135.7, 22.0}}, label: 'Winter tyres'
+                                                StaticText, 0x1149ee580, {{32.0, 307.0}, {265.7, 18.0}}, label: 'Winter period starts November 1, 2026'
+                                                StaticText, 0x1149eea80, {{32.0, 327.0}, {69.3, 18.0}}, label: 'in 27 days'
+                                      Other, 0x1149eebc0, {{32.0, 268.7}, {326.0, 1.0}}
+                                      Cell, 0x1149ef840, {{16.0, 360.0}, {358.0, 90.3}}
+                                        Other, 0x114ba8000, {{16.0, 360.0}, {358.0, 90.3}}
+                                          Other, 0x114ba8140, {{16.0, 360.0}, {358.0, 90.3}}
+                                        Other, 0x114ba8280, {{16.0, 360.0}, {358.0, 90.3}}
+                                          Other, 0x114ba83c0, {{16.0, 360.0}, {358.0, 90.3}}
+                                            Other, 0x114ba8500, {{16.0, 360.0}, {358.0, 90.3}}
+                                              Button, 0x114ba8640, {{16.0, 360.0}, {358.0, 90.3}}, label: 'Vignette. New vignette from December 1, 2026. in 57 days.'
+                                                Image, 0x114ba8780, {{28.0, 377.0}, {32.3, 16.7}}, identifier: 'road.lanes', label: 'road.lanes'
+                                                StaticText, 0x114ba88c0, {{28.0, 375.0}, {112.0, 20.3}}, label: 'Vignette'
+                                                StaticText, 0x114ba8a00, {{32.0, 397.3}, {256.3, 18.0}}, label: 'New vignette from December 1, 2026'
+                                                StaticText, 0x114ba8b40, {{32.0, 417.3}, {69.7, 18.0}}, label: 'in 57 days'
+                                      Other, 0x114ba8c80, {{72.0, 359.0}, {286.0, 1.0}}
+                                      Cell, 0x114ba8dc0, {{16.0, 450.3}, {358.0, 90.3}}
+                                        Other, 0x114ba8f00, {{16.0, 450.3}, {358.0, 90.3}}
+                                          Other, 0x114ba9040, {{16.0, 450.3}, {358.0, 90.3}}
+                                        Other, 0x114ba9180, {{16.0, 450.3}, {358.0, 90.3}}
+                                          Other, 0x114ba92c0, {{16.0, 450.3}, {358.0, 90.3}}
+                                            Other, 0x114ba9400, {{16.0, 450.3}, {358.0, 90.3}}
+                                              Button, 0x114ba9540, {{16.0, 450.3}, {358.0, 90.3}}, label: 'Insurance. Due December 5, 2026. in 61 days.'
+                                                Image, 0x114ba9680, {{33.7, 464.3}, {21.0, 22.7}}, identifier: 'bell', label: 'Notifications'
+                                                StaticText, 0x114ba97c0, {{33.7, 464.3}, {116.7, 22.7}}, label: 'Insurance'
+                                                StaticText, 0x114ba9900, {{32.0, 487.7}, {159.7, 18.0}}, label: 'Due December 5, 2026'
+                                                StaticText, 0x114ba9a40, {{32.0, 507.7}, {68.3, 18.0}}, label: 'in 61 days'
+                                      Other, 0x114ba9b80, {{72.0, 449.3}, {286.0, 1.0}}
+                                      Cell, 0x114ba9cc0, {{16.0, 540.7}, {358.0, 110.3}}
+                                        Other, 0x114ba9e00, {{16.0, 540.7}, {358.0, 110.3}}
+                                          Other, 0x114ba9f40, {{16.0, 540.7}, {358.0, 110.3}}
+                                        Other, 0x114baa080, {{16.0, 540.7}, {358.0, 110.3}}
+                                          Other, 0x114baa1c0, {{16.0, 540.7}, {358.0, 110.3}}
+                                            Other, 0x114baa300, {{16.0, 540.7}, {358.0, 110.3}}
+                                              Button, 0x114baa440, {{16.0, 540.7}, {358.0, 110.3}}, label: 'Oil service. At 75,000 km, estimated around February 25, 2027. in 143 days.'
+                                                Image, 0x114baa580, {{30.7, 552.7}, {26.7, 26.3}}, identifier: 'wrench.and.screwdriver', label: 'wrench.and.screwdriver'
+                                                StaticText, 0x114baa6c0, {{30.7, 552.7}, {124.7, 26.3}}, label: 'Oil service'
+                                                StaticText, 0x114baa800, {{32.0, 578.0}, {288.7, 38.0}}, label: 'At 75,000 km, estimated around February 25, 2027'
+                                                StaticText, 0x114baa940, {{32.0, 618.0}, {77.3, 18.0}}, label: 'in 143 days'
+                                      Other, 0x114baaa80, {{72.0, 539.7}, {286.0, 1.0}}
+                                      Cell, 0x114baabc0, {{16.0, 651.0}, {358.0, 52.0}}
+                                        Other, 0x114baad00, {{16.0, 651.0}, {358.0, 52.0}}
+                                          Other, 0x114baae40, {{16.0, 651.0}, {358.0, 52.0}}
+                                        Other, 0x114baaf80, {{16.0, 651.0}, {358.0, 52.0}}
+                                          Other, 0x114bab0c0, {{16.0, 651.0}, {358.0, 52.0}}
+                                            Other, 0x114bab200, {{16.0, 651.0}, {358.0, 52.0}}
+                                              Button, 0x114bab340, {{16.0, 651.0}, {358.0, 52.0}}, identifier: 'addReminderButton', label: 'Add reminder'
+                                                Image, 0x114bab480, {{33.3, 666.3}, {21.7, 21.7}}, identifier: 'plus.circle', label: 'Add'
+                                                StaticText, 0x114bab5c0, {{32.0, 667.0}, {326.0, 20.3}}, label: 'Add reminder'
+                                      Other, 0x114bab700, {{72.0, 650.0}, {286.0, 1.0}}
+                                      Cell, 0x114bab840, {{16.0, 703.0}, {358.0, 52.0}}
+                                        Other, 0x114bab980, {{16.0, 703.0}, {358.0, 52.0}}
+                                          Other, 0x114babac0, {{16.0, 703.0}, {358.0, 52.0}}
+                                        Other, 0x114babc00, {{16.0, 703.0}, {358.0, 52.0}}
+                                          Other, 0x114babd40, {{16.0, 703.0}, {358.0, 52.0}}
+                                            Other, 0x114babe80, {{16.0, 703.0}, {358.0, 52.0}}
+                                              Button, 0x114bb4000, {{16.0, 703.0}, {358.0, 52.0}}, identifier: 'allowNotificationsButton', label: 'Allow notifications'
+                                                Image, 0x114bb4140, {{33.7, 719.7}, {16.0, 18.7}}, identifier: 'bell.badge', label: 'bell.badge'
+                                                StaticText, 0x114bb4280, {{32.0, 718.7}, {326.0, 21.0}}, label: 'Allow notifications'
+                                      Other, 0x114bb43c0, {{72.0, 702.0}, {286.0, 1.0}}
+                                      Other, 0x114bb4500, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertical scroll bar, 1 page', value: 0%
+                                        Other, 0x114bb4640, {{384.0, 139.0}, {3.0, 654.7}}
+                                      Other, 0x114bb4780, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertical scroll bar, 1 page', value: 0%
+                                        Other, 0x114bb48c0, {{384.0, 139.0}, {3.0, 654.7}}
+                            Other, 0x114bb4a00, {{0.0, 0.0}, {390.0, 844.0}}
+                              Other, 0x114bb4b40, {{0.0, 0.0}, {390.0, 844.0}}
+                Other, 0x114bb4c80, {{0.0, 761.0}, {390.0, 83.0}}
+                  Other, 0x114bb4dc0, {{0.0, 0.0}, {390.0, 844.0}}
+                  Other, 0x114bb4f00, {{0.0, 761.0}, {390.0, 83.0}}
+      Other, 0x114bb5040, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x114bb5180, {{0.0, 0.0}, {390.0, 844.0}}, identifier: 'PopoverDismissRegion', label: 'dismiss popup'
+        Popover, 0x114bb52c0, {{75.0, 350.0}, {240.0, 317.0}}
+          Image, 0x114bb5400, {{-75.0, 200.0}, {540.0, 604.0}}
+          Other, 0x114bb5540, {{75.0, 350.0}, {240.0, 304.0}}
+            Sheet, 0x114bb5680, {{75.0, 350.0}, {240.0, 304.0}}
+              Other, 0x114bb57c0, {{75.0, 350.0}, {240.0, 304.0}}
+                Other, 0x114bb5900, {{75.0, 350.0}, {240.0, 304.0}}
+                  Other, 0x114bb5a40, {{75.0, 350.0}, {240.0, 304.0}}
+                  Other, 0x114bb5b80, {{75.0, 350.0}, {240.0, 304.0}}
+                    ScrollView, 0x114bb5cc0, {{75.0, 350.0}, {240.0, 304.0}}
+                      Other, 0x114bb5e00, {{75.0, 350.0}, {240.0, 304.0}}
+                        Other, 0x114bb5f40, {{91.0, 366.0}, {208.0, 272.0}}
+                          Button, 0x114bb6080, {{91.0, 366.0}, {208.0, 48.0}}, label: 'Winter tyres'
+                          Button, 0x114bb61c0, {{91.0, 422.0}, {208.0, 48.0}}, label: 'Summer tyres'
+                          Button, 0x114bb6300, {{91.0, 478.0}, {208.0, 48.0}}, label: 'Service'
+                          Button, 0x114bb6440, {{91.0, 534.0}, {208.0, 48.0}}, label: 'Vignette'
+                          Button, 0x114bb6580, {{91.0, 590.0}, {208.0, 48.0}}, label: 'Custom reminder'
+                      Other, 0x114bb66c0, {{282.0, 384.0}, {30.0, 249.0}}, label: 'Vertical scroll bar, 1 page', value: 0%
+                        Other, 0x114bb6800, {{309.0, 440.0}, {3.0, 7.0}}
+                      Other, 0x114bb6940, {{96.0, 621.0}, {198.0, 30.0}}, label: 'Horizontal scroll bar, 1 page', value: 0%
+                        Other, 0x114bb6a80, {{165.0, 648.0}, {7.0, 3.0}}
+                      Other, 0x114bb6bc0, {{282.0, 384.0}, {30.0, 249.0}}, label: 'Vertical scroll bar, 1 page', value: 0%
+                        Other, 0x114bb6d00, {{309.0, 440.0}, {3.0, 7.0}}
+                      Other, 0x114bb6e40, {{96.0, 621.0}, {198.0, 30.0}}, label: 'Horizontal scroll bar, 1 page', value: 0%
+                        Other, 0x114bb6f80, {{165.0, 648.0}, {7.0, 3.0}}
+          Other, 0x114bb70c0, {{75.0, 350.0}, {240.0, 317.0}}
+            Other, 0x114bb7200, {{75.0, 350.0}, {240.0, 317.0}}
+              Other, 0x114bb7340, {{75.0, 350.0}, {240.0, 317.0}}
+                Other, 0x114bb7480, {{75.0, 350.0}, {240.0, 317.0}}
+                  Other, 0x114bb75c0, {{75.0, 350.0}, {240.0, 317.0}}
+                    Other, 0x114bb7700, {{75.0, 350.0}, {0.0, 0.0}}
+                      Other, 0x114bb7840, {{75.0, 350.0}, {240.0, 317.0}}
+                        Other, 0x114bb7980, {{75.0, 350.0}, {240.0, 317.0}}
+                          Other, 0x114bb7ac0, {{75.0, 350.0}, {240.0, 317.0}}
+                            Other, 0x114bb7c00, {{75.0, 350.0}, {240.0, 317.0}}
+    Window, 0x114bb7d40, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x114bb7e80, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x114bb8000, {{0.0, 0.0}, {390.0, 844.0}}
+Path to element:
+ →Application, 0x114a0b340, pid: 68094, label: 'Pitlog'
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  Output: {
+    Application, 0x114bb8140, pid: 68094, label: 'Pitlog'
+  }
+
+===== testServiceReminderEditorPassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testSettingsProSectionPassesAccessibilityAuditFree / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testSettingsProSectionPassesAccessibilityAuditInGerman / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testSettingsProSectionPassesAccessibilityAuditPro / Complete Issue Description.txt
+Text of this SwiftUI.AccessibilityNode may be clipped at larger Dynamic Type sizes.
+===== testTappingAddReminderWithoutProOpensThePaywall / App UI hierarchy for com.kane_0_D0293538-B667-4731-A146-DB57577052EC.pitlog
+Application, 0x1150fcc80, pid: 72784, label: 'Pitlog' <App element pid: 72784>
+  Window (Main), 0x1150fc140, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 72784, elementOrHash.elementID: 4382345216.4>
+    Other, 0x1150fc280, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 72784, elementOrHash.elementID: 4431250432.5>
+      Other, 0x1150fc3c0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 72784, elementOrHash.elementID: 4430212992.6>
+        Other, 0x1150fc500, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 72784, elementOrHash.elementID: 4382344192.7>
+          Other, 0x1150fc640, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 72784, elementOrHash.elementID: 4429878976.8>
+            Other, 0x1150fc780, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 72784, elementOrHash.elementID: 4430451520.9>
+              Other, 0x1150fc8c0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 72784, elementOrHash.elementID: 4431253504.10>
+                Other, 0x1150fca00, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 72784, elementOrHash.elementID: 4382524736.12>
+                  Other, 0x1150fcb40, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 72784, elementOrHash.elementID: 4382349312.109>
+                    Other, 0x1150fea80, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 72784, elementOrHash.elementID: 4429894016.110>
+                      Other, 0x1150febc0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 72784, elementOrHash.elementID: 4429898048.111>
+                        Other, 0x1150fed00, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 72784, elementOrHash.elementID: 4429926336.112>
+                          NavigationBar, 0x1150fee40, {{0.0, 47.0}, {390.0, 54.0}}, identifier: 'Reminders' <AX element pid: 72784, elementOrHash.elementID: 4431607296.113>
+                            Button, 0x1150fef80, {{16.0, 47.0}, {44.0, 44.0}}, identifier: 'BackButton', label: 'Golf' <AX element pid: 72784, elementOrHash.elementID: 4700450944.192>
+                            StaticText, 0x1150ff0c0, {{152.3, 58.7}, {85.0, 20.7}}, label: 'Reminders' <AX element pid: 72784, elementOrHash.elementID: 4691780352.270>
+                          Other, 0x1150ff200, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 72784, elementOrHash.elementID: 4429926784.114>
+                            Other, 0x1150ff340, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 72784, elementOrHash.elementID: 4429934848.118>
+                              Other, 0x1150ff480, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 72784, elementOrHash.elementID: 4691777664.271>
+                                Other, 0x1150ff5c0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 72784, elementOrHash.elementID: 4382529216.272>
+                                  CollectionView, 0x1150ff700, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 72784, elementOrHash.elementID: 4701437952.273>
+                                    Other, 0x1150ff840, {{-16.0, -1587.0}, {422.0, 4355.7}} <AX element pid: 72784, elementOrHash.elementID: 4706830336.274>
+                                    Other, 0x1150ff980, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 72784, elementOrHash.elementID: 4429980416.275>
+                                    Other, 0x1150ffac0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 72784, elementOrHash.elementID: 4429979968.276>
+                                    Cell, 0x1150ffc00, {{16.0, 136.0}, {358.0, 52.0}} <AX element pid: 72784, elementOrHash.elementID: 4598541568.277>
+                                      Other, 0x1150ffd40, {{16.0, 136.0}, {358.0, 52.0}} <AX element pid: 72784, elementOrHash.elementID: 4700478976.289>
+                                        Other, 0x1150ffe80, {{16.0, 136.0}, {358.0, 52.0}} <AX element pid: 72784, elementOrHash.elementID: 4430142464.302>
+                                      Other, 0x1150c97c0, {{16.0, 136.0}, {358.0, 52.0}} <AX element pid: 72784, elementOrHash.elementID: 4430142016.290>
+                                        Other, 0x1150c8b40, {{16.0, 136.0}, {358.0, 52.0}} <AX element pid: 72784, elementOrHash.elementID: 4692045824.303>
+                                          Other, 0x1150c8c80, {{16.0, 136.0}, {358.0, 52.0}} <AX element pid: 72784, elementOrHash.elementID: 4430046848.314>
+                                            Switch, 0x1150c8640, {{16.0, 136.0}, {358.0, 52.0}}, identifier: 'inspectionRemindersToggle', label: 'Inspection reminders', value: 1 <AX element pid: 72784, elementOrHash.elementID: 4382532800.320>
+                                              StaticText, 0x1150c8780, {{32.0, 151.8}, {160.0, 20.3}}, label: 'Inspection reminders' <AX element pid: 72784, elementOrHash.elementID: 4382528768.326>
+                                              Switch, 0x1150cbac0, {{297.0, 148.0}, {63.0, 28.0}}, value: 1 <AX element pid: 72784, elementOrHash.elementID: 4691653120.327>
+                                    Cell, 0x1150cbc00, {{16.0, 188.0}, {358.0, 81.7}} <AX element pid: 72784, elementOrHash.elementID: 4706058240.278>
+                                      Other, 0x1150cbd40, {{16.0, 188.0}, {358.0, 81.7}} <AX element pid: 72784, elementOrHash.elementID: 4700480512.291>
+                                        Other, 0x1150cabc0, {{16.0, 188.0}, {358.0, 81.7}} <AX element pid: 72784, elementOrHash.elementID: 4430159296.304>
+                                      Other, 0x1150c88c0, {{16.0, 188.0}, {358.0, 81.7}} <AX element pid: 72784, elementOrHash.elementID: 4430158848.292>
+                                        Other, 0x1150cbe80, {{16.0, 188.0}, {358.0, 81.7}} <AX element pid: 72784, elementOrHash.elementID: 4692047360.305>
+                                          Other, 0x1150cad00, {{16.0, 188.0}, {358.0, 81.7}} <AX element pid: 72784, elementOrHash.elementID: 4430044608.315>
+                                            StaticText, 0x1150d61c0, {{16.0, 188.0}, {358.0, 81.7}}, label: 'When the window opens, the month before it is due, in the due month and a week before the window closes. Check the date on your sticker.' <AX element pid: 72784, elementOrHash.elementID: 4430043712.321>
+                                    Other, 0x1150d6300, {{32.0, 187.0}, {326.0, 1.0}} <AX element pid: 72784, elementOrHash.elementID: 4706830848.279>
+                                    Cell, 0x1150d6440, {{16.0, 269.7}, {358.0, 159.0}} <AX element pid: 72784, elementOrHash.elementID: 4706059520.280>
+                                      Other, 0x1150d6580, {{16.0, 269.7}, {358.0, 159.0}} <AX element pid: 72784, elementOrHash.elementID: 4700482048.293>
+                                        Other, 0x1150d6800, {{16.0, 269.7}, {358.0, 159.0}} <AX element pid: 72784, elementOrHash.elementID: 4430160640.306>
+                                      Other, 0x1150d66c0, {{16.0, 269.7}, {358.0, 159.0}} <AX element pid: 72784, elementOrHash.elementID: 4430160192.294>
+                                        Other, 0x1150d6d00, {{16.0, 269.7}, {358.0, 159.0}} <AX element pid: 72784, elementOrHash.elementID: 4381863936.307>
+                                          Other, 0x1150d5180, {{16.0, 269.7}, {358.0, 159.0}} <AX element pid: 72784, elementOrHash.elementID: 4429953024.316>
+                                            Button, 0x1150d52c0, {{16.0, 269.7}, {358.0, 159.0}}, label: 'Winter tyres. Requires Pitlog Pro, not active. Winter period starts November 1, 2026.' <AX element pid: 72784, elementOrHash.elementID: 4429953472.322>
+                                              Image, 0x1150d5400, {{34.3, 284.0}, {19.7, 22.0}}, identifier: 'snowflake', label: 'Snow Flurry' <AX element pid: 72784, elementOrHash.elementID: 4430045056.328>
+                                              StaticText, 0x1150d5540, {{34.3, 284.0}, {135.7, 22.0}}, label: 'Winter tyres' <AX element pid: 72784, elementOrHash.elementID: 4430045952.329>
+                                              Other, 0x1150d5680, {{302.0, 287.7}, {56.0, 50.3}}, label: 'Requires Pitlog Pro' <AX element pid: 72784, elementOrHash.elementID: 4429938688.330>
+                                                Image, 0x1150d57c0, {{316.7, 305.0}, {10.7, 15.3}}, identifier: 'lock.fill', label: 'Lock' <AX element pid: 72784, elementOrHash.elementID: 4429972352.353>
+                                                StaticText, 0x1150d5900, {{316.7, 305.0}, {10.7, 15.3}}, label: 'Pro' <AX element pid: 72784, elementOrHash.elementID: 4429971904.354>
+                                              StaticText, 0x1150d5a40, {{32.0, 339.9}, {265.7, 18.0}}, label: 'Winter period starts November 1, 2026' <AX element pid: 72784, elementOrHash.elementID: 4429940480.331>
+                                              StaticText, 0x1150d5b80, {{32.0, 359.9}, {69.3, 18.0}}, label: 'in 27 days' <AX element pid: 72784, elementOrHash.elementID: 4429940032.332>
+                                              StaticText, 0x1150d5cc0, {{32.0, 379.9}, {312.0, 33.7}}, label: 'Not active without Pitlog Pro. Your reminder is kept and works again with Pro.' <AX element pid: 72784, elementOrHash.elementID: 4429939136.333>
+                                    Other, 0x1150d7c00, {{32.0, 268.7}, {326.0, 1.0}} <AX element pid: 72784, elementOrHash.elementID: 4706831360.281>
+                                    Cell, 0x1150d7e80, {{16.0, 428.7}, {358.0, 159.0}} <AX element pid: 72784, elementOrHash.elementID: 4706060800.282>
+                                      Other, 0x1150d7d40, {{16.0, 428.7}, {358.0, 159.0}} <AX element pid: 72784, elementOrHash.elementID: 4700485632.295>
+                                        Other, 0x1150d5e00, {{16.0, 428.7}, {358.0, 159.0}} <AX element pid: 72784, elementOrHash.elementID: 4430162432.308>
+                                      Other, 0x1150d5f40, {{16.0, 428.7}, {358.0, 159.0}} <AX element pid: 72784, elementOrHash.elementID: 4430161536.296>
+                                        Other, 0x1150d6080, {{16.0, 428.7}, {358.0, 159.0}} <AX element pid: 72784, elementOrHash.elementID: 4706353152.309>
+                                          Other, 0x115104000, {{16.0, 428.7}, {358.0, 159.0}} <AX element pid: 72784, elementOrHash.elementID: 4429944512.317>
+                                            Button, 0x115104140, {{16.0, 428.7}, {358.0, 159.0}}, label: 'Vignette. Requires Pitlog Pro, not active. New vignette from December 1, 2026.' <AX element pid: 72784, elementOrHash.elementID: 4429944064.323>
+                                              Image, 0x115104280, {{28.0, 445.7}, {32.3, 16.7}}, identifier: 'road.lanes', label: 'road.lanes' <AX element pid: 72784, elementOrHash.elementID: 4429952576.334>
+                                              StaticText, 0x1151043c0, {{28.0, 443.8}, {112.0, 20.3}}, label: 'Vignette' <AX element pid: 72784, elementOrHash.elementID: 4429953920.335>
+                                              Other, 0x115104500, {{302.0, 446.7}, {56.0, 50.3}}, label: 'Requires Pitlog Pro' <AX element pid: 72784, elementOrHash.elementID: 4429950336.336>
+                                                Image, 0x115104640, {{316.7, 464.0}, {10.7, 15.3}}, identifier: 'lock.fill', label: 'Lock' <AX element pid: 72784, elementOrHash.elementID: 4429949888.355>
+                                                StaticText, 0x115104780, {{316.7, 464.0}, {10.7, 15.3}}, label: 'Pro' <AX element pid: 72784, elementOrHash.elementID: 4429950784.356>
+                                              StaticText, 0x1151048c0, {{32.0, 498.9}, {256.3, 18.0}}, label: 'New vignette from December 1, 2026' <AX element pid: 72784, elementOrHash.elementID: 4429948992.337>
+                                              StaticText, 0x115104a00, {{32.0, 518.9}, {69.7, 18.0}}, label: 'in 57 days' <AX element pid: 72784, elementOrHash.elementID: 4429952128.338>
+                                              StaticText, 0x115104b40, {{32.0, 538.9}, {312.0, 33.7}}, label: 'Not active without Pitlog Pro. Your reminder is kept and works again with Pro.' <AX element pid: 72784, elementOrHash.elementID: 4429951232.339>
+                                    Other, 0x115104c80, {{72.0, 427.7}, {286.0, 1.0}} <AX element pid: 72784, elementOrHash.elementID: 4706831872.283>
+                                    Cell, 0x115104dc0, {{16.0, 587.7}, {358.0, 159.0}} <AX element pid: 72784, elementOrHash.elementID: 4706062080.284>
+                                      Other, 0x115104f00, {{16.0, 587.7}, {358.0, 159.0}} <AX element pid: 72784, elementOrHash.elementID: 4431258624.297>
+                                        Other, 0x115105040, {{16.0, 587.7}, {358.0, 159.0}} <AX element pid: 72784, elementOrHash.elementID: 4430163328.310>
+                                      Other, 0x115105180, {{16.0, 587.7}, {358.0, 159.0}} <AX element pid: 72784, elementOrHash.elementID: 4430162880.298>
+                                        Other, 0x1151052c0, {{16.0, 587.7}, {358.0, 159.0}} <AX element pid: 72784, elementOrHash.elementID: 4706354688.311>
+                                          Other, 0x115105400, {{16.0, 587.7}, {358.0, 159.0}} <AX element pid: 72784, elementOrHash.elementID: 4429902080.318>
+                                            Button, 0x115105540, {{16.0, 587.7}, {358.0, 159.0}}, label: 'Insurance. Requires Pitlog Pro, not active. Due December 5, 2026.' <AX element pid: 72784, elementOrHash.elementID: 4430135296.324>
+                                              Image, 0x115105680, {{33.7, 601.7}, {21.0, 22.7}}, identifier: 'bell', label: 'Notifications' <AX element pid: 72784, elementOrHash.elementID: 4430136192.340>
+                                              StaticText, 0x1151057c0, {{33.7, 601.7}, {116.7, 22.7}}, label: 'Insurance' <AX element pid: 72784, elementOrHash.elementID: 4430140224.341>
+                                              Other, 0x115105900, {{302.0, 605.7}, {56.0, 50.3}}, label: 'Requires Pitlog Pro' <AX element pid: 72784, elementOrHash.elementID: 4430141120.342>
+                                                Image, 0x115105a40, {{316.7, 623.0}, {10.7, 15.3}}, identifier: 'lock.fill', label: 'Lock' <AX element pid: 72784, elementOrHash.elementID: 4430139776.357>
+                                                StaticText, 0x115105b80, {{316.7, 623.0}, {10.7, 15.3}}, label: 'Pro' <AX element pid: 72784, elementOrHash.elementID: 4430140672.358>
+                                              StaticText, 0x115105cc0, {{32.0, 657.9}, {159.7, 18.0}}, label: 'Due December 5, 2026' <AX element pid: 72784, elementOrHash.elementID: 4430136640.343>
+                                              StaticText, 0x115105e00, {{32.0, 677.9}, {68.3, 18.0}}, label: 'in 61 days' <AX element pid: 72784, elementOrHash.elementID: 4430144256.344>
+                                              StaticText, 0x115105f40, {{32.0, 697.9}, {312.0, 33.7}}, label: 'Not active without Pitlog Pro. Your reminder is kept and works again with Pro.' <AX element pid: 72784, elementOrHash.elementID: 4430144704.345>
+                                    Other, 0x115106080, {{72.0, 586.7}, {286.0, 1.0}} <AX element pid: 72784, elementOrHash.elementID: 4706832384.285>
+                                    Cell, 0x1151061c0, {{16.0, 746.7}, {358.0, 178.7}} <AX element pid: 72784, elementOrHash.elementID: 4706063360.286>
+                                      Other, 0x115106300, {{16.0, 746.7}, {358.0, 178.7}} <AX element pid: 72784, elementOrHash.elementID: 4698940416.299>
+                                        Other, 0x115106440, {{16.0, 746.7}, {358.0, 178.7}} <AX element pid: 72784, elementOrHash.elementID: 4430164672.312>
+                                      Other, 0x115106580, {{16.0, 746.7}, {358.0, 178.7}} <AX element pid: 72784, elementOrHash.elementID: 4430163776.300>
+                                        Other, 0x1151066c0, {{16.0, 746.7}, {358.0, 178.7}} <AX element pid: 72784, elementOrHash.elementID: 4706356224.313>
+                                          Other, 0x115106800, {{16.0, 746.7}, {358.0, 178.7}} <AX element pid: 72784, elementOrHash.elementID: 4430030016.319>
+                                            Button, 0x115106940, {{16.0, 746.7}, {358.0, 178.7}}, label: 'Oil service. Requires Pitlog Pro, not active. At 75,000 km, estimated around February 25, 2027.' <AX element pid: 72784, elementOrHash.elementID: 4430034496.325>
+                                              Image, 0x115106a80, {{30.7, 758.7}, {26.7, 26.3}}, identifier: 'wrench.and.screwdriver', label: 'wrench.and.screwdriver' <AX element pid: 72784, elementOrHash.elementID: 4429903424.346>
+                                              StaticText, 0x115106bc0, {{30.7, 758.7}, {124.7, 26.3}}, label: 'Oil service' <AX element pid: 72784, elementOrHash.elementID: 4429904320.347>
+                                              Other, 0x115106d00, {{302.0, 764.3}, {56.0, 50.3}}, label: 'Requires Pitlog Pro' <AX element pid: 72784, elementOrHash.elementID: 4429891328.348>
+                                                Image, 0x115106e40, {{316.7, 781.7}, {10.7, 15.3}}, identifier: 'lock.fill', label: 'Lock' <AX element pid: 72784, elementOrHash.elementID: 4429904768.359>
+                                                StaticText, 0x115106f80, {{316.7, 781.7}, {10.7, 15.3}}, label: 'Pro' <AX element pid: 72784, elementOrHash.elementID: 4429893568.360>
+                                              StaticText, 0x1151070c0, {{32.0, 816.7}, {288.7, 38.0}}, label: 'At 75,000 km, estimated around February 25, 2027' <AX element pid: 72784, elementOrHash.elementID: 4429896704.349>
+                                              StaticText, 0x115107200, {{32.0, 856.7}, {77.3, 18.0}}, label: 'in 143 days' <AX element pid: 72784, elementOrHash.elementID: 4429895360.350>
+                                              StaticText, 0x115107340, {{32.0, 876.7}, {312.0, 33.7}}, label: 'Not active without Pitlog Pro. Your reminder is kept and works again with Pro.' <AX element pid: 72784, elementOrHash.elementID: 4430034944.351>
+                                    Other, 0x115107480, {{72.0, 745.7}, {286.0, 1.0}} <AX element pid: 72784, elementOrHash.elementID: 4706832896.287>
+                                    Other, 0x1151075c0, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertical scroll bar, 2 pages', value: 0% <AX element pid: 72784, elementOrHash.elementID: 4700476928.288>
+                                      Other, 0x115107700, {{384.0, 104.0}, {3.0, 522.3}} <AX element pid: 72784, elementOrHash.elementID: 4430141568.301>
+                                    Other, 0x115107840, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertical scroll bar, 2 pages', value: 0% <AX element pid: 72784, elementOrHash.elementID: 4700476928.288>
+                                      Other, 0x115107980, {{384.0, 104.0}, {3.0, 522.3}} <AX element pid: 72784, elementOrHash.elementID: 4430141568.301>
+                          Other, 0x115107ac0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 72784, elementOrHash.elementID: 4622033408.115>
+                            Other, 0x115107c00, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 72784, elementOrHash.elementID: 4622035456.119>
+              Other, 0x115107d40, {{0.0, 761.0}, {390.0, 83.0}} <AX element pid: 72784, elementOrHash.elementID: 4430451968.11>
+                Other, 0x115107e80, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 72784, elementOrHash.elementID: 4430460480.13>
+                Other, 0x115108000, {{0.0, 761.0}, {390.0, 83.0}} <AX element pid: 72784, elementOrHash.elementID: 4431251968.14>
+===== testTappingAddReminderWithoutProOpensThePaywall / Debug description for `"addReminderButton" Button`_0_0D8D2D0C-FB4B-4C90-B33A-083381C0F628.txt
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  ↪︎Find: Descendants matching type Button
+    ↪︎Find: Elements matching predicate '"addReminderButton" IN identifiers'
+
+===== testTappingAddReminderWithoutProOpensThePaywall / Debug description for `"addReminderButton" Button`_0_6AA2B874-BB44-41D8-82AA-CB82CA5877B2.txt
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  ↪︎Find: Descendants matching type Button
+    ↪︎Find: Elements matching predicate '"addReminderButton" IN identifiers'
+
+===== testTappingAddReminderWithoutProOpensThePaywall / Debug description for `"addReminderButton" Button`_0_22A44D45-7349-4901-8B59-AA1585A98359.txt
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  ↪︎Find: Descendants matching type Button
+    ↪︎Find: Elements matching predicate '"addReminderButton" IN identifiers'
+
+===== testTappingAddReminderWithoutProOpensThePaywall / Debug description for `"addReminderButton" Button`_0_B819263B-7EF7-4559-BC8F-5426FCE94274.txt
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  ↪︎Find: Descendants matching type Button
+    ↪︎Find: Elements matching predicate '"addReminderButton" IN identifiers'
+
+===== testTappingAddReminderWithoutProOpensThePaywall / Debug description for `"addReminderButton" Button`_0_F6C84A9E-1478-4A1A-8333-BCB0712B64FC.txt
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  ↪︎Find: Descendants matching type Button
+    ↪︎Find: Elements matching predicate '"addReminderButton" IN identifiers'
+
+===== testVehicleDetailPassesAccessibilityAuditInGerman / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testVehicleDetailWithPickerlCardPassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testVignetteReminderEditorPassesAccessibilityAuditInGerman / hierarchy-Vignette_0_BFB7B5B4-F78A-48F2-AC1B-B8CF7E96CB50.txt
+Attributes: Application, 0x11510bd40, pid: 77919, label: 'Pitlog'
+Element subtree:
+ →Application, 0x11510bd40, pid: 77919, label: 'Pitlog'
+    Window (Main), 0x11510be80, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x11510b5c0, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x115108780, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x1151088c0, {{0.0, 0.0}, {390.0, 844.0}}
+          Other, 0x115108a00, {{0.0, 0.0}, {390.0, 844.0}}
+            Other, 0x115108b40, {{0.0, 0.0}, {390.0, 844.0}}
+              Other, 0x115108dc0, {{0.0, 0.0}, {390.0, 844.0}}
+                Other, 0x115108c80, {{0.0, 0.0}, {390.0, 844.0}}
+                  Other, 0x115108f00, {{0.0, 0.0}, {390.0, 844.0}}
+                    Other, 0x115109040, {{0.0, 0.0}, {390.0, 844.0}}
+                      Other, 0x11510b200, {{0.0, 0.0}, {390.0, 844.0}}
+                        Other, 0x115109540, {{0.0, 0.0}, {390.0, 844.0}}
+                          Other, 0x11510b340, {{0.0, 0.0}, {390.0, 844.0}}
+                            NavigationBar, 0x11510b480, {{0.0, 47.0}, {390.0, 54.0}}, identifier: 'Erinnerungen'
+                              Button, 0x11510b700, {{16.0, 47.0}, {44.0, 44.0}}, identifier: 'BackButton', label: 'Golf'
+                              StaticText, 0x115109e00, {{141.3, 58.7}, {107.0, 20.7}}, label: 'Erinnerungen'
+                            Other, 0x115109b80, {{0.0, 0.0}, {390.0, 844.0}}
+                              Other, 0x115109900, {{0.0, 0.0}, {390.0, 844.0}}
+                                Other, 0x115109a40, {{0.0, 0.0}, {390.0, 844.0}}
+                                  Other, 0x11510a300, {{0.0, 0.0}, {390.0, 844.0}}
+                                    CollectionView, 0x11510a440, {{0.0, 0.0}, {390.0, 844.0}}
+                                      Other, 0x11510a580, {{-16.0, -1587.0}, {422.0, 4050.0}}
+                                      Other, 0x11510a6c0, {{0.0, 0.0}, {390.0, 844.0}}
+                                      Other, 0x11510a800, {{0.0, 0.0}, {390.0, 844.0}}
+                                      Cell, 0x11510a940, {{16.0, 136.0}, {358.0, 52.0}}
+                                        Other, 0x115118000, {{16.0, 136.0}, {358.0, 52.0}}
+                                          Other, 0x115118140, {{16.0, 136.0}, {358.0, 52.0}}
+                                        Other, 0x115118280, {{16.0, 136.0}, {358.0, 52.0}}
+                                          Other, 0x1151183c0, {{16.0, 136.0}, {358.0, 52.0}}
+                                            Other, 0x115118500, {{16.0, 136.0}, {358.0, 52.0}}
+                                              Switch, 0x115118640, {{16.0, 136.0}, {358.0, 52.0}}, identifier: 'inspectionRemindersToggle', label: 'Pickerl-Erinnerungen', value: 1
+                                                StaticText, 0x115118780, {{32.0, 151.8}, {160.0, 20.3}}, label: 'Pickerl-Erinnerungen'
+                                                Switch, 0x1151188c0, {{297.0, 148.0}, {63.0, 28.0}}, value: 1
+                                      Cell, 0x115118a00, {{16.0, 188.0}, {358.0, 81.7}}
+                                        Other, 0x115118b40, {{16.0, 188.0}, {358.0, 81.7}}
+                                          Other, 0x115118c80, {{16.0, 188.0}, {358.0, 81.7}}
+                                        Other, 0x115118dc0, {{16.0, 188.0}, {358.0, 81.7}}
+                                          Other, 0x115118f00, {{16.0, 188.0}, {358.0, 81.7}}
+                                            Other, 0x115119040, {{16.0, 188.0}, {358.0, 81.7}}
+                                              StaticText, 0x115119180, {{16.0, 188.0}, {358.0, 81.7}}, label: 'Wenn das Fenster öffnet, im Monat davor, im Fälligkeitsmonat und eine Woche, bevor das Fenster schließt. Datum auf der Plakette prüfen.'
+                                      Other, 0x1151192c0, {{32.0, 187.0}, {326.0, 1.0}}
+                                      Cell, 0x115119400, {{16.0, 269.7}, {358.0, 90.3}}
+                                        Other, 0x115119540, {{16.0, 269.7}, {358.0, 90.3}}
+                                          Other, 0x115119680, {{16.0, 269.7}, {358.0, 90.3}}
+                                        Other, 0x1151197c0, {{16.0, 269.7}, {358.0, 90.3}}
+                                          Other, 0x115119900, {{16.0, 269.7}, {358.0, 90.3}}
+                                            Other, 0x115119a40, {{16.0, 269.7}, {358.0, 90.3}}
+                                              Button, 0x115119b80, {{16.0, 269.7}, {358.0, 90.3}}, label: 'Winterreifen. Winterperiode beginnt am 1. November 2026. in 27 Tagen.'
+                                                Image, 0x115119cc0, {{34.3, 284.0}, {19.7, 22.0}}, identifier: 'snowflake', label: 'Wirbelnder Schnee'
+                                                StaticText, 0x115119e00, {{34.3, 284.0}, {136.7, 22.0}}, label: 'Winterreifen'
+                                                StaticText, 0x115119f40, {{32.0, 307.0}, {308.0, 18.0}}, label: 'Winterperiode beginnt am 1. November 2026'
+                                                StaticText, 0x11511a080, {{32.0, 327.0}, {78.7, 18.0}}, label: 'in 27 Tagen'
+                                      Other, 0x11511a1c0, {{32.0, 268.7}, {326.0, 1.0}}
+                                      Cell, 0x11511a300, {{16.0, 360.0}, {358.0, 90.3}}
+                                        Other, 0x11511a440, {{16.0, 360.0}, {358.0, 90.3}}
+                                          Other, 0x11511a580, {{16.0, 360.0}, {358.0, 90.3}}
+                                        Other, 0x11511a6c0, {{16.0, 360.0}, {358.0, 90.3}}
+                                          Other, 0x11511a800, {{16.0, 360.0}, {358.0, 90.3}}
+                                            Other, 0x11511a940, {{16.0, 360.0}, {358.0, 90.3}}
+                                              Button, 0x11511aa80, {{16.0, 360.0}, {358.0, 90.3}}, label: 'Vignette. Neue Vignette ab 1. Dezember 2026. in 57 Tagen.'
+                                                Image, 0x11511abc0, {{28.0, 377.0}, {32.3, 16.7}}, identifier: 'road.lanes', label: 'road.lanes'
+                                                StaticText, 0x11511ad00, {{28.0, 375.0}, {112.0, 20.3}}, label: 'Vignette'
+                                                StaticText, 0x11511ae40, {{32.0, 397.3}, {248.3, 18.0}}, label: 'Neue Vignette ab 1. Dezember 2026'
+                                                StaticText, 0x11511af80, {{32.0, 417.3}, {79.0, 18.0}}, label: 'in 57 Tagen'
+                                      Other, 0x11511b0c0, {{72.0, 359.0}, {286.0, 1.0}}
+                                      Cell, 0x11511b200, {{16.0, 450.3}, {358.0, 90.3}}
+                                        Other, 0x11511b340, {{16.0, 450.3}, {358.0, 90.3}}
+                                          Other, 0x11511b480, {{16.0, 450.3}, {358.0, 90.3}}
+                                        Other, 0x11511b5c0, {{16.0, 450.3}, {358.0, 90.3}}
+                                          Other, 0x11511b700, {{16.0, 450.3}, {358.0, 90.3}}
+                                            Other, 0x11511b840, {{16.0, 450.3}, {358.0, 90.3}}
+                                              Button, 0x11511b980, {{16.0, 450.3}, {358.0, 90.3}}, label: 'Insurance. Fällig: 5. Dezember 2026. in 61 Tagen.'
+                                                Image, 0x11511bac0, {{33.7, 464.3}, {21.0, 22.7}}, identifier: 'bell', label: 'Mitteilungen'
+                                                StaticText, 0x11511bc00, {{33.7, 464.3}, {116.7, 22.7}}, label: 'Insurance'
+                                                StaticText, 0x11511bd40, {{32.0, 487.7}, {171.3, 18.0}}, label: 'Fällig: 5. Dezember 2026'
+                                                StaticText, 0x11511be80, {{32.0, 507.7}, {77.7, 18.0}}, label: 'in 61 Tagen'
+                                      Other, 0x115120000, {{72.0, 449.3}, {286.0, 1.0}}
+                                      Cell, 0x115120140, {{16.0, 540.7}, {358.0, 110.3}}
+                                        Other, 0x115120280, {{16.0, 540.7}, {358.0, 110.3}}
+                                          Other, 0x1151203c0, {{16.0, 540.7}, {358.0, 110.3}}
+                                        Other, 0x115120500, {{16.0, 540.7}, {358.0, 110.3}}
+                                          Other, 0x115120640, {{16.0, 540.7}, {358.0, 110.3}}
+                                            Other, 0x115120780, {{16.0, 540.7}, {358.0, 110.3}}
+                                              Button, 0x1151208c0, {{16.0, 540.7}, {358.0, 110.3}}, label: 'Oil service. Bei 75.000 km, geschätzt um den 25. Februar 2027. in 143 Tagen.'
+                                                Image, 0x115120a00, {{30.7, 552.7}, {26.7, 26.3}}, identifier: 'wrench.and.screwdriver', label: 'wrench.and.screwdriver'
+                                                StaticText, 0x115120b40, {{30.7, 552.7}, {124.7, 26.3}}, label: 'Oil service'
+                                                StaticText, 0x115120c80, {{32.0, 578.0}, {316.3, 38.0}}, label: 'Bei 75.000 km, geschätzt um den 25. Februar 2027'
+                                                StaticText, 0x115120dc0, {{32.0, 618.0}, {87.0, 18.0}}, label: 'in 143 Tagen'
+                                      Other, 0x115120f00, {{72.0, 539.7}, {286.0, 1.0}}
+                                      Cell, 0x115121040, {{16.0, 651.0}, {358.0, 52.0}}
+                                        Other, 0x115121180, {{16.0, 651.0}, {358.0, 52.0}}
+                                          Other, 0x1151212c0, {{16.0, 651.0}, {358.0, 52.0}}
+                                        Other, 0x115121400, {{16.0, 651.0}, {358.0, 52.0}}
+                                          Other, 0x115121540, {{16.0, 651.0}, {358.0, 52.0}}
+                                            Other, 0x115121680, {{16.0, 651.0}, {358.0, 52.0}}
+                                              Button, 0x1151217c0, {{16.0, 651.0}, {358.0, 52.0}}, identifier: 'addReminderButton', label: 'Erinnerung hinzufügen'
+                                                Image, 0x115121900, {{33.3, 666.3}, {21.7, 21.7}}, identifier: 'plus.circle', label: 'Hinzufügen'
+                                                StaticText, 0x115121a40, {{32.0, 667.0}, {326.0, 20.3}}, label: 'Erinnerung hinzufügen'
+                                      Other, 0x115121b80, {{72.0, 650.0}, {286.0, 1.0}}
+                                      Cell, 0x115121cc0, {{16.0, 703.0}, {358.0, 52.0}}
+                                        Other, 0x115121e00, {{16.0, 703.0}, {358.0, 52.0}}
+                                          Other, 0x115121f40, {{16.0, 703.0}, {358.0, 52.0}}
+                                        Other, 0x115122080, {{16.0, 703.0}, {358.0, 52.0}}
+                                          Other, 0x1151221c0, {{16.0, 703.0}, {358.0, 52.0}}
+                                            Other, 0x115122300, {{16.0, 703.0}, {358.0, 52.0}}
+                                              Button, 0x115122440, {{16.0, 703.0}, {358.0, 52.0}}, identifier: 'allowNotificationsButton', label: 'Mitteilungen erlauben'
+                                                Image, 0x115122580, {{33.7, 719.7}, {16.0, 18.7}}, identifier: 'bell.badge', label: 'bell.badge'
+                                                StaticText, 0x1151226c0, {{32.0, 718.7}, {326.0, 21.0}}, label: 'Mitteilungen erlauben'
+                                      Other, 0x115122800, {{72.0, 702.0}, {286.0, 1.0}}
+                                      Other, 0x115122940, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertikaler Rollbalken, 1 Seite', value: 0 %
+                                        Other, 0x115122a80, {{384.0, 139.0}, {3.0, 654.7}}
+                                      Other, 0x115122bc0, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertikaler Rollbalken, 1 Seite', value: 0 %
+                                        Other, 0x115122d00, {{384.0, 139.0}, {3.0, 654.7}}
+                            Other, 0x115122e40, {{0.0, 0.0}, {390.0, 844.0}}
+                              Other, 0x115122f80, {{0.0, 0.0}, {390.0, 844.0}}
+                Other, 0x1151230c0, {{0.0, 761.0}, {390.0, 83.0}}
+                  Other, 0x115123200, {{0.0, 0.0}, {390.0, 844.0}}
+                  Other, 0x115123340, {{0.0, 761.0}, {390.0, 83.0}}
+      Other, 0x115123480, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x1151235c0, {{0.0, 0.0}, {390.0, 844.0}}, identifier: 'PopoverDismissRegion', label: 'Einblendmenü schließen'
+        Popover, 0x115123700, {{75.0, 350.0}, {240.0, 317.0}}
+          Image, 0x115123840, {{-75.0, 200.0}, {540.0, 604.0}}
+          Other, 0x115123980, {{75.0, 350.0}, {240.0, 304.0}}
+            Sheet, 0x115123ac0, {{75.0, 350.0}, {240.0, 304.0}}
+              Other, 0x115123c00, {{75.0, 350.0}, {240.0, 304.0}}
+                Other, 0x115123d40, {{75.0, 350.0}, {240.0, 304.0}}
+                  Other, 0x115123e80, {{75.0, 350.0}, {240.0, 304.0}}
+                  Other, 0x115124000, {{75.0, 350.0}, {240.0, 304.0}}
+                    ScrollView, 0x115124140, {{75.0, 350.0}, {240.0, 304.0}}
+                      Other, 0x115124280, {{75.0, 350.0}, {240.0, 304.0}}
+                        Other, 0x1151243c0, {{91.0, 366.0}, {208.0, 272.0}}
+                          Button, 0x115124500, {{91.0, 366.0}, {208.0, 48.0}}, label: 'Winterreifen'
+                          Button, 0x115124640, {{91.0, 422.0}, {208.0, 48.0}}, label: 'Sommerreifen'
+                          Button, 0x115124780, {{91.0, 478.0}, {208.0, 48.0}}, label: 'Service'
+                          Button, 0x1151248c0, {{91.0, 534.0}, {208.0, 48.0}}, label: 'Vignette'
+                          Button, 0x115124a00, {{91.0, 590.0}, {208.0, 48.0}}, label: 'Eigene Erinnerung'
+                      Other, 0x115124b40, {{282.0, 384.0}, {30.0, 249.0}}, label: 'Vertikaler Rollbalken, 1 Seite', value: 0 %
+                        Other, 0x115124c80, {{309.0, 440.0}, {3.0, 7.0}}
+                      Other, 0x115124dc0, {{96.0, 621.0}, {198.0, 30.0}}, label: 'Horizontaler Rollbalken, 1 Seite', value: 0 %
+                        Other, 0x115124f00, {{165.0, 648.0}, {7.0, 3.0}}
+                      Other, 0x115125040, {{282.0, 384.0}, {30.0, 249.0}}, label: 'Vertikaler Rollbalken, 1 Seite', value: 0 %
+                        Other, 0x115125180, {{309.0, 440.0}, {3.0, 7.0}}
+                      Other, 0x1151252c0, {{96.0, 621.0}, {198.0, 30.0}}, label: 'Horizontaler Rollbalken, 1 Seite', value: 0 %
+                        Other, 0x115125400, {{165.0, 648.0}, {7.0, 3.0}}
+          Other, 0x115125540, {{75.0, 350.0}, {240.0, 317.0}}
+            Other, 0x115125680, {{75.0, 350.0}, {240.0, 317.0}}
+              Other, 0x1151257c0, {{75.0, 350.0}, {240.0, 317.0}}
+                Other, 0x115125900, {{75.0, 350.0}, {240.0, 317.0}}
+                  Other, 0x115125a40, {{75.0, 350.0}, {240.0, 317.0}}
+                    Other, 0x115125b80, {{75.0, 350.0}, {0.0, 0.0}}
+                      Other, 0x115125cc0, {{75.0, 350.0}, {240.0, 317.0}}
+                        Other, 0x115125e00, {{75.0, 350.0}, {240.0, 317.0}}
+                          Other, 0x115125f40, {{75.0, 350.0}, {240.0, 317.0}}
+                            Other, 0x115126080, {{75.0, 350.0}, {240.0, 317.0}}
+    Window, 0x1151261c0, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x115126300, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x115126440, {{0.0, 0.0}, {390.0, 844.0}}
+Path to element:
+ →Application, 0x11510bd40, pid: 77919, label: 'Pitlog'
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  Output: {
+    Application, 0x115126580, pid: 77919, label: 'Pitlog'
+  }
+
+===== testVignetteReminderEditorPassesAccessibilityAuditInGerman / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
