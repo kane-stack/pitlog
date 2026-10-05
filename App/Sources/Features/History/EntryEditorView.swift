@@ -266,7 +266,7 @@ struct EntryEditorView: View {
         .onTapGesture(perform: action)
         .accessibilityElement(children: .combine)
         .accessibilityAddTraits(.isButton)
-        .accessibilityAction(action)
+        .accessibilityAction { action() }
         .accessibilityIdentifier(identifier)
     }
 
