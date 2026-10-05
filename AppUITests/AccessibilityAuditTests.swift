@@ -365,6 +365,7 @@ final class AccessibilityAuditTests: XCTestCase {
         app.launchArguments += ["-UITestSampleData", "-legalNoticeAcknowledged", "YES", "-UITestExperiment", "\(number)"]
         app.launch()
         XCTAssertTrue(app.navigationBars.firstMatch.waitForExistence(timeout: 10))
+        if number == 7 { sleep(2) }
         try audit(app, "experiment-\(number)")
     }
 
@@ -374,4 +375,7 @@ final class AccessibilityAuditTests: XCTestCase {
     @MainActor func testExperiment4() throws { try experiment(4) }
     @MainActor func testExperiment5() throws { try experiment(5) }
     @MainActor func testExperiment6() throws { try experiment(6) }
+    @MainActor func testExperiment7() throws { try experiment(7) }
+    @MainActor func testExperiment8() throws { try experiment(8) }
+    @MainActor func testExperiment9() throws { try experiment(9) }
 }

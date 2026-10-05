@@ -37,6 +37,59 @@ struct AuditExperiments: View {
                         Button { } label: { Label { Text("Second button") } icon: { Image(systemName: "bell") } }
                         Text("A note below the buttons")
                     }
+                case 7:
+                    Color.clear.sheet(isPresented: .constant(true)) {
+                        NavigationStack {
+                            Form {
+                                Section {
+                                    Toggle(isOn: $on) { Text("On") }
+                                    DatePicker(selection: $date, displayedComponents: .date) { Text("A date") }
+                                    Text("A note").font(.footnote)
+                                }
+                                Section {
+                                    LeadPicker(title: Text("Picker"), value: $value, options: LeadOptions.days, valueText: LeadOptions.days)
+                                    Text("A second note").font(.footnote)
+                                }
+                            }
+                            .navigationTitle(Text(verbatim: "Sheet"))
+                            .navigationBarTitleDisplayMode(.inline)
+                            .toolbar {
+                                ToolbarItem(placement: .cancellationAction) { Button { } label: { Text("Cancel") } }
+                                ToolbarItem(placement: .confirmationAction) { Button { } label: { Text("Save") } }
+                            }
+                        }
+                    }
+                case 8:
+                    List {
+                        Button { } label: {
+                            HStack(spacing: 8) {
+                                Image(systemName: "bell").accessibilityHidden(true)
+                                Text("First button").fixedSize(horizontal: false, vertical: true).frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                        }
+                        Button { } label: {
+                            HStack(spacing: 8) {
+                                Image(systemName: "bell").accessibilityHidden(true)
+                                Text("Second button").fixedSize(horizontal: false, vertical: true).frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                        }
+                        Text("A note below the buttons")
+                    }
+                case 9:
+                    List {
+                        ForEach(1...8, id: \.self) { index in
+                            NavigationLink {
+                                Text("Detail")
+                            } label: {
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Label { Text("Row \(index)") } icon: { Image(systemName: "bell") }.font(.headline)
+                                    Text(verbatim: "Subtitle \(index) · in 27 days").font(.subheadline)
+                                }
+                                .accessibilityElement(children: .ignore)
+                                .accessibilityLabel(Text(verbatim: "Row \(index). Subtitle"))
+                            }
+                        }
+                    }
                 default:
                     Form {
                         Section {
