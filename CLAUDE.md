@@ -171,3 +171,7 @@ Prompt: `docs/research/local-session-prompt.md`.
    (M5) bewerten, mit 15 bis 20 echten, anonymisierten Belegen.
 7. **Bundle-ID, Team und CloudKit-Container:** Gelöst, siehe Konventionen, Kennungen. Vor dem App-Store-Start das CloudKit-Schema in der CloudKit Console nach Production deployen.
 8. **App-Name:** „Pitlog“ ist ein Arbeitsname. Markenrecherche vor der Einreichung.
+9. **Vor der Einreichung (in Evidenz, Reihenfolge):** (1) Christopher testet die App auf dem Gerät, (2) App-Name festlegen,
+   (3) Domain festlegen, (4) Datenschutzerklärung und Impressum auf einer Cloudflare-Seite mit eigener Domain (wie bei Culinoria),
+   URLs in der App und in App Store Connect eintragen, (5) App in App Store Connect anlegen (`com.kane.pitlog`), Abo-Gruppe und
+   Produkte anlegen. Die Admin-Themen (Vertrag für kostenpflichtige Apps, Bank, Steuern) sind für den Account bereits erledigt.
