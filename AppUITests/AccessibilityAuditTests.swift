@@ -356,4 +356,22 @@ final class AccessibilityAuditTests: XCTestCase {
         for _ in 0..<3 { app.swipeUp() }
         try audit(app, "upcoming-reminders-en")
     }
+
+    // MARK: TEMPORARY experiments (isolate what the Dynamic Type audit flags)
+
+    @MainActor
+    private func experiment(_ number: Int) throws {
+        let app = XCUIApplication()
+        app.launchArguments += ["-UITestSampleData", "-legalNoticeAcknowledged", "YES", "-UITestExperiment", "\(number)"]
+        app.launch()
+        XCTAssertTrue(app.navigationBars.firstMatch.waitForExistence(timeout: 10))
+        try audit(app, "experiment-\(number)")
+    }
+
+    @MainActor func testExperiment1() throws { try experiment(1) }
+    @MainActor func testExperiment2() throws { try experiment(2) }
+    @MainActor func testExperiment3() throws { try experiment(3) }
+    @MainActor func testExperiment4() throws { try experiment(4) }
+    @MainActor func testExperiment5() throws { try experiment(5) }
+    @MainActor func testExperiment6() throws { try experiment(6) }
 }
