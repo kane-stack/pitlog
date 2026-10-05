@@ -314,7 +314,7 @@ enum MassScan {
         guard !text.isEmpty else { return nil }
 
         let separators: Set<Character> = [".", ","]
-        let parts = text.split(whereSeparator: { separators.contains($0) }, omittingEmptySubsequences: false)
+        let parts = text.split(omittingEmptySubsequences: false, whereSeparator: { separators.contains($0) })
             .map(String.init)
         guard (1...2).contains(parts.count) else { return nil }
         var corrected = parts.count > 1
