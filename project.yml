@@ -1,7 +1,7 @@
 name: Pitlog
 
 options:
-  bundleIdPrefix: com.example
+  bundleIdPrefix: com.kane
   deploymentTarget:
     iOS: "26.0"
   developmentLanguage: en
@@ -12,7 +12,7 @@ settings:
   base:
     SWIFT_VERSION: "6.0"
     SWIFT_STRICT_CONCURRENCY: complete
-    DEVELOPMENT_TEAM: ""  # placeholder, set before first device build
+    DEVELOPMENT_TEAM: ZXBCH8F6UU
     LOCALIZATION_PREFERS_STRING_CATALOGS: YES
     SWIFT_EMIT_LOC_STRINGS: YES
     ENABLE_USER_SCRIPT_SANDBOXING: YES
@@ -34,7 +34,7 @@ targets:
       path: App/Pitlog.entitlements
       properties:
         com.apple.developer.icloud-container-identifiers:
-          - iCloud.com.example.pitlog
+          - iCloud.com.kane.pitlog
         com.apple.developer.icloud-services:
           - CloudKit
         aps-environment: development
@@ -53,12 +53,12 @@ targets:
           - remote-notification
           - fetch
         BGTaskSchedulerPermittedIdentifiers:
-          - com.example.pitlog.refresh-reminders
+          - com.kane.pitlog.refresh-reminders
         ITSAppUsesNonExemptEncryption: false
         NSCameraUsageDescription: Pitlog uses the camera to scan your registration certificate and workshop receipts. Images stay on your device.
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.example.pitlog
+        PRODUCT_BUNDLE_IDENTIFIER: com.kane.pitlog
         PRODUCT_NAME: Pitlog
         TARGETED_DEVICE_FAMILY: "1"
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
@@ -75,7 +75,7 @@ targets:
       - target: Pitlog
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.example.pitlog.tests
+        PRODUCT_BUNDLE_IDENTIFIER: com.kane.pitlog.tests
         GENERATE_INFOPLIST_FILE: YES
 
   PitlogUITests:
@@ -87,7 +87,7 @@ targets:
       - target: Pitlog
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.example.pitlog.uitests
+        PRODUCT_BUNDLE_IDENTIFIER: com.kane.pitlog.uitests
         GENERATE_INFOPLIST_FILE: YES
         TEST_TARGET_NAME: Pitlog
 

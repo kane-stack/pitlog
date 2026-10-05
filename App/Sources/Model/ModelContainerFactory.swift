@@ -3,7 +3,7 @@ import SwiftData
 
 enum ModelContainerFactory {
     /// Placeholder container (CLAUDE.md). Replace before the first TestFlight build.
-    static let cloudKitContainerIdentifier = "iCloud.com.example.pitlog"
+    static let cloudKitContainerIdentifier = "iCloud.com.kane.pitlog"
 
     /// Private CloudKit database only, no sharing (ADR-1).
     static func production() throws -> ModelContainer {

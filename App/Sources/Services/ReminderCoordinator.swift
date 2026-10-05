@@ -36,7 +36,7 @@ enum OverdueNoticeStore {
 @MainActor
 final class ReminderCoordinator {
     /// Also listed in `BGTaskSchedulerPermittedIdentifiers` (project.yml).
-    static let refreshTaskIdentifier = "com.example.pitlog.refresh-reminders"
+    static let refreshTaskIdentifier = "com.kane.pitlog.refresh-reminders"
 
     private let container: ModelContainer
     private let scheduler: NotificationScheduler

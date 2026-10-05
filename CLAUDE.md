@@ -96,8 +96,8 @@ AppTests/, AppUITests/          app-level tests (Xcode only)
   maßgeblich ist die Plakette“.
 - **Datenschutz:** Keine Netzwerkaufrufe außer CloudKit. Neue Required-Reason-APIs in
   `App/Resources/PrivacyInfo.xcprivacy` eintragen.
-- **Platzhalter:** Bundle-ID `com.example.pitlog`, CloudKit-Container `iCloud.com.example.pitlog`.
-  Vor dem ersten TestFlight-Build ersetzen. Der Container-Name ist danach nicht mehr änderbar.
+- **Kennungen (final, nicht mehr ändern):** Team `ZXBCH8F6UU`, Bundle-ID `com.kane.pitlog`, CloudKit-Container
+  `iCloud.com.kane.pitlog`, Produkt-IDs `com.kane.pitlog.pro.yearly` (Jahresabo) und `com.kane.pitlog.pro.lifetime`.
 
 ## Bauen und Testen
 
@@ -169,5 +169,5 @@ Prompt: `docs/research/local-session-prompt.md`.
    ersatzweise Rechnungsdatum.
 6. **Foundation Models:** Qualität bei deutschsprachigen Werkstattrechnungen erst im Spike
    (M5) bewerten, mit 15 bis 20 echten, anonymisierten Belegen.
-7. **Bundle-ID, Team und CloudKit-Container:** finale Werte vor M6.
+7. **Bundle-ID, Team und CloudKit-Container:** Gelöst, siehe Konventionen, Kennungen. Vor dem App-Store-Start das CloudKit-Schema in der CloudKit Console nach Production deployen.
 8. **App-Name:** „Pitlog“ ist ein Arbeitsname. Markenrecherche vor der Einreichung.
