@@ -167,8 +167,9 @@ Prompt: `docs/research/local-session-prompt.md`.
    (Papier und Scheckkarte) von Christopher. Zu klären ist, welche Formate aktuell im Umlauf sind,
    inklusive einer eventuellen digitalen Variante.
 6. **Belegscan (M5b):** Recherche in `docs/sources/receipts/README.md`. Es gibt keine öffentlichen AT-Werkstattbelege.
-   Die Tests nutzen synthetische Belege, Christopher liefert Belege von 2 Werkstätten als Gegentest. Offen sind
-   E-1 (Kosten = Rechnungsbetrag brutto oder Restbetrag nach Anzahlung) und E-2 (Historiendatum = Leistungs- oder Rechnungsdatum).
+   Die Tests nutzen synthetische Belege, Christopher liefert Belege von 2 Werkstätten als Gegentest. Entschieden:
+   E-1 Kosten = **Rechnungsbetrag brutto** (nicht Restbetrag nach Anzahlung); E-2 Historiendatum = **Leistungsdatum**,
+   ersatzweise Rechnungsdatum.
 7. **Foundation Models:** Qualität bei deutschsprachigen Werkstattrechnungen erst im Spike
    (M5) bewerten, mit 15 bis 20 echten, anonymisierten Belegen.
 8. **Bundle-ID, Team und CloudKit-Container:** finale Werte vor M6.

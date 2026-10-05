@@ -278,10 +278,10 @@ Auf dem Beleg steht oft die neue Lochung. Die App darf sie höchstens **vorschla
 - Jeder Beleg gibt es in drei Varianten: sauber, mit OCR-Rauschen und mit vertauschter Zeilenfolge.
 - Namen, Adressen, UIDs (mit absichtlich falscher Prüfziffer), FINs und Kennzeichen sind fiktiv.
 
-## Entscheidungen (offen, siehe CLAUDE.md)
+## Entscheidungen (Christopher, 05.10.2026)
 
-- **E-1:** Als Kosten zählt der **Rechnungsbetrag brutto** oder der Restbetrag nach Anzahlung?
-- **E-2:** Als Datum in der Historie gilt das **Leistungsdatum** oder das Rechnungsdatum?
+- **E-1:** Als Kosten zählt der **Rechnungsbetrag brutto**, nicht der Restbetrag nach Anzahlung.
+- **E-2:** Als Datum in der Historie gilt das **Leistungsdatum**, ersatzweise das Rechnungsdatum.
 
 ## Offene Punkte
 
