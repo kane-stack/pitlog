@@ -86,6 +86,16 @@ final class AccessibilityAuditTests: XCTestCase {
                 self.auditReport.append("(ignored: system navigation bar button)")
                 return true
             }
+            // Disabled controls are exempt from contrast requirements (WCAG 1.4.3): only a disabled
+            // button of the navigation bar ("Save" while the form is incomplete) is ignored.
+            if issue.auditType == .contrast,
+               let target = issue.element,
+               target.elementType == .button,
+               !target.isEnabled,
+               self.isNavigationBarButton(target) {
+                self.auditReport.append("(ignored: disabled navigation bar button)")
+                return true
+            }
             return false
         }
     }
@@ -188,13 +198,9 @@ final class AccessibilityAuditTests: XCTestCase {
         let app = launch()
         app.tabBars.buttons.element(boundBy: 1).tap()
         XCTAssertTrue(tap(app.buttons["addVehicleButton"]))
-        let nameField = app.textFields.firstMatch
-        XCTAssertTrue(nameField.waitForExistence(timeout: 5))
-        // A valid form: a disabled "Save" is exempt from contrast rules, an enabled one must pass.
-        nameField.tap()
-        nameField.typeText("Test")
-        // Drop the keyboard focus so the caret is not part of the audited state.
-        app.navigationBars.staticTexts.firstMatch.tap()
+        XCTAssertTrue(app.textFields.firstMatch.waitForExistence(timeout: 5))
+        // The empty form: "Save" is disabled and the keyboard has no focus. The valid state is covered by
+        // testEditVehicleFormPassesAccessibilityAudit.
         try audit(app, "form-en")
     }
 
