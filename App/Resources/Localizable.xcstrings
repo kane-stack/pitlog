@@ -1848,6 +1848,17 @@
         }
       }
     },
+    "Tyres, service, vignette and more." : {
+      "comment" : "Vehicle detail: reminders row when there is no upcoming reminder",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reifen, Service, Vignette und mehr."
+          }
+        }
+      }
+    },
     "Upcoming" : {
       "comment" : "Tab bar item for upcoming deadlines; Navigation title of the Upcoming tab",
       "localizations" : {

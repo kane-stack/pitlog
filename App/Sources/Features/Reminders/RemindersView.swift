@@ -9,17 +9,17 @@ struct ReminderEditorTarget: Identifiable {
     let reminder: Reminder?
 }
 
-/// The "Reminders" section of the vehicle detail list: inspection toggle, stored reminders and add button.
-/// Meant to be placed directly inside a `List`.
-struct RemindersSection: View {
+/// All reminders of one vehicle: inspection toggle, stored reminders with swipe actions, and the add menu.
+/// Pushed from the vehicle detail, so the list is short and never competes with the Pickerl card for space.
+struct RemindersView: View {
     let vehicle: Vehicle
-    let today: DayDate
-    @Binding var editorTarget: ReminderEditorTarget?
-    @Binding var showingPermissionPrompt: Bool
 
     @Environment(\.modelContext) private var modelContext
     @Environment(\.locale) private var locale
     @Environment(NotificationPermission.self) private var permission
+    @State private var editorTarget: ReminderEditorTarget?
+    @State private var showingPermissionPrompt = false
+    @State private var today = CalendarDay.today(in: .current)
 
     private let builder = ReminderScheduleBuilder()
 
@@ -37,14 +37,7 @@ struct RemindersSection: View {
     }
 
     var body: some View {
-        Section {
-            // A row, not a section header: plain list headers fail the contrast audit.
-            Text("Reminders", comment: "Section header on the vehicle detail: reminders")
-                .font(.title3)
-                .fontWeight(.semibold)
-                .fixedSize(horizontal: false, vertical: true)
-                .accessibilityAddTraits(.isHeader)
-                .listRowSeparator(.hidden)
+        List {
             inspectionToggle
             ForEach(presentations, id: \.reminder.persistentModelID) { presentation in
                 row(presentation)
@@ -54,6 +47,13 @@ struct RemindersSection: View {
                 NotificationPermissionRow()
             }
         }
+        .navigationTitle(Text("Reminders", comment: "Section header on the vehicle detail: reminders"))
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar(.hidden, for: .tabBar)
+        .sheet(item: $editorTarget) { target in
+            ReminderEditorView(vehicle: vehicle, category: target.category, reminder: target.reminder)
+        }
+        .notificationPermissionPrompt(isPresented: $showingPermissionPrompt)
     }
 
     private var hasActiveReminders: Bool {

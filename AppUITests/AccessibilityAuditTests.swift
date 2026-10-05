@@ -263,14 +263,18 @@ final class AccessibilityAuditTests: XCTestCase {
         return element.exists && element.isHittable
     }
 
-    /// The detail of the first sample vehicle (the Golf, with sample reminders), scrolled to the reminders.
+    /// The reminders of the first sample vehicle (the Golf, with sample reminders).
     @MainActor
     private func openReminderList(german: Bool = false) -> XCUIApplication {
         let app = launch(german: german)
         app.tabBars.buttons.element(boundBy: 1).tap()
         XCTAssertTrue(tap(app.cells.firstMatch))
         XCTAssertTrue(app.buttons["recordInspectionButton"].waitForExistence(timeout: 5))
-        XCTAssertTrue(scrollUntilVisible(app.buttons["addReminderButton"], in: app))
+        // The detail has one row for the reminders; it opens the list.
+        let row = app.descendants(matching: .any)["remindersRow"]
+        XCTAssertTrue(scrollUntilVisible(row, in: app))
+        row.tap()
+        XCTAssertTrue(app.buttons["addReminderButton"].waitForExistence(timeout: 5))
         return app
     }
 

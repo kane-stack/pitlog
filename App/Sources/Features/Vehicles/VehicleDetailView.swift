@@ -9,8 +9,6 @@ struct VehicleDetailView: View {
     @State private var showingEdit = false
     @State private var showingOdometer = false
     @State private var showingRecordInspection = false
-    @State private var editorTarget: ReminderEditorTarget?
-    @State private var showingPermissionPrompt = false
 
     private let service = InspectionService()
 
@@ -26,13 +24,9 @@ struct VehicleDetailView: View {
             }
             .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
             .listRowSeparator(.hidden)
-            RemindersSection(
-                vehicle: vehicle, today: CalendarDay.today(in: .current), editorTarget: $editorTarget,
-                showingPermissionPrompt: $showingPermissionPrompt)
+            RemindersSummaryRow(vehicle: vehicle, today: CalendarDay.today(in: .current))
         }
         .listStyle(.plain)
-        // Pushed screen: hide the floating tab bar so it never overlaps the last rows (as in About).
-        .toolbar(.hidden, for: .tabBar)
         .navigationTitle(vehicle.displayName)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -49,10 +43,6 @@ struct VehicleDetailView: View {
         .sheet(isPresented: $showingRecordInspection) {
             RecordInspectionView(vehicle: vehicle)
         }
-        .sheet(item: $editorTarget) { target in
-            ReminderEditorView(vehicle: vehicle, category: target.category, reminder: target.reminder)
-        }
-        .notificationPermissionPrompt(isPresented: $showingPermissionPrompt)
     }
 
     private var header: some View {
