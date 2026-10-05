@@ -146,7 +146,7 @@ Prompt: `docs/research/local-session-prompt.md`.
 | M1 | Okt–Nov | Fristen-Engine und Tests (final erst nach Primärquellen-Abgleich) | Engine an Primärquellen angepasst |
 | M2 | Nov | Datenmodell (inkl. FIN-Feld), Fahrzeugverwaltung, Plaketten-Auswahl, Pickerl-Karte, Hinweis, Lokalisierung | erledigt (UI-Audit grün auf `claude/m2-vehicles`) |
 | M3 | Dez | Erinnerungen und Benachrichtigungen (siehe `docs/reminders.md`) | implementiert; UI-Audit-Reste dokumentiert in `docs/accessibility-audit.md` (M6) |
-| M4 | Jan 2027 | Historie, manuelle Einträge, Kosten pro Jahr. Nachtrag aus M3: bei überfälliger Pickerl-Frist plant M3 keine Mitteilung; eine einmalige „überfällig“-Mitteilung ergänzen | |
+| M4 | Jan 2027 | Historie, manuelle Einträge, Kosten pro Jahr | implementiert: Core `Money`/`CostSummary`, Historie mit Diagramm und Tabelle, Eintragseditor mit Belegen (ohne OCR), Angebote nach Pickerl und Service, einmalige „Pickerl überfällig“-Mitteilung. UI-Audit-Reste in `docs/accessibility-audit.md` (M6) |
 | M5 | Jan–Feb | Scan-Pipeline: Zulassungsschein-Scan, Spike Belegextraktion, dann Belegscan | |
 | M6 | Feb | StoreKit-2-Gating, Durchgang Barrierefreiheit, Datenschutz, TestFlight. Offen aus M2.1: `wrapsLongWords()` nutzt `minimumScaleFactor(0.6)` und verkleinert damit lange deutsche Texte inkl. Rechtshinweis bei großen Schriftgrößen. Ersetzen durch weiche Trennung (Soft Hyphens in den Strings) | |
 | M7 | März | Beta, rechtlicher Re-Check, Featuring-Nominierung, Einreichung | |
