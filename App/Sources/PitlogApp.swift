@@ -31,24 +31,13 @@ struct PitlogApp: App {
 
     var body: some Scene {
         WindowGroup {
-            if let number = Self.experimentNumber {
-                AuditExperiments(number: number)
-            } else {
-                RootView()
-                    .environment(\.entitlements, UnlimitedEntitlements())
-                    .environment(\.reminderCoordinator, coordinator)
-                    .environment(router)
-                    .environment(permission)
-            }
+            RootView()
+                .environment(\.entitlements, UnlimitedEntitlements())
+                .environment(\.reminderCoordinator, coordinator)
+                .environment(router)
+                .environment(permission)
         }
         .modelContainer(container)
-    }
-
-    /// TEMPORARY, see `AuditExperiments`.
-    private static var experimentNumber: Int? {
-        let arguments = ProcessInfo.processInfo.arguments
-        guard let index = arguments.firstIndex(of: "-UITestExperiment"), index + 1 < arguments.count else { return nil }
-        return Int(arguments[index + 1])
     }
 
     @MainActor

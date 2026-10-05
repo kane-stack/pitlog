@@ -172,6 +172,7 @@ struct RemindersView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .contentShape(Rectangle())
         .onTapGesture { showingAddDialog = true }
+        .accessibilityElement(children: .combine)
         .accessibilityAddTraits(.isButton)
         .accessibilityAction { showingAddDialog = true }
         .accessibilityIdentifier("addReminderButton")
