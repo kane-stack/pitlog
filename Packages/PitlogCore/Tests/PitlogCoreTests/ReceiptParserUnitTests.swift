@@ -32,7 +32,7 @@ struct AmountWordCase: Sendable {
     AmountWordCase("120,-", 12_000), AmountWordCase("120,--", 12_000), AmountWordCase("2,-", 200),
     AmountWordCase("-12,50", -1_250), AmountWordCase("12,50-", -1_250), AmountWordCase("(12,50)", -1_250),
     // OCR confusions (the text is folded, so lower case)
-    AmountWordCase("12o,5o", 12_050), AmountWordCase("l2,50", 1_250), AmountWordCase("s9,9o", 5_990), AmountWordCase("b,9o", 890),
+    AmountWordCase("12o,5o", 12_050), AmountWordCase("l2,50", 1_250), AmountWordCase("s9,9o", 5_990), AmountWordCase("b,90", 890), AmountWordCase("b,9o", nil),
     // no amounts
     AmountWordCase("05.10.2026", nil), AmountWordCase("05.10.26", nil), AmountWordCase("87.456", nil), AmountWordCase("5w-30", nil),
     AmountWordCase("4,5", nil), AmountWordCase("10/2027", nil), AmountWordCase("abc", nil), AmountWordCase("14:23", nil),
