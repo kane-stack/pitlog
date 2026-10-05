@@ -1,0 +1,92 @@
+{
+  "identifier": "7A4F2C10",
+  "nonRenewingSubscriptions": [],
+  "products": [
+    {
+      "displayPrice": "14.99",
+      "familyShareable": true,
+      "internalID": "6740000002",
+      "localizations": [
+        {
+          "description": "One purchase, no subscription.",
+          "displayName": "Pitlog Pro Lifetime",
+          "locale": "en_US"
+        },
+        {
+          "description": "Einmal kaufen, kein Abo.",
+          "displayName": "Pitlog Pro Lifetime",
+          "locale": "de"
+        }
+      ],
+      "productID": "com.kane.pitlog.pro.lifetime",
+      "referenceName": "Pitlog Pro Lifetime",
+      "type": "NonConsumable"
+    }
+  ],
+  "settings": {
+    "_failTransactionsEnabled": false,
+    "_locale": "de_AT",
+    "_storefront": "AUT",
+    "_storeKitErrors": [
+      {
+        "current": null,
+        "enabled": false,
+        "name": "Load Products"
+      },
+      {
+        "current": null,
+        "enabled": false,
+        "name": "Purchase"
+      },
+      {
+        "current": null,
+        "enabled": false,
+        "name": "Verification"
+      }
+    ]
+  },
+  "subscriptionGroups": [
+    {
+      "id": "21700001",
+      "localizations": [],
+      "name": "Pitlog Pro",
+      "subscriptions": [
+        {
+          "adHocOffers": [],
+          "codeOffers": [],
+          "displayPrice": "4.99",
+          "familyShareable": true,
+          "groupNumber": 1,
+          "internalID": "6740000001",
+          "introductoryOffer": {
+            "internalID": "6740000011",
+            "paymentMode": "free",
+            "subscriptionPeriod": "P2W"
+          },
+          "localizations": [
+            {
+              "description": "Yearly subscription, 14 days free.",
+              "displayName": "Pitlog Pro",
+              "locale": "en_US"
+            },
+            {
+              "description": "Jahresabo, 14 Tage gratis.",
+              "displayName": "Pitlog Pro",
+              "locale": "de"
+            }
+          ],
+          "productID": "com.kane.pitlog.pro.yearly",
+          "recurringSubscriptionPeriod": "P1Y",
+          "referenceName": "Pitlog Pro Yearly",
+          "subscriptionGroupID": "21700001",
+          "type": "RecurringSubscription",
+          "winbackOffers": []
+        }
+      ]
+    }
+  ],
+  "version": {
+    "major": 4,
+    "minor": 0
+  }
+}

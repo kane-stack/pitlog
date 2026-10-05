@@ -6,6 +6,10 @@ struct VehicleDetailView: View {
     let vehicle: Vehicle
 
     @Environment(\.locale) private var locale
+    @Environment(\.entitlements) private var entitlements
+    @Query(filter: #Predicate<Vehicle> { !$0.isArchived }, sort: \Vehicle.createdAt)
+    private var activeVehicles: [Vehicle]
+    @State private var paywall: PaywallContext?
     @State private var showingEdit = false
     @State private var showingOdometer = false
     @State private var showingRecordInspection = false
@@ -16,6 +20,14 @@ struct VehicleDetailView: View {
 
     private let service = InspectionService()
 
+    /// Over the free limit (ADR-11): everything is readable, changes lead to the paywall.
+    private var isReadOnly: Bool { entitlements.isReadOnly(vehicle, among: activeVehicles) }
+
+    /// Runs `change` for an editable vehicle, shows the paywall for a read-only one.
+    private func edit(_ change: () -> Void) {
+        if isReadOnly { paywall = .vehicles } else { change() }
+    }
+
     var body: some View {
         let today = CalendarDay.today(in: CalendarDay.austria)
         let outcome = service.evaluate(vehicle, today: today)
@@ -23,8 +35,13 @@ struct VehicleDetailView: View {
             header
                 .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
                 .listRowSeparator(.hidden)
+            if isReadOnly {
+                ReadOnlyBanner { paywall = .vehicles }
+                    .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                    .listRowSeparator(.hidden)
+            }
             InspectionCardView(vehicle: vehicle, outcome: outcome, today: today) {
-                showingRecordInspection = true
+                edit { showingRecordInspection = true }
             }
             .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
             .listRowSeparator(.hidden)
@@ -39,12 +56,13 @@ struct VehicleDetailView: View {
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button {
-                    showingEdit = true
+                    edit { showingEdit = true }
                 } label: {
                     Text("Edit", comment: "Toolbar button to edit a vehicle")
                 }
             }
         }
+        .paywall($paywall)
         .sheet(isPresented: $showingEdit) { VehicleFormView(vehicle: vehicle) }
         .sheet(isPresented: $showingOdometer) { OdometerEntryView(vehicle: vehicle) }
         .sheet(isPresented: $showingRecordInspection, onDismiss: {
@@ -73,7 +91,7 @@ struct VehicleDetailView: View {
                     Text(vehicle.licensePlate)
                 }
                 Button {
-                    showingOdometer = true
+                    edit { showingOdometer = true }
                 } label: {
                     if let km = vehicle.currentOdometerKm {
                         Label {

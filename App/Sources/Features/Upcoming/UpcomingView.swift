@@ -7,6 +7,7 @@ struct UpcomingView: View {
     @Query(filter: #Predicate<Vehicle> { !$0.isArchived }, sort: \Vehicle.createdAt)
     private var vehicles: [Vehicle]
     @Environment(\.locale) private var locale
+    @Environment(\.entitlements) private var entitlements
 
     private let service = InspectionService()
 
@@ -36,7 +37,9 @@ struct UpcomingView: View {
                         sortDay: status.window.closes,
                         accessibilityLabel: "\(vehicle.displayName). \(typeTitle). \(presentation.badgeAccessibilityLabel)"))
             }
-            for reminder in vehicle.reminders ?? [] where reminder.isEnabled {
+            // Reminders of the Pro kinds are not planned without Pro, so they are not "upcoming" either.
+            // They stay in the reminder list of the vehicle.
+            for reminder in vehicle.reminders ?? [] where reminder.isEnabled && entitlements.canUseProReminders {
                 let presentation = ReminderPresentation(
                     reminder: reminder, vehicle: vehicle, today: reminderToday, locale: locale)
                 result.append(

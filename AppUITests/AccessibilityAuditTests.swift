@@ -269,8 +269,8 @@ final class AccessibilityAuditTests: XCTestCase {
 
     /// The reminders of the first sample vehicle (the Golf, with sample reminders).
     @MainActor
-    private func openReminderList(german: Bool = false) -> XCUIApplication {
-        let app = launch(german: german)
+    private func openReminderList(german: Bool = false, extraArguments: [String] = []) -> XCUIApplication {
+        let app = launch(german: german, extraArguments: extraArguments)
         app.tabBars.buttons.element(boundBy: 1).tap()
         XCTAssertTrue(tap(app.cells.firstMatch))
         XCTAssertTrue(app.buttons["recordInspectionButton"].waitForExistence(timeout: 5))
@@ -365,8 +365,8 @@ final class AccessibilityAuditTests: XCTestCase {
 
     /// The history of the first sample vehicle (the Golf, with sample entries in two currencies).
     @MainActor
-    private func openHistory(german: Bool = false) -> XCUIApplication {
-        let app = launch(german: german)
+    private func openHistory(german: Bool = false, extraArguments: [String] = []) -> XCUIApplication {
+        let app = launch(german: german, extraArguments: extraArguments)
         app.tabBars.buttons.element(boundBy: 1).tap()
         XCTAssertTrue(tap(app.cells.firstMatch))
         XCTAssertTrue(app.buttons["recordInspectionButton"].waitForExistence(timeout: 5))
@@ -636,18 +636,173 @@ final class AccessibilityAuditTests: XCTestCase {
         XCTAssertTrue(app.buttons["saveEntryButton"].exists)
     }
 
+    // MARK: Pitlog Pro (M6a)
+
+    // The debug build replaces StoreKit by a fixed store: `-UITestFree` or `-UITestPro` (sample data alone is
+    // Pro, so that every other test stays about its own screen). The paywall shows sample products there.
+
     @MainActor
-    func testWithoutTheEntitlementThereIsAnExplanationInsteadOfAScanButton() {
-        let app = launch(extraArguments: ["-UITestNoReceiptScan"])
+    private func openPaywallFromSettings(
+        german: Bool = false, largeText: Bool = false
+    ) -> XCUIApplication {
+        let app = launch(german: german, largeText: largeText, extraArguments: ["-UITestFree"])
+        app.tabBars.buttons.element(boundBy: 2).tap()
+        let row = app.descendants(matching: .any)["getProRow"]
+        XCTAssertTrue(scrollUntilVisible(row, in: app))
+        row.tap()
+        XCTAssertTrue(app.buttons["paywallBuy-yearly"].waitForExistence(timeout: 15))
+        return app
+    }
+
+    @MainActor
+    func testPaywallPassesAccessibilityAudit() throws {
+        let app = openPaywallFromSettings()
+        try audit(app, "paywall-en")
+    }
+
+    @MainActor
+    func testPaywallPassesAccessibilityAuditInGerman() throws {
+        let app = openPaywallFromSettings(german: true)
+        try audit(app, "paywall-de")
+    }
+
+    @MainActor
+    func testPaywallPassesAccessibilityAuditWithLargeText() throws {
+        let app = openPaywallFromSettings(largeText: true)
+        try audit(app, "paywall-xxxl-en")
+    }
+
+    @MainActor
+    func testPaywallShowsTheTrialTheRestoreButtonAndTheLinks() {
+        let app = openPaywallFromSettings()
+        XCTAssertTrue(app.buttons["paywallBuy-yearly"].label.contains("trial"))
+        let restore = app.descendants(matching: .any)["restorePurchasesRow"]
+        XCTAssertTrue(scrollUntilVisible(restore, in: app))
+        XCTAssertTrue(app.links["termsLink"].exists || app.buttons["termsLink"].exists)
+        XCTAssertTrue(app.links["privacyLink"].exists || app.buttons["privacyLink"].exists)
+    }
+
+    @MainActor
+    func testSettingsProSectionPassesAccessibilityAuditInFreeAndProState() throws {
+        for (arguments, name) in [(["-UITestFree"], "free"), (["-UITestPro"], "pro")] {
+            let app = launch(extraArguments: arguments)
+            app.tabBars.buttons.element(boundBy: 2).tap()
+            let status = app.descendants(matching: .any)["proStatusRow"]
+            XCTAssertTrue(scrollUntilVisible(status, in: app))
+            try audit(app, "settings-pro-\(name)-en")
+            app.terminate()
+        }
+    }
+
+    @MainActor
+    func testSettingsProSectionPassesAccessibilityAuditInGerman() throws {
+        let app = launch(german: true, extraArguments: ["-UITestFree"])
+        app.tabBars.buttons.element(boundBy: 2).tap()
+        let status = app.descendants(matching: .any)["proStatusRow"]
+        XCTAssertTrue(scrollUntilVisible(status, in: app))
+        try audit(app, "settings-pro-free-de")
+    }
+
+    /// Free: the Pro reminders stay in the list with a lock and "Pro"; a tap opens the paywall.
+    @MainActor
+    func testLockedRemindersPassAccessibilityAudit() throws {
+        let app = openReminderList(extraArguments: ["-UITestFree"])
+        try audit(app, "reminders-locked-en")
+    }
+
+    @MainActor
+    func testLockedRemindersPassAccessibilityAuditInGerman() throws {
+        let app = openReminderList(german: true, extraArguments: ["-UITestFree"])
+        try audit(app, "reminders-locked-de")
+    }
+
+    @MainActor
+    func testTappingAddReminderWithoutProOpensThePaywall() {
+        let app = openReminderList(extraArguments: ["-UITestFree"])
+        app.descendants(matching: .any)["addReminderButton"].tap()
+        XCTAssertTrue(app.buttons["paywallBuy-yearly"].waitForExistence(timeout: 15))
+        XCTAssertFalse(app.buttons["saveReminderButton"].exists)
+    }
+
+    /// Free, second vehicle by creation date: readable, with the notice instead of silence.
+    @MainActor
+    private func openReadOnlyVehicle(german: Bool = false) -> XCUIApplication {
+        let app = launch(german: german, extraArguments: ["-UITestFree"])
+        app.tabBars.buttons.element(boundBy: 1).tap()
+        XCTAssertTrue(app.cells.firstMatch.waitForExistence(timeout: 5))
+        XCTAssertTrue(tap(app.cells.element(boundBy: 1)))
+        XCTAssertTrue(app.descendants(matching: .any)["readOnlyUnlockRow"].waitForExistence(timeout: 10))
+        return app
+    }
+
+    @MainActor
+    func testReadOnlyVehiclePassesAccessibilityAudit() throws {
+        let app = openReadOnlyVehicle()
+        try audit(app, "vehicle-readonly-en")
+    }
+
+    @MainActor
+    func testReadOnlyVehiclePassesAccessibilityAuditInGerman() throws {
+        let app = openReadOnlyVehicle(german: true)
+        try audit(app, "vehicle-readonly-de")
+    }
+
+    @MainActor
+    func testVehicleListWithAReadOnlyVehiclePassesAccessibilityAudit() throws {
+        let app = launch(extraArguments: ["-UITestFree"])
+        app.tabBars.buttons.element(boundBy: 1).tap()
+        XCTAssertTrue(app.cells.firstMatch.waitForExistence(timeout: 5))
+        try audit(app, "vehicles-readonly-en")
+    }
+
+    @MainActor
+    func testEditingAReadOnlyVehicleOpensThePaywall() {
+        let app = openReadOnlyVehicle()
+        app.navigationBars.buttons.element(boundBy: app.navigationBars.buttons.count - 1).tap()
+        XCTAssertTrue(app.buttons["paywallBuy-yearly"].waitForExistence(timeout: 15))
+    }
+
+    @MainActor
+    func testAddingASecondVehicleWithoutProOpensThePaywall() {
+        let app = launch(extraArguments: ["-UITestFree"])
+        app.tabBars.buttons.element(boundBy: 1).tap()
+        XCTAssertTrue(tap(app.buttons["addVehicleButton"]))
+        XCTAssertTrue(app.buttons["paywallBuy-yearly"].waitForExistence(timeout: 15))
+        XCTAssertFalse(app.buttons["scanRegistrationButton"].exists)
+    }
+
+    /// The receipt scan stays visible with the Pro mark; a tap opens the paywall, not the scan.
+    @MainActor
+    func testWithoutProTheReceiptScanOpensThePaywall() {
+        let app = openHistory(extraArguments: ["-UITestFree", "-UITestReceiptScan"])
+        let add = app.descendants(matching: .any)["addFromReceiptRow"]
+        XCTAssertTrue(scrollUntilVisible(add, in: app))
+        add.tap()
+        XCTAssertTrue(app.buttons["paywallBuy-yearly"].waitForExistence(timeout: 15))
+        XCTAssertFalse(app.buttons["receiptReviewApplyButton"].exists)
+    }
+
+    /// Free: the current year only, with the locked row where the chart would be.
+    @MainActor
+    func testFreeCostsPassAccessibilityAudit() throws {
+        let app = launch(extraArguments: ["-UITestFree"])
         app.tabBars.buttons.element(boundBy: 1).tap()
         XCTAssertTrue(tap(app.cells.firstMatch))
         XCTAssertTrue(app.buttons["recordInspectionButton"].waitForExistence(timeout: 5))
         let row = app.descendants(matching: .any)["historyRow"]
         XCTAssertTrue(scrollUntilVisible(row, in: app))
         row.tap()
-        XCTAssertTrue(app.segmentedControls["costsDisplayPicker"].waitForExistence(timeout: 15))
-        let note = app.descendants(matching: .any)["receiptScanUnavailableNote"]
-        XCTAssertTrue(scrollUntilVisible(note, in: app))
-        XCTAssertFalse(app.descendants(matching: .any)["addFromReceiptRow"].exists)
+        XCTAssertTrue(app.descendants(matching: .any)["costsEarlierYearsRow"].waitForExistence(timeout: 15))
+        XCTAssertFalse(app.segmentedControls["costsDisplayPicker"].exists)
+        try audit(app, "history-costs-free-en")
+    }
+
+    /// The only remaining use of `-UITestNoReceiptScan`: the fixed entitlements without the scan.
+    @MainActor
+    func testWithoutTheScanEntitlementTheScanRowShowsTheProMark() {
+        let app = openHistory(extraArguments: ["-UITestNoReceiptScan"])
+        let add = app.descendants(matching: .any)["addFromReceiptRow"]
+        XCTAssertTrue(scrollUntilVisible(add, in: app))
+        XCTAssertTrue(add.label.contains("Pitlog Pro"))
     }
 }

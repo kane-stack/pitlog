@@ -13,6 +13,7 @@ struct HistoryView: View {
     @Environment(\.entitlements) private var entitlements
     @Query private var allVehicles: [Vehicle]
     @State private var scan = ReceiptScanController()
+    @State private var paywall: PaywallContext?
     @State private var editorTarget: EntryEditorTarget?
     @State private var filter: MaintenanceCategory?
     @State private var entryToDelete: MaintenanceEntry?
@@ -20,18 +21,28 @@ struct HistoryView: View {
 
     private var entries: [MaintenanceEntry] { vehicle.maintenanceEntries ?? [] }
 
+    /// Over the free limit (ADR-11): the history is readable, changes lead to the paywall.
+    private var isReadOnly: Bool {
+        entitlements.isReadOnly(vehicle, among: allVehicles.filter { !$0.isArchived })
+    }
+
+    /// Runs `change` for an editable vehicle, shows the paywall for a read-only one.
+    private func edit(_ change: () -> Void) {
+        if isReadOnly { paywall = .vehicles } else { change() }
+    }
+
     var body: some View {
         let groups = HistoryTimeline.groups(entries, filter: filter)
         List {
-            CostsSection(entries: entries)
+            if isReadOnly {
+                ReadOnlyBanner { paywall = .vehicles }
+                    .listRowSeparator(.hidden)
+            }
+            CostsSection(entries: entries) { paywall = .costs }
             timelineHeader
             filterRow
             addRow
-            if entitlements.canScanReceipts {
-                addFromReceiptRow
-            } else {
-                ReceiptScanUnavailableNote()
-            }
+            addFromReceiptRow
             if entries.isEmpty {
                 note(Text("No entries yet. Add service, repairs and other workshop visits.", comment: "History: empty state"))
             } else if groups.isEmpty {
@@ -48,6 +59,7 @@ struct HistoryView: View {
         .navigationTitle(Text("History", comment: "Section header on the vehicle detail: maintenance history and costs"))
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(.hidden, for: .tabBar)
+        .paywall($paywall)
         .receiptScan(scan, mode: .saveEntry) { application, attachment in
             createEntry(from: application, attachment: attachment)
         }
@@ -120,33 +132,34 @@ struct HistoryView: View {
         .foregroundStyle(Color.accentColor)
         .frame(maxWidth: .infinity, alignment: .leading)
         .contentShape(Rectangle())
-        .onTapGesture { editorTarget = .new() }
+        .onTapGesture { edit { editorTarget = .new() } }
         .accessibilityElement(children: .combine)
         .accessibilityAddTraits(.isButton)
-        .accessibilityAction { editorTarget = .new() }
+        .accessibilityAction { edit { editorTarget = .new() } }
         .accessibilityIdentifier("addEntryButton")
     }
 
     private var addFromReceiptRow: some View {
-        Label {
-            Text("Add from receipt", comment: "History: button that scans a workshop receipt and creates a new entry from it")
-                .fixedSize(horizontal: false, vertical: true)
-        } icon: {
-            Image(systemName: "doc.text.viewfinder")
-        }
-        .foregroundStyle(Color.accentColor)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .contentShape(Rectangle())
-        .onTapGesture { startScan() }
-        .accessibilityElement(children: .combine)
-        .accessibilityAddTraits(.isButton)
-        .accessibilityAction { startScan() }
-        .accessibilityIdentifier("addFromReceiptRow")
+        let locked = !entitlements.canScanReceipts
+        let title = Text("Add from receipt", comment: "History: button that scans a workshop receipt and creates a new entry from it")
+        return ActionRow(
+            title: title, systemImage: "doc.text.viewfinder", showsProBadge: locked,
+            identifier: "addFromReceiptRow",
+            accessibilityLabelText: locked
+                ? Text("Add from receipt, requires Pitlog Pro", comment: "VoiceOver label of the receipt scan row while the user has no Pro")
+                : nil
+        ) { startScan() }
     }
 
     private func startScan() {
-        let infos = allVehicles.filter { !$0.isArchived || $0.id == vehicle.id }.map { ReceiptVehicleInfo($0) }
-        scan.start(ReceiptScanInput(vehicles: infos, contextVehicleID: vehicle.id, vehicleIsFixed: false))
+        guard entitlements.canScanReceipts else {
+            paywall = .receiptScan
+            return
+        }
+        edit {
+            let infos = allVehicles.filter { !$0.isArchived || $0.id == vehicle.id }.map { ReceiptVehicleInfo($0) }
+            scan.start(ReceiptScanInput(vehicles: infos, contextVehicleID: vehicle.id, vehicleIsFixed: false))
+        }
     }
 
     /// The review's vehicle picker may have chosen another vehicle than the one this screen shows.
@@ -162,12 +175,12 @@ struct HistoryView: View {
         return HistoryRow(presentation: presentation)
             .frame(maxWidth: .infinity, alignment: .leading)
             .contentShape(Rectangle())
-            .onTapGesture { editorTarget = .edit(entry) }
+            .onTapGesture { edit { editorTarget = .edit(entry) } }
             .accessibilityElement(children: .ignore)
             .accessibilityLabel(Text(verbatim: presentation.accessibilityLabel))
             .accessibilityHint(Text("Opens the entry for editing.", comment: "VoiceOver hint of a history row"))
             .accessibilityAddTraits(.isButton)
-            .accessibilityAction { editorTarget = .edit(entry) }
+            .accessibilityAction { edit { editorTarget = .edit(entry) } }
             .accessibilityAction(named: Text("Delete", comment: "Swipe action to delete a reminder")) {
                 confirmDelete(entry)
             }
@@ -182,7 +195,7 @@ struct HistoryView: View {
                     }
                 }
                 Button {
-                    editorTarget = .edit(entry)
+                    edit { editorTarget = .edit(entry) }
                 } label: {
                     Label {
                         Text("Edit", comment: "Swipe action to edit a reminder")
@@ -195,8 +208,10 @@ struct HistoryView: View {
     }
 
     private func confirmDelete(_ entry: MaintenanceEntry) {
-        entryToDelete = entry
-        showingDeleteConfirmation = true
+        edit {
+            entryToDelete = entry
+            showingDeleteConfirmation = true
+        }
     }
 }
 

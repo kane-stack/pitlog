@@ -79,8 +79,12 @@ struct ModelTests {
         let entitlements = UnlimitedEntitlements()
         #expect(entitlements.canAddVehicle(currentCount: 10_000))
         struct Limited: Entitlements {
+            var isPro: Bool { false }
             var vehicleLimit: Int { 1 }
             var canScanReceipts: Bool { false }
+            var canUseProReminders: Bool { false }
+            var canViewMultiYearCosts: Bool { false }
+            var canExportServiceRecord: Bool { false }
         }
         #expect(Limited().canAddVehicle(currentCount: 0))
         #expect(!Limited().canAddVehicle(currentCount: 1))

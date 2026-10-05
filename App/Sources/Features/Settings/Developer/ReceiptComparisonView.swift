@@ -10,8 +10,22 @@ import FoundationModels
 
 /// Debug only (never compiled into Release): the entry to the developer tools in Settings.
 struct DeveloperView: View {
+    @Environment(StoreService.self) private var store
+
     var body: some View {
         List {
+            Section {
+                Picker(selection: Binding(get: { store.debugTier }, set: { store.debugTier = $0 })) {
+                    Text(verbatim: "Automatic (StoreKit)").tag(Tier?.none)
+                    Text(verbatim: "Free").tag(Tier?.some(.free))
+                    Text(verbatim: "Pro").tag(Tier?.some(.pro))
+                } label: {
+                    Text(verbatim: "Pro status override")
+                }
+                .accessibilityIdentifier("developerTierPicker")
+            } footer: {
+                Text(verbatim: "Overrides the tier for the gates only. Resets when the app restarts.")
+            }
             NavigationLink {
                 ReceiptComparisonView()
             } label: {

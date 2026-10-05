@@ -14,6 +14,7 @@ struct RootView: View {
     @Environment(\.reminderCoordinator) private var coordinator
     @Environment(AppRouter.self) private var router
     @Environment(NotificationPermission.self) private var permission
+    @Environment(StoreService.self) private var store
     @State private var vehiclesPath: [Vehicle] = []
 
     var body: some View {
@@ -61,6 +62,7 @@ struct RootView: View {
             switch phase {
             case .active:
                 Task {
+                    await store.refresh()
                     await permission.refresh()
                     await coordinator?.replan()
                 }
@@ -77,6 +79,8 @@ struct RootView: View {
         .onChange(of: remindersEnabled) { _, _ in coordinator?.requestReplan(after: .milliseconds(300)) }
         .onChange(of: reminderHour) { _, _ in coordinator?.requestReplan() }
         .onChange(of: reminderMinute) { _, _ in coordinator?.requestReplan() }
+        // Buying, an ended subscription or a refund changes which reminders are planned.
+        .onChange(of: store.tier) { _, _ in coordinator?.requestReplan(after: .milliseconds(300)) }
         .onChange(of: permission.state) { _, _ in coordinator?.requestReplan(after: .milliseconds(300)) }
         .onChange(of: router.pendingVehicleID) { _, _ in openPendingVehicle() }
     }
@@ -102,6 +106,7 @@ struct RootView: View {
         .modelContainer(PreviewData.container())
         .environment(AppRouter())
         .environment(NotificationPermission(center: SystemNotificationCenter()))
+        .environment(StoreService(backend: StoreKitBackend()))
 }
 
 #Preview("German") {
@@ -109,5 +114,6 @@ struct RootView: View {
         .modelContainer(PreviewData.container())
         .environment(AppRouter())
         .environment(NotificationPermission(center: SystemNotificationCenter()))
+        .environment(StoreService(backend: StoreKitBackend()))
         .environment(\.locale, Locale(identifier: "de_AT"))
 }
