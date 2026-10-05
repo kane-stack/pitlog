@@ -12,9 +12,10 @@ private let rksvExample =
     #expect(r.cashRegisterID == "KASSE01")
     #expect(r.receiptNumber == "2041")
     #expect(r.date == day(2026, 10, 2))
-    #expect([r.hour, r.minute, r.second] == [14, 23, 11])
+    #expect(r.hour == 14 && r.minute == 23 && r.second == 11)
     #expect(r.grossTotal == Money(amountMinor: 7_492, currencyCode: "EUR"))
-    #expect(r.amounts.map(\.ratePercent) == [20, 10, 13, 0, 19])
+    let rates: [Int] = r.amounts.map(\.ratePercent)
+    #expect(rates == [20, 10, 13, 0, 19])
     #expect(r.amounts.first?.amount.amountMinor == 7_492)
     #expect(!r.isTraining && !r.isCancellation)
 }
