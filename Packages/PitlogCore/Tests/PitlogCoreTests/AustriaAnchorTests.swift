@@ -131,7 +131,7 @@ import Testing
 
 @Test func anchor15_outsideTheWindow() throws { // AT-12, D-09
     // Due month 2027-06 closes on 2027-10-31, so 2027-12-01 is outside. The amended law applies on
-    // T, the earliest plausible due month is D + 1 year; the user enters the real punch.
+    // T the reference month D stays (reading B), the next due month is D + 1 year; the user enters the real punch.
     let input = InspectionInput(category: .passengerCar, firstRegistration: ym(2020, 6), plaque: ym(2027, 6))
     let next = try austria.nextDue(after: day(2027, 12, 1), dueMonth: ym(2027, 6), input: input)
     #expect(next.dueMonth == ym(2028, 6))

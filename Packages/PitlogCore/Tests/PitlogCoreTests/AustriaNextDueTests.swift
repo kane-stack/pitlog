@@ -27,12 +27,12 @@ let nextDueCases: [NextDueCase] = [
     .init(rules: "AT-56 D-05", category: .passengerCar, firstRegistration: ym(2020, 3), dueMonth: ym(2027, 3),
           inspection: day(2027, 7, 31), expected: ym(2029, 3), noteIDs: []),
     // Outside the window, one day too late / too early (AT-12, D-09).
-    // Amended law on T: D + 1 year.
+    // Reading B: D stays the reference month. Amended law on T: D + 1 year.
     .init(rules: "AT-12 D-09", category: .passengerCar, firstRegistration: ym(2020, 3), dueMonth: ym(2027, 3),
           inspection: day(2027, 8, 1), expected: ym(2028, 3), noteIDs: ["AT-12"]),
-    // Previous law on T: min(T + step(age at T), D + step(age at D)) = min(2028-01, 2028-03).
+    // Previous law on T: D + step(age at D) = 2027-03 + 1 year, T does not move the reference month.
     .init(rules: "AT-12 D-09", category: .passengerCar, firstRegistration: ym(2020, 3), dueMonth: ym(2027, 3),
-          inspection: day(2027, 1, 31), expected: ym(2028, 1), noteIDs: ["AT-12"]),
+          inspection: day(2027, 1, 31), expected: ym(2028, 3), noteIDs: ["AT-12"]),
     // Previous law sequence 3, 5, 6, 7, 8, ...
     .init(rules: "AT-20", category: .passengerCar, firstRegistration: ym(2023, 3), dueMonth: ym(2026, 3),
           inspection: day(2026, 3, 15), expected: ym(2028, 3), noteIDs: []),
@@ -89,9 +89,9 @@ let nextDueCases: [NextDueCase] = [
     // Historic (AT-25): fixed two years from the due month, independent of the age.
     .init(rules: "AT-25", category: .historic, firstRegistration: ym(1991, 4), dueMonth: ym(2028, 4),
           inspection: day(2028, 4, 10), expected: ym(2030, 4), noteIDs: []),
-    // Outside the window, amended law on T: D + 1 year (D-09, earliest plausible, prefill only).
+    // Outside the window, amended law on T, historic: D + 2 years (D-09, reading B, prefill only).
     .init(rules: "AT-12 D-09", category: .historic, firstRegistration: ym(1991, 4), dueMonth: ym(2028, 4),
-          inspection: day(2028, 8, 10), expected: ym(2029, 4), noteIDs: ["AT-12"]),
+          inspection: day(2028, 8, 10), expected: ym(2030, 4), noteIDs: ["AT-12"]),
     .init(rules: "AT-25 AT-43", category: .historic, firstRegistration: ym(1976, 4), dueMonth: ym(2028, 4),
           inspection: day(2028, 4, 20), expected: ym(2030, 4), noteIDs: []),
     .init(rules: "AT-25", category: .historic, firstRegistration: ym(1980, 6), dueMonth: ym(2026, 6),
@@ -101,17 +101,17 @@ let nextDueCases: [NextDueCase] = [
           inspection: day(2027, 12, 1), expected: ym(2028, 6), noteIDs: ["AT-12"]),
     .init(rules: "AT-12 D-09", category: .passengerCar, firstRegistration: ym(2017, 6), dueMonth: ym(2027, 6),
           inspection: day(2027, 12, 1), expected: ym(2028, 6), noteIDs: ["AT-12"]),
-    // Previous law on T: min(2026-09 + 1, 2026-03 + 1) = 2027-03 (age 6 at both months).
+    // Previous law on T: D + step(age 6) = 2026-03 + 1 year.
     .init(rules: "AT-12 AT-20 D-09", category: .passengerCar, firstRegistration: ym(2020, 3), dueMonth: ym(2026, 3),
           inspection: day(2026, 9, 10), expected: ym(2027, 3), noteIDs: ["AT-12"]),
     .init(rules: "AT-12 AT-30 D-09", category: .passengerCar, firstRegistration: ym(2023, 1), dueMonth: ym(2027, 1),
           inspection: day(2027, 8, 1), expected: ym(2028, 1), noteIDs: ["AT-12"]),
-    // Z1-2 group, previous law on T: min(2026-03 + 1, 2026-01 + 1) = 2027-01.
+    // Z1-2 group, previous law on T: D + 1 year = 2027-01.
     .init(rules: "AT-12 AT-23 D-09", category: .lightCommercial, firstRegistration: ym(2022, 1), dueMonth: ym(2026, 1),
           inspection: day(2026, 3, 5), expected: ym(2027, 1), noteIDs: ["AT-12"]),
-    // Early inspection, previous law on T: age 2 at T (step 1), age 3 at D (step 2): min(2027-01, 2028-03).
+    // Early inspection, previous law on T: age 3 at D (step 2), T does not move the reference month.
     .init(rules: "AT-12 AT-20 D-09", category: .passengerCar, firstRegistration: ym(2023, 3), dueMonth: ym(2026, 3),
-          inspection: day(2026, 1, 15), expected: ym(2027, 1), noteIDs: ["AT-12"]),
+          inspection: day(2026, 1, 15), expected: ym(2028, 3), noteIDs: ["AT-12"]),
 ]
 
 @Test(arguments: nextDueCases)

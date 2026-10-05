@@ -106,8 +106,9 @@ public struct AustriaInspectionRules: InspectionRuleSet {
                 notes: RuleNote.normalized(notes))
         }
 
-        // AT-12, D-09: the law does not regulate this case. The earliest plausible due month only
-        // prefills the plaque picker; the user enters the punch from the new plaque.
+        // AT-12, D-09 (reading B): the law does not regulate this case. The punched due month D stays
+        // the reference month, so the next due month counts on from D. The value only prefills the
+        // plaque picker; the user enters the punch from the new plaque.
         let inspectionMonth = inspection.yearMonth
         guard inspectionMonth >= input.firstRegistration else {
             throw .invalidInput("Inspection \(inspection) is before the first registration \(input.firstRegistration)")
@@ -116,15 +117,13 @@ public struct AustriaInspectionRules: InspectionRuleSet {
         let earliest: YearMonth
         switch law {
         case .amended:
-            earliest = dueMonth.adding(years: 1)
+            // The number of earlier inspections is unknown; one year (fourth and later inspections,
+            // § 57a Abs. 3 Z 3 nF) is the earlier value (ADR-8). Historic vehicles keep two years.
+            earliest = dueMonth.adding(years: input.category == .historic ? 2 : 1)
         case .previous:
-            let ageAtInspection = Self.age(at: inspectionMonth, firstRegistration: input.firstRegistration)
             let ageAtDue = Self.age(at: dueMonth, firstRegistration: input.firstRegistration)
-            let fromInspection = inspectionMonth.adding(
-                years: Self.yearsUntilNextInspection(afterAge: ageAtInspection, category: input.category, law: .previous))
-            let fromDue = dueMonth.adding(
+            earliest = dueMonth.adding(
                 years: Self.yearsUntilNextInspection(afterAge: ageAtDue, category: input.category, law: .previous))
-            earliest = min(fromInspection, fromDue)
         }
         return NextInspectionDue(dueMonth: earliest, notes: RuleNote.normalized(notes))
     }
