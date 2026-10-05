@@ -76,3 +76,11 @@ Neue Tests (je EN und DE): Kosten-Diagramm, Kosten-Tabelle, Zeitleiste (ans Ende
 2. Die Zeitleiste ohne Scrollen prüfen (z. B. mit Kategorie-Filter, der die Kosten nach oben nicht verändert) oder auf dem Gerät.
 3. Zeilen der Historie mit Wischaktionen (Bearbeiten, Löschen mit Bestätigung) in VoiceOver; Vorschau (QuickLook) und Teilen eines Belegs.
 4. Die Tippzeilen „Aus Dateien / Aus Fotos hinzufügen“ für Switch Control (siehe M3, Punkt 3).
+
+## M5a: Review-Bildschirm des Zulassungsschein-Scans
+
+Stand: Branch `claude/m5a-registration-scan`, Lauf <https://github.com/kane-stack/pitlog/actions/runs/37308204907>. Geprüft: Review (EN, DE, EN mit größter Schrift, Klasse „Sonstige“). Es wurde nichts zusätzlich gefiltert.
+
+- **Behoben:** „Contrast nearly passed“ (alle Review-Tests im ersten Lauf, `no element`). Ursache war der Textausschnitt in `.secondary`. Er steht jetzt in `.primary`; der Befund ist weg.
+- **Grün:** EN mit größter Schrift (nur die gefilterten Navigationsleisten-Buttons), Review-Unit-Flows (Standardauswahl, Übernehmen, Abwählen, Abbrechen).
+- **Offen, vermutlich Systemartefakt:** „Dynamic Type font sizes are partially unsupported“ auf **genau einem** reinen SwiftUI-Text, der von Lauf zu Lauf wechselt (EN: „Type“, DE: „Pkw“, beide in der `MenuPickerRow`-Zeile der Fahrzeugart). Dasselbe Muster wie bei den Befunden 1 bis 4 oben. Mit dem Accessibility Inspector auf einem Gerät in M6 prüfen. Die Navigationsleisten-Buttons „Apply“/„Cancel“ meldet der Audit ebenfalls (UIKit), sie werden wie bisher gefiltert.
