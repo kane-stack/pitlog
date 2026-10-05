@@ -1,0 +1,377 @@
+{
+  "b2b-ueber-10000": {
+    "context": {
+      "firstRegistration": "2017-03",
+      "knownPlates": [],
+      "knownVINs": [],
+      "lastKnownOdometerKm": 200000,
+      "today": "2026-10-05"
+    },
+    "expected": {
+      "category": "repair",
+      "gross": 1372200,
+      "invoiceDate": "2026-09-30",
+      "net": 1143500,
+      "odometerKm": 212340,
+      "plate": "WL 123 AB",
+      "serviceDate": "2026-09-29",
+      "vat": 228700,
+      "vatRate": 20,
+      "vin": "WAUZZZ8V5KA654321",
+      "workItems": [
+        "Austauschmotor",
+        "Arbeitslohn"
+      ],
+      "workshopName": "Autohaus Berger GmbH",
+      "workshopUID": "ATU66334427"
+    }
+  },
+  "credit-note": {
+    "context": {
+      "firstRegistration": "2019-04",
+      "knownPlates": [],
+      "knownVINs": [],
+      "lastKnownOdometerKm": null,
+      "today": "2026-10-05"
+    },
+    "expected": {
+      "category": "repair",
+      "invoiceDate": "2026-10-03",
+      "isCreditNote": true,
+      "plate": "LL 123 AB",
+      "workItems": [
+        "Bremsbeläge"
+      ],
+      "workshopName": "Autohaus Berger GmbH",
+      "workshopUID": "ATU66334427"
+    }
+  },
+  "deposit-total": {
+    "context": {
+      "firstRegistration": "2018-04",
+      "knownPlates": [],
+      "knownVINs": [],
+      "lastKnownOdometerKm": 95000,
+      "today": "2026-10-05"
+    },
+    "expected": {
+      "category": "repair",
+      "gross": 57600,
+      "invoiceDate": "2026-09-15",
+      "net": 48000,
+      "odometerKm": 99870,
+      "plate": "LN 321 AB",
+      "vat": 9600,
+      "vatRate": 20,
+      "workItems": [
+        "Auspuffanlage",
+        "Montage"
+      ],
+      "workshopName": "Autohaus Steiner GmbH",
+      "workshopUID": "ATU33445566"
+    }
+  },
+  "formats-a": {
+    "context": {
+      "firstRegistration": "2021-06",
+      "knownPlates": [],
+      "knownVINs": [],
+      "lastKnownOdometerKm": 38000,
+      "today": "2027-02-10"
+    },
+    "expected": {
+      "category": "tyres",
+      "gross": 123456,
+      "invoiceDate": "2027-01-05",
+      "net": 102880,
+      "odometerKm": 41280,
+      "plate": "I 4321 AB",
+      "vat": 20576,
+      "vatRate": 20,
+      "workItems": [
+        "Winterreifen",
+        "Montage"
+      ],
+      "workshopName": "Autoservice Pichler GmbH",
+      "workshopUID": "ATU11223347"
+    }
+  },
+  "formats-b": {
+    "context": {
+      "firstRegistration": "2019-04",
+      "knownPlates": [],
+      "knownVINs": [],
+      "lastKnownOdometerKm": 110000,
+      "today": "2027-02-10"
+    },
+    "expected": {
+      "category": "repair",
+      "gross": 123456,
+      "invoiceDate": "2027-01-05",
+      "net": 102880,
+      "odometerKm": 118050,
+      "plate": "KR 777 AB",
+      "vat": 20576,
+      "vatRate": 20,
+      "workItems": [
+        "Zahnriemensatz",
+        "Arbeitszeit"
+      ],
+      "workshopName": "Kfz-Werkstätte Bauer OG",
+      "workshopUID": "ATU22334457"
+    }
+  },
+  "formats-c": {
+    "context": {
+      "firstRegistration": "2020-02",
+      "knownPlates": [],
+      "knownVINs": [],
+      "lastKnownOdometerKm": 50000,
+      "today": "2027-03-01"
+    },
+    "expected": {
+      "category": "inspection",
+      "gross": 12000,
+      "invoiceDate": "2027-02-12",
+      "isSmall": true,
+      "odometerKm": 56300,
+      "plate": "KL 89 AB",
+      "vatRate": 20,
+      "workItems": [
+        "Begutachtung",
+        "Plakette"
+      ],
+      "workshopName": "Pickerl-Station Lang e.U."
+    }
+  },
+  "jahresservice": {
+    "context": {
+      "firstRegistration": "2019-04",
+      "knownPlates": [],
+      "knownVINs": [
+        "WVWZZZ1KZAW123456"
+      ],
+      "lastKnownOdometerKm": 80000,
+      "today": "2026-10-05"
+    },
+    "expected": {
+      "category": "service",
+      "gross": 49206,
+      "invoiceDate": "2026-10-02",
+      "net": 41005,
+      "odometerKm": 87456,
+      "plate": "LL 123 AB",
+      "serviceDate": "2026-10-01",
+      "vat": 8201,
+      "vatRate": 20,
+      "vin": "WVWZZZ1KZAW123456",
+      "workItems": [
+        "Großes Service",
+        "Motoröl",
+        "Ölfilter",
+        "Pollenfilter"
+      ],
+      "workshopName": "Autohaus Berger GmbH",
+      "workshopUID": "ATU66334427"
+    }
+  },
+  "kassenbon-pickerl": {
+    "context": {
+      "firstRegistration": "2018-04",
+      "knownPlates": [],
+      "knownVINs": [],
+      "lastKnownOdometerKm": 85000,
+      "today": "2026-10-05"
+    },
+    "expected": {
+      "category": "inspection",
+      "gross": 8990,
+      "invoiceDate": "2026-10-02",
+      "isSmall": true,
+      "odometerKm": 87456,
+      "plaque": "2027-10",
+      "plate": "L 12345 A",
+      "vatRate": 20,
+      "workItems": [
+        "Begutachtung",
+        "Plakette",
+        "Entsorgungspauschale"
+      ],
+      "workshopName": "Kfz-Meisterbetrieb Huber e.U.",
+      "workshopUID": "ATU47112201"
+    }
+  },
+  "kassenbon-rksv": {
+    "context": {
+      "firstRegistration": "2018-04",
+      "knownPlates": [],
+      "knownVINs": [],
+      "lastKnownOdometerKm": null,
+      "today": "2026-10-05"
+    },
+    "expected": {
+      "category": "service",
+      "gross": 7492,
+      "invoiceDate": "2026-10-02",
+      "isSmall": true,
+      "plate": "S 111 AB",
+      "vatRate": 20,
+      "workItems": [
+        "Motoröl",
+        "Ölfilter",
+        "Arbeitszeit"
+      ],
+      "workshopName": "Tankstelle & Service Eder e.U.",
+      "workshopUID": "ATU55667784"
+    }
+  },
+  "kleinunternehmer": {
+    "context": {
+      "firstRegistration": "2015-06",
+      "knownPlates": [],
+      "knownVINs": [],
+      "lastKnownOdometerKm": 60000,
+      "today": "2026-10-05"
+    },
+    "expected": {
+      "category": "service",
+      "gross": 15300,
+      "invoiceDate": "2026-09-12",
+      "isExempt": true,
+      "odometerKm": 64210,
+      "plate": "P 4567 AC",
+      "serviceDate": "2026-09-12",
+      "workItems": [
+        "Ölwechsel",
+        "Wischerblätter"
+      ],
+      "workshopName": "Gruber Autoservice e.U."
+    }
+  },
+  "next-service": {
+    "context": {
+      "firstRegistration": "2018-04",
+      "knownPlates": [],
+      "knownVINs": [],
+      "lastKnownOdometerKm": 80000,
+      "today": "2026-10-05"
+    },
+    "expected": {
+      "category": "service",
+      "gross": 28260,
+      "invoiceDate": "2026-09-18",
+      "net": 23550,
+      "odometerKm": 87100,
+      "plate": "L 12345 A",
+      "vat": 4710,
+      "vatRate": 20,
+      "workItems": [
+        "Ölwechsel",
+        "Luftfilter"
+      ],
+      "workshopName": "Kfz-Meisterbetrieb Huber e.U.",
+      "workshopUID": "ATU47112201"
+    }
+  },
+  "raederwechsel": {
+    "context": {
+      "firstRegistration": "2018-04",
+      "knownPlates": [],
+      "knownVINs": [],
+      "lastKnownOdometerKm": null,
+      "today": "2026-10-05"
+    },
+    "expected": {
+      "category": "tyres",
+      "gross": 12900,
+      "invoiceDate": "2026-09-21",
+      "isSmall": true,
+      "plate": "G 456 AB",
+      "vatRate": 20,
+      "workItems": [
+        "Räderwechsel",
+        "Einlagerung",
+        "Ventile"
+      ],
+      "workshopName": "Reifen & Räder Kral KG",
+      "workshopUID": "ATU55223317"
+    }
+  },
+  "reparatur-anzahlung": {
+    "context": {
+      "firstRegistration": "2018-04",
+      "knownPlates": [],
+      "knownVINs": [],
+      "lastKnownOdometerKm": 140000,
+      "today": "2026-10-05"
+    },
+    "expected": {
+      "category": "repair",
+      "gross": 79188,
+      "invoiceDate": "2026-09-28",
+      "net": 65990,
+      "odometerKm": 143120,
+      "plate": "S 987 AB",
+      "vat": 13198,
+      "vatRate": 20,
+      "workItems": [
+        "Bremsbeläge",
+        "Bremsscheiben"
+      ],
+      "workshopName": "Kfz-Technik Maier GmbH",
+      "workshopUID": "ATU77445536"
+    }
+  },
+  "service-date": {
+    "context": {
+      "firstRegistration": "2018-04",
+      "knownPlates": [],
+      "knownVINs": [],
+      "lastKnownOdometerKm": 40000,
+      "today": "2026-10-05"
+    },
+    "expected": {
+      "category": "tyres",
+      "gross": 10200,
+      "invoiceDate": "2026-10-02",
+      "net": 8500,
+      "odometerKm": 45020,
+      "plate": "RI 555 AB",
+      "serviceDate": "2026-09-28",
+      "vat": 1700,
+      "vatRate": 20,
+      "workItems": [
+        "Räderwechsel",
+        "Wuchten"
+      ],
+      "workshopName": "Reifen- und Autoservice Wallner KG",
+      "workshopUID": "ATU44556675"
+    }
+  },
+  "two-page": {
+    "context": {
+      "firstRegistration": "2018-05",
+      "knownPlates": [],
+      "knownVINs": [],
+      "lastKnownOdometerKm": 110000,
+      "today": "2026-10-05"
+    },
+    "expected": {
+      "category": "repair",
+      "gross": 175260,
+      "invoiceDate": "2026-10-01",
+      "net": 146050,
+      "odometerKm": 120400,
+      "plate": "W 45678 K",
+      "serviceDate": "2026-09-30",
+      "vat": 29210,
+      "vatRate": 20,
+      "workItems": [
+        "Zahnriemen-Satz",
+        "Keilrippenriemen"
+      ],
+      "workshopName": "Autohaus Berger GmbH",
+      "workshopUID": "ATU66334427"
+    }
+  }
+}

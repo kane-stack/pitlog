@@ -13,6 +13,9 @@ let package = Package(
     ],
     targets: [
         .target(name: "PitlogCore"),
-        .testTarget(name: "PitlogCoreTests", dependencies: ["PitlogCore"]),
+        .testTarget(
+            name: "PitlogCoreTests",
+            dependencies: ["PitlogCore"],
+            resources: [.copy("Fixtures")]),
     ]
 )

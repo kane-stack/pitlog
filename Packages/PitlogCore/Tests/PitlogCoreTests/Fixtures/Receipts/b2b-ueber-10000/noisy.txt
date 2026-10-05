@@ -1,0 +1,21 @@
+Autohaus Berger GmbH
+Hauptstraße 100, 1100 Wien
+Tel. +43 1 5551234
+FN 123456a | UID: ATU66334427
+Rechnungsempfänger:
+Muster Transport GmbH
+Gewerbepark 7, 4600 Wels
+UID Kunde: ATU8899O015
+RECHNUNG Nr. 2026-0999
+Rechnungsdatum: 30.09.2026
+Leistungsdatum: 29.O9.2O26
+Kennzeichen: WL 123 AB
+FIN: WAUZZZ8V5KA654321
+km-Stand: 212.34O
+1 Austauschmotor 2,2 l Diesel inkl. Einbau 1 Stk 8.490,00 8.490,00
+2 Arbeitslohn Motortausch 14,0 Std. 190,00 2.660,00
+3 Kühlmittel, Kleinteile pauschal 285,0O
+Summe netto l1.435,00
+20 % USt 2.287,00
+Gesamtbetrag brutto 13.722,00
+Zahlungsziel: 14 Tage netto.
