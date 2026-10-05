@@ -1,0 +1,15 @@
+Detailing Studio Eder e.U.
+Kreuzgasse 7, 2130 Mistelbach
+UID ATU 44100288
+Rechnung 2026-044
+Rechnungsdatum 21.09.2026
+Leistungsdatum 19.09.2026
+Fahrzeug: MI 902 TT
+KM: 12.480
+Innenraumaufbereitung        120,00
+Außenpolitur                  85,00
+Keramikversiegelung          290,00
+Netto                        495,00
+20 % USt                      99,00
+Rechnungsbetrag EUR          594,00
+Zahlung: Überweisung innerhalb von 7 Tagen

@@ -1,0 +1,13 @@
+{
+  "grossTotalMinor": 123456,
+  "currency": "EUR",
+  "serviceDate": "2026-01-08",
+  "invoiceDate": "2026-01-09",
+  "historyDate": "2026-01-08",
+  "workshopName": "Autoservice Reiterer GmbH",
+  "workshopUID": "ATU29553017",
+  "odometerKm": 98730,
+  "plate": "LL321GH",
+  "vin": "VF1RFB00X66123456",
+  "category": "service"
+}

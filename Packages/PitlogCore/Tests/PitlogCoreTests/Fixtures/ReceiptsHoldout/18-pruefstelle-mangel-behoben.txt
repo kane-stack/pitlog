@@ -1,0 +1,20 @@
+Kfz-Prüfstelle Haidinger GmbH
+Hauptstr. 90 · 9800 Spittal an der Drau
+UID: ATU 80273114
+RE 2026-1204    Rechnungsdatum 13.03.2026
+Leistungsdatum: 12.03.2026
+Kennzeichen SP 145 AB
+Fahrgestellnummer W0L0AHL48A1234567
+Gutachten § 57a KFG: Fahrzeug entspricht
+Plakette zugeteilt 03/2027
+Mangel: Nebelscheinwerfer links defekt, vor Ort behoben
+Begutachtung inkl. Plakette 82,00
+Abgasuntersuchung 21,00
+Glühlampe H11 6,50
+Netto
+109,50
+USt 20 %
+21,90
+Gesamt
+131,40
+Km-Stand lt. Tacho 188.040

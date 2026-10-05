@@ -1,0 +1,38 @@
+Autohaus Berger GmbH
+Hauptstraße 100, 1100 Wien
+Tel. +43 1 5551234 | Fax +43 1 5551299
+FN 123456a | UID: ATU66334427
+IBAN AT61 1904 3002 3457 3201 | BIC BKAUATWW
+Herrn
+Max Mustermann
+Musterweg 1
+4020 Linz
+RECHNUNG Nr. 2026-0815
+Rechnungsdatum: 02.10.2026
+Leistungsdatum: 01.10.2026
+Annahme: 30.09.2026
+Fällig am: 16.10.2026
+Auftrags-Nr. 55123 vom 30.09.2026
+Kennzeichen: LL 123 AB
+FIN: WVWZZZ1KZAW123456
+Erstzulassung: 04/2019
+Kilometerstand: 87.456 km
+Arbeitslohn
+Pos. Bezeichnung Menge Preis Betrag
+1 Großes Service laut Herstellervorgabe 12,0 AW 18,80 225,60
+2 Bremsflüssigkeit wechseln 1,5 AW 18,80 28,20
+3 Fehlerspeicher auslesen, Serviceintervall zurückgesetzt 1,0 AW 18,80 18,80
+Teile und Material
+4 Motoröl 5W-30 VW 504 00 5,5 l 12,90 70,95
+5 Ölfilter 04E 115 561 AC 1 Stk 18,50 18,50
+6 Dichtring Ölablassschraube 1 Stk 2,40 2,40
+7 Pollenfilter 1 Stk 24,90 24,90
+8 Bremsflüssigkeit DOT 4 1,0 l 14,20 14,20
+9 Entsorgungspauschale Altöl pausch. 6,50
+Summe Arbeitslohn netto 272,60
+Summe Teile und Material netto 137,45
+Gesamt netto 410,05
+20 % USt 82,01
+Rechnungsbetrag brutto 492,06
+Zahlbar innerhalb von 14 Tagen ohne Abzug.
+Nächstes Service bei 102.000 km oder in 12 Monaten.

@@ -1,0 +1,22 @@
+Autohaus Wallner GmbH
+Wiener Str. 80, 3100 St. Pölten
+UID ATU 36115820    Tel. 02742 / 3100
+Rechnung 261765      Auftrags-Nr. 87456
+Frau Mag. Sabine Hofer, Kremser Landstr. 14, 3500 Krems
+Kz. KR 241 CD  Fahrgestell-Nr. TMBZZZ5E1MA654321
+Erstzulassung 21.09.2021
+Km-Stand 29.874
+Annahme 15.09.2026
+Leistungsdatum 16.09.2026
+Rechnungsdatum 17.09.2026
+Pos Art.-Nr. Bezeichnung Menge Einh. Preis Betrag
+1 Jahresservice 18 AW 17,30 311,40
+2 Motoröl 5W-30 VW 504 00 4,0 l 17,60 70,40
+3 5Q0 115 561 B Ölfilter 1 Stk 18,90 18,90
+4 N 907 931 01 Dichtring 1 Stk 1,90 1,90
+5 5Q0 819 653 Pollenfilter 1 Stk 26,50 26,50
+6 Entsorgung/Kleinmaterial 8,00
+Netto 437,10
+USt 20% 87,42
+Rechnungsbetrag 524,52
+Nächster Service bei 45.000 km oder 09/2027
