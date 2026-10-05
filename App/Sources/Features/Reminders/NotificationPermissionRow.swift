@@ -57,7 +57,7 @@ struct NotificationPermissionRow: View {
                     showingPrompt = true
                 } label: {
                     Label {
-                        Text("Allow notifications", comment: "Button to start the notification permission flow")
+                        Text("Allow notifications", comment: "Button to start the notification permission flow").fixedSize(horizontal: false, vertical: true)
                     } icon: {
                         Image(systemName: "bell.badge")
                     }
@@ -65,14 +65,14 @@ struct NotificationPermissionRow: View {
                 .accessibilityIdentifier("allowNotificationsButton")
             case .denied:
                 Label {
-                    Text("Notifications are turned off for Pitlog. You will not get reminders.", comment: "Shown when the user denied the notification permission")
+                    Text("Notifications are turned off for Pitlog. You will not get reminders.", comment: "Shown when the user denied the notification permission").fixedSize(horizontal: false, vertical: true)
                 } icon: {
                     Image(systemName: "bell.slash")
                 }
                 if let url = URL(string: UIApplication.openSettingsURLString) {
                     Link(destination: url) {
                         Label {
-                            Text("Open Settings", comment: "Link to the system settings of the app")
+                            Text("Open Settings", comment: "Link to the system settings of the app").fixedSize(horizontal: false, vertical: true)
                         } icon: {
                             Image(systemName: "gearshape")
                         }
@@ -81,7 +81,7 @@ struct NotificationPermissionRow: View {
             case .authorized:
                 if showsWhenAuthorized {
                     Label {
-                        Text("Notifications are allowed.", comment: "Settings: the notification permission is granted")
+                        Text("Notifications are allowed.", comment: "Settings: the notification permission is granted").fixedSize(horizontal: false, vertical: true)
                     } icon: {
                         Image(systemName: "bell")
                     }

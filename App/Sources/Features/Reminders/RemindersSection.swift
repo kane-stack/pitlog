@@ -42,6 +42,7 @@ struct RemindersSection: View {
             Text("Reminders", comment: "Section header on the vehicle detail: reminders")
                 .font(.title3)
                 .fontWeight(.semibold)
+                .fixedSize(horizontal: false, vertical: true)
                 .accessibilityAddTraits(.isHeader)
                 .listRowSeparator(.hidden)
             inspectionToggle
@@ -72,11 +73,13 @@ struct RemindersSection: View {
         ) {
             VStack(alignment: .leading, spacing: 2) {
                 Text("Inspection reminders", comment: "Toggle on the vehicle detail: notifications for the inspection deadline")
+                    .fixedSize(horizontal: false, vertical: true)
                 Text(
                     "When the window opens, a month ahead, in the due month and a week before the window closes. Check the date on your sticker.",
                     comment: "Explanation below the inspection reminders toggle"
                 )
                 .font(.footnote)
+                .fixedSize(horizontal: false, vertical: true)
             }
         }
         .accessibilityIdentifier("inspectionRemindersToggle")
@@ -92,11 +95,14 @@ struct RemindersSection: View {
             VStack(alignment: .leading, spacing: 2) {
                 Label(presentation.title, systemImage: presentation.iconName)
                     .font(.headline)
+                    .fixedSize(horizontal: false, vertical: true)
                 Text(presentation.dueText)
                     .font(.subheadline)
+                    .fixedSize(horizontal: false, vertical: true)
                 if let relative = presentation.relativeText {
                     Text(relative)
                         .font(.subheadline)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)

@@ -44,10 +44,12 @@ struct NotificationSettingsView: View {
                         })
                 ) {
                     Text("Reminders", comment: "Settings: master switch for all reminder notifications")
+                        .fixedSize(horizontal: false, vertical: true)
                 }
                 .accessibilityIdentifier("remindersEnabledToggle")
                 DatePicker(selection: timeBinding, displayedComponents: .hourAndMinute) {
                     Text("Time of day", comment: "Settings: time of day reminder notifications arrive")
+                        .fixedSize(horizontal: false, vertical: true)
                 }
                 NotificationPermissionRow(showsWhenAuthorized: true)
                 note(Text(
@@ -58,6 +60,7 @@ struct NotificationSettingsView: View {
             Section {
                 Text("Default lead times", comment: "Settings: section header for default lead times")
                     .font(.headline)
+                    .fixedSize(horizontal: false, vertical: true)
                     .accessibilityAddTraits(.isHeader)
                 LeadPicker(title: Text("Tyres", comment: "Settings: default lead time of tyre reminders"), value: $tyreLeadDays, options: LeadOptions.days, valueText: LeadOptions.days)
                 LeadPicker(title: Text("Vignette", comment: "Settings: default lead time of the vignette expiry reminder"), value: $vignetteLeadDays, options: LeadOptions.days, valueText: LeadOptions.days)
