@@ -262,3 +262,6 @@ Preisannahme für alle Rechnungen: Verkaufspreis € 9,99 brutto in AT. Apple f�
   „keine Netzwerkaufrufe außer CloudKit“, bräuchte Consent-Banner (DSGVO) und ggf. ATT und brächte bei einer selten geöffneten
   App nur sehr geringen Umsatz [Schätzung]. Stattdessen dezente eigene Pro-Hinweise ohne SDK.
 - Umsetzung in M6, festgehalten in CLAUDE.md, ADR-11.
+- **Erinnerungen (Nachtrag):** Gratis bleibt nur die Pickerl-Frist mit ihren Erinnerungen (Kernnutzen, Haftung).
+  Reifen, Service, Vignette und eigene Erinnerungen sind Pro. Ohne Pro werden sie nicht geplant, aber nie gelöscht.
+  Damit hat das Abo einen spürbaren laufenden Nutzen (Kündigung = diese Erinnerungen fallen weg), was auch 3.1.2(a) stützt.
