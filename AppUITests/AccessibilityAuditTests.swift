@@ -502,7 +502,9 @@ final class AccessibilityAuditTests: XCTestCase {
         let plate = app.switches["registrationToggle-licensePlate"]
         XCTAssertTrue(plate.waitForExistence(timeout: 5))
         XCTAssertEqual(plate.value as? String, "1")
-        XCTAssertEqual(app.switches["registrationToggle-vin"].value as? String, "1")
+        let vin = app.switches["registrationToggle-vin"]
+        XCTAssertTrue(scrollUntilVisible(vin, in: app))
+        XCTAssertEqual(vin.value as? String, "1")
         // The date is the last item: scroll until it is there.
         let first = app.switches["registrationToggle-firstRegistration"]
         XCTAssertTrue(scrollUntilVisible(first, in: app))
@@ -523,7 +525,8 @@ final class AccessibilityAuditTests: XCTestCase {
         let app = openRegistrationReview()
         let make = app.switches["registrationToggle-make"]
         XCTAssertTrue(make.waitForExistence(timeout: 5))
-        make.tap()
+        // The switch sits at the trailing edge of its row; a tap in the middle hits the label.
+        make.coordinate(withNormalizedOffset: CGVector(dx: 0.92, dy: 0.5)).tap()
         XCTAssertEqual(make.value as? String, "0")
         XCTAssertTrue(tap(app.buttons["registrationReviewApplyButton"]))
         let plateField = app.textFields["License plate"]

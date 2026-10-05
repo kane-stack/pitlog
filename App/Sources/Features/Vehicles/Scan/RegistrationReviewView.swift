@@ -156,7 +156,8 @@ private struct RegistrationReviewRow: View {
             .font(.subheadline.weight(.semibold))
             Text("Read as “\(item.rawText)” (field \(item.source))", comment: "Registration review: the text a value was read from. First argument: the text, second: the field code on the certificate")
                 .font(.footnote)
-                .foregroundStyle(.secondary)
+                // Primary on purpose: secondary text fails the contrast audit on the grouped background.
+                .foregroundStyle(.primary)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .fixedSize(horizontal: false, vertical: true)
