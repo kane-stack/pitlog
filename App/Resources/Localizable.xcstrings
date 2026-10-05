@@ -2259,6 +2259,17 @@
           }
         }
       }
+    },
+    "§57a inspection overdue — check the date on your sticker." : {
+      "comment" : "Notification body: the inspection window has closed. Sent once, the day after the app notices. The date on the inspection sticker is authoritative",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pickerl überfällig – Datum auf der Plakette prüfen."
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
