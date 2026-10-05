@@ -46,6 +46,7 @@ struct NotificationSettingsView: View {
                 Text(
                     "Notifications arrive at this time on the day of each reminder. They are planned on this device only.",
                     comment: "Settings footer below the notification time")
+                .foregroundStyle(.primary)
             }
 
             Section {
@@ -66,10 +67,12 @@ struct NotificationSettingsView: View {
                 }
             } header: {
                 Text("Default lead times", comment: "Settings: section header for default lead times")
+                    .foregroundStyle(.primary)
             } footer: {
                 Text(
                     "Used for new reminders. Existing reminders keep their own lead time.",
                     comment: "Settings footer below the default lead times")
+                .foregroundStyle(.primary)
             }
         }
         .navigationTitle(Text("Notifications", comment: "Navigation title of the notification settings"))

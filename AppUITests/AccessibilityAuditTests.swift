@@ -285,7 +285,12 @@ final class AccessibilityAuditTests: XCTestCase {
     @MainActor
     private func openEditor(_ app: XCUIApplication, menuItem: String) {
         XCTAssertTrue(tap(app.buttons["addReminderButton"]))
-        XCTAssertTrue(tap(app.buttons[menuItem]))
+        shot(app, "menu-open-\(menuItem)")
+        var item = app.buttons[menuItem]
+        if !item.waitForExistence(timeout: 3) {
+            item = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", menuItem)).firstMatch
+        }
+        XCTAssertTrue(tap(item))
         XCTAssertTrue(app.buttons["saveReminderButton"].waitForExistence(timeout: 5))
     }
 

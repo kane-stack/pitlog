@@ -31,6 +31,8 @@ struct VehicleDetailView: View {
                 showingPermissionPrompt: $showingPermissionPrompt)
         }
         .listStyle(.plain)
+        // Rows scrolling under a transparent bar break the contrast of its buttons.
+        .toolbarBackground(.visible, for: .navigationBar)
         .navigationTitle(vehicle.displayName)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

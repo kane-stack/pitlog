@@ -101,6 +101,7 @@ struct ReminderEditorView: View {
             } else {
                 LabeledContent {
                     Text(category.title(locale: locale))
+                        .foregroundStyle(.primary)
                 } label: {
                     Text("Type", comment: "Reminder editor: the kind of reminder")
                 }
@@ -131,7 +132,7 @@ struct ReminderEditorView: View {
                 datePicker
             }
         } footer: {
-            dueFooter
+            dueFooter.foregroundStyle(.primary)
         }
     }
 
@@ -217,6 +218,7 @@ struct ReminderEditorView: View {
                 Text(
                     "When you mark the service as done, the next one counts from that day and the current odometer reading.",
                     comment: "Service reminder editor footer: how repeating works")
+                .foregroundStyle(.primary)
             }
         } else if isCustom {
             Section {
