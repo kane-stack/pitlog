@@ -839,8 +839,10 @@ final class AccessibilityAuditTests: XCTestCase {
         let history = app.descendants(matching: .any)["historyRow"]
         XCTAssertTrue(scrollUntilVisible(history, in: app))
         history.tap()
-        // The row lies below the chart and is not in the list until it is scrolled to.
-        XCTAssertTrue(app.segmentedControls["costsDisplayPicker"].waitForExistence(timeout: 15))
+        // The row lies below the chart and is not in the list until it is scrolled to. At the largest sizes in
+        // German the costs picker itself can lie below the fold, so there is nothing reliable to wait for.
+        XCTAssertTrue(app.navigationBars.buttons["BackButton"].waitForExistence(timeout: 15))
+        Thread.sleep(forTimeInterval: 3)
         let export = app.descendants(matching: .any)["exportServiceRecordRow"]
         XCTAssertTrue(scrollUntilVisible(export, in: app))
         export.tap()
