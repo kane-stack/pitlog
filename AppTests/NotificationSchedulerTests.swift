@@ -32,6 +32,8 @@ final class FakeNotificationCenter: UserNotificationCenter {
     }
 
     func add(_ request: UNNotificationRequest) async throws {
+        // Suspend like the real center, so unserialized plans would interleave here.
+        await Task.yield()
         pending.removeAll { $0.identifier == request.identifier }
         pending.append(request)
     }
@@ -125,17 +127,22 @@ struct NotificationSchedulerTests {
         #expect(ids == ["somebody.else", prefix + "v/b/custom/2026-11-02", prefix + "v/d/custom/2026-11-09"])
     }
 
+    /// The call that starts last always wins. Repeated, because an interleaving bug would only show sometimes.
     @Test func overlappingCallsEndWithTheLastPlan() async {
-        let center = FakeNotificationCenter()
-        let scheduler = NotificationScheduler(center: center)
-        let old = (1...20).map { planned("v", "old\($0)", .custom, fire: day(2026, 11, 1)) }
-        let new = [planned("v", "new", .custom, fire: day(2026, 11, 2))]
-        // Main-actor tasks start in order, and `schedule` queues itself before its first suspension.
-        let first = Task { @MainActor in await run(scheduler, old) }
-        let second = Task { @MainActor in await run(scheduler, new) }
-        await first.value
-        await second.value
-        #expect(center.pending.map(\.identifier) == [NotificationScheduler.identifierPrefix + "v/new/custom/2026-11-02"])
+        for round in 0..<40 {
+            let center = FakeNotificationCenter()
+            let scheduler = NotificationScheduler(center: center)
+            let old = (1...20).map { planned("v", "old\($0)", .custom, fire: day(2026, 11, 1)) }
+            let new = [planned("v", "new", .custom, fire: day(2026, 11, 2))]
+            // Main-actor tasks start in order, and `schedule` queues itself before its first suspension.
+            let first = Task { @MainActor in await run(scheduler, old) }
+            let second = Task { @MainActor in await run(scheduler, new) }
+            await first.value
+            await second.value
+            #expect(
+                center.pending.map(\.identifier) == [NotificationScheduler.identifierPrefix + "v/new/custom/2026-11-02"],
+                "round \(round)")
+        }
     }
 
     @Test func neverSchedulesMoreThanTheSystemLimit() async {
