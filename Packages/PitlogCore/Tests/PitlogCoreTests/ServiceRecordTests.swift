@@ -65,12 +65,12 @@ private func record(
 
 // MARK: Period
 
-struct PeriodCase: Sendable {
+struct RecordPeriodCase: Sendable {
     let period: ServiceRecordPeriod
     let expected: [String]
 }
 
-let periodCases: [PeriodCase] = [
+let recordPeriodCases: [RecordPeriodCase] = [
     .init(period: .all, expected: ["c", "b", "a"]),
     // the start day itself is included
     .init(period: .since(day(2025, 6, 15)), expected: ["c", "b"]),
@@ -81,7 +81,7 @@ let periodCases: [PeriodCase] = [
     .init(period: .since(day(2030, 1, 1)), expected: []),
 ]
 
-@Test(arguments: periodCases) func periodBoundariesAreInclusiveAtTheStart(_ testCase: PeriodCase) {
+@Test(arguments: recordPeriodCases) func periodBoundariesAreInclusiveAtTheStart(_ testCase: RecordPeriodCase) {
     let entries = [
         entry("a", day(2024, 2, 1)), entry("b", day(2025, 6, 15)), entry("c", day(2026, 1, 10)),
     ]
@@ -176,13 +176,13 @@ let periodCases: [PeriodCase] = [
 
 // MARK: Odometer
 
-struct OdometerCase: Sendable {
+struct RecordOdometerCase: Sendable {
     let readings: [OdometerStatement]
     let entries: [ServiceRecordEntry]
     let expected: OdometerStatement?
 }
 
-let odometerCases: [OdometerCase] = [
+let recordOdometerCases: [RecordOdometerCase] = [
     .init(readings: [], entries: [], expected: nil),
     .init(
         readings: [OdometerStatement(kilometers: 60_000, date: day(2026, 1, 1))], entries: [],
@@ -208,7 +208,7 @@ let odometerCases: [OdometerCase] = [
         expected: nil),
 ]
 
-@Test(arguments: odometerCases) func latestOdometerIsTheNewestStatement(_ testCase: OdometerCase) {
+@Test(arguments: recordOdometerCases) func latestOdometerIsTheNewestStatement(_ testCase: RecordOdometerCase) {
     let result = record(testCase.entries, readings: testCase.readings)
     #expect(result.odometer == testCase.expected)
 }
@@ -222,14 +222,14 @@ let odometerCases: [OdometerCase] = [
 
 // MARK: File name
 
-struct FileNameCase: Sendable {
+struct RecordFileNameCase: Sendable {
     let title: String
     let plate: String
     let date: DayDate
     let expected: String
 }
 
-let fileNameCases: [FileNameCase] = [
+let recordFileNameCases: [RecordFileNameCase] = [
     .init(title: "Servicenachweis", plate: "W 12345 A", date: day(2027, 3, 1), expected: "Servicenachweis W-12345-A 2027-03-01.pdf"),
     .init(title: "Service record", plate: "W-12345A", date: day(2027, 3, 1), expected: "Service record W-12345A 2027-03-01.pdf"),
     // invalid characters and separators are replaced and collapsed
@@ -244,7 +244,7 @@ let fileNameCases: [FileNameCase] = [
     .init(title: "", plate: "W 1", date: day(2027, 1, 2), expected: "Pitlog W-1 2027-01-02.pdf"),
 ]
 
-@Test(arguments: fileNameCases) func fileNameReplacesInvalidCharacters(_ testCase: FileNameCase) {
+@Test(arguments: recordFileNameCases) func fileNameReplacesInvalidCharacters(_ testCase: RecordFileNameCase) {
     #expect(ServiceRecordFileName.make(title: testCase.title, plate: testCase.plate, date: testCase.date) == testCase.expected)
 }
 
