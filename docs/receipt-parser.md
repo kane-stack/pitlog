@@ -2,7 +2,7 @@
 
 Heuristischer Parser für österreichische Werkstattbelege in `Packages/PitlogCore/Sources/PitlogCore/Receipts/`
 (ADR-3, ADR-10). Nur Foundation, Linux-kompatibel. Spezifikation: `docs/sources/receipts/README.md`.
-Die App-Anbindung (Scan-Pipeline, Foundation Models hinter `ReceiptExtractor`) kommt später.
+Die App-Anbindung (M5b-App) steht im Abschnitt „App-Anbindung“ unten.
 
 **Leitprinzip: lieber `nil` als falsch.** Jedes Feld hat eine Konfidenz (`high`/`medium`/`low`) und die
 Quellzeile (`ReceiptDraft.evidence`). Alle Werte sind Vorschläge, der Nutzer bestätigt.
@@ -11,7 +11,7 @@ Quellzeile (`ReceiptDraft.evidence`). Alle Werte sind Vorschläge, der Nutzer be
 
 | Datei | Inhalt |
 |---|---|
-| `ReceiptModels.swift` | `ReceiptLine`, `ReceiptContext`, `ReceiptDraft`, Protokoll `ReceiptExtractor` |
+| `ReceiptModels.swift` | `ReceiptContext`, `ReceiptDraft`, Protokoll `ReceiptExtractor` |
 | `HeuristicReceiptExtractor.swift` | Zusammenspiel; RKSV-Code hat Vorrang |
 | `ReceiptText.swift` | Normalisierung (Kleinbuchstaben, Umlaute), Beträge, OCR-Verwechslungen |
 | `ReceiptAmounts.swift` | Gesamtbetrag, Netto, USt, Steuersatz, Gutschrift, Kleinunternehmer |
@@ -226,3 +226,71 @@ Fehlend: Gutschrift 08 (Betrag und Währung, gewollt `nil` plus `isCreditNote`) 
 - Fremdwährungen werden erkannt (CHF, GBP, USD, HUF, PLN, CZK), sonst gilt EUR.
 - Nur deutsche Bezeichnungen. Andere Länder-Module brauchen eigene Tabellen.
 - Der Parser prüft nicht, ob der Beleg zum Fahrzeug passt; das macht die App mit FIN/Kennzeichen.
+
+## App-Anbindung (M5b-App)
+
+**Zeilentyp:** `ReceiptLine` und `RecognizedLine` sind zu einem Typ verschmolzen (`Scan/RecognizedLine.swift`: Text,
+optionale Box, optionale Seite, 1-basiert). Beide Parser nehmen ihn. Die Genauigkeitszahlen der Fixtures und des
+Holdouts bleiben unverändert (Parser-Code nicht angefasst, nur der Typ). `LineJoiner` (Core) setzt Tabellenzeilen
+aus Vision-Zellen auf gleicher Höhe wieder zusammen, damit Bezeichnung und Betrag in einer Zeile stehen
+(siehe „Grenzen“ oben); ohne Boxen bleibt die Eingabe unverändert.
+
+**Ablauf:** Kamera/Foto/Datei → Vision-Text (`TextRecognizer`, wie M5a) und QR-Erkennung (`DetectBarcodesRequest`,
+nur `_R1-AT…` wird als `rksvPayloads` weitergereicht) → `LineJoiner` → Heuristik (immer) und Foundation Models
+(falls verfügbar) → Merge → Review. Alles auf dem Gerät, keine Netzwerkaufrufe.
+
+**Foundation Models** (`FoundationModelsReceiptExtractor`, nur App, hinter dem Protokoll `ReceiptModelExtracting`):
+`@Generable`-Struct mit `@Guide`-Beschreibungen; Systemanweisung auf Englisch und Deutsch mit E-1 (Rechnungsbetrag
+brutto, nicht Restbetrag), E-2 (Leistungsdatum), „nie raten, null liefern“ und „Kundenadresse, Fälligkeit und Werte
+für das nächste Service ignorieren“. Eingabe wird auf 5000 Zeichen gekürzt (Kopf, Fuß, Zeilen mit Beträgen oder
+Daten; bei Überschreitung des Kontextfensters ein zweiter Versuch mit der Hälfte). Die Ausgabe wird wie die
+Heuristik geprüft (Datum nicht in der Zukunft und nicht vor der Erstzulassung, km nicht unter dem letzten Stand,
+Brutto ≈ Netto + USt) und zusätzlich auf Verankerung im Text (Kennzeichen, FIN, Werkstatt kommen im Text vor); ein
+durchgefallenes Feld wird `nil`.
+
+**Merge je Feld** (`ReceiptMerger`):
+
+| Lage | Konfidenz | Voreinstellung |
+|---|---|---|
+| beide gleich | hoch | an |
+| nur eine Quelle | mittel (niedrig bleibt niedrig) | an |
+| verschieden | niedrig, Wert der Heuristik vorgewählt, beide wählbar | **aus** |
+| RKSV-QR-Code | hoch, gewinnt für Datum und Brutto; abweichende Lesarten bleiben wählbar | an |
+| nur Heuristik (kein Modell) | eigene Konfidenz der Heuristik | wie dort |
+
+**Review:** Wert, Textausschnitt, Konfidenz (Symbol + Text), Umschalter je Feld. Fahrzeug: Treffer über FIN, dann
+Kennzeichen; sonst Auswahl. km wird nur nach Bestätigung zum `OdometerReading`, und nur nach der M4-Regel
+(`OdometerSync`). `suggestedPlaque` ist nur ein Hinweis mit „Pickerl-Monat ändern …“ (öffnet den `PlaquePicker` in
+einem eigenen Sheet), nie automatisch (ADR-5).
+
+**Datenschutz:** `recognizedText` enthält den erkannten Kundenblock nicht (`CustomerBlock`, Regeln: Zeile mit
+`Kunde:`/`Rechnungsempfänger`/`Herrn`/`Frau`, Adresszeilen dahinter, Zeilen über einer Kunden-UID). Die Seiten selbst
+(JPEG oder PDF) zeigen den Kunden weiterhin; das ist der Beleg. `PrivacyInfo.xcprivacy` geprüft: keine neuen
+Required-Reason-APIs (Vision, PDFKit, Foundation Models, Temp-Dateien im Debug-Export), keine Änderung nötig.
+
+**Nicht in der CI prüfbar:** Das echte Foundation-Models-Modell läuft im CI-Simulator nicht. Die CI testet Merge,
+Validierung, Prompt-Kürzung, Abbildung der generierten Felder und die Ablauflogik mit einer Fälschung des Protokolls
+(`FakeReceiptModel`); die UI-Tests nutzen sie ebenfalls (`-UITestReceiptScan`). Qualität und Laufzeit des Modells,
+Vision-OCR echter Belege und die QR-Erkennung sind nur am Gerät prüfbar.
+
+## Gerätetest
+
+Voraussetzung: iPhone mit iOS 26, Apple Intelligence an (Einstellungen → Apple Intelligence & Siri), Debug-Build
+aus Xcode.
+
+1. **Vergleichsansicht:** Einstellungen → Developer → „Receipt extraction comparison“. Oben steht, ob Apple
+   Intelligence verfügbar ist (`available` oder der Grund).
+2. Pro Beleg „Choose a photo“ oder „Choose an image or PDF“ wählen (15 bis 20 Belege, anonymisiert, darunter ein
+   Kassenbon mit QR-Code, eine Rechnung mit Anzahlung, ein § 57a-Beleg, eine Gutschrift, ein zweiseitiger Beleg).
+3. Je Feld stehen Heuristik, Modell und Merge nebeneinander, dazu die Zeiten (Erkennung, Heuristik, Modell).
+4. „Export values as JSON“ teilt eine JSON-Datei nur mit Werten (kein Bild, kein erkannter Text). Sie enthält
+   Kennzeichen und FIN, also vor dem Weitergeben ansehen. Die Ergebnisse hier in eine Tabelle eintragen
+   (richtig / fehlend / falsch je Feld und Quelle), getrennt für Heuristik und Modell.
+5. **Echter Ablauf:** Fahrzeug → Historie → „Aus Beleg hinzufügen“ (Kamera) und im Eintragseditor „Beleg scannen“.
+   Prüfen: Dokumentenkamera mehrseitig (wird als PDF gespeichert), Review-Konfidenzen plausibel, uneinige Felder
+   stehen aus und bieten beide Lesarten, Fahrzeug wird über Kennzeichen/FIN vorgewählt, § 57a-Beleg zeigt den
+   Pickerl-Hinweis, km erscheint danach in der Kilometerstand-Anzeige nur bei neuerem Wert.
+6. Im gespeicherten Beleg: der Text (Suche später) enthält keinen Kundennamen und keine Anschrift.
+7. **Zulassungsschein (M5a):** weiterhin offen, siehe `docs/registration-scan.md`.
+8. Offene Fragen aus dem Test: Modellqualität bei deutschen Werkstattrechnungen (CLAUDE.md, Frage 6), Laufzeit pro
+   Beleg, ob das Kontextfenster bei langen Rechnungen reicht (Kürzung greift ab 5000 Zeichen).
