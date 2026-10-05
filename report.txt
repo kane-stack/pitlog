@@ -1,0 +1,1219 @@
+===== testAddVehicleFormPassesAccessibilityAudit / audit-form-en_0_BA2DAB27-D008-4E36-9923-B7EE17643A03.txt
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Save' id='' frame=(307.6666666666667, 67.0, 62.333333333333314, 36.0)
+
+(ignored: system navigation bar button)
+
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Cancel' id='cancelButton' frame=(20.0, 67.0, 76.66666666666667, 36.0)
+
+(ignored: system navigation bar button)
+
+[XCUIAccessibilityAuditType(rawValue: 1)] Contrast failed
+Contrast failed for SwiftUI.AccessibilityNode
+element: type=9 label='Save' id='' frame=(307.6666666666667, 67.0, 62.333333333333314, 36.0)
+
+(ignored: disabled navigation bar button)
+===== testCustomReminderEditorPassesAccessibilityAudit / hierarchy-Custom reminder_0_1C85E339-B218-40FB-B05C-796D782C9E4B.txt
+Attributes: Application, 0x115db9e00, pid: 11650, label: 'Pitlog'
+Element subtree:
+ →Application, 0x115db9e00, pid: 11650, label: 'Pitlog'
+    Window (Main), 0x115db9f40, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x115dba800, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x115db9540, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x115db9400, {{0.0, 0.0}, {390.0, 844.0}}
+          Other, 0x115db9680, {{0.0, 0.0}, {390.0, 844.0}}
+            Other, 0x115db97c0, {{0.0, 0.0}, {390.0, 844.0}}
+              Other, 0x115db9900, {{0.0, 0.0}, {390.0, 844.0}}
+                Other, 0x115db9a40, {{0.0, 0.0}, {390.0, 844.0}}
+                  Other, 0x115db9b80, {{0.0, 0.0}, {390.0, 844.0}}
+                    Other, 0x115dba080, {{0.0, 0.0}, {390.0, 844.0}}
+                      Other, 0x115dba300, {{0.0, 0.0}, {390.0, 844.0}}
+                        Other, 0x115dba1c0, {{0.0, 0.0}, {390.0, 844.0}}
+                          Other, 0x115dba580, {{0.0, 0.0}, {390.0, 844.0}}
+                            NavigationBar, 0x115dba6c0, {{0.0, 47.0}, {390.0, 54.0}}, identifier: 'Reminders'
+                              Button, 0x115db8a00, {{16.0, 47.0}, {44.0, 44.0}}, identifier: 'BackButton', label: 'Golf'
+                              StaticText, 0x115dbb480, {{152.3, 58.7}, {85.0, 20.7}}, label: 'Reminders'
+                            Other, 0x115dbb5c0, {{0.0, 0.0}, {390.0, 844.0}}
+                              Other, 0x115dbb700, {{0.0, 0.0}, {390.0, 844.0}}
+                                Other, 0x115dba440, {{0.0, 0.0}, {390.0, 844.0}}
+                                  Other, 0x115dbb840, {{0.0, 0.0}, {390.0, 844.0}}
+                                    CollectionView, 0x115ef4000, {{0.0, 0.0}, {390.0, 844.0}}
+                                      Other, 0x115ef4140, {{-16.0, -1587.0}, {422.0, 4050.0}}
+                                      Other, 0x115ef4280, {{0.0, 0.0}, {390.0, 844.0}}
+                                      Other, 0x115ef43c0, {{0.0, 0.0}, {390.0, 844.0}}
+                                      Cell, 0x115ef4500, {{16.0, 136.0}, {358.0, 52.0}}
+                                        Other, 0x115ef4640, {{16.0, 136.0}, {358.0, 52.0}}
+                                          Other, 0x115ef4780, {{16.0, 136.0}, {358.0, 52.0}}
+                                        Other, 0x115ef48c0, {{16.0, 136.0}, {358.0, 52.0}}
+                                          Other, 0x115ef4a00, {{16.0, 136.0}, {358.0, 52.0}}
+                                            Other, 0x115ef4b40, {{16.0, 136.0}, {358.0, 52.0}}
+                                              Switch, 0x115ef4c80, {{16.0, 136.0}, {358.0, 52.0}}, identifier: 'inspectionRemindersToggle', label: 'Inspection reminders', value: 1
+                                                StaticText, 0x115ef4dc0, {{32.0, 151.8}, {160.0, 20.3}}, label: 'Inspection reminders'
+                                                Switch, 0x115ef4f00, {{297.0, 148.0}, {63.0, 28.0}}, value: 1
+                                      Cell, 0x115ef5040, {{16.0, 188.0}, {358.0, 81.7}}
+                                        Other, 0x115ef5180, {{16.0, 188.0}, {358.0, 81.7}}
+                                          Other, 0x115ef52c0, {{16.0, 188.0}, {358.0, 81.7}}
+                                        Other, 0x115ef5400, {{16.0, 188.0}, {358.0, 81.7}}
+                                          Other, 0x115ef5540, {{16.0, 188.0}, {358.0, 81.7}}
+                                            Other, 0x115ef5680, {{16.0, 188.0}, {358.0, 81.7}}
+                                              StaticText, 0x115ef57c0, {{16.0, 188.0}, {358.0, 81.7}}, label: 'When the window opens, a month ahead, in the due month and a week before the window closes. Check the date on your sticker.'
+                                      Other, 0x115ef5900, {{32.0, 187.0}, {326.0, 1.0}}
+                                      Cell, 0x115ef5a40, {{16.0, 269.7}, {358.0, 90.3}}
+                                        Other, 0x115ef5b80, {{16.0, 269.7}, {358.0, 90.3}}
+                                          Other, 0x115ef5cc0, {{16.0, 269.7}, {358.0, 90.3}}
+                                        Other, 0x115ef5e00, {{16.0, 269.7}, {358.0, 90.3}}
+                                          Other, 0x115ef5f40, {{16.0, 269.7}, {358.0, 90.3}}
+                                            Other, 0x115ef6080, {{16.0, 269.7}, {358.0, 90.3}}
+                                              Button, 0x115ef61c0, {{16.0, 269.7}, {358.0, 90.3}}, label: 'Winter tyres. Winter period starts November 1, 2026. in 27 days.'
+                                                Image, 0x115ef6300, {{34.3, 284.0}, {19.7, 22.0}}, identifier: 'snowflake', label: 'Snow Flurry'
+                                                StaticText, 0x115ef6440, {{34.3, 284.0}, {135.7, 22.0}}, label: 'Winter tyres'
+                                                StaticText, 0x115ef6580, {{32.0, 307.0}, {265.7, 18.0}}, label: 'Winter period starts November 1, 2026'
+                                                StaticText, 0x115ef66c0, {{32.0, 327.0}, {69.3, 18.0}}, label: 'in 27 days'
+                                      Other, 0x115ef6800, {{32.0, 268.7}, {326.0, 1.0}}
+                                      Cell, 0x115ef6940, {{16.0, 360.0}, {358.0, 90.3}}
+                                        Other, 0x115ef6a80, {{16.0, 360.0}, {358.0, 90.3}}
+                                          Other, 0x115ef6bc0, {{16.0, 360.0}, {358.0, 90.3}}
+                                        Other, 0x115ef6d00, {{16.0, 360.0}, {358.0, 90.3}}
+                                          Other, 0x115ef6e40, {{16.0, 360.0}, {358.0, 90.3}}
+                                            Other, 0x115ef6f80, {{16.0, 360.0}, {358.0, 90.3}}
+                                              Button, 0x115ef70c0, {{16.0, 360.0}, {358.0, 90.3}}, label: 'Vignette. New vignette from December 1, 2026. in 57 days.'
+                                                Image, 0x115ef7200, {{28.0, 377.0}, {32.3, 16.7}}, identifier: 'road.lanes', label: 'road.lanes'
+                                                StaticText, 0x115ef7340, {{28.0, 375.0}, {112.0, 20.3}}, label: 'Vignette'
+                                                StaticText, 0x115ef7480, {{32.0, 397.3}, {256.3, 18.0}}, label: 'New vignette from December 1, 2026'
+                                                StaticText, 0x115ef75c0, {{32.0, 417.3}, {69.7, 18.0}}, label: 'in 57 days'
+                                      Other, 0x115ef7700, {{72.0, 359.0}, {286.0, 1.0}}
+                                      Cell, 0x115ef7840, {{16.0, 450.3}, {358.0, 90.3}}
+                                        Other, 0x115ef7980, {{16.0, 450.3}, {358.0, 90.3}}
+                                          Other, 0x115ef7ac0, {{16.0, 450.3}, {358.0, 90.3}}
+                                        Other, 0x115ef7c00, {{16.0, 450.3}, {358.0, 90.3}}
+                                          Other, 0x115ef7d40, {{16.0, 450.3}, {358.0, 90.3}}
+                                            Other, 0x115ef7e80, {{16.0, 450.3}, {358.0, 90.3}}
+                                              Button, 0x108870000, {{16.0, 450.3}, {358.0, 90.3}}, label: 'Insurance. Due December 5, 2026. in 61 days.'
+                                                Image, 0x108870140, {{33.7, 464.3}, {21.0, 22.7}}, identifier: 'bell', label: 'Notifications'
+                                                StaticText, 0x108870280, {{33.7, 464.3}, {116.7, 22.7}}, label: 'Insurance'
+                                                StaticText, 0x1088703c0, {{32.0, 487.7}, {159.7, 18.0}}, label: 'Due December 5, 2026'
+                                                StaticText, 0x108870500, {{32.0, 507.7}, {68.3, 18.0}}, label: 'in 61 days'
+                                      Other, 0x108870640, {{72.0, 449.3}, {286.0, 1.0}}
+                                      Cell, 0x108870780, {{16.0, 540.7}, {358.0, 110.3}}
+                                        Other, 0x1088708c0, {{16.0, 540.7}, {358.0, 110.3}}
+                                          Other, 0x108870a00, {{16.0, 540.7}, {358.0, 110.3}}
+                                        Other, 0x108870b40, {{16.0, 540.7}, {358.0, 110.3}}
+                                          Other, 0x108870c80, {{16.0, 540.7}, {358.0, 110.3}}
+                                            Other, 0x108870dc0, {{16.0, 540.7}, {358.0, 110.3}}
+                                              Button, 0x108870f00, {{16.0, 540.7}, {358.0, 110.3}}, label: 'Oil service. At 75,000 km, estimated around February 25, 2027. in 143 days.'
+                                                Image, 0x108871040, {{30.7, 552.7}, {26.7, 26.3}}, identifier: 'wrench.and.screwdriver', label: 'wrench.and.screwdriver'
+                                                StaticText, 0x108871180, {{30.7, 552.7}, {124.7, 26.3}}, label: 'Oil service'
+                                                StaticText, 0x1088712c0, {{32.0, 578.0}, {288.7, 38.0}}, label: 'At 75,000 km, estimated around February 25, 2027'
+                                                StaticText, 0x108871400, {{32.0, 618.0}, {77.3, 18.0}}, label: 'in 143 days'
+                                      Other, 0x108871540, {{72.0, 539.7}, {286.0, 1.0}}
+                                      Cell, 0x108871680, {{16.0, 651.0}, {358.0, 52.0}}
+                                        Other, 0x1088717c0, {{16.0, 651.0}, {358.0, 52.0}}
+                                          Other, 0x108871900, {{16.0, 651.0}, {358.0, 52.0}}
+                                        Other, 0x108871a40, {{16.0, 651.0}, {358.0, 52.0}}
+                                          Other, 0x108871b80, {{16.0, 651.0}, {358.0, 52.0}}
+                                            Other, 0x108871cc0, {{16.0, 651.0}, {358.0, 52.0}}
+                                              Button, 0x108871e00, {{16.0, 651.0}, {358.0, 52.0}}, identifier: 'addReminderButton', label: 'Add reminder'
+                                                Image, 0x108871f40, {{33.3, 666.3}, {21.7, 21.7}}, identifier: 'plus.circle', label: 'Add'
+                                                StaticText, 0x108872080, {{32.0, 667.0}, {326.0, 20.3}}, label: 'Add reminder'
+                                      Other, 0x1088721c0, {{72.0, 650.0}, {286.0, 1.0}}
+                                      Cell, 0x108872300, {{16.0, 703.0}, {358.0, 52.0}}
+                                        Other, 0x108872440, {{16.0, 703.0}, {358.0, 52.0}}
+                                          Other, 0x108872580, {{16.0, 703.0}, {358.0, 52.0}}
+                                        Other, 0x1088726c0, {{16.0, 703.0}, {358.0, 52.0}}
+                                          Other, 0x108872800, {{16.0, 703.0}, {358.0, 52.0}}
+                                            Other, 0x108872940, {{16.0, 703.0}, {358.0, 52.0}}
+                                              Button, 0x108872a80, {{16.0, 703.0}, {358.0, 52.0}}, identifier: 'allowNotificationsButton', label: 'Allow notifications'
+                                                Image, 0x108872bc0, {{33.7, 719.7}, {16.0, 18.7}}, identifier: 'bell.badge', label: 'bell.badge'
+                                                StaticText, 0x108872d00, {{32.0, 718.7}, {326.0, 21.0}}, label: 'Allow notifications'
+                                      Other, 0x108872e40, {{72.0, 702.0}, {286.0, 1.0}}
+                                      Other, 0x108872f80, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertical scroll bar, 1 page', value: 0%
+                                        Other, 0x1088730c0, {{384.0, 139.0}, {3.0, 654.7}}
+                                      Other, 0x108873200, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertical scroll bar, 1 page', value: 0%
+                                        Other, 0x108873340, {{384.0, 139.0}, {3.0, 654.7}}
+                            Other, 0x108873480, {{0.0, 0.0}, {390.0, 844.0}}
+                              Other, 0x1088735c0, {{0.0, 0.0}, {390.0, 844.0}}
+                Other, 0x108873700, {{0.0, 761.0}, {390.0, 83.0}}
+                  Other, 0x108873840, {{0.0, 0.0}, {390.0, 844.0}}
+                  Other, 0x108873980, {{0.0, 761.0}, {390.0, 83.0}}
+      Other, 0x108873ac0, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x108873c00, {{0.0, 0.0}, {390.0, 844.0}}, identifier: 'PopoverDismissRegion', label: 'dismiss popup'
+        Popover, 0x108873d40, {{75.0, 350.0}, {240.0, 317.0}}
+          Image, 0x108873e80, {{-75.0, 200.0}, {540.0, 604.0}}
+          Other, 0x108884000, {{75.0, 350.0}, {240.0, 304.0}}
+            Sheet, 0x108884140, {{75.0, 350.0}, {240.0, 304.0}}
+              Other, 0x108884280, {{75.0, 350.0}, {240.0, 304.0}}
+                Other, 0x1088843c0, {{75.0, 350.0}, {240.0, 304.0}}
+                  Other, 0x108884500, {{75.0, 350.0}, {240.0, 304.0}}
+                  Other, 0x108884640, {{75.0, 350.0}, {240.0, 304.0}}
+                    ScrollView, 0x108884780, {{75.0, 350.0}, {240.0, 304.0}}
+                      Other, 0x1088848c0, {{75.0, 350.0}, {240.0, 304.0}}
+                        Other, 0x108884a00, {{91.0, 366.0}, {208.0, 272.0}}
+                          Button, 0x108884b40, {{91.0, 366.0}, {208.0, 48.0}}, label: 'Winter tyres'
+                          Button, 0x108884c80, {{91.0, 422.0}, {208.0, 48.0}}, label: 'Summer tyres'
+                          Button, 0x108884dc0, {{91.0, 478.0}, {208.0, 48.0}}, label: 'Service'
+                          Button, 0x108884f00, {{91.0, 534.0}, {208.0, 48.0}}, label: 'Vignette'
+                          Button, 0x108885040, {{91.0, 590.0}, {208.0, 48.0}}, label: 'Custom reminder'
+                      Other, 0x108885180, {{282.0, 384.0}, {30.0, 249.0}}, label: 'Vertical scroll bar, 1 page', value: 0%
+                        Other, 0x1088852c0, {{309.0, 440.0}, {3.0, 7.0}}
+                      Other, 0x108885400, {{96.0, 621.0}, {198.0, 30.0}}, label: 'Horizontal scroll bar, 1 page', value: 0%
+                        Other, 0x108885540, {{165.0, 648.0}, {7.0, 3.0}}
+                      Other, 0x108885680, {{282.0, 384.0}, {30.0, 249.0}}, label: 'Vertical scroll bar, 1 page', value: 0%
+                        Other, 0x1088857c0, {{309.0, 440.0}, {3.0, 7.0}}
+                      Other, 0x108885900, {{96.0, 621.0}, {198.0, 30.0}}, label: 'Horizontal scroll bar, 1 page', value: 0%
+                        Other, 0x108885a40, {{165.0, 648.0}, {7.0, 3.0}}
+          Other, 0x108885b80, {{75.0, 350.0}, {240.0, 317.0}}
+            Other, 0x108885cc0, {{75.0, 350.0}, {240.0, 317.0}}
+              Other, 0x108885e00, {{75.0, 350.0}, {240.0, 317.0}}
+                Other, 0x108885f40, {{75.0, 350.0}, {240.0, 317.0}}
+                  Other, 0x108886080, {{75.0, 350.0}, {240.0, 317.0}}
+                    Other, 0x1088861c0, {{75.0, 350.0}, {0.0, 0.0}}
+                      Other, 0x108886300, {{75.0, 350.0}, {240.0, 317.0}}
+                        Other, 0x108886440, {{75.0, 350.0}, {240.0, 317.0}}
+                          Other, 0x108886580, {{75.0, 350.0}, {240.0, 317.0}}
+                            Other, 0x1088866c0, {{75.0, 350.0}, {240.0, 317.0}}
+    Window, 0x108886800, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x108886940, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x108886a80, {{0.0, 0.0}, {390.0, 844.0}}
+Path to element:
+ →Application, 0x115db9e00, pid: 11650, label: 'Pitlog'
+Query chain:
+ →Find: Target Application 'com.example.pitlog'
+  Output: {
+    Application, 0x108886bc0, pid: 11650, label: 'Pitlog'
+  }
+
+===== testCustomReminderEditorPassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testEditVehicleFormPassesAccessibilityAudit / audit-form-edit-en_0_D5ED0789-F232-46B6-B413-E49A2A5E7508.txt
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Cancel' id='cancelButton' frame=(20.0, 67.0, 76.66666666666667, 36.0)
+
+(ignored: system navigation bar button)
+
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Save' id='' frame=(307.6666666666667, 67.0, 62.333333333333314, 36.0)
+
+(ignored: system navigation bar button)
+===== testEntryEditorPassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testEntryEditorPassesAccessibilityAuditInGerman / App UI hierarchy for com.example_0_FF16E64F-4885-4EDB-B618-6B039CD7A905.pitlog
+Application, 0x116371f40, pid: 15171, label: 'Pitlog' <App element pid: 15171>
+  Window (Main), 0x116370500, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 15171, elementOrHash.elementID: 4407232512.3>
+    Other, 0x116370640, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 15171, elementOrHash.elementID: 4455695872.4>
+      Other, 0x116370780, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 15171, elementOrHash.elementID: 4457137408.5>
+        Other, 0x1163708c0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 15171, elementOrHash.elementID: 4407231488.6>
+          Other, 0x116370a00, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 15171, elementOrHash.elementID: 4455110336.7>
+            Other, 0x116370b40, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 15171, elementOrHash.elementID: 4455684224.8>
+              Other, 0x116370c80, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 15171, elementOrHash.elementID: 4455698944.9>
+                Other, 0x116370dc0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 15171, elementOrHash.elementID: 4454599296.11>
+                  Other, 0x116370f00, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 15171, elementOrHash.elementID: 4407236608.154>
+                    Other, 0x116371040, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 15171, elementOrHash.elementID: 4455177664.155>
+                      Other, 0x116371180, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 15171, elementOrHash.elementID: 4455180800.156>
+                        Other, 0x1163712c0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 15171, elementOrHash.elementID: 4455191808.157>
+                          NavigationBar, 0x116371400, {{0.0, 47.0}, {390.0, 54.0}}, identifier: 'Historie' <AX element pid: 15171, elementOrHash.elementID: 4457362944.158>
+                            Button, 0x116371540, {{16.0, 47.0}, {44.0, 44.0}}, identifier: 'BackButton', label: 'Golf' <AX element pid: 15171, elementOrHash.elementID: 4455067136.231>
+                            StaticText, 0x116371680, {{163.7, 58.7}, {62.3, 20.7}}, label: 'Historie' <AX element pid: 15171, elementOrHash.elementID: 4679479552.308>
+                          Other, 0x1163717c0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 15171, elementOrHash.elementID: 4455192256.159>
+                            Other, 0x116371900, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 15171, elementOrHash.elementID: 4455199424.163>
+                              Other, 0x116371a40, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 15171, elementOrHash.elementID: 4679473280.309>
+                                Other, 0x116371b80, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 15171, elementOrHash.elementID: 4454611840.310>
+                                  CollectionView, 0x116371cc0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 15171, elementOrHash.elementID: 4739203072.311>
+                                    Other, 0x116371e00, {{0.0, -1587.0}, {390.0, 4648.0}} <AX element pid: 15171, elementOrHash.elementID: 4744095744.312>
+                                    Other, 0x116373980, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 15171, elementOrHash.elementID: 4455278656.313>
+                                      Other, 0x116373ac0, {{0.0, 0.0}, {390.0, 155.8}} <AX element pid: 15171, elementOrHash.elementID: 4455518144.329>
+                                    Other, 0x116373c00, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 15171, elementOrHash.elementID: 4455278208.314>
+                                    Cell, 0x116373d40, {{0.0, 101.0}, {390.0, 54.0}} <AX element pid: 15171, elementOrHash.elementID: 4473515264.315>
+                                      Other, 0x116373e80, {{0.0, 101.0}, {390.0, 54.0}} <AX element pid: 15171, elementOrHash.elementID: 4738049024.330>
+                                        Other, 0x115dbb200, {{0.0, 101.0}, {390.0, 54.0}} <AX element pid: 15171, elementOrHash.elementID: 4455423872.349>
+                                      Other, 0x115dbb340, {{0.0, 101.0}, {390.0, 54.0}} <AX element pid: 15171, elementOrHash.elementID: 4455423424.331>
+                                        Other, 0x115dbb980, {{0.0, 101.0}, {390.0, 54.0}} <AX element pid: 15171, elementOrHash.elementID: 4679954432.350>
+                                          Other, 0x115dbae40, {{0.0, 101.0}, {390.0, 54.0}} <AX element pid: 15171, elementOrHash.elementID: 4454607808.367>
+                                            StaticText, 0x115dbbc00, {{0.0, 101.0}, {390.0, 54.0}}, label: 'Werkstattkosten' <AX element pid: 15171, elementOrHash.elementID: 4454608704.376>
+                                    Cell, 0x115dbbd40, {{0.0, 155.0}, {390.0, 52.0}} <AX element pid: 15171, elementOrHash.elementID: 4739350528.316>
+                                      Other, 0x115dbbac0, {{0.0, 155.0}, {390.0, 52.0}} <AX element pid: 15171, elementOrHash.elementID: 4738050048.332>
+                                        Other, 0x115dbaa80, {{0.0, 155.0}, {390.0, 52.0}} <AX element pid: 15171, elementOrHash.elementID: 4455425216.351>
+                                      Other, 0x115dbbe80, {{0.0, 155.0}, {390.0, 52.0}} <AX element pid: 15171, elementOrHash.elementID: 4455424768.333>
+                                        Other, 0x115dbb0c0, {{0.0, 155.0}, {390.0, 52.0}} <AX element pid: 15171, elementOrHash.elementID: 4679955968.352>
+                                          Other, 0x115dbad00, {{0.0, 155.0}, {390.0, 52.0}} <AX element pid: 15171, elementOrHash.elementID: 4455343296.368>
+                                            Button, 0x115dbabc0, {{0.0, 155.0}, {390.0, 52.0}}, identifier: 'costsCurrency', label: 'Währung', value: Euro (EUR) <AX element pid: 15171, elementOrHash.elementID: 4455342848.377>
+                                              Button, 0x115dbaf80, {{16.0, 171.0}, {358.0, 20.3}}, label: 'Währung, Euro (EUR)' <AX element pid: 15171, elementOrHash.elementID: 4455342400.386>
+                                                Button, 0x11634fd40, {{16.0, 171.0}, {358.0, 20.3}} <AX element pid: 15171, elementOrHash.elementID: 4679477760.402>
+                                                  StaticText, 0x11634f840, {{16.0, 170.8}, {68.7, 20.3}}, label: 'Währung' <AX element pid: 15171, elementOrHash.elementID: 4454604672.413>
+                                                  StaticText, 0x11634f980, {{267.0, 170.8}, {83.7, 20.3}}, label: 'Euro (EUR)' <AX element pid: 15171, elementOrHash.elementID: 4455415808.414>
+                                                  Image, 0x11634fac0, {{360.7, 173.3}, {11.3, 16.0}}, identifier: 'chevron.up.chevron.down', label: 'Auf- Und Abwärtszeigende Chevrons' <AX element pid: 15171, elementOrHash.elementID: 4455344192.415>
+                                    Cell, 0x11634fe80, {{0.0, 207.0}, {390.0, 52.0}} <AX element pid: 15171, elementOrHash.elementID: 4739351808.317>
+                                      Other, 0x11634f340, {{0.0, 207.0}, {390.0, 52.0}} <AX element pid: 15171, elementOrHash.elementID: 4738052096.334>
+                                        Other, 0x11634fc00, {{0.0, 207.0}, {390.0, 52.0}} <AX element pid: 15171, elementOrHash.elementID: 4455426560.353>
+                                      Other, 0x1163e0000, {{0.0, 207.0}, {390.0, 52.0}} <AX element pid: 15171, elementOrHash.elementID: 4455426112.335>
+                                        Other, 0x1163e0140, {{0.0, 207.0}, {390.0, 52.0}} <AX element pid: 15171, elementOrHash.elementID: 4406882304.354>
+                                          Other, 0x1163e0280, {{0.0, 207.0}, {390.0, 52.0}} <AX element pid: 15171, elementOrHash.elementID: 4455221440.369>
+                                            StaticText, 0x1163e03c0, {{0.0, 207.0}, {390.0, 52.0}}, identifier: 'costsCurrentYearTotal', label: 'Gesamt 2026, € 509,00' <AX element pid: 15171, elementOrHash.elementID: 4455222336.378>
+                                              StaticText, 0x1163e0500, {{16.0, 222.8}, {108.0, 20.3}}, label: 'Gesamt 2026' <AX element pid: 15171, elementOrHash.elementID: 4455220992.387>
+                                              StaticText, 0x1163e0640, {{301.0, 222.8}, {73.0, 20.3}}, label: '€ 509,00' <AX element pid: 15171, elementOrHash.elementID: 4455222784.388>
+                                    Other, 0x1163e0780, {{16.0, 206.0}, {358.0, 1.0}} <AX element pid: 15171, elementOrHash.elementID: 4744096256.318>
+                                    Cell, 0x1163e08c0, {{0.0, 259.0}, {390.0, 52.0}} <AX element pid: 15171, elementOrHash.elementID: 4739353088.319>
+                                      Other, 0x1163e0a00, {{0.0, 259.0}, {390.0, 52.0}} <AX element pid: 15171, elementOrHash.elementID: 4738054144.336>
+                                        Other, 0x1163e0b40, {{0.0, 259.0}, {390.0, 52.0}} <AX element pid: 15171, elementOrHash.elementID: 4455427456.355>
+                                      Other, 0x1163e0c80, {{0.0, 259.0}, {390.0, 52.0}} <AX element pid: 15171, elementOrHash.elementID: 4455427008.337>
+                                        Other, 0x1163e0dc0, {{0.0, 259.0}, {390.0, 52.0}} <AX element pid: 15171, elementOrHash.elementID: 4743757824.356>
+                                          Other, 0x1163e0f00, {{0.0, 259.0}, {390.0, 52.0}} <AX element pid: 15171, elementOrHash.elementID: 4455270144.370>
+                                            Other, 0x1163e1040, {{0.0, 259.0}, {390.0, 52.0}}, label: 'Reparatur, € 420,00' <AX element pid: 15171, elementOrHash.elementID: 4455184832.379>
+                                              Image, 0x1163e1180, {{16.0, 273.3}, {24.0, 23.3}}, identifier: 'hammer', label: 'Kompilieren' <AX element pid: 15171, elementOrHash.elementID: 4455220544.389>
+                                              StaticText, 0x1163e12c0, {{16.0, 273.3}, {107.7, 23.3}}, label: 'Reparatur' <AX element pid: 15171, elementOrHash.elementID: 4455220096.390>
+                                              StaticText, 0x1163e1400, {{311.7, 276.0}, {62.3, 18.0}}, label: '€ 420,00' <AX element pid: 15171, elementOrHash.elementID: 4455219200.391>
+                                    Other, 0x1163e1540, {{16.0, 258.0}, {358.0, 1.0}} <AX element pid: 15171, elementOrHash.elementID: 4744096768.320>
+                                    Cell, 0x1163e1680, {{0.0, 311.0}, {390.0, 52.0}} <AX element pid: 15171, elementOrHash.elementID: 4739354368.321>
+                                      Other, 0x1163e17c0, {{0.0, 311.0}, {390.0, 52.0}} <AX element pid: 15171, elementOrHash.elementID: 4669261824.338>
+                                        Other, 0x1163e1900, {{0.0, 311.0}, {390.0, 52.0}} <AX element pid: 15171, elementOrHash.elementID: 4455428800.357>
+                                      Other, 0x1163e1a40, {{0.0, 311.0}, {390.0, 52.0}} <AX element pid: 15171, elementOrHash.elementID: 4455427904.339>
+                                        Other, 0x1163e1b80, {{0.0, 311.0}, {390.0, 52.0}} <AX element pid: 15171, elementOrHash.elementID: 4743759360.358>
+                                          Other, 0x1163e1cc0, {{0.0, 311.0}, {390.0, 52.0}} <AX element pid: 15171, elementOrHash.elementID: 4455313664.371>
+                                            Other, 0x1163e1e00, {{0.0, 311.0}, {390.0, 52.0}}, label: 'Reifen, € 89,00' <AX element pid: 15171, elementOrHash.elementID: 4455271936.380>
+                                              Image, 0x1163e1f40, {{18.3, 327.3}, {19.3, 19.3}}, identifier: 'circle.circle', label: 'circle.circle' <AX element pid: 15171, elementOrHash.elementID: 4455269696.392>
+                                              StaticText, 0x1163e2080, {{18.3, 327.3}, {80.7, 19.3}}, label: 'Reifen' <AX element pid: 15171, elementOrHash.elementID: 4455271040.393>
+                                              StaticText, 0x1163e21c0, {{320.3, 328.0}, {53.7, 18.0}}, label: '€ 89,00' <AX element pid: 15171, elementOrHash.elementID: 4455272384.394>
+                                    Other, 0x1163e2300, {{56.0, 310.0}, {318.0, 1.0}} <AX element pid: 15171, elementOrHash.elementID: 4744097280.322>
+                                    Cell, 0x1163e2440, {{0.0, 363.0}, {390.0, 61.0}} <AX element pid: 15171, elementOrHash.elementID: 4739355648.323>
+                                      Other, 0x1163e2580, {{0.0, 363.0}, {390.0, 61.0}} <AX element pid: 15171, elementOrHash.elementID: 4679594496.340>
+                                        Other, 0x1163e26c0, {{0.0, 363.0}, {390.0, 61.0}} <AX element pid: 15171, elementOrHash.elementID: 4455430144.359>
+                                      Other, 0x1163e2800, {{0.0, 363.0}, {390.0, 61.0}} <AX element pid: 15171, elementOrHash.elementID: 4455429248.341>
+                                        Other, 0x1163e2940, {{0.0, 363.0}, {390.0, 61.0}} <AX element pid: 15171, elementOrHash.elementID: 4743760896.360>
+                                          Other, 0x1163e2a80, {{0.0, 363.0}, {390.0, 61.0}} <AX element pid: 15171, elementOrHash.elementID: 4455308288.372>
+                                            SegmentedControl, 0x1163e2bc0, {{16.0, 378.0}, {358.0, 31.0}}, identifier: 'costsDisplayPicker' <AX element pid: 15171, elementOrHash.elementID: 4744019968.381>
+                                              Button, 0x1163e2d00, {{16.0, 378.0}, {179.0, 32.0}}, label: 'Diagramm', Selected <AX element pid: 15171, elementOrHash.elementID: 4744020736.395>
+                                              Button, 0x1163e2e40, {{195.0, 378.0}, {179.0, 32.0}}, label: 'Tabelle' <AX element pid: 15171, elementOrHash.elementID: 4744021504.396>
+                                    Other, 0x1163e2f80, {{56.0, 362.0}, {318.0, 1.0}} <AX element pid: 15171, elementOrHash.elementID: 4744097792.324>
+                                    Cell, 0x1163e30c0, {{0.0, 424.0}, {390.0, 315.0}} <AX element pid: 15171, elementOrHash.elementID: 4739356928.325>
+                                      Other, 0x1163e3200, {{0.0, 424.0}, {390.0, 315.0}} <AX element pid: 15171, elementOrHash.elementID: 4744087040.342>
+                                        Other, 0x1163e3340, {{0.0, 424.0}, {390.0, 315.0}} <AX element pid: 15171, elementOrHash.elementID: 4455308736.361>
+                                      Other, 0x1163e3480, {{0.0, 424.0}, {390.0, 315.0}} <AX element pid: 15171, elementOrHash.elementID: 4455310528.343>
+                                        Other, 0x1163e35c0, {{0.0, 424.0}, {390.0, 315.0}} <AX element pid: 15171, elementOrHash.elementID: 4743762432.362>
+                                          Other, 0x1163e3700, {{0.0, 424.0}, {390.0, 315.0}} <AX element pid: 15171, elementOrHash.elementID: 4455306944.373>
+                                            Other, 0x1163e3840, {{16.0, 439.0}, {358.0, 220.0}}, identifier: 'costsChart' <AX element pid: 15171, elementOrHash.elementID: 4455311424.382>
+                                              Other, 0x1163e3980, {{16.0, 439.0}, {107.3, 202.0}}, label: '2024', value: 667 (gesamt), 3 Ka... <AX element pid: 15171, elementOrHash.elementID: 4455312320.397>
+                                              Other, 0x1163e3ac0, {{123.3, 439.0}, {107.3, 202.0}}, label: '2025', value: 0 <AX element pid: 15171, elementOrHash.elementID: 4455311872.398>
+                                              Other, 0x1163e3c00, {{230.7, 439.0}, {107.3, 202.0}}, label: '2026', value: 509 (gesamt), 2 Ka... <AX element pid: 15171, elementOrHash.elementID: 4455310976.399>
+                                            Other, 0x1163e3d40, {{17.3, 672.0}, {272.3, 50.7}}, identifier: 'costsLegend', label: 'Legende', value: Service, Reparatur... <AX element pid: 15171, elementOrHash.elementID: 4455306048.383>
+                                              Other, 0x1163e3e80, {{17.3, 672.0}, {272.3, 50.7}} <AX element pid: 15171, elementOrHash.elementID: 4455305600.400>
+                                                Image, 0x117184000, {{17.7, 672.3}, {20.7, 20.3}}, identifier: 'wrench.and.screwdriver', label: 'wrench.and.screwdriver' <AX element pid: 15171, elementOrHash.elementID: 4455301568.403>
+                                                StaticText, 0x117184140, {{46.0, 674.7}, {45.3, 15.7}}, label: 'Service' <AX element pid: 15171, elementOrHash.elementID: 4455302016.404>
+                                                Image, 0x117184280, {{200.7, 672.0}, {21.7, 21.0}}, identifier: 'hammer', label: 'Kompilieren' <AX element pid: 15171, elementOrHash.elementID: 4455302464.405>
+                                                StaticText, 0x1171843c0, {{230.0, 674.7}, {59.7, 15.7}}, label: 'Reparatur' <AX element pid: 15171, elementOrHash.elementID: 4455302912.406>
+                                                Image, 0x117184500, {{17.3, 704.3}, {17.0, 17.0}}, identifier: 'circle.circle', label: 'circle.circle' <AX element pid: 15171, elementOrHash.elementID: 4455307392.407>
+                                                StaticText, 0x117184640, {{41.7, 705.0}, {38.0, 15.7}}, label: 'Reifen' <AX element pid: 15171, elementOrHash.elementID: 4455307840.408>
+                                                Image, 0x117184780, {{200.3, 703.0}, {19.7, 19.7}}, identifier: 'checkmark.seal', label: 'Überprüft', Selected <AX element pid: 15171, elementOrHash.elementID: 4455306496.409>
+                                                StaticText, 0x1171848c0, {{227.3, 705.0}, {40.7, 15.7}}, label: 'Pickerl' <AX element pid: 15171, elementOrHash.elementID: 4455305152.410>
+                                    Cell, 0x117184a00, {{0.0, 739.0}, {390.0, 62.0}} <AX element pid: 15171, elementOrHash.elementID: 4739358208.326>
+                                      Other, 0x117184b40, {{0.0, 739.0}, {390.0, 62.0}} <AX element pid: 15171, elementOrHash.elementID: 4744090112.344>
+                                        Other, 0x117184c80, {{0.0, 739.0}, {390.0, 62.0}} <AX element pid: 15171, elementOrHash.elementID: 4455451264.363>
+                                      Other, 0x117184dc0, {{0.0, 739.0}, {390.0, 62.0}} <AX element pid: 15171, elementOrHash.elementID: 4455450368.345>
+                                        Other, 0x117184f00, {{0.0, 739.0}, {390.0, 62.0}} <AX element pid: 15171, elementOrHash.elementID: 4743763968.364>
+                                          Other, 0x117185040, {{0.0, 739.0}, {390.0, 62.0}} <AX element pid: 15171, elementOrHash.elementID: 4455393792.374>
+                                            StaticText, 0x117185180, {{0.0, 739.0}, {390.0, 62.0}}, label: 'Einträge' <AX element pid: 15171, elementOrHash.elementID: 4455385728.384>
+                                    Cell, 0x1171852c0, {{0.0, 801.0}, {390.0, 52.0}} <AX element pid: 15171, elementOrHash.elementID: 4739359488.327>
+                                      Other, 0x117185400, {{0.0, 801.0}, {390.0, 52.0}} <AX element pid: 15171, elementOrHash.elementID: 4744091648.346>
+                                        Other, 0x117185540, {{0.0, 801.0}, {390.0, 52.0}} <AX element pid: 15171, elementOrHash.elementID: 4455452608.365>
+                                      Other, 0x117185680, {{0.0, 801.0}, {390.0, 52.0}} <AX element pid: 15171, elementOrHash.elementID: 4455452160.347>
+                                        Other, 0x1171857c0, {{0.0, 801.0}, {390.0, 52.0}} <AX element pid: 15171, elementOrHash.elementID: 4743765504.366>
+                                          Other, 0x117185900, {{0.0, 801.0}, {390.0, 52.0}} <AX element pid: 15171, elementOrHash.elementID: 4455390656.375>
+                                            Button, 0x117185a40, {{0.0, 801.0}, {390.0, 52.0}}, identifier: 'historyFilter', label: 'Kategorie', value: Alle <AX element pid: 15171, elementOrHash.elementID: 4455390208.385>
+                                              Button, 0x117185b80, {{16.0, 817.0}, {358.0, 20.3}}, label: 'Kategorie, Alle' <AX element pid: 15171, elementOrHash.elementID: 4455387072.401>
+                                                Button, 0x117185cc0, {{16.0, 817.0}, {358.0, 20.3}} <AX element pid: 15171, elementOrHash.elementID: 4679476864.411>
+                                                  StaticText, 0x117185e00, {{16.0, 816.8}, {73.3, 20.3}}, label: 'Kategorie' <AX element pid: 15171, elementOrHash.elementID: 4455394240.417>
+                                                  StaticText, 0x117185f40, {{322.3, 816.8}, {28.3, 20.3}}, label: 'Alle' <AX element pid: 15171, elementOrHash.elementID: 4455393344.418>
+                                                  Image, 0x117186080, {{360.7, 819.3}, {11.3, 16.0}}, identifier: 'chevron.up.chevron.down', label: 'Auf- Und Abwärtszeigende Chevrons' <AX element pid: 15171, elementOrHash.elementID: 4455392448.419>
+                                    Other, 0x1171861c0, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertikaler Rollbalken, 2 Seiten', value: 0 % <AX element pid: 15171, elementOrHash.elementID: 4738046976.328>
+                                      Other, 0x117186300, {{384.0, 104.0}, {3.0, 413.7}} <AX element pid: 15171, elementOrHash.elementID: 4455422976.348>
+                                    Other, 0x117186440, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertikaler Rollbalken, 2 Seiten', value: 0 % <AX element pid: 15171, elementOrHash.elementID: 4738046976.328>
+                                      Other, 0x117186580, {{384.0, 104.0}, {3.0, 413.7}} <AX element pid: 15171, elementOrHash.elementID: 4455422976.348>
+                          Other, 0x1171866c0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 15171, elementOrHash.elementID: 4669273600.160>
+                            Other, 0x117186800, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 15171, elementOrHash.elementID: 4669259776.164>
+              Other, 0x117186940, {{0.0, 761.0}, {390.0, 83.0}} <AX element pid: 15171, elementOrHash.elementID: 4455684672.10>
+                Other, 0x117186a80, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 15171, elementOrHash.elementID: 4455691392.12>
+                Other, 0x117186bc0, {{0.0, 761.0}, {390.0, 83.0}} <AX element pid: 15171, elementOrHash.elementID: 4455696896.13>
+===== testEntryEditorPassesAccessibilityAuditInGerman / Debug description for `"addEntryButton" Any`_0_9176F2C1-6817-4CCB-B4BD-BB437C57FB09.txt
+Query chain:
+ →Find: Target Application 'com.example.pitlog'
+  ↪︎Find: Descendants matching type Any
+    ↪︎Find: Elements matching predicate '"addEntryButton" IN identifiers'
+
+===== testEntryEditorPassesAccessibilityAuditInGerman / Debug description for `"addEntryButton" Any`_0_04F1EE8E-73B3-4AC7-9B4B-C9E95958B696.txt
+Query chain:
+ →Find: Target Application 'com.example.pitlog'
+  ↪︎Find: Descendants matching type Any
+    ↪︎Find: Elements matching predicate '"addEntryButton" IN identifiers'
+
+===== testEntryEditorPassesAccessibilityAuditInGerman / Debug description for `"addEntryButton" Any`_0_1654119A-7ECF-41FF-8E8C-5E2AAB16D8B0.txt
+Query chain:
+ →Find: Target Application 'com.example.pitlog'
+  ↪︎Find: Descendants matching type Any
+    ↪︎Find: Elements matching predicate '"addEntryButton" IN identifiers'
+
+===== testEntryEditorPassesAccessibilityAuditInGerman / Debug description for `"addEntryButton" Any`_0_7CBF4396-FC55-45BC-BDDC-DA7CC4348C85.txt
+Query chain:
+ →Find: Target Application 'com.example.pitlog'
+  ↪︎Find: Descendants matching type Any
+    ↪︎Find: Elements matching predicate '"addEntryButton" IN identifiers'
+
+===== testEntryEditorPassesAccessibilityAuditInGerman / Debug description for `"addEntryButton" Any`_0_9567F412-471A-4F24-B99E-DD3D1B6D4BB2.txt
+Query chain:
+ →Find: Target Application 'com.example.pitlog'
+  ↪︎Find: Descendants matching type Any
+    ↪︎Find: Elements matching predicate '"addEntryButton" IN identifiers'
+
+===== testHistoryCostsChartPassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testHistoryCostsChartPassesAccessibilityAuditInGerman / App UI hierarchy for com.example_0_A00475AB-22F3-497D-B4C8-DA9D6B49EB28.pitlog
+Application, 0x1171c2bc0, pid: 17135, label: 'Pitlog' <App element pid: 17135>
+  Window (Main), 0x1171c1180, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 17135, elementOrHash.elementID: 4344350720.4>
+    Other, 0x1171c12c0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 17135, elementOrHash.elementID: 4392994304.5>
+      Other, 0x1171c1400, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 17135, elementOrHash.elementID: 4392664064.6>
+        Other, 0x1171c1540, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 17135, elementOrHash.elementID: 4344349696.7>
+          Other, 0x1171c1680, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 17135, elementOrHash.elementID: 4392410112.8>
+            Other, 0x1171c17c0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 17135, elementOrHash.elementID: 4392982656.9>
+              Other, 0x1171c1900, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 17135, elementOrHash.elementID: 4392997376.10>
+                Other, 0x1171c1a40, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 17135, elementOrHash.elementID: 4391930496.12>
+                  Other, 0x1171c1b80, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 17135, elementOrHash.elementID: 4344354816.154>
+                    Other, 0x1171c1cc0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 17135, elementOrHash.elementID: 4392476992.155>
+                      Other, 0x1171c1e00, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 17135, elementOrHash.elementID: 4392480576.156>
+                        Other, 0x1171c1f40, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 17135, elementOrHash.elementID: 4392505728.157>
+                          NavigationBar, 0x1171c2080, {{0.0, 47.0}, {390.0, 54.0}}, identifier: 'Historie' <AX element pid: 17135, elementOrHash.elementID: 4394546688.158>
+                            Button, 0x1171c21c0, {{16.0, 47.0}, {44.0, 44.0}}, identifier: 'BackButton', label: 'Golf' <AX element pid: 17135, elementOrHash.elementID: 4675220160.231>
+                            StaticText, 0x1171c2300, {{163.7, 58.7}, {62.3, 20.7}}, label: 'Historie' <AX element pid: 17135, elementOrHash.elementID: 4612501760.308>
+                          Other, 0x1171c2440, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 17135, elementOrHash.elementID: 4392506624.159>
+                            Other, 0x1171c2580, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 17135, elementOrHash.elementID: 4392513792.163>
+                              Other, 0x1171c26c0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 17135, elementOrHash.elementID: 4612495488.309>
+                                Other, 0x1171c2800, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 17135, elementOrHash.elementID: 4392535808.310>
+                                  CollectionView, 0x1171c2940, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 17135, elementOrHash.elementID: 4676419584.311>
+                                    Other, 0x1171c2a80, {{0.0, -1587.0}, {390.0, 4648.0}} <AX element pid: 17135, elementOrHash.elementID: 4681312256.312>
+                                    Other, 0x1171c3980, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 17135, elementOrHash.elementID: 4392577984.313>
+                                      Other, 0x1171c3ac0, {{0.0, 0.0}, {390.0, 155.8}} <AX element pid: 17135, elementOrHash.elementID: 4392817024.329>
+                                    Other, 0x1171c3c00, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 17135, elementOrHash.elementID: 4392577088.314>
+                                    Cell, 0x1171c3d40, {{0.0, 101.0}, {390.0, 54.0}} <AX element pid: 17135, elementOrHash.elementID: 4410666240.315>
+                                      Other, 0x1171c3e80, {{0.0, 101.0}, {390.0, 54.0}} <AX element pid: 17135, elementOrHash.elementID: 4675200000.330>
+                                        Other, 0x117187480, {{0.0, 101.0}, {390.0, 54.0}} <AX element pid: 17135, elementOrHash.elementID: 4392723200.349>
+                                      Other, 0x1171875c0, {{0.0, 101.0}, {390.0, 54.0}} <AX element pid: 17135, elementOrHash.elementID: 4392722304.331>
+                                        Other, 0x117187700, {{0.0, 101.0}, {390.0, 54.0}} <AX element pid: 17135, elementOrHash.elementID: 4612943872.350>
+                                          Other, 0x117187840, {{0.0, 101.0}, {390.0, 54.0}} <AX element pid: 17135, elementOrHash.elementID: 4392537152.367>
+                                            StaticText, 0x117187980, {{0.0, 101.0}, {390.0, 54.0}}, label: 'Werkstattkosten' <AX element pid: 17135, elementOrHash.elementID: 4392537600.376>
+                                    Cell, 0x117187ac0, {{0.0, 155.0}, {390.0, 52.0}} <AX element pid: 17135, elementOrHash.elementID: 4676567040.316>
+                                      Other, 0x117187c00, {{0.0, 155.0}, {390.0, 52.0}} <AX element pid: 17135, elementOrHash.elementID: 4675201024.332>
+                                        Other, 0x117187d40, {{0.0, 155.0}, {390.0, 52.0}} <AX element pid: 17135, elementOrHash.elementID: 4392724096.351>
+                                      Other, 0x117187e80, {{0.0, 155.0}, {390.0, 52.0}} <AX element pid: 17135, elementOrHash.elementID: 4392723648.333>
+                                        Other, 0x1163703c0, {{0.0, 155.0}, {390.0, 52.0}} <AX element pid: 17135, elementOrHash.elementID: 4612945408.352>
+                                          Other, 0x1171c8000, {{0.0, 155.0}, {390.0, 52.0}} <AX element pid: 17135, elementOrHash.elementID: 4392568128.368>
+                                            Button, 0x1171c8140, {{0.0, 155.0}, {390.0, 52.0}}, identifier: 'costsCurrency', label: 'Währung', value: Euro (EUR) <AX element pid: 17135, elementOrHash.elementID: 4392568576.377>
+                                              Button, 0x1171c8280, {{16.0, 171.0}, {358.0, 20.3}}, label: 'Währung, Euro (EUR)' <AX element pid: 17135, elementOrHash.elementID: 4392569024.386>
+                                                Button, 0x1171c83c0, {{16.0, 171.0}, {358.0, 20.3}} <AX element pid: 17135, elementOrHash.elementID: 4612499968.402>
+                                                  StaticText, 0x1171c8500, {{16.0, 170.8}, {68.7, 20.3}}, label: 'Währung' <AX element pid: 17135, elementOrHash.elementID: 4392536256.413>
+                                                  StaticText, 0x1171c8640, {{267.0, 170.8}, {83.7, 20.3}}, label: 'Euro (EUR)' <AX element pid: 17135, elementOrHash.elementID: 4392535360.414>
+                                                  Image, 0x1171c8780, {{360.7, 173.3}, {11.3, 16.0}}, identifier: 'chevron.up.chevron.down', label: 'Auf- Und Abwärtszeigende Chevrons' <AX element pid: 17135, elementOrHash.elementID: 4392534912.415>
+                                    Cell, 0x1171c88c0, {{0.0, 207.0}, {390.0, 52.0}} <AX element pid: 17135, elementOrHash.elementID: 4676568320.317>
+                                      Other, 0x1171c8a00, {{0.0, 207.0}, {390.0, 52.0}} <AX element pid: 17135, elementOrHash.elementID: 4675203072.334>
+                                        Other, 0x1171c8b40, {{0.0, 207.0}, {390.0, 52.0}} <AX element pid: 17135, elementOrHash.elementID: 4392725440.353>
+                                      Other, 0x1171c8c80, {{0.0, 207.0}, {390.0, 52.0}} <AX element pid: 17135, elementOrHash.elementID: 4392724992.335>
+                                        Other, 0x1171c8dc0, {{0.0, 207.0}, {390.0, 52.0}} <AX element pid: 17135, elementOrHash.elementID: 4343967744.354>
+                                          Other, 0x1171c8f00, {{0.0, 207.0}, {390.0, 52.0}} <AX element pid: 17135, elementOrHash.elementID: 4392642624.369>
+                                            StaticText, 0x1171c9040, {{0.0, 207.0}, {390.0, 52.0}}, identifier: 'costsCurrentYearTotal', label: 'Gesamt 2026, € 509,00' <AX element pid: 17135, elementOrHash.elementID: 4392570368.378>
+                                              StaticText, 0x1171c9180, {{16.0, 222.8}, {108.0, 20.3}}, label: 'Gesamt 2026' <AX element pid: 17135, elementOrHash.elementID: 4392569472.387>
+                                              StaticText, 0x1171c92c0, {{301.0, 222.8}, {73.0, 20.3}}, label: '€ 509,00' <AX element pid: 17135, elementOrHash.elementID: 4392570816.388>
+                                    Other, 0x1171c9400, {{16.0, 206.0}, {358.0, 1.0}} <AX element pid: 17135, elementOrHash.elementID: 4681312768.318>
+                                    Cell, 0x1171c9540, {{0.0, 259.0}, {390.0, 52.0}} <AX element pid: 17135, elementOrHash.elementID: 4676569600.319>
+                                      Other, 0x1171c9680, {{0.0, 259.0}, {390.0, 52.0}} <AX element pid: 17135, elementOrHash.elementID: 4675205120.336>
+                                        Other, 0x1171c97c0, {{0.0, 259.0}, {390.0, 52.0}} <AX element pid: 17135, elementOrHash.elementID: 4392726336.355>
+                                      Other, 0x1171c9900, {{0.0, 259.0}, {390.0, 52.0}} <AX element pid: 17135, elementOrHash.elementID: 4392725888.337>
+                                        Other, 0x1171c9a40, {{0.0, 259.0}, {390.0, 52.0}} <AX element pid: 17135, elementOrHash.elementID: 4680957952.356>
+                                          Other, 0x1171c9b80, {{0.0, 259.0}, {390.0, 52.0}} <AX element pid: 17135, elementOrHash.elementID: 4392634112.370>
+                                            Other, 0x1171c9cc0, {{0.0, 259.0}, {390.0, 52.0}}, label: 'Reparatur, € 420,00' <AX element pid: 17135, elementOrHash.elementID: 4392641728.379>
+                                              Image, 0x1171c9e00, {{16.0, 273.3}, {24.0, 23.3}}, identifier: 'hammer', label: 'Kompilieren' <AX element pid: 17135, elementOrHash.elementID: 4392639936.389>
+                                              StaticText, 0x1171c9f40, {{16.0, 273.3}, {107.7, 23.3}}, label: 'Reparatur' <AX element pid: 17135, elementOrHash.elementID: 4392640832.390>
+                                              StaticText, 0x1171ca080, {{311.7, 276.0}, {62.3, 18.0}}, label: '€ 420,00' <AX element pid: 17135, elementOrHash.elementID: 4392641280.391>
+                                    Other, 0x1171ca1c0, {{16.0, 258.0}, {358.0, 1.0}} <AX element pid: 17135, elementOrHash.elementID: 4681313280.320>
+                                    Cell, 0x1171ca300, {{0.0, 311.0}, {390.0, 52.0}} <AX element pid: 17135, elementOrHash.elementID: 4676570880.321>
+                                      Other, 0x1171ca440, {{0.0, 311.0}, {390.0, 52.0}} <AX element pid: 17135, elementOrHash.elementID: 4609928192.338>
+                                        Other, 0x1171ca580, {{0.0, 311.0}, {390.0, 52.0}} <AX element pid: 17135, elementOrHash.elementID: 4392727680.357>
+                                      Other, 0x1171ca6c0, {{0.0, 311.0}, {390.0, 52.0}} <AX element pid: 17135, elementOrHash.elementID: 4392727232.339>
+                                        Other, 0x1171ca800, {{0.0, 311.0}, {390.0, 52.0}} <AX element pid: 17135, elementOrHash.elementID: 4680959488.358>
+                                          Other, 0x1171ca940, {{0.0, 311.0}, {390.0, 52.0}} <AX element pid: 17135, elementOrHash.elementID: 4392637248.371>
+                                            Other, 0x1171caa80, {{0.0, 311.0}, {390.0, 52.0}}, label: 'Reifen, € 89,00' <AX element pid: 17135, elementOrHash.elementID: 4392638144.380>
+                                              Image, 0x1171cabc0, {{18.3, 327.3}, {19.3, 19.3}}, identifier: 'circle.circle', label: 'circle.circle' <AX element pid: 17135, elementOrHash.elementID: 4392633216.392>
+                                              StaticText, 0x1171cad00, {{18.3, 327.3}, {80.7, 19.3}}, label: 'Reifen' <AX element pid: 17135, elementOrHash.elementID: 4392632768.393>
+                                              StaticText, 0x1171cae40, {{320.3, 328.0}, {53.7, 18.0}}, label: '€ 89,00' <AX element pid: 17135, elementOrHash.elementID: 4392638592.394>
+                                    Other, 0x1171caf80, {{56.0, 310.0}, {318.0, 1.0}} <AX element pid: 17135, elementOrHash.elementID: 4681313792.322>
+                                    Cell, 0x1171cb0c0, {{0.0, 363.0}, {390.0, 61.0}} <AX element pid: 17135, elementOrHash.elementID: 4676572160.323>
+                                      Other, 0x1171cb200, {{0.0, 363.0}, {390.0, 61.0}} <AX element pid: 17135, elementOrHash.elementID: 4612616704.340>
+                                        Other, 0x1171cb340, {{0.0, 363.0}, {390.0, 61.0}} <AX element pid: 17135, elementOrHash.elementID: 4392729024.359>
+                                      Other, 0x1171cb480, {{0.0, 363.0}, {390.0, 61.0}} <AX element pid: 17135, elementOrHash.elementID: 4392728576.341>
+                                        Other, 0x1171cb5c0, {{0.0, 363.0}, {390.0, 61.0}} <AX element pid: 17135, elementOrHash.elementID: 4680961024.360>
+                                          Other, 0x1171cb700, {{0.0, 363.0}, {390.0, 61.0}} <AX element pid: 17135, elementOrHash.elementID: 4392636800.372>
+                                            SegmentedControl, 0x1171cb840, {{16.0, 378.0}, {358.0, 31.0}}, identifier: 'costsDisplayPicker' <AX element pid: 17135, elementOrHash.elementID: 4681269248.381>
+                                              Button, 0x1171cb980, {{16.0, 378.0}, {179.0, 32.0}}, label: 'Diagramm', Selected <AX element pid: 17135, elementOrHash.elementID: 4681270016.395>
+                                              Button, 0x1171cbac0, {{195.0, 378.0}, {179.0, 32.0}}, label: 'Tabelle' <AX element pid: 17135, elementOrHash.elementID: 4681270784.396>
+                                    Other, 0x1171cbc00, {{56.0, 362.0}, {318.0, 1.0}} <AX element pid: 17135, elementOrHash.elementID: 4681314304.324>
+                                    Cell, 0x1171cbd40, {{0.0, 424.0}, {390.0, 315.0}} <AX element pid: 17135, elementOrHash.elementID: 4676573440.325>
+                                      Other, 0x1171cbe80, {{0.0, 424.0}, {390.0, 315.0}} <AX element pid: 17135, elementOrHash.elementID: 4681303552.342>
+                                        Other, 0x1171d0000, {{0.0, 424.0}, {390.0, 315.0}} <AX element pid: 17135, elementOrHash.elementID: 4392612096.361>
+                                      Other, 0x1171d0140, {{0.0, 424.0}, {390.0, 315.0}} <AX element pid: 17135, elementOrHash.elementID: 4392611648.343>
+                                        Other, 0x1171d0280, {{0.0, 424.0}, {390.0, 315.0}} <AX element pid: 17135, elementOrHash.elementID: 4680962560.362>
+                                          Other, 0x1171d03c0, {{0.0, 424.0}, {390.0, 315.0}} <AX element pid: 17135, elementOrHash.elementID: 4392473408.373>
+                                            Other, 0x1171d0500, {{16.0, 439.0}, {358.0, 220.0}}, identifier: 'costsChart' <AX element pid: 17135, elementOrHash.elementID: 4392414144.382>
+                                              Other, 0x1171d0640, {{16.0, 439.0}, {107.3, 202.0}}, label: '2024', value: 667 (gesamt), 3 Ka... <AX element pid: 17135, elementOrHash.elementID: 4392636352.397>
+                                              Other, 0x1171d0780, {{123.3, 439.0}, {107.3, 202.0}}, label: '2025', value: 0 <AX element pid: 17135, elementOrHash.elementID: 4392639488.398>
+                                              Other, 0x1171d08c0, {{230.7, 439.0}, {107.3, 202.0}}, label: '2026', value: 509 (gesamt), 2 Ka... <AX element pid: 17135, elementOrHash.elementID: 4392635456.399>
+                                            Other, 0x1171d0a00, {{17.3, 672.0}, {272.3, 50.7}}, identifier: 'costsLegend', label: 'Legende', value: Service, Reparatur... <AX element pid: 17135, elementOrHash.elementID: 4392714240.383>
+                                              Other, 0x1171d0b40, {{17.3, 672.0}, {272.3, 50.7}} <AX element pid: 17135, elementOrHash.elementID: 4392716032.400>
+                                                Image, 0x1171d0c80, {{17.7, 672.3}, {20.7, 20.3}}, identifier: 'wrench.and.screwdriver', label: 'wrench.and.screwdriver' <AX element pid: 17135, elementOrHash.elementID: 4392413248.403>
+                                                StaticText, 0x1171d0dc0, {{46.0, 674.7}, {45.3, 15.7}}, label: 'Service' <AX element pid: 17135, elementOrHash.elementID: 4392412352.404>
+                                                Image, 0x1171d0f00, {{200.7, 672.0}, {21.7, 21.0}}, identifier: 'hammer', label: 'Kompilieren' <AX element pid: 17135, elementOrHash.elementID: 4392411904.405>
+                                                StaticText, 0x1171d1040, {{230.0, 674.7}, {59.7, 15.7}}, label: 'Reparatur' <AX element pid: 17135, elementOrHash.elementID: 4392715136.406>
+                                                Image, 0x1171d1180, {{17.3, 704.3}, {17.0, 17.0}}, identifier: 'circle.circle', label: 'circle.circle' <AX element pid: 17135, elementOrHash.elementID: 4392720064.407>
+                                                StaticText, 0x1171d12c0, {{41.7, 705.0}, {38.0, 15.7}}, label: 'Reifen' <AX element pid: 17135, elementOrHash.elementID: 4392719616.408>
+                                                Image, 0x1171d1400, {{200.3, 703.0}, {19.7, 19.7}}, identifier: 'checkmark.seal', label: 'Überprüft', Selected <AX element pid: 17135, elementOrHash.elementID: 4392720512.409>
+                                                StaticText, 0x1171d1540, {{227.3, 705.0}, {40.7, 15.7}}, label: 'Pickerl' <AX element pid: 17135, elementOrHash.elementID: 4392721408.410>
+                                    Cell, 0x1171d1680, {{0.0, 739.0}, {390.0, 62.0}} <AX element pid: 17135, elementOrHash.elementID: 4676574720.326>
+                                      Other, 0x1171d17c0, {{0.0, 739.0}, {390.0, 62.0}} <AX element pid: 17135, elementOrHash.elementID: 4681306624.344>
+                                        Other, 0x1171d1900, {{0.0, 739.0}, {390.0, 62.0}} <AX element pid: 17135, elementOrHash.elementID: 4392750592.363>
+                                      Other, 0x1171d1a40, {{0.0, 739.0}, {390.0, 62.0}} <AX element pid: 17135, elementOrHash.elementID: 4392749696.345>
+                                        Other, 0x1171d1b80, {{0.0, 739.0}, {390.0, 62.0}} <AX element pid: 17135, elementOrHash.elementID: 4680964096.364>
+                                          Other, 0x1171d1cc0, {{0.0, 739.0}, {390.0, 62.0}} <AX element pid: 17135, elementOrHash.elementID: 4392479232.374>
+                                            StaticText, 0x1171d1e00, {{0.0, 739.0}, {390.0, 62.0}}, label: 'Einträge' <AX element pid: 17135, elementOrHash.elementID: 4392475648.384>
+                                    Cell, 0x1171d1f40, {{0.0, 801.0}, {390.0, 52.0}} <AX element pid: 17135, elementOrHash.elementID: 4676576000.327>
+                                      Other, 0x1171d2080, {{0.0, 801.0}, {390.0, 52.0}} <AX element pid: 17135, elementOrHash.elementID: 4681308160.346>
+                                        Other, 0x1171d21c0, {{0.0, 801.0}, {390.0, 52.0}} <AX element pid: 17135, elementOrHash.elementID: 4392751488.365>
+                                      Other, 0x1171d2300, {{0.0, 801.0}, {390.0, 52.0}} <AX element pid: 17135, elementOrHash.elementID: 4392751040.347>
+                                        Other, 0x1171d2440, {{0.0, 801.0}, {390.0, 52.0}} <AX element pid: 17135, elementOrHash.elementID: 4680965632.366>
+                                          Other, 0x1171d2580, {{0.0, 801.0}, {390.0, 52.0}} <AX element pid: 17135, elementOrHash.elementID: 4392603584.375>
+                                            Button, 0x1171d26c0, {{0.0, 801.0}, {390.0, 52.0}}, identifier: 'historyFilter', label: 'Kategorie', value: Alle <AX element pid: 17135, elementOrHash.elementID: 4392604928.385>
+                                              Button, 0x1171d2800, {{16.0, 817.0}, {358.0, 20.3}}, label: 'Kategorie, Alle' <AX element pid: 17135, elementOrHash.elementID: 4392606272.401>
+                                                Button, 0x1171d2940, {{16.0, 817.0}, {358.0, 20.3}} <AX element pid: 17135, elementOrHash.elementID: 4612499072.411>
+                                                  StaticText, 0x1171d2a80, {{16.0, 816.8}, {73.3, 20.3}}, label: 'Kategorie' <AX element pid: 17135, elementOrHash.elementID: 4392477440.417>
+                                                  StaticText, 0x1171d2bc0, {{322.3, 816.8}, {28.3, 20.3}}, label: 'Alle' <AX element pid: 17135, elementOrHash.elementID: 4392600000.418>
+                                                  Image, 0x1171d2d00, {{360.7, 819.3}, {11.3, 16.0}}, identifier: 'chevron.up.chevron.down', label: 'Auf- Und Abwärtszeigende Chevrons' <AX element pid: 17135, elementOrHash.elementID: 4392600448.419>
+                                    Other, 0x1171d2e40, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertikaler Rollbalken, 2 Seiten', value: 0 % <AX element pid: 17135, elementOrHash.elementID: 4675197952.328>
+                                      Other, 0x1171d2f80, {{384.0, 104.0}, {3.0, 413.7}} <AX element pid: 17135, elementOrHash.elementID: 4392721856.348>
+                                    Other, 0x1171d30c0, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertikaler Rollbalken, 2 Seiten', value: 0 % <AX element pid: 17135, elementOrHash.elementID: 4675197952.328>
+                                      Other, 0x1171d3200, {{384.0, 104.0}, {3.0, 413.7}} <AX element pid: 17135, elementOrHash.elementID: 4392721856.348>
+                          Other, 0x1171d3340, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 17135, elementOrHash.elementID: 4609925120.160>
+                            Other, 0x1171d3480, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 17135, elementOrHash.elementID: 4609927168.164>
+              Other, 0x1171d35c0, {{0.0, 761.0}, {390.0, 83.0}} <AX element pid: 17135, elementOrHash.elementID: 4392983104.11>
+                Other, 0x1171d3700, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 17135, elementOrHash.elementID: 4392989824.13>
+                Other, 0x1171d3840, {{0.0, 761.0}, {390.0, 83.0}} <AX element pid: 17135, elementOrHash.elementID: 4392995328.14>
+===== testHistoryCostsChartPassesAccessibilityAuditInGerman / Debug description for `"addEntryButton" Any`_0_8619E0E6-1EF0-49B4-8AA4-60290254CA23.txt
+Query chain:
+ →Find: Target Application 'com.example.pitlog'
+  ↪︎Find: Descendants matching type Any
+    ↪︎Find: Elements matching predicate '"addEntryButton" IN identifiers'
+
+===== testHistoryCostsChartPassesAccessibilityAuditInGerman / Debug description for `"addEntryButton" Any`_0_6B616677-7F7C-4059-B27D-2067CE2C6532.txt
+Query chain:
+ →Find: Target Application 'com.example.pitlog'
+  ↪︎Find: Descendants matching type Any
+    ↪︎Find: Elements matching predicate '"addEntryButton" IN identifiers'
+
+===== testHistoryCostsChartPassesAccessibilityAuditInGerman / Debug description for `"addEntryButton" Any`_0_819C67FA-938A-438E-8D8D-F7A31CAF08E6.txt
+Query chain:
+ →Find: Target Application 'com.example.pitlog'
+  ↪︎Find: Descendants matching type Any
+    ↪︎Find: Elements matching predicate '"addEntryButton" IN identifiers'
+
+===== testHistoryCostsChartPassesAccessibilityAuditInGerman / Debug description for `"addEntryButton" Any`_0_C2129A25-AF1C-4D94-BF3D-5C82620F2347.txt
+Query chain:
+ →Find: Target Application 'com.example.pitlog'
+  ↪︎Find: Descendants matching type Any
+    ↪︎Find: Elements matching predicate '"addEntryButton" IN identifiers'
+
+===== testHistoryCostsChartPassesAccessibilityAuditInGerman / Debug description for `"addEntryButton" Any`_0_7C5D14E8-2123-4115-9C3D-6C850DBF4744.txt
+Query chain:
+ →Find: Target Application 'com.example.pitlog'
+  ↪︎Find: Descendants matching type Any
+    ↪︎Find: Elements matching predicate '"addEntryButton" IN identifiers'
+
+===== testHistoryCostsTablePassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testHistoryCostsTablePassesAccessibilityAuditInGerman / App UI hierarchy for com.example_0_E8DD5660-346B-40F8-B854-92C5892D3BF6.pitlog
+Application, 0x1171db340, pid: 19637, label: 'Pitlog' <App element pid: 19637>
+  Window (Main), 0x1171d9900, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 19637, elementOrHash.elementID: 4373825536.4>
+    Other, 0x1171d9a40, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 19637, elementOrHash.elementID: 4422157824.5>
+      Other, 0x1171d9b80, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 19637, elementOrHash.elementID: 4421811200.6>
+        Other, 0x1171d9cc0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 19637, elementOrHash.elementID: 4373824512.7>
+          Other, 0x1171d9e00, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 19637, elementOrHash.elementID: 4421574080.8>
+            Other, 0x1171d9f40, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 19637, elementOrHash.elementID: 4422146176.9>
+              Other, 0x1171da080, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 19637, elementOrHash.elementID: 4422160896.10>
+                Other, 0x1171da1c0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 19637, elementOrHash.elementID: 4421061248.12>
+                  Other, 0x1171da300, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 19637, elementOrHash.elementID: 4373829632.154>
+                    Other, 0x1171da440, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 19637, elementOrHash.elementID: 4421640960.155>
+                      Other, 0x1171da580, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 19637, elementOrHash.elementID: 4421644544.156>
+                        Other, 0x1171da6c0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 19637, elementOrHash.elementID: 4421653760.157>
+                          NavigationBar, 0x1171da800, {{0.0, 47.0}, {390.0, 54.0}}, identifier: 'Historie' <AX element pid: 19637, elementOrHash.elementID: 4423808512.158>
+                            Button, 0x1171da940, {{16.0, 47.0}, {44.0, 44.0}}, identifier: 'BackButton', label: 'Golf' <AX element pid: 19637, elementOrHash.elementID: 4421502720.231>
+                            StaticText, 0x1171daa80, {{163.7, 58.7}, {62.3, 20.7}}, label: 'Historie' <AX element pid: 19637, elementOrHash.elementID: 4642402560.308>
+                          Other, 0x1171dabc0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 19637, elementOrHash.elementID: 4421654208.159>
+                            Other, 0x1171dad00, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 19637, elementOrHash.elementID: 4421661376.163>
+                              Other, 0x1171dae40, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 19637, elementOrHash.elementID: 4642390912.309>
+                                Other, 0x1171daf80, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 19637, elementOrHash.elementID: 4421067072.310>
+                                  CollectionView, 0x1171db0c0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 19637, elementOrHash.elementID: 4710285312.311>
+                                    Other, 0x1171db200, {{0.0, -1587.0}, {390.0, 4648.0}} <AX element pid: 19637, elementOrHash.elementID: 4710885376.312>
+                                    Other, 0x1171db980, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 19637, elementOrHash.elementID: 4421741952.313>
+                                      Other, 0x1171dbac0, {{0.0, 0.0}, {390.0, 155.8}} <AX element pid: 19637, elementOrHash.elementID: 4421964160.329>
+                                    Other, 0x1171dbc00, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 19637, elementOrHash.elementID: 4421741504.314>
+                                    Cell, 0x1171dbd40, {{0.0, 101.0}, {390.0, 54.0}} <AX element pid: 19637, elementOrHash.elementID: 4439600384.315>
+                                      Other, 0x1171dbe80, {{0.0, 101.0}, {390.0, 54.0}} <AX element pid: 19637, elementOrHash.elementID: 4709098496.330>
+                                        Other, 0x1171d3c00, {{0.0, 101.0}, {390.0, 54.0}} <AX element pid: 19637, elementOrHash.elementID: 4421870336.349>
+                                      Other, 0x1171d3d40, {{0.0, 101.0}, {390.0, 54.0}} <AX element pid: 19637, elementOrHash.elementID: 4421869440.331>
+                                        Other, 0x1171d3e80, {{0.0, 101.0}, {390.0, 54.0}} <AX element pid: 19637, elementOrHash.elementID: 4642780672.350>
+                                          Other, 0x1171c1040, {{0.0, 101.0}, {390.0, 54.0}} <AX element pid: 19637, elementOrHash.elementID: 4421790208.367>
+                                            StaticText, 0x1171e4000, {{0.0, 101.0}, {390.0, 54.0}}, label: 'Werkstattkosten' <AX element pid: 19637, elementOrHash.elementID: 4421066624.376>
+                                    Cell, 0x1171e4140, {{0.0, 155.0}, {390.0, 52.0}} <AX element pid: 19637, elementOrHash.elementID: 4710416384.316>
+                                      Other, 0x1171e4280, {{0.0, 155.0}, {390.0, 52.0}} <AX element pid: 19637, elementOrHash.elementID: 4709099520.332>
+                                        Other, 0x1171e43c0, {{0.0, 155.0}, {390.0, 52.0}} <AX element pid: 19637, elementOrHash.elementID: 4421871232.351>
+                                      Other, 0x1171e4500, {{0.0, 155.0}, {390.0, 52.0}} <AX element pid: 19637, elementOrHash.elementID: 4421870784.333>
+                                        Other, 0x1171e4640, {{0.0, 155.0}, {390.0, 52.0}} <AX element pid: 19637, elementOrHash.elementID: 4642779136.352>
+                                          Other, 0x1171e4780, {{0.0, 155.0}, {390.0, 52.0}} <AX element pid: 19637, elementOrHash.elementID: 4421684736.368>
+                                            Button, 0x1171e48c0, {{0.0, 155.0}, {390.0, 52.0}}, identifier: 'costsCurrency', label: 'Währung', value: Euro (EUR) <AX element pid: 19637, elementOrHash.elementID: 4421685184.377>
+                                              Button, 0x1171e4a00, {{16.0, 171.0}, {358.0, 20.3}}, label: 'Währung, Euro (EUR)' <AX element pid: 19637, elementOrHash.elementID: 4421683392.386>
+                                                Button, 0x1171e4b40, {{16.0, 171.0}, {358.0, 20.3}} <AX element pid: 19637, elementOrHash.elementID: 4642400768.402>
+                                                  StaticText, 0x1171e4c80, {{16.0, 170.8}, {68.7, 20.3}}, label: 'Währung' <AX element pid: 19637, elementOrHash.elementID: 4421787968.413>
+                                                  StaticText, 0x1171e4dc0, {{267.0, 170.8}, {83.7, 20.3}}, label: 'Euro (EUR)' <AX element pid: 19637, elementOrHash.elementID: 4421788416.414>
+                                                  Image, 0x1171e4f00, {{360.7, 173.3}, {11.3, 16.0}}, identifier: 'chevron.up.chevron.down', label: 'Auf- Und Abwärtszeigende Chevrons' <AX element pid: 19637, elementOrHash.elementID: 4421788864.415>
+                                    Cell, 0x1171e5040, {{0.0, 207.0}, {390.0, 52.0}} <AX element pid: 19637, elementOrHash.elementID: 4710417664.317>
+                                      Other, 0x1171e5180, {{0.0, 207.0}, {390.0, 52.0}} <AX element pid: 19637, elementOrHash.elementID: 4709101568.334>
+                                        Other, 0x1171e52c0, {{0.0, 207.0}, {390.0, 52.0}} <AX element pid: 19637, elementOrHash.elementID: 4421872576.353>
+                                      Other, 0x1171e5400, {{0.0, 207.0}, {390.0, 52.0}} <AX element pid: 19637, elementOrHash.elementID: 4421872128.335>
+                                        Other, 0x1171e5540, {{0.0, 207.0}, {390.0, 52.0}} <AX element pid: 19637, elementOrHash.elementID: 4373326336.354>
+                                          Other, 0x1171e5680, {{0.0, 207.0}, {390.0, 52.0}} <AX element pid: 19637, elementOrHash.elementID: 4421682048.369>
+                                            StaticText, 0x1171e57c0, {{0.0, 207.0}, {390.0, 52.0}}, identifier: 'costsCurrentYearTotal', label: 'Gesamt 2026, € 509,00' <AX element pid: 19637, elementOrHash.elementID: 4421682496.378>
+                                              StaticText, 0x1171e5900, {{16.0, 222.8}, {108.0, 20.3}}, label: 'Gesamt 2026' <AX element pid: 19637, elementOrHash.elementID: 4421684288.387>
+                                              StaticText, 0x1171e5a40, {{301.0, 222.8}, {73.0, 20.3}}, label: '€ 509,00' <AX element pid: 19637, elementOrHash.elementID: 4421682944.388>
+                                    Other, 0x1171e5b80, {{16.0, 206.0}, {358.0, 1.0}} <AX element pid: 19637, elementOrHash.elementID: 4710885888.318>
+                                    Cell, 0x1171e5cc0, {{0.0, 259.0}, {390.0, 52.0}} <AX element pid: 19637, elementOrHash.elementID: 4710418944.319>
+                                      Other, 0x1171e5e00, {{0.0, 259.0}, {390.0, 52.0}} <AX element pid: 19637, elementOrHash.elementID: 4709103616.336>
+                                        Other, 0x1171e5f40, {{0.0, 259.0}, {390.0, 52.0}} <AX element pid: 19637, elementOrHash.elementID: 4421873472.355>
+                                      Other, 0x1171e6080, {{0.0, 259.0}, {390.0, 52.0}} <AX element pid: 19637, elementOrHash.elementID: 4421873024.337>
+                                        Other, 0x1171e61c0, {{0.0, 259.0}, {390.0, 52.0}} <AX element pid: 19637, elementOrHash.elementID: 4710580224.356>
+                                          Other, 0x1171e6300, {{0.0, 259.0}, {390.0, 52.0}} <AX element pid: 19637, elementOrHash.elementID: 4421733440.370>
+                                            Other, 0x1171e6440, {{0.0, 259.0}, {390.0, 52.0}}, label: 'Reparatur, € 420,00' <AX element pid: 19637, elementOrHash.elementID: 4421732096.379>
+                                              Image, 0x1171e6580, {{16.0, 273.3}, {24.0, 23.3}}, identifier: 'hammer', label: 'Kompilieren' <AX element pid: 19637, elementOrHash.elementID: 4421681152.389>
+                                              StaticText, 0x1171e66c0, {{16.0, 273.3}, {107.7, 23.3}}, label: 'Reparatur' <AX element pid: 19637, elementOrHash.elementID: 4421732992.390>
+                                              StaticText, 0x1171e6800, {{311.7, 276.0}, {62.3, 18.0}}, label: '€ 420,00' <AX element pid: 19637, elementOrHash.elementID: 4421732544.391>
+                                    Other, 0x1171e6940, {{16.0, 258.0}, {358.0, 1.0}} <AX element pid: 19637, elementOrHash.elementID: 4710886400.320>
+                                    Cell, 0x1171e6a80, {{0.0, 311.0}, {390.0, 52.0}} <AX element pid: 19637, elementOrHash.elementID: 4710420224.321>
+                                      Other, 0x1171e6bc0, {{0.0, 311.0}, {390.0, 52.0}} <AX element pid: 19637, elementOrHash.elementID: 4638626816.338>
+                                        Other, 0x1171e6d00, {{0.0, 311.0}, {390.0, 52.0}} <AX element pid: 19637, elementOrHash.elementID: 4421874816.357>
+                                      Other, 0x1171e6e40, {{0.0, 311.0}, {390.0, 52.0}} <AX element pid: 19637, elementOrHash.elementID: 4421874368.339>
+                                        Other, 0x1171e6f80, {{0.0, 311.0}, {390.0, 52.0}} <AX element pid: 19637, elementOrHash.elementID: 4710581760.358>
+                                          Other, 0x1171e70c0, {{0.0, 311.0}, {390.0, 52.0}} <AX element pid: 19637, elementOrHash.elementID: 4421862272.371>
+                                            Other, 0x1171e7200, {{0.0, 311.0}, {390.0, 52.0}}, label: 'Reifen, € 89,00' <AX element pid: 19637, elementOrHash.elementID: 4421565312.380>
+                                              Image, 0x1171e7340, {{18.3, 327.3}, {19.3, 19.3}}, identifier: 'circle.circle', label: 'circle.circle' <AX element pid: 19637, elementOrHash.elementID: 4421734784.392>
+                                              StaticText, 0x1171e7480, {{18.3, 327.3}, {80.7, 19.3}}, label: 'Reifen' <AX element pid: 19637, elementOrHash.elementID: 4421734336.393>
+                                              StaticText, 0x1171e75c0, {{320.3, 328.0}, {53.7, 18.0}}, label: '€ 89,00' <AX element pid: 19637, elementOrHash.elementID: 4421648384.394>
+                                    Other, 0x1171e7700, {{56.0, 310.0}, {318.0, 1.0}} <AX element pid: 19637, elementOrHash.elementID: 4710886912.322>
+                                    Cell, 0x1171e7840, {{0.0, 363.0}, {390.0, 61.0}} <AX element pid: 19637, elementOrHash.elementID: 4710421504.323>
+                                      Other, 0x1171e7980, {{0.0, 363.0}, {390.0, 61.0}} <AX element pid: 19637, elementOrHash.elementID: 4642484736.340>
+                                        Other, 0x1171e7ac0, {{0.0, 363.0}, {390.0, 61.0}} <AX element pid: 19637, elementOrHash.elementID: 4421876160.359>
+                                      Other, 0x1171e7c00, {{0.0, 363.0}, {390.0, 61.0}} <AX element pid: 19637, elementOrHash.elementID: 4421875712.341>
+                                        Other, 0x1171e7d40, {{0.0, 363.0}, {390.0, 61.0}} <AX element pid: 19637, elementOrHash.elementID: 4710583296.360>
+                                          Other, 0x1171e7e80, {{0.0, 363.0}, {390.0, 61.0}} <AX element pid: 19637, elementOrHash.elementID: 4421866752.372>
+                                            SegmentedControl, 0x1171e8000, {{16.0, 378.0}, {358.0, 31.0}}, identifier: 'costsDisplayPicker' <AX element pid: 19637, elementOrHash.elementID: 4710842368.381>
+                                              Button, 0x1171e8140, {{16.0, 378.0}, {179.0, 32.0}}, label: 'Diagramm', Selected <AX element pid: 19637, elementOrHash.elementID: 4710843136.395>
+                                              Button, 0x1171e8280, {{195.0, 378.0}, {179.0, 32.0}}, label: 'Tabelle' <AX element pid: 19637, elementOrHash.elementID: 4710843904.396>
+                                    Other, 0x1171e83c0, {{56.0, 362.0}, {318.0, 1.0}} <AX element pid: 19637, elementOrHash.elementID: 4710887424.324>
+                                    Cell, 0x1171e8500, {{0.0, 424.0}, {390.0, 315.0}} <AX element pid: 19637, elementOrHash.elementID: 4710424064.325>
+                                      Other, 0x1171e8640, {{0.0, 424.0}, {390.0, 315.0}} <AX element pid: 19637, elementOrHash.elementID: 4710876672.342>
+                                        Other, 0x1171e8780, {{0.0, 424.0}, {390.0, 315.0}} <AX element pid: 19637, elementOrHash.elementID: 4421755648.361>
+                                      Other, 0x1171e88c0, {{0.0, 424.0}, {390.0, 315.0}} <AX element pid: 19637, elementOrHash.elementID: 4421755200.343>
+                                        Other, 0x1171e8a00, {{0.0, 424.0}, {390.0, 315.0}} <AX element pid: 19637, elementOrHash.elementID: 4710584832.362>
+                                          Other, 0x1171e8b40, {{0.0, 424.0}, {390.0, 315.0}} <AX element pid: 19637, elementOrHash.elementID: 4421757440.373>
+                                            Other, 0x1171e8c80, {{16.0, 439.0}, {358.0, 220.0}}, identifier: 'costsChart' <AX element pid: 19637, elementOrHash.elementID: 4421861376.382>
+                                              Other, 0x1171e8dc0, {{16.0, 439.0}, {107.3, 202.0}}, label: '2024', value: 667 (gesamt), 3 Ka... <AX element pid: 19637, elementOrHash.elementID: 4421867648.397>
+                                              Other, 0x1171e8f00, {{123.3, 439.0}, {107.3, 202.0}}, label: '2025', value: 0 <AX element pid: 19637, elementOrHash.elementID: 4421868544.398>
+                                              Other, 0x1171e9040, {{230.7, 439.0}, {107.3, 202.0}}, label: '2026', value: 509 (gesamt), 2 Ka... <AX element pid: 19637, elementOrHash.elementID: 4421863168.399>
+                                            Other, 0x1171e9180, {{17.3, 672.0}, {272.3, 50.7}}, identifier: 'costsLegend', label: 'Legende', value: Service, Reparatur... <AX element pid: 19637, elementOrHash.elementID: 4421756992.383>
+                                              Other, 0x1171e92c0, {{17.3, 672.0}, {272.3, 50.7}} <AX element pid: 19637, elementOrHash.elementID: 4421757888.400>
+                                                Image, 0x1171e9400, {{17.7, 672.3}, {20.7, 20.3}}, identifier: 'wrench.and.screwdriver', label: 'wrench.and.screwdriver' <AX element pid: 19637, elementOrHash.elementID: 4421640512.403>
+                                                StaticText, 0x1171e9540, {{46.0, 674.7}, {45.3, 15.7}}, label: 'Service' <AX element pid: 19637, elementOrHash.elementID: 4421638720.404>
+                                                Image, 0x1171e9680, {{200.7, 672.0}, {21.7, 21.0}}, identifier: 'hammer', label: 'Kompilieren' <AX element pid: 19637, elementOrHash.elementID: 4421643200.405>
+                                                StaticText, 0x1171e97c0, {{230.0, 674.7}, {59.7, 15.7}}, label: 'Reparatur' <AX element pid: 19637, elementOrHash.elementID: 4421641856.406>
+                                                Image, 0x1171e9900, {{17.3, 704.3}, {17.0, 17.0}}, identifier: 'circle.circle', label: 'circle.circle' <AX element pid: 19637, elementOrHash.elementID: 4421760128.407>
+                                                StaticText, 0x1171e9a40, {{41.7, 705.0}, {38.0, 15.7}}, label: 'Reifen' <AX element pid: 19637, elementOrHash.elementID: 4421759232.408>
+                                                Image, 0x1171e9b80, {{200.3, 703.0}, {19.7, 19.7}}, identifier: 'checkmark.seal', label: 'Überprüft', Selected <AX element pid: 19637, elementOrHash.elementID: 4421754304.409>
+                                                StaticText, 0x1171e9cc0, {{227.3, 705.0}, {40.7, 15.7}}, label: 'Pickerl' <AX element pid: 19637, elementOrHash.elementID: 4421758784.410>
+                                    Cell, 0x1171e9e00, {{0.0, 739.0}, {390.0, 62.0}} <AX element pid: 19637, elementOrHash.elementID: 4710422784.326>
+                                      Other, 0x1171e9f40, {{0.0, 739.0}, {390.0, 62.0}} <AX element pid: 19637, elementOrHash.elementID: 4710879744.344>
+                                        Other, 0x1171ea080, {{0.0, 739.0}, {390.0, 62.0}} <AX element pid: 19637, elementOrHash.elementID: 4421897728.363>
+                                      Other, 0x1171ea1c0, {{0.0, 739.0}, {390.0, 62.0}} <AX element pid: 19637, elementOrHash.elementID: 4421896832.345>
+                                        Other, 0x1171ea300, {{0.0, 739.0}, {390.0, 62.0}} <AX element pid: 19637, elementOrHash.elementID: 4710586368.364>
+                                          Other, 0x1171ea440, {{0.0, 739.0}, {390.0, 62.0}} <AX element pid: 19637, elementOrHash.elementID: 4421747584.374>
+                                            StaticText, 0x1171ea580, {{0.0, 739.0}, {390.0, 62.0}}, label: 'Einträge' <AX element pid: 19637, elementOrHash.elementID: 4421747136.384>
+                                    Cell, 0x1171ea6c0, {{0.0, 801.0}, {390.0, 52.0}} <AX element pid: 19637, elementOrHash.elementID: 4710425344.327>
+                                      Other, 0x1171ea800, {{0.0, 801.0}, {390.0, 52.0}} <AX element pid: 19637, elementOrHash.elementID: 4710881280.346>
+                                        Other, 0x1171ea940, {{0.0, 801.0}, {390.0, 52.0}} <AX element pid: 19637, elementOrHash.elementID: 4421898624.365>
+                                      Other, 0x1171eaa80, {{0.0, 801.0}, {390.0, 52.0}} <AX element pid: 19637, elementOrHash.elementID: 4421898176.347>
+                                        Other, 0x1171eabc0, {{0.0, 801.0}, {390.0, 52.0}} <AX element pid: 19637, elementOrHash.elementID: 4710587904.366>
+                                          Other, 0x1171ead00, {{0.0, 801.0}, {390.0, 52.0}} <AX element pid: 19637, elementOrHash.elementID: 4421751168.375>
+                                            Button, 0x1171eae40, {{0.0, 801.0}, {390.0, 52.0}}, identifier: 'historyFilter', label: 'Kategorie', value: Alle <AX element pid: 19637, elementOrHash.elementID: 4421752512.385>
+                                              Button, 0x1171eaf80, {{16.0, 817.0}, {358.0, 20.3}}, label: 'Kategorie, Alle' <AX element pid: 19637, elementOrHash.elementID: 4421753856.401>
+                                                Button, 0x1171eb0c0, {{16.0, 817.0}, {358.0, 20.3}} <AX element pid: 19637, elementOrHash.elementID: 4642399872.411>
+                                                  StaticText, 0x1171eb200, {{16.0, 816.8}, {73.3, 20.3}}, label: 'Kategorie' <AX element pid: 19637, elementOrHash.elementID: 4421748032.417>
+                                                  StaticText, 0x1171eb340, {{322.3, 816.8}, {28.3, 20.3}}, label: 'Alle' <AX element pid: 19637, elementOrHash.elementID: 4421748480.418>
+                                                  Image, 0x1171eb480, {{360.7, 819.3}, {11.3, 16.0}}, identifier: 'chevron.up.chevron.down', label: 'Auf- Und Abwärtszeigende Chevrons' <AX element pid: 19637, elementOrHash.elementID: 4421748928.419>
+                                    Other, 0x1171eb5c0, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertikaler Rollbalken, 2 Seiten', value: 0 % <AX element pid: 19637, elementOrHash.elementID: 4709096448.328>
+                                      Other, 0x1171eb700, {{384.0, 104.0}, {3.0, 413.7}} <AX element pid: 19637, elementOrHash.elementID: 4421868992.348>
+                                    Other, 0x1171eb840, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertikaler Rollbalken, 2 Seiten', value: 0 % <AX element pid: 19637, elementOrHash.elementID: 4709096448.328>
+                                      Other, 0x1171eb980, {{384.0, 104.0}, {3.0, 413.7}} <AX element pid: 19637, elementOrHash.elementID: 4421868992.348>
+                          Other, 0x1171ebac0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 19637, elementOrHash.elementID: 4635806208.160>
+                            Other, 0x1171ebc00, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 19637, elementOrHash.elementID: 4638626304.164>
+              Other, 0x1171ebd40, {{0.0, 761.0}, {390.0, 83.0}} <AX element pid: 19637, elementOrHash.elementID: 4422146624.11>
+                Other, 0x1171ebe80, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 19637, elementOrHash.elementID: 4422153344.13>
+                Other, 0x1171ec000, {{0.0, 761.0}, {390.0, 83.0}} <AX element pid: 19637, elementOrHash.elementID: 4422158848.14>
+===== testHistoryCostsTablePassesAccessibilityAuditInGerman / Debug description for `"addEntryButton" Any`_0_534C6745-C82C-4C99-BBB3-B0773FC8A686.txt
+Query chain:
+ →Find: Target Application 'com.example.pitlog'
+  ↪︎Find: Descendants matching type Any
+    ↪︎Find: Elements matching predicate '"addEntryButton" IN identifiers'
+
+===== testHistoryCostsTablePassesAccessibilityAuditInGerman / Debug description for `"addEntryButton" Any`_0_7735747F-0AB4-4151-B125-DE5F35B92B09.txt
+Query chain:
+ →Find: Target Application 'com.example.pitlog'
+  ↪︎Find: Descendants matching type Any
+    ↪︎Find: Elements matching predicate '"addEntryButton" IN identifiers'
+
+===== testHistoryCostsTablePassesAccessibilityAuditInGerman / Debug description for `"addEntryButton" Any`_0_BD5CC768-A47B-4F13-8FEF-FE7ED0072BB3.txt
+Query chain:
+ →Find: Target Application 'com.example.pitlog'
+  ↪︎Find: Descendants matching type Any
+    ↪︎Find: Elements matching predicate '"addEntryButton" IN identifiers'
+
+===== testHistoryCostsTablePassesAccessibilityAuditInGerman / Debug description for `"addEntryButton" Any`_0_87450D43-07CA-4DEF-BC41-8C75290D1A0D.txt
+Query chain:
+ →Find: Target Application 'com.example.pitlog'
+  ↪︎Find: Descendants matching type Any
+    ↪︎Find: Elements matching predicate '"addEntryButton" IN identifiers'
+
+===== testHistoryCostsTablePassesAccessibilityAuditInGerman / Debug description for `"addEntryButton" Any`_0_677E1CF4-EF2D-4B68-9B52-41D93F858459.txt
+Query chain:
+ →Find: Target Application 'com.example.pitlog'
+  ↪︎Find: Descendants matching type Any
+    ↪︎Find: Elements matching predicate '"addEntryButton" IN identifiers'
+
+===== testHistoryTimelinePassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this element
+===== testHistoryTimelinePassesAccessibilityAuditInGerman / App UI hierarchy for com.example_0_A36E941B-FEA6-4E2F-9E71-B07C5A5D2C34.pitlog
+Application, 0x1171efd40, pid: 21601, label: 'Pitlog' <App element pid: 21601>
+  Window (Main), 0x1171ee300, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 21601, elementOrHash.elementID: 4369500160.4>
+    Other, 0x1171ee440, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 21601, elementOrHash.elementID: 4418601984.5>
+      Other, 0x1171ee580, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 21601, elementOrHash.elementID: 4417600512.6>
+        Other, 0x1171ee6c0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 21601, elementOrHash.elementID: 4369499136.7>
+          Other, 0x1171ee800, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 21601, elementOrHash.elementID: 4417346560.8>
+            Other, 0x1171ee940, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 21601, elementOrHash.elementID: 4417919104.9>
+              Other, 0x1171eea80, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 21601, elementOrHash.elementID: 4418605056.10>
+                Other, 0x1171eed00, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 21601, elementOrHash.elementID: 4416850560.12>
+                  Other, 0x1171eebc0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 21601, elementOrHash.elementID: 4369504256.154>
+                    Other, 0x1171eee40, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 21601, elementOrHash.elementID: 4417429824.155>
+                      Other, 0x1171eef80, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 21601, elementOrHash.elementID: 4417433408.156>
+                        Other, 0x1171ef0c0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 21601, elementOrHash.elementID: 4417442176.157>
+                          NavigationBar, 0x1171ec280, {{0.0, 47.0}, {390.0, 54.0}}, identifier: 'Historie' <AX element pid: 21601, elementOrHash.elementID: 4419565056.158>
+                            Button, 0x1171ec3c0, {{16.0, 47.0}, {44.0, 44.0}}, identifier: 'BackButton', label: 'Golf' <AX element pid: 21601, elementOrHash.elementID: 4369939968.231>
+                            StaticText, 0x1171ef340, {{163.7, 58.7}, {62.3, 20.7}}, label: 'Historie' <AX element pid: 21601, elementOrHash.elementID: 4641812736.308>
+                          Other, 0x1171ef480, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 21601, elementOrHash.elementID: 4417443072.159>
+                            Other, 0x1171ef5c0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 21601, elementOrHash.elementID: 4417450240.163>
+                              Other, 0x1171ef700, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 21601, elementOrHash.elementID: 4641806464.309>
+                                Other, 0x1171ef840, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 21601, elementOrHash.elementID: 4417576384.310>
+                                  CollectionView, 0x1171ef980, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 21601, elementOrHash.elementID: 4705697792.311>
+                                    Other, 0x1171efc00, {{0.0, -1587.0}, {390.0, 4648.0}} <AX element pid: 21601, elementOrHash.elementID: 4710588928.312>
+                                    Other, 0x1171efe80, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 21601, elementOrHash.elementID: 4417505024.313>
+                                      Other, 0x1171d97c0, {{0.0, 0.0}, {390.0, 155.8}} <AX element pid: 21601, elementOrHash.elementID: 4417752128.329>
+                                    Other, 0x1171f8000, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 21601, elementOrHash.elementID: 4417504576.314>
+                                    Cell, 0x1171f8140, {{0.0, 101.0}, {390.0, 54.0}} <AX element pid: 21601, elementOrHash.elementID: 4435668224.315>
+                                      Other, 0x1171f8280, {{0.0, 101.0}, {390.0, 54.0}} <AX element pid: 21601, elementOrHash.elementID: 4704560128.330>
+                                        Other, 0x1171f83c0, {{0.0, 101.0}, {390.0, 54.0}} <AX element pid: 21601, elementOrHash.elementID: 4417659648.349>
+                                      Other, 0x1171f8500, {{0.0, 101.0}, {390.0, 54.0}} <AX element pid: 21601, elementOrHash.elementID: 4417658752.331>
+                                        Other, 0x1171f8640, {{0.0, 101.0}, {390.0, 54.0}} <AX element pid: 21601, elementOrHash.elementID: 4642240000.350>
+                                          Other, 0x1171f8780, {{0.0, 101.0}, {390.0, 54.0}} <AX element pid: 21601, elementOrHash.elementID: 4417577728.367>
+                                            StaticText, 0x1171f88c0, {{0.0, 101.0}, {390.0, 54.0}}, label: 'Werkstattkosten' <AX element pid: 21601, elementOrHash.elementID: 4417577280.376>
+                                    Cell, 0x1171f8a00, {{0.0, 155.0}, {390.0, 52.0}} <AX element pid: 21601, elementOrHash.elementID: 4705861632.316>
+                                      Other, 0x1171f8b40, {{0.0, 155.0}, {390.0, 52.0}} <AX element pid: 21601, elementOrHash.elementID: 4704561152.332>
+                                        Other, 0x1171f8c80, {{0.0, 155.0}, {390.0, 52.0}} <AX element pid: 21601, elementOrHash.elementID: 4417660544.351>
+                                      Other, 0x1171f8dc0, {{0.0, 155.0}, {390.0, 52.0}} <AX element pid: 21601, elementOrHash.elementID: 4417660096.333>
+                                        Other, 0x1171f8f00, {{0.0, 155.0}, {390.0, 52.0}} <AX element pid: 21601, elementOrHash.elementID: 4642238464.352>
+                                          Other, 0x1171f9040, {{0.0, 155.0}, {390.0, 52.0}} <AX element pid: 21601, elementOrHash.elementID: 4417471360.368>
+                                            Button, 0x1171f9180, {{0.0, 155.0}, {390.0, 52.0}}, identifier: 'costsCurrency', label: 'Währung', value: Euro (EUR) <AX element pid: 21601, elementOrHash.elementID: 4417471808.377>
+                                              Button, 0x1171f92c0, {{16.0, 171.0}, {358.0, 20.3}}, label: 'Währung, Euro (EUR)' <AX element pid: 21601, elementOrHash.elementID: 4417472704.386>
+                                                Button, 0x1171f9400, {{16.0, 171.0}, {358.0, 20.3}} <AX element pid: 21601, elementOrHash.elementID: 4641810944.402>
+                                                  StaticText, 0x1171f9540, {{16.0, 170.8}, {68.7, 20.3}}, label: 'Währung' <AX element pid: 21601, elementOrHash.elementID: 4417578176.413>
+                                                  StaticText, 0x1171f9680, {{267.0, 170.8}, {83.7, 20.3}}, label: 'Euro (EUR)' <AX element pid: 21601, elementOrHash.elementID: 4417472256.414>
+                                                  Image, 0x1171f97c0, {{360.7, 173.3}, {11.3, 16.0}}, identifier: 'chevron.up.chevron.down', label: 'Auf- Und Abwärtszeigende Chevrons' <AX element pid: 21601, elementOrHash.elementID: 4417474048.415>
+                                    Cell, 0x1171f9900, {{0.0, 207.0}, {390.0, 52.0}} <AX element pid: 21601, elementOrHash.elementID: 4705862912.317>
+                                      Other, 0x1171f9a40, {{0.0, 207.0}, {390.0, 52.0}} <AX element pid: 21601, elementOrHash.elementID: 4704563200.334>
+                                        Other, 0x1171f9b80, {{0.0, 207.0}, {390.0, 52.0}} <AX element pid: 21601, elementOrHash.elementID: 4417661888.353>
+                                      Other, 0x1171f9cc0, {{0.0, 207.0}, {390.0, 52.0}} <AX element pid: 21601, elementOrHash.elementID: 4417661440.335>
+                                        Other, 0x1171f9e00, {{0.0, 207.0}, {390.0, 52.0}} <AX element pid: 21601, elementOrHash.elementID: 4369133568.354>
+                                          Other, 0x1171f9f40, {{0.0, 207.0}, {390.0, 52.0}} <AX element pid: 21601, elementOrHash.elementID: 4416858624.369>
+                                            StaticText, 0x1171fa080, {{0.0, 207.0}, {390.0, 52.0}}, identifier: 'costsCurrentYearTotal', label: 'Gesamt 2026, € 509,00' <AX element pid: 21601, elementOrHash.elementID: 4416863552.378>
+                                              StaticText, 0x1171fa1c0, {{16.0, 222.8}, {108.0, 20.3}}, label: 'Gesamt 2026' <AX element pid: 21601, elementOrHash.elementID: 4417470464.387>
+                                              StaticText, 0x1171fa300, {{301.0, 222.8}, {73.0, 20.3}}, label: '€ 509,00' <AX element pid: 21601, elementOrHash.elementID: 4416863104.388>
+                                    Other, 0x1171fa440, {{16.0, 206.0}, {358.0, 1.0}} <AX element pid: 21601, elementOrHash.elementID: 4710589440.318>
+                                    Cell, 0x1171fa580, {{0.0, 259.0}, {390.0, 52.0}} <AX element pid: 21601, elementOrHash.elementID: 4705864192.319>
+                                      Other, 0x1171fa6c0, {{0.0, 259.0}, {390.0, 52.0}} <AX element pid: 21601, elementOrHash.elementID: 4704565248.336>
+                                        Other, 0x1171fa800, {{0.0, 259.0}, {390.0, 52.0}} <AX element pid: 21601, elementOrHash.elementID: 4417662784.355>
+                                      Other, 0x1171fa940, {{0.0, 259.0}, {390.0, 52.0}} <AX element pid: 21601, elementOrHash.elementID: 4417662336.337>
+                                        Other, 0x1171faa80, {{0.0, 259.0}, {390.0, 52.0}} <AX element pid: 21601, elementOrHash.elementID: 4710268928.356>
+                                          Other, 0x1171fabc0, {{0.0, 259.0}, {390.0, 52.0}} <AX element pid: 21601, elementOrHash.elementID: 4416859968.370>
+                                            Other, 0x1171fad00, {{0.0, 259.0}, {390.0, 52.0}}, label: 'Reparatur, € 420,00' <AX element pid: 21601, elementOrHash.elementID: 4416855040.379>
+                                              Image, 0x1171fae40, {{16.0, 273.3}, {24.0, 23.3}}, identifier: 'hammer', label: 'Kompilieren' <AX element pid: 21601, elementOrHash.elementID: 4416854144.389>
+                                              StaticText, 0x1171faf80, {{16.0, 273.3}, {107.7, 23.3}}, label: 'Reparatur' <AX element pid: 21601, elementOrHash.elementID: 4416856384.390>
+                                              StaticText, 0x1171fb0c0, {{311.7, 276.0}, {62.3, 18.0}}, label: '€ 420,00' <AX element pid: 21601, elementOrHash.elementID: 4416855936.391>
+                                    Other, 0x1171fb200, {{16.0, 258.0}, {358.0, 1.0}} <AX element pid: 21601, elementOrHash.elementID: 4710589952.320>
+                                    Cell, 0x1171fb340, {{0.0, 311.0}, {390.0, 52.0}} <AX element pid: 21601, elementOrHash.elementID: 4705865472.321>
+                                      Other, 0x1171fb480, {{0.0, 311.0}, {390.0, 52.0}} <AX element pid: 21601, elementOrHash.elementID: 4631496704.338>
+                                        Other, 0x1171fb5c0, {{0.0, 311.0}, {390.0, 52.0}} <AX element pid: 21601, elementOrHash.elementID: 4417664128.357>
+                                      Other, 0x1171fb700, {{0.0, 311.0}, {390.0, 52.0}} <AX element pid: 21601, elementOrHash.elementID: 4417663680.339>
+                                        Other, 0x1171fb840, {{0.0, 311.0}, {390.0, 52.0}} <AX element pid: 21601, elementOrHash.elementID: 4710270464.358>
+                                          Other, 0x1171fb980, {{0.0, 311.0}, {390.0, 52.0}} <AX element pid: 21601, elementOrHash.elementID: 4417656064.371>
+                                            Other, 0x1171fbac0, {{0.0, 311.0}, {390.0, 52.0}}, label: 'Reifen, € 89,00' <AX element pid: 21601, elementOrHash.elementID: 4417656512.380>
+                                              Image, 0x1171fbc00, {{18.3, 327.3}, {19.3, 19.3}}, identifier: 'circle.circle', label: 'circle.circle' <AX element pid: 21601, elementOrHash.elementID: 4416859072.392>
+                                              StaticText, 0x1171fbd40, {{18.3, 327.3}, {80.7, 19.3}}, label: 'Reifen' <AX element pid: 21601, elementOrHash.elementID: 4416862656.393>
+                                              StaticText, 0x1171fbe80, {{320.3, 328.0}, {53.7, 18.0}}, label: '€ 89,00' <AX element pid: 21601, elementOrHash.elementID: 4417651584.394>
+                                    Other, 0x1171fc000, {{56.0, 310.0}, {318.0, 1.0}} <AX element pid: 21601, elementOrHash.elementID: 4710590464.322>
+                                    Cell, 0x1171fc140, {{0.0, 363.0}, {390.0, 61.0}} <AX element pid: 21601, elementOrHash.elementID: 4705866752.323>
+                                      Other, 0x1171fc280, {{0.0, 363.0}, {390.0, 61.0}} <AX element pid: 21601, elementOrHash.elementID: 4641927680.340>
+                                        Other, 0x1171fc3c0, {{0.0, 363.0}, {390.0, 61.0}} <AX element pid: 21601, elementOrHash.elementID: 4417665472.359>
+                                      Other, 0x1171fc500, {{0.0, 363.0}, {390.0, 61.0}} <AX element pid: 21601, elementOrHash.elementID: 4417665024.341>
+                                        Other, 0x1171fc640, {{0.0, 363.0}, {390.0, 61.0}} <AX element pid: 21601, elementOrHash.elementID: 4710272000.360>
+                                          Other, 0x1171fc780, {{0.0, 363.0}, {390.0, 61.0}} <AX element pid: 21601, elementOrHash.elementID: 4417657856.372>
+                                            SegmentedControl, 0x1171fc8c0, {{16.0, 378.0}, {358.0, 31.0}}, identifier: 'costsDisplayPicker' <AX element pid: 21601, elementOrHash.elementID: 4710531072.381>
+                                              Button, 0x1171fca00, {{16.0, 378.0}, {179.0, 32.0}}, label: 'Diagramm', Selected <AX element pid: 21601, elementOrHash.elementID: 4710531840.395>
+                                              Button, 0x1171fcb40, {{195.0, 378.0}, {179.0, 32.0}}, label: 'Tabelle' <AX element pid: 21601, elementOrHash.elementID: 4710532608.396>
+                                    Other, 0x1171fcc80, {{56.0, 362.0}, {318.0, 1.0}} <AX element pid: 21601, elementOrHash.elementID: 4710590976.324>
+                                    Cell, 0x1171fcdc0, {{0.0, 424.0}, {390.0, 315.0}} <AX element pid: 21601, elementOrHash.elementID: 4705868032.325>
+                                      Other, 0x1171fcf00, {{0.0, 424.0}, {390.0, 315.0}} <AX element pid: 21601, elementOrHash.elementID: 4710581760.342>
+                                        Other, 0x1171fd040, {{0.0, 424.0}, {390.0, 315.0}} <AX element pid: 21601, elementOrHash.elementID: 4417544512.361>
+                                      Other, 0x1171fd180, {{0.0, 424.0}, {390.0, 315.0}} <AX element pid: 21601, elementOrHash.elementID: 4417543616.343>
+                                        Other, 0x1171fd2c0, {{0.0, 424.0}, {390.0, 315.0}} <AX element pid: 21601, elementOrHash.elementID: 4710273536.362>
+                                          Other, 0x1171fd400, {{0.0, 424.0}, {390.0, 315.0}} <AX element pid: 21601, elementOrHash.elementID: 4417536896.373>
+                                            Other, 0x1171fd540, {{16.0, 439.0}, {358.0, 220.0}}, identifier: 'costsChart' <AX element pid: 21601, elementOrHash.elementID: 4417429376.382>
+                                              Other, 0x1171fd680, {{16.0, 439.0}, {107.3, 202.0}}, label: '2024', value: 667 (gesamt), 3 Ka... <AX element pid: 21601, elementOrHash.elementID: 4417652480.397>
+                                              Other, 0x1171fd7c0, {{123.3, 439.0}, {107.3, 202.0}}, label: '2025', value: 0 <AX element pid: 21601, elementOrHash.elementID: 4417650688.398>
+                                              Other, 0x1171fd900, {{230.7, 439.0}, {107.3, 202.0}}, label: '2026', value: 509 (gesamt), 2 Ka... <AX element pid: 21601, elementOrHash.elementID: 4417426240.399>
+                                            Other, 0x1171fda40, {{17.3, 672.0}, {272.3, 50.7}}, identifier: 'costsLegend', label: 'Legende', value: Service, Reparatur... <AX element pid: 21601, elementOrHash.elementID: 4417536448.383>
+                                              Other, 0x1171fdb80, {{17.3, 672.0}, {272.3, 50.7}} <AX element pid: 21601, elementOrHash.elementID: 4417546304.400>
+                                                Image, 0x1171fdcc0, {{17.7, 672.3}, {20.7, 20.3}}, identifier: 'wrench.and.screwdriver', label: 'wrench.and.screwdriver' <AX element pid: 21601, elementOrHash.elementID: 4417432064.403>
+                                                StaticText, 0x1171fde00, {{46.0, 674.7}, {45.3, 15.7}}, label: 'Service' <AX element pid: 21601, elementOrHash.elementID: 4417430272.404>
+                                                Image, 0x1171fdf40, {{200.7, 672.0}, {21.7, 21.0}}, identifier: 'hammer', label: 'Kompilieren' <AX element pid: 21601, elementOrHash.elementID: 4417548544.405>
+                                                StaticText, 0x1171fe080, {{230.0, 674.7}, {59.7, 15.7}}, label: 'Reparatur' <AX element pid: 21601, elementOrHash.elementID: 4417548096.406>
+                                                Image, 0x1171fe1c0, {{17.3, 704.3}, {17.0, 17.0}}, identifier: 'circle.circle', label: 'circle.circle' <AX element pid: 21601, elementOrHash.elementID: 4417543168.407>
+                                                StaticText, 0x1171fe300, {{41.7, 705.0}, {38.0, 15.7}}, label: 'Reifen' <AX element pid: 21601, elementOrHash.elementID: 4417547200.408>
+                                                Image, 0x1171fe440, {{200.3, 703.0}, {19.7, 19.7}}, identifier: 'checkmark.seal', label: 'Überprüft', Selected <AX element pid: 21601, elementOrHash.elementID: 4417546752.409>
+                                                StaticText, 0x1171fe580, {{227.3, 705.0}, {40.7, 15.7}}, label: 'Pickerl' <AX element pid: 21601, elementOrHash.elementID: 4417545856.410>
+                                    Cell, 0x1171fe6c0, {{0.0, 739.0}, {390.0, 62.0}} <AX element pid: 21601, elementOrHash.elementID: 4705869312.326>
+                                      Other, 0x1171fe800, {{0.0, 739.0}, {390.0, 62.0}} <AX element pid: 21601, elementOrHash.elementID: 4710584832.344>
+                                        Other, 0x1171fe940, {{0.0, 739.0}, {390.0, 62.0}} <AX element pid: 21601, elementOrHash.elementID: 4417687040.363>
+                                      Other, 0x1171fea80, {{0.0, 739.0}, {390.0, 62.0}} <AX element pid: 21601, elementOrHash.elementID: 4417686144.345>
+                                        Other, 0x1171febc0, {{0.0, 739.0}, {390.0, 62.0}} <AX element pid: 21601, elementOrHash.elementID: 4710275072.364>
+                                          Other, 0x1171fed00, {{0.0, 739.0}, {390.0, 62.0}} <AX element pid: 21601, elementOrHash.elementID: 4417537792.374>
+                                            StaticText, 0x1171fee40, {{0.0, 739.0}, {390.0, 62.0}}, label: 'Einträge' <AX element pid: 21601, elementOrHash.elementID: 4417537344.384>
+                                    Cell, 0x1171fef80, {{0.0, 801.0}, {390.0, 52.0}} <AX element pid: 21601, elementOrHash.elementID: 4705870592.327>
+                                      Other, 0x1171ff0c0, {{0.0, 801.0}, {390.0, 52.0}} <AX element pid: 21601, elementOrHash.elementID: 4710586368.346>
+                                        Other, 0x1171ff200, {{0.0, 801.0}, {390.0, 52.0}} <AX element pid: 21601, elementOrHash.elementID: 4417687936.365>
+                                      Other, 0x1171ff340, {{0.0, 801.0}, {390.0, 52.0}} <AX element pid: 21601, elementOrHash.elementID: 4417687488.347>
+                                        Other, 0x1171ff480, {{0.0, 801.0}, {390.0, 52.0}} <AX element pid: 21601, elementOrHash.elementID: 4710276608.366>
+                                          Other, 0x1171ff5c0, {{0.0, 801.0}, {390.0, 52.0}} <AX element pid: 21601, elementOrHash.elementID: 4417541824.375>
+                                            Button, 0x1171ff700, {{0.0, 801.0}, {390.0, 52.0}}, identifier: 'historyFilter', label: 'Kategorie', value: Alle <AX element pid: 21601, elementOrHash.elementID: 4417540928.385>
+                                              Button, 0x1171ff840, {{16.0, 817.0}, {358.0, 20.3}}, label: 'Kategorie, Alle' <AX element pid: 21601, elementOrHash.elementID: 4417540480.401>
+                                                Button, 0x1171ff980, {{16.0, 817.0}, {358.0, 20.3}} <AX element pid: 21601, elementOrHash.elementID: 4641810048.411>
+                                                  StaticText, 0x1171ffac0, {{16.0, 816.8}, {73.3, 20.3}}, label: 'Kategorie' <AX element pid: 21601, elementOrHash.elementID: 4417542272.417>
+                                                  StaticText, 0x1171ffc00, {{322.3, 816.8}, {28.3, 20.3}}, label: 'Alle' <AX element pid: 21601, elementOrHash.elementID: 4417542720.418>
+                                                  Image, 0x1171ffd40, {{360.7, 819.3}, {11.3, 16.0}}, identifier: 'chevron.up.chevron.down', label: 'Auf- Und Abwärtszeigende Chevrons' <AX element pid: 21601, elementOrHash.elementID: 4417541376.419>
+                                    Other, 0x1171ffe80, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertikaler Rollbalken, 2 Seiten', value: 0 % <AX element pid: 21601, elementOrHash.elementID: 4704558080.328>
+                                      Other, 0x117200000, {{384.0, 792.0}, {3.0, 7.0}} <AX element pid: 21601, elementOrHash.elementID: 4417658304.348>
+                                    Other, 0x117200140, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertikaler Rollbalken, 2 Seiten', value: 0 % <AX element pid: 21601, elementOrHash.elementID: 4704558080.328>
+                                      Other, 0x117200280, {{384.0, 792.0}, {3.0, 7.0}} <AX element pid: 21601, elementOrHash.elementID: 4417658304.348>
+                          Other, 0x1172003c0, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 21601, elementOrHash.elementID: 4631508480.160>
+                            Other, 0x117200500, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 21601, elementOrHash.elementID: 4631494656.164>
+              Other, 0x117200640, {{0.0, 761.0}, {390.0, 83.0}} <AX element pid: 21601, elementOrHash.elementID: 4417919552.11>
+                Other, 0x117200780, {{0.0, 0.0}, {390.0, 844.0}} <AX element pid: 21601, elementOrHash.elementID: 4417926272.13>
+                Other, 0x1172008c0, {{0.0, 761.0}, {390.0, 83.0}} <AX element pid: 21601, elementOrHash.elementID: 4418603008.14>
+===== testHistoryTimelinePassesAccessibilityAuditInGerman / Debug description for `"addEntryButton" Any`_0_D6A0EFF2-0913-4024-8985-6C11767DE0C7.txt
+Query chain:
+ →Find: Target Application 'com.example.pitlog'
+  ↪︎Find: Descendants matching type Any
+    ↪︎Find: Elements matching predicate '"addEntryButton" IN identifiers'
+
+===== testHistoryTimelinePassesAccessibilityAuditInGerman / Debug description for `"addEntryButton" Any`_0_7BB886C9-5AE3-4A0C-9B09-49DDDA28DE51.txt
+Query chain:
+ →Find: Target Application 'com.example.pitlog'
+  ↪︎Find: Descendants matching type Any
+    ↪︎Find: Elements matching predicate '"addEntryButton" IN identifiers'
+
+===== testHistoryTimelinePassesAccessibilityAuditInGerman / Debug description for `"addEntryButton" Any`_0_6F1DECC4-58BA-4C9B-8B82-9F85498DE1C6.txt
+Query chain:
+ →Find: Target Application 'com.example.pitlog'
+  ↪︎Find: Descendants matching type Any
+    ↪︎Find: Elements matching predicate '"addEntryButton" IN identifiers'
+
+===== testHistoryTimelinePassesAccessibilityAuditInGerman / Debug description for `"addEntryButton" Any`_0_1A75189F-11E6-4741-B482-DD88B6DD5771.txt
+Query chain:
+ →Find: Target Application 'com.example.pitlog'
+  ↪︎Find: Descendants matching type Any
+    ↪︎Find: Elements matching predicate '"addEntryButton" IN identifiers'
+
+===== testHistoryTimelinePassesAccessibilityAuditInGerman / Debug description for `"addEntryButton" Any`_0_1CF595F5-AE94-4B33-9A82-07FDD0564DAD.txt
+Query chain:
+ →Find: Target Application 'com.example.pitlog'
+  ↪︎Find: Descendants matching type Any
+    ↪︎Find: Elements matching predicate '"addEntryButton" IN identifiers'
+
+===== testReminderListPassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testReminderListPassesAccessibilityAuditInGerman / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testServiceReminderEditorPassesAccessibilityAudit / hierarchy-Service_0_B957739A-6C6E-4C7B-BB56-1ABB0115407C.txt
+Attributes: Application, 0x117202d00, pid: 26187, label: 'Pitlog'
+Element subtree:
+ →Application, 0x117202d00, pid: 26187, label: 'Pitlog'
+    Window (Main), 0x117201040, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x117201180, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x1172012c0, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x117201400, {{0.0, 0.0}, {390.0, 844.0}}
+          Other, 0x117203200, {{0.0, 0.0}, {390.0, 844.0}}
+            Other, 0x117201540, {{0.0, 0.0}, {390.0, 844.0}}
+              Other, 0x1172017c0, {{0.0, 0.0}, {390.0, 844.0}}
+                Other, 0x117201680, {{0.0, 0.0}, {390.0, 844.0}}
+                  Other, 0x117201900, {{0.0, 0.0}, {390.0, 844.0}}
+                    Other, 0x117201b80, {{0.0, 0.0}, {390.0, 844.0}}
+                      Other, 0x117201a40, {{0.0, 0.0}, {390.0, 844.0}}
+                        Other, 0x117202080, {{0.0, 0.0}, {390.0, 844.0}}
+                          Other, 0x117201f40, {{0.0, 0.0}, {390.0, 844.0}}
+                            NavigationBar, 0x1172021c0, {{0.0, 47.0}, {390.0, 54.0}}, identifier: 'Reminders'
+                              Button, 0x117203ac0, {{16.0, 47.0}, {44.0, 44.0}}, identifier: 'BackButton', label: 'Golf'
+                              StaticText, 0x117203c00, {{152.3, 58.7}, {85.0, 20.7}}, label: 'Reminders'
+                            Other, 0x117202580, {{0.0, 0.0}, {390.0, 844.0}}
+                              Other, 0x1172026c0, {{0.0, 0.0}, {390.0, 844.0}}
+                                Other, 0x117202800, {{0.0, 0.0}, {390.0, 844.0}}
+                                  Other, 0x117202940, {{0.0, 0.0}, {390.0, 844.0}}
+                                    CollectionView, 0x117202a80, {{0.0, 0.0}, {390.0, 844.0}}
+                                      Other, 0x117202bc0, {{-16.0, -1587.0}, {422.0, 4050.0}}
+                                      Other, 0x117210000, {{0.0, 0.0}, {390.0, 844.0}}
+                                      Other, 0x117210140, {{0.0, 0.0}, {390.0, 844.0}}
+                                      Cell, 0x117210280, {{16.0, 136.0}, {358.0, 52.0}}
+                                        Other, 0x1172103c0, {{16.0, 136.0}, {358.0, 52.0}}
+                                          Other, 0x117210500, {{16.0, 136.0}, {358.0, 52.0}}
+                                        Other, 0x117210640, {{16.0, 136.0}, {358.0, 52.0}}
+                                          Other, 0x117210780, {{16.0, 136.0}, {358.0, 52.0}}
+                                            Other, 0x1172108c0, {{16.0, 136.0}, {358.0, 52.0}}
+                                              Switch, 0x117210a00, {{16.0, 136.0}, {358.0, 52.0}}, identifier: 'inspectionRemindersToggle', label: 'Inspection reminders', value: 1
+                                                StaticText, 0x117210b40, {{32.0, 151.8}, {160.0, 20.3}}, label: 'Inspection reminders'
+                                                Switch, 0x117210c80, {{297.0, 148.0}, {63.0, 28.0}}, value: 1
+                                      Cell, 0x117210dc0, {{16.0, 188.0}, {358.0, 81.7}}
+                                        Other, 0x117210f00, {{16.0, 188.0}, {358.0, 81.7}}
+                                          Other, 0x117211040, {{16.0, 188.0}, {358.0, 81.7}}
+                                        Other, 0x117211180, {{16.0, 188.0}, {358.0, 81.7}}
+                                          Other, 0x1172112c0, {{16.0, 188.0}, {358.0, 81.7}}
+                                            Other, 0x117211400, {{16.0, 188.0}, {358.0, 81.7}}
+                                              StaticText, 0x117211540, {{16.0, 188.0}, {358.0, 81.7}}, label: 'When the window opens, a month ahead, in the due month and a week before the window closes. Check the date on your sticker.'
+                                      Other, 0x117211680, {{32.0, 187.0}, {326.0, 1.0}}
+                                      Cell, 0x1172117c0, {{16.0, 269.7}, {358.0, 90.3}}
+                                        Other, 0x117211900, {{16.0, 269.7}, {358.0, 90.3}}
+                                          Other, 0x117211a40, {{16.0, 269.7}, {358.0, 90.3}}
+                                        Other, 0x117211b80, {{16.0, 269.7}, {358.0, 90.3}}
+                                          Other, 0x117211cc0, {{16.0, 269.7}, {358.0, 90.3}}
+                                            Other, 0x117211e00, {{16.0, 269.7}, {358.0, 90.3}}
+                                              Button, 0x117211f40, {{16.0, 269.7}, {358.0, 90.3}}, label: 'Winter tyres. Winter period starts November 1, 2026. in 27 days.'
+                                                Image, 0x117212080, {{34.3, 284.0}, {19.7, 22.0}}, identifier: 'snowflake', label: 'Snow Flurry'
+                                                StaticText, 0x1172121c0, {{34.3, 284.0}, {135.7, 22.0}}, label: 'Winter tyres'
+                                                StaticText, 0x117212300, {{32.0, 307.0}, {265.7, 18.0}}, label: 'Winter period starts November 1, 2026'
+                                                StaticText, 0x117212440, {{32.0, 327.0}, {69.3, 18.0}}, label: 'in 27 days'
+                                      Other, 0x117212580, {{32.0, 268.7}, {326.0, 1.0}}
+                                      Cell, 0x1172126c0, {{16.0, 360.0}, {358.0, 90.3}}
+                                        Other, 0x117212800, {{16.0, 360.0}, {358.0, 90.3}}
+                                          Other, 0x117212940, {{16.0, 360.0}, {358.0, 90.3}}
+                                        Other, 0x117212a80, {{16.0, 360.0}, {358.0, 90.3}}
+                                          Other, 0x117212bc0, {{16.0, 360.0}, {358.0, 90.3}}
+                                            Other, 0x117212d00, {{16.0, 360.0}, {358.0, 90.3}}
+                                              Button, 0x117212e40, {{16.0, 360.0}, {358.0, 90.3}}, label: 'Vignette. New vignette from December 1, 2026. in 57 days.'
+                                                Image, 0x117212f80, {{28.0, 377.0}, {32.3, 16.7}}, identifier: 'road.lanes', label: 'road.lanes'
+                                                StaticText, 0x1172130c0, {{28.0, 375.0}, {112.0, 20.3}}, label: 'Vignette'
+                                                StaticText, 0x117213200, {{32.0, 397.3}, {256.3, 18.0}}, label: 'New vignette from December 1, 2026'
+                                                StaticText, 0x117213340, {{32.0, 417.3}, {69.7, 18.0}}, label: 'in 57 days'
+                                      Other, 0x117213480, {{72.0, 359.0}, {286.0, 1.0}}
+                                      Cell, 0x1172135c0, {{16.0, 450.3}, {358.0, 90.3}}
+                                        Other, 0x117213700, {{16.0, 450.3}, {358.0, 90.3}}
+                                          Other, 0x117213840, {{16.0, 450.3}, {358.0, 90.3}}
+                                        Other, 0x117213980, {{16.0, 450.3}, {358.0, 90.3}}
+                                          Other, 0x117213ac0, {{16.0, 450.3}, {358.0, 90.3}}
+                                            Other, 0x117213c00, {{16.0, 450.3}, {358.0, 90.3}}
+                                              Button, 0x117213d40, {{16.0, 450.3}, {358.0, 90.3}}, label: 'Insurance. Due December 5, 2026. in 61 days.'
+                                                Image, 0x117213e80, {{33.7, 464.3}, {21.0, 22.7}}, identifier: 'bell', label: 'Notifications'
+                                                StaticText, 0x11721c000, {{33.7, 464.3}, {116.7, 22.7}}, label: 'Insurance'
+                                                StaticText, 0x11721c140, {{32.0, 487.7}, {159.7, 18.0}}, label: 'Due December 5, 2026'
+                                                StaticText, 0x11721c280, {{32.0, 507.7}, {68.3, 18.0}}, label: 'in 61 days'
+                                      Other, 0x11721c3c0, {{72.0, 449.3}, {286.0, 1.0}}
+                                      Cell, 0x11721c500, {{16.0, 540.7}, {358.0, 110.3}}
+                                        Other, 0x11721c640, {{16.0, 540.7}, {358.0, 110.3}}
+                                          Other, 0x11721c780, {{16.0, 540.7}, {358.0, 110.3}}
+                                        Other, 0x11721c8c0, {{16.0, 540.7}, {358.0, 110.3}}
+                                          Other, 0x11721ca00, {{16.0, 540.7}, {358.0, 110.3}}
+                                            Other, 0x11721cb40, {{16.0, 540.7}, {358.0, 110.3}}
+                                              Button, 0x11721cc80, {{16.0, 540.7}, {358.0, 110.3}}, label: 'Oil service. At 75,000 km, estimated around February 25, 2027. in 143 days.'
+                                                Image, 0x11721cdc0, {{30.7, 552.7}, {26.7, 26.3}}, identifier: 'wrench.and.screwdriver', label: 'wrench.and.screwdriver'
+                                                StaticText, 0x11721cf00, {{30.7, 552.7}, {124.7, 26.3}}, label: 'Oil service'
+                                                StaticText, 0x11721d040, {{32.0, 578.0}, {288.7, 38.0}}, label: 'At 75,000 km, estimated around February 25, 2027'
+                                                StaticText, 0x11721d180, {{32.0, 618.0}, {77.3, 18.0}}, label: 'in 143 days'
+                                      Other, 0x11721d2c0, {{72.0, 539.7}, {286.0, 1.0}}
+                                      Cell, 0x11721d400, {{16.0, 651.0}, {358.0, 52.0}}
+                                        Other, 0x11721d540, {{16.0, 651.0}, {358.0, 52.0}}
+                                          Other, 0x11721d680, {{16.0, 651.0}, {358.0, 52.0}}
+                                        Other, 0x11721d7c0, {{16.0, 651.0}, {358.0, 52.0}}
+                                          Other, 0x11721d900, {{16.0, 651.0}, {358.0, 52.0}}
+                                            Other, 0x11721da40, {{16.0, 651.0}, {358.0, 52.0}}
+                                              Button, 0x11721db80, {{16.0, 651.0}, {358.0, 52.0}}, identifier: 'addReminderButton', label: 'Add reminder'
+                                                Image, 0x11721dcc0, {{33.3, 666.3}, {21.7, 21.7}}, identifier: 'plus.circle', label: 'Add'
+                                                StaticText, 0x11721de00, {{32.0, 667.0}, {326.0, 20.3}}, label: 'Add reminder'
+                                      Other, 0x11721df40, {{72.0, 650.0}, {286.0, 1.0}}
+                                      Cell, 0x11721e080, {{16.0, 703.0}, {358.0, 52.0}}
+                                        Other, 0x11721e1c0, {{16.0, 703.0}, {358.0, 52.0}}
+                                          Other, 0x11721e300, {{16.0, 703.0}, {358.0, 52.0}}
+                                        Other, 0x11721e440, {{16.0, 703.0}, {358.0, 52.0}}
+                                          Other, 0x11721e580, {{16.0, 703.0}, {358.0, 52.0}}
+                                            Other, 0x11721e6c0, {{16.0, 703.0}, {358.0, 52.0}}
+                                              Button, 0x11721e800, {{16.0, 703.0}, {358.0, 52.0}}, identifier: 'allowNotificationsButton', label: 'Allow notifications'
+                                                Image, 0x11721e940, {{33.7, 719.7}, {16.0, 18.7}}, identifier: 'bell.badge', label: 'bell.badge'
+                                                StaticText, 0x11721ea80, {{32.0, 718.7}, {326.0, 21.0}}, label: 'Allow notifications'
+                                      Other, 0x11721ebc0, {{72.0, 702.0}, {286.0, 1.0}}
+                                      Other, 0x11721ed00, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertical scroll bar, 1 page', value: 0%
+                                        Other, 0x11721ee40, {{384.0, 139.0}, {3.0, 654.7}}
+                                      Other, 0x11721ef80, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertical scroll bar, 1 page', value: 0%
+                                        Other, 0x11721f0c0, {{384.0, 139.0}, {3.0, 654.7}}
+                            Other, 0x11721f200, {{0.0, 0.0}, {390.0, 844.0}}
+                              Other, 0x11721f340, {{0.0, 0.0}, {390.0, 844.0}}
+                Other, 0x11721f480, {{0.0, 761.0}, {390.0, 83.0}}
+                  Other, 0x11721f5c0, {{0.0, 0.0}, {390.0, 844.0}}
+                  Other, 0x11721f700, {{0.0, 761.0}, {390.0, 83.0}}
+      Other, 0x11721f840, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x11721f980, {{0.0, 0.0}, {390.0, 844.0}}, identifier: 'PopoverDismissRegion', label: 'dismiss popup'
+        Popover, 0x11721fac0, {{75.0, 350.0}, {240.0, 317.0}}
+          Image, 0x11721fc00, {{-75.0, 200.0}, {540.0, 604.0}}
+          Other, 0x11721fd40, {{75.0, 350.0}, {240.0, 304.0}}
+            Sheet, 0x11721fe80, {{75.0, 350.0}, {240.0, 304.0}}
+              Other, 0x117220000, {{75.0, 350.0}, {240.0, 304.0}}
+                Other, 0x117220140, {{75.0, 350.0}, {240.0, 304.0}}
+                  Other, 0x117220280, {{75.0, 350.0}, {240.0, 304.0}}
+                  Other, 0x1172203c0, {{75.0, 350.0}, {240.0, 304.0}}
+                    ScrollView, 0x117220500, {{75.0, 350.0}, {240.0, 304.0}}
+                      Other, 0x117220640, {{75.0, 350.0}, {240.0, 304.0}}
+                        Other, 0x117220780, {{91.0, 366.0}, {208.0, 272.0}}
+                          Button, 0x1172208c0, {{91.0, 366.0}, {208.0, 48.0}}, label: 'Winter tyres'
+                          Button, 0x117220a00, {{91.0, 422.0}, {208.0, 48.0}}, label: 'Summer tyres'
+                          Button, 0x117220b40, {{91.0, 478.0}, {208.0, 48.0}}, label: 'Service'
+                          Button, 0x117220c80, {{91.0, 534.0}, {208.0, 48.0}}, label: 'Vignette'
+                          Button, 0x117220dc0, {{91.0, 590.0}, {208.0, 48.0}}, label: 'Custom reminder'
+                      Other, 0x117220f00, {{282.0, 384.0}, {30.0, 249.0}}, label: 'Vertical scroll bar, 1 page', value: 0%
+                        Other, 0x117221040, {{309.0, 440.0}, {3.0, 7.0}}
+                      Other, 0x117221180, {{96.0, 621.0}, {198.0, 30.0}}, label: 'Horizontal scroll bar, 1 page', value: 0%
+                        Other, 0x1172212c0, {{165.0, 648.0}, {7.0, 3.0}}
+                      Other, 0x117221400, {{282.0, 384.0}, {30.0, 249.0}}, label: 'Vertical scroll bar, 1 page', value: 0%
+                        Other, 0x117221540, {{309.0, 440.0}, {3.0, 7.0}}
+                      Other, 0x117221680, {{96.0, 621.0}, {198.0, 30.0}}, label: 'Horizontal scroll bar, 1 page', value: 0%
+                        Other, 0x1172217c0, {{165.0, 648.0}, {7.0, 3.0}}
+          Other, 0x117221900, {{75.0, 350.0}, {240.0, 317.0}}
+            Other, 0x117221a40, {{75.0, 350.0}, {240.0, 317.0}}
+              Other, 0x117221b80, {{75.0, 350.0}, {240.0, 317.0}}
+                Other, 0x117221cc0, {{75.0, 350.0}, {240.0, 317.0}}
+                  Other, 0x117221e00, {{75.0, 350.0}, {240.0, 317.0}}
+                    Other, 0x117221f40, {{75.0, 350.0}, {0.0, 0.0}}
+                      Other, 0x117222080, {{75.0, 350.0}, {240.0, 317.0}}
+                        Other, 0x1172221c0, {{75.0, 350.0}, {240.0, 317.0}}
+                          Other, 0x117222300, {{75.0, 350.0}, {240.0, 317.0}}
+                            Other, 0x117222440, {{75.0, 350.0}, {240.0, 317.0}}
+    Window, 0x117222580, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x1172226c0, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x117222800, {{0.0, 0.0}, {390.0, 844.0}}
+Path to element:
+ →Application, 0x117202d00, pid: 26187, label: 'Pitlog'
+Query chain:
+ →Find: Target Application 'com.example.pitlog'
+  Output: {
+    Application, 0x117222940, pid: 26187, label: 'Pitlog'
+  }
+
+===== testServiceReminderEditorPassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testVehicleDetailPassesAccessibilityAuditInGerman / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testVehicleDetailWithPickerlCardPassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testVignetteReminderEditorPassesAccessibilityAuditInGerman / hierarchy-Vignette_0_33872F86-7212-46E6-ABDD-ABE65837485C.txt
+Attributes: Application, 0x1172030c0, pid: 31349, label: 'Pitlog'
+Element subtree:
+ →Application, 0x1172030c0, pid: 31349, label: 'Pitlog'
+    Window (Main), 0x117201e00, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x1173e8000, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x1173e8140, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x1173e8280, {{0.0, 0.0}, {390.0, 844.0}}
+          Other, 0x1173e83c0, {{0.0, 0.0}, {390.0, 844.0}}
+            Other, 0x1173e8500, {{0.0, 0.0}, {390.0, 844.0}}
+              Other, 0x1173e8640, {{0.0, 0.0}, {390.0, 844.0}}
+                Other, 0x1173e8780, {{0.0, 0.0}, {390.0, 844.0}}
+                  Other, 0x1173e88c0, {{0.0, 0.0}, {390.0, 844.0}}
+                    Other, 0x1173e8a00, {{0.0, 0.0}, {390.0, 844.0}}
+                      Other, 0x1173e8b40, {{0.0, 0.0}, {390.0, 844.0}}
+                        Other, 0x1173e8c80, {{0.0, 0.0}, {390.0, 844.0}}
+                          Other, 0x1173e8dc0, {{0.0, 0.0}, {390.0, 844.0}}
+                            NavigationBar, 0x1173e8f00, {{0.0, 47.0}, {390.0, 54.0}}, identifier: 'Erinnerungen'
+                              Button, 0x1173e9040, {{16.0, 47.0}, {44.0, 44.0}}, identifier: 'BackButton', label: 'Golf'
+                              StaticText, 0x1173e9180, {{141.3, 58.7}, {107.0, 20.7}}, label: 'Erinnerungen'
+                            Other, 0x1173e92c0, {{0.0, 0.0}, {390.0, 844.0}}
+                              Other, 0x1173e9400, {{0.0, 0.0}, {390.0, 844.0}}
+                                Other, 0x1173e9540, {{0.0, 0.0}, {390.0, 844.0}}
+                                  Other, 0x1173e9680, {{0.0, 0.0}, {390.0, 844.0}}
+                                    CollectionView, 0x1173e97c0, {{0.0, 0.0}, {390.0, 844.0}}
+                                      Other, 0x1173e9900, {{-16.0, -1587.0}, {422.0, 4050.0}}
+                                      Other, 0x1173e9a40, {{0.0, 0.0}, {390.0, 844.0}}
+                                      Other, 0x1173e9b80, {{0.0, 0.0}, {390.0, 844.0}}
+                                      Cell, 0x1173e9cc0, {{16.0, 136.0}, {358.0, 52.0}}
+                                        Other, 0x1173e9e00, {{16.0, 136.0}, {358.0, 52.0}}
+                                          Other, 0x1173e9f40, {{16.0, 136.0}, {358.0, 52.0}}
+                                        Other, 0x1173ea080, {{16.0, 136.0}, {358.0, 52.0}}
+                                          Other, 0x1173ea1c0, {{16.0, 136.0}, {358.0, 52.0}}
+                                            Other, 0x1173ea300, {{16.0, 136.0}, {358.0, 52.0}}
+                                              Switch, 0x1173ea440, {{16.0, 136.0}, {358.0, 52.0}}, identifier: 'inspectionRemindersToggle', label: 'Pickerl-Erinnerungen', value: 1
+                                                StaticText, 0x1173ea580, {{32.0, 151.8}, {160.0, 20.3}}, label: 'Pickerl-Erinnerungen'
+                                                Switch, 0x1173ea6c0, {{297.0, 148.0}, {63.0, 28.0}}, value: 1
+                                      Cell, 0x1173ea800, {{16.0, 188.0}, {358.0, 81.7}}
+                                        Other, 0x1173ea940, {{16.0, 188.0}, {358.0, 81.7}}
+                                          Other, 0x1173eaa80, {{16.0, 188.0}, {358.0, 81.7}}
+                                        Other, 0x1173eabc0, {{16.0, 188.0}, {358.0, 81.7}}
+                                          Other, 0x1173ead00, {{16.0, 188.0}, {358.0, 81.7}}
+                                            Other, 0x1173eae40, {{16.0, 188.0}, {358.0, 81.7}}
+                                              StaticText, 0x1173eaf80, {{16.0, 188.0}, {358.0, 81.7}}, label: 'When the window opens, a month ahead, in the due month and a week before the window closes. Check the date on your sticker.'
+                                      Other, 0x1173eb0c0, {{32.0, 187.0}, {326.0, 1.0}}
+                                      Cell, 0x1173eb200, {{16.0, 269.7}, {358.0, 90.3}}
+                                        Other, 0x1173eb340, {{16.0, 269.7}, {358.0, 90.3}}
+                                          Other, 0x1173eb480, {{16.0, 269.7}, {358.0, 90.3}}
+                                        Other, 0x1173eb5c0, {{16.0, 269.7}, {358.0, 90.3}}
+                                          Other, 0x1173eb700, {{16.0, 269.7}, {358.0, 90.3}}
+                                            Other, 0x1173eb840, {{16.0, 269.7}, {358.0, 90.3}}
+                                              Button, 0x1173eb980, {{16.0, 269.7}, {358.0, 90.3}}, label: 'Winterreifen. Winterperiode beginnt am 1. November 2026. in 27 Tagen.'
+                                                Image, 0x1173ebac0, {{34.3, 284.0}, {19.7, 22.0}}, identifier: 'snowflake', label: 'Wirbelnder Schnee'
+                                                StaticText, 0x1173ebc00, {{34.3, 284.0}, {136.7, 22.0}}, label: 'Winterreifen'
+                                                StaticText, 0x1173ebd40, {{32.0, 307.0}, {308.0, 18.0}}, label: 'Winterperiode beginnt am 1. November 2026'
+                                                StaticText, 0x1173ebe80, {{32.0, 327.0}, {78.7, 18.0}}, label: 'in 27 Tagen'
+                                      Other, 0x1173ec000, {{32.0, 268.7}, {326.0, 1.0}}
+                                      Cell, 0x1173ec140, {{16.0, 360.0}, {358.0, 90.3}}
+                                        Other, 0x1173ec280, {{16.0, 360.0}, {358.0, 90.3}}
+                                          Other, 0x1173ec3c0, {{16.0, 360.0}, {358.0, 90.3}}
+                                        Other, 0x1173ec500, {{16.0, 360.0}, {358.0, 90.3}}
+                                          Other, 0x1173ec640, {{16.0, 360.0}, {358.0, 90.3}}
+                                            Other, 0x1173ec780, {{16.0, 360.0}, {358.0, 90.3}}
+                                              Button, 0x1173ec8c0, {{16.0, 360.0}, {358.0, 90.3}}, label: 'Vignette. Neue Vignette ab 1. Dezember 2026. in 57 Tagen.'
+                                                Image, 0x1173eca00, {{28.0, 377.0}, {32.3, 16.7}}, identifier: 'road.lanes', label: 'road.lanes'
+                                                StaticText, 0x1173ecb40, {{28.0, 375.0}, {112.0, 20.3}}, label: 'Vignette'
+                                                StaticText, 0x1173ecc80, {{32.0, 397.3}, {248.3, 18.0}}, label: 'Neue Vignette ab 1. Dezember 2026'
+                                                StaticText, 0x1173ecdc0, {{32.0, 417.3}, {79.0, 18.0}}, label: 'in 57 Tagen'
+                                      Other, 0x1173ecf00, {{72.0, 359.0}, {286.0, 1.0}}
+                                      Cell, 0x1173ed040, {{16.0, 450.3}, {358.0, 90.3}}
+                                        Other, 0x1173ed180, {{16.0, 450.3}, {358.0, 90.3}}
+                                          Other, 0x1173ed2c0, {{16.0, 450.3}, {358.0, 90.3}}
+                                        Other, 0x1173ed400, {{16.0, 450.3}, {358.0, 90.3}}
+                                          Other, 0x1173ed540, {{16.0, 450.3}, {358.0, 90.3}}
+                                            Other, 0x1173ed680, {{16.0, 450.3}, {358.0, 90.3}}
+                                              Button, 0x1173ed7c0, {{16.0, 450.3}, {358.0, 90.3}}, label: 'Insurance. Fällig: 5. Dezember 2026. in 61 Tagen.'
+                                                Image, 0x1173ed900, {{33.7, 464.3}, {21.0, 22.7}}, identifier: 'bell', label: 'Mitteilungen'
+                                                StaticText, 0x1173eda40, {{33.7, 464.3}, {116.7, 22.7}}, label: 'Insurance'
+                                                StaticText, 0x1173edb80, {{32.0, 487.7}, {171.3, 18.0}}, label: 'Fällig: 5. Dezember 2026'
+                                                StaticText, 0x1173edcc0, {{32.0, 507.7}, {77.7, 18.0}}, label: 'in 61 Tagen'
+                                      Other, 0x1173ede00, {{72.0, 449.3}, {286.0, 1.0}}
+                                      Cell, 0x1173edf40, {{16.0, 540.7}, {358.0, 110.3}}
+                                        Other, 0x1173ee080, {{16.0, 540.7}, {358.0, 110.3}}
+                                          Other, 0x1173ee1c0, {{16.0, 540.7}, {358.0, 110.3}}
+                                        Other, 0x1173ee300, {{16.0, 540.7}, {358.0, 110.3}}
+                                          Other, 0x1173ee440, {{16.0, 540.7}, {358.0, 110.3}}
+                                            Other, 0x1173ee580, {{16.0, 540.7}, {358.0, 110.3}}
+                                              Button, 0x1173ee6c0, {{16.0, 540.7}, {358.0, 110.3}}, label: 'Oil service. Bei 75.000 km, geschätzt um den 25. Februar 2027. in 143 Tagen.'
+                                                Image, 0x1173ee800, {{30.7, 552.7}, {26.7, 26.3}}, identifier: 'wrench.and.screwdriver', label: 'wrench.and.screwdriver'
+                                                StaticText, 0x1173ee940, {{30.7, 552.7}, {124.7, 26.3}}, label: 'Oil service'
+                                                StaticText, 0x1173eea80, {{32.0, 578.0}, {316.3, 38.0}}, label: 'Bei 75.000 km, geschätzt um den 25. Februar 2027'
+                                                StaticText, 0x1173eebc0, {{32.0, 618.0}, {87.0, 18.0}}, label: 'in 143 Tagen'
+                                      Other, 0x1173eed00, {{72.0, 539.7}, {286.0, 1.0}}
+                                      Cell, 0x1173eee40, {{16.0, 651.0}, {358.0, 52.0}}
+                                        Other, 0x1173eef80, {{16.0, 651.0}, {358.0, 52.0}}
+                                          Other, 0x1173ef0c0, {{16.0, 651.0}, {358.0, 52.0}}
+                                        Other, 0x1173ef200, {{16.0, 651.0}, {358.0, 52.0}}
+                                          Other, 0x1173ef340, {{16.0, 651.0}, {358.0, 52.0}}
+                                            Other, 0x1173ef480, {{16.0, 651.0}, {358.0, 52.0}}
+                                              Button, 0x1173ef5c0, {{16.0, 651.0}, {358.0, 52.0}}, identifier: 'addReminderButton', label: 'Erinnerung hinzufügen'
+                                                Image, 0x1173ef700, {{33.3, 666.3}, {21.7, 21.7}}, identifier: 'plus.circle', label: 'Hinzufügen'
+                                                StaticText, 0x1173ef840, {{32.0, 667.0}, {326.0, 20.3}}, label: 'Erinnerung hinzufügen'
+                                      Other, 0x1173ef980, {{72.0, 650.0}, {286.0, 1.0}}
+                                      Cell, 0x1173efac0, {{16.0, 703.0}, {358.0, 52.0}}
+                                        Other, 0x1173efc00, {{16.0, 703.0}, {358.0, 52.0}}
+                                          Other, 0x1173efd40, {{16.0, 703.0}, {358.0, 52.0}}
+                                        Other, 0x1173efe80, {{16.0, 703.0}, {358.0, 52.0}}
+                                          Other, 0x1173fc000, {{16.0, 703.0}, {358.0, 52.0}}
+                                            Other, 0x1173fc140, {{16.0, 703.0}, {358.0, 52.0}}
+                                              Button, 0x1173fc280, {{16.0, 703.0}, {358.0, 52.0}}, identifier: 'allowNotificationsButton', label: 'Mitteilungen erlauben'
+                                                Image, 0x1173fc3c0, {{33.7, 719.7}, {16.0, 18.7}}, identifier: 'bell.badge', label: 'bell.badge'
+                                                StaticText, 0x1173fc500, {{32.0, 718.7}, {326.0, 21.0}}, label: 'Mitteilungen erlauben'
+                                      Other, 0x1173fc640, {{72.0, 702.0}, {286.0, 1.0}}
+                                      Other, 0x1173fc780, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertikaler Rollbalken, 1 Seite', value: 0 %
+                                        Other, 0x1173fc8c0, {{384.0, 139.0}, {3.0, 654.7}}
+                                      Other, 0x1173fca00, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertikaler Rollbalken, 1 Seite', value: 0 %
+                                        Other, 0x1173fcb40, {{384.0, 139.0}, {3.0, 654.7}}
+                            Other, 0x1173fcc80, {{0.0, 0.0}, {390.0, 844.0}}
+                              Other, 0x1173fcdc0, {{0.0, 0.0}, {390.0, 844.0}}
+                Other, 0x1173fcf00, {{0.0, 761.0}, {390.0, 83.0}}
+                  Other, 0x1173fd040, {{0.0, 0.0}, {390.0, 844.0}}
+                  Other, 0x1173fd180, {{0.0, 761.0}, {390.0, 83.0}}
+      Other, 0x1173fd2c0, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x1173fd400, {{0.0, 0.0}, {390.0, 844.0}}, identifier: 'PopoverDismissRegion', label: 'Einblendmenü schließen'
+        Popover, 0x1173fd540, {{75.0, 350.0}, {240.0, 317.0}}
+          Image, 0x1173fd680, {{-75.0, 200.0}, {540.0, 604.0}}
+          Other, 0x1173fd7c0, {{75.0, 350.0}, {240.0, 304.0}}
+            Sheet, 0x1173fd900, {{75.0, 350.0}, {240.0, 304.0}}
+              Other, 0x1173fda40, {{75.0, 350.0}, {240.0, 304.0}}
+                Other, 0x1173fdb80, {{75.0, 350.0}, {240.0, 304.0}}
+                  Other, 0x1173fdcc0, {{75.0, 350.0}, {240.0, 304.0}}
+                  Other, 0x1173fde00, {{75.0, 350.0}, {240.0, 304.0}}
+                    ScrollView, 0x1173fdf40, {{75.0, 350.0}, {240.0, 304.0}}
+                      Other, 0x1173fe080, {{75.0, 350.0}, {240.0, 304.0}}
+                        Other, 0x1173fe1c0, {{91.0, 366.0}, {208.0, 272.0}}
+                          Button, 0x1173fe300, {{91.0, 366.0}, {208.0, 48.0}}, label: 'Winterreifen'
+                          Button, 0x1173fe440, {{91.0, 422.0}, {208.0, 48.0}}, label: 'Sommerreifen'
+                          Button, 0x1173fe580, {{91.0, 478.0}, {208.0, 48.0}}, label: 'Service'
+                          Button, 0x1173fe6c0, {{91.0, 534.0}, {208.0, 48.0}}, label: 'Vignette'
+                          Button, 0x1173fe800, {{91.0, 590.0}, {208.0, 48.0}}, label: 'Eigene Erinnerung'
+                      Other, 0x1173fe940, {{282.0, 384.0}, {30.0, 249.0}}, label: 'Vertikaler Rollbalken, 1 Seite', value: 0 %
+                        Other, 0x1173fea80, {{309.0, 440.0}, {3.0, 7.0}}
+                      Other, 0x1173febc0, {{96.0, 621.0}, {198.0, 30.0}}, label: 'Horizontaler Rollbalken, 1 Seite', value: 0 %
+                        Other, 0x1173fed00, {{165.0, 648.0}, {7.0, 3.0}}
+                      Other, 0x1173fee40, {{282.0, 384.0}, {30.0, 249.0}}, label: 'Vertikaler Rollbalken, 1 Seite', value: 0 %
+                        Other, 0x1173fef80, {{309.0, 440.0}, {3.0, 7.0}}
+                      Other, 0x1173ff0c0, {{96.0, 621.0}, {198.0, 30.0}}, label: 'Horizontaler Rollbalken, 1 Seite', value: 0 %
+                        Other, 0x1173ff200, {{165.0, 648.0}, {7.0, 3.0}}
+          Other, 0x1173ff340, {{75.0, 350.0}, {240.0, 317.0}}
+            Other, 0x1173ff480, {{75.0, 350.0}, {240.0, 317.0}}
+              Other, 0x1173ff5c0, {{75.0, 350.0}, {240.0, 317.0}}
+                Other, 0x1173ff700, {{75.0, 350.0}, {240.0, 317.0}}
+                  Other, 0x1173ff840, {{75.0, 350.0}, {240.0, 317.0}}
+                    Other, 0x1173ff980, {{75.0, 350.0}, {0.0, 0.0}}
+                      Other, 0x1173ffac0, {{75.0, 350.0}, {240.0, 317.0}}
+                        Other, 0x1173ffc00, {{75.0, 350.0}, {240.0, 317.0}}
+                          Other, 0x1173ffd40, {{75.0, 350.0}, {240.0, 317.0}}
+                            Other, 0x1173ffe80, {{75.0, 350.0}, {240.0, 317.0}}
+    Window, 0x117400000, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x117400140, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x117400280, {{0.0, 0.0}, {390.0, 844.0}}
+Path to element:
+ →Application, 0x1172030c0, pid: 31349, label: 'Pitlog'
+Query chain:
+ →Find: Target Application 'com.example.pitlog'
+  Output: {
+    Application, 0x1174003c0, pid: 31349, label: 'Pitlog'
+  }
+
+===== testVignetteReminderEditorPassesAccessibilityAuditInGerman / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
