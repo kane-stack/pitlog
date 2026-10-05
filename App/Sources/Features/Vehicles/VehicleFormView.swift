@@ -52,53 +52,25 @@ struct VehicleFormView: View {
         NavigationStack {
             Form {
                 Section {
-                    TextField(text: $name) {
-                        Text("Name", comment: "Vehicle form: name field")
-                    }
-                    TextField(text: $licensePlate) {
-                        Text("License plate", comment: "Vehicle form: license plate field")
-                    }
+                    FormTextField(title: Text("Name", comment: "Vehicle form: name field"), text: $name)
+                    FormTextField(title: Text("License plate", comment: "Vehicle form: license plate field"), text: $licensePlate)
                     .textInputAutocapitalization(.characters)
                     .autocorrectionDisabled()
-                    Menu {
-                        Picker(selection: $category) {
-                            ForEach(VehicleCategory.allCases, id: \.self) { category in
-                                Text(category.title).tag(category)
-                            }
-                        } label: {
-                            Text("Type", comment: "Vehicle form: vehicle category picker")
-                        }
-                    } label: {
-                        // Explicit colors and wrapping text: the system picker value is secondary (contrast)
-                        // and truncates at large Dynamic Type sizes.
-                        HStack(alignment: .firstTextBaseline) {
-                            Text("Type", comment: "Vehicle form: vehicle category picker")
-                                .foregroundStyle(.primary)
-                            Spacer()
-                            Text(category.title)
-                                .foregroundStyle(Color.accentColor)
-                                .multilineTextAlignment(.trailing)
-                            Image(systemName: "chevron.up.chevron.down")
-                                .foregroundStyle(Color.accentColor)
-                                .accessibilityHidden(true)
+                    MenuPickerRow(
+                        title: Text("Type", comment: "Vehicle form: vehicle category picker"),
+                        valueText: Text(category.title),
+                        selection: $category
+                    ) {
+                        ForEach(VehicleCategory.allCases, id: \.self) { category in
+                            Text(category.title).tag(category)
                         }
                     }
-                    .accessibilityElement(children: .ignore)
-                    .accessibilityLabel(Text("Type", comment: "Vehicle form: vehicle category picker"))
-                    .accessibilityValue(Text(category.title))
-                    .accessibilityAddTraits(.isButton)
                 }
 
                 Section {
-                    TextField(text: $make) {
-                        Text("Make", comment: "Vehicle form: make field")
-                    }
-                    TextField(text: $model) {
-                        Text("Model", comment: "Vehicle form: model field")
-                    }
-                    TextField(text: $vin) {
-                        Text("VIN (optional)", comment: "Vehicle form: vehicle identification number field")
-                    }
+                    FormTextField(title: Text("Make", comment: "Vehicle form: make field"), text: $make)
+                    FormTextField(title: Text("Model", comment: "Vehicle form: model field"), text: $model)
+                    FormTextField(title: Text("VIN (optional)", comment: "Vehicle form: vehicle identification number field"), text: $vin)
                     .textInputAutocapitalization(.characters)
                     .autocorrectionDisabled()
                     .onChange(of: vin) { _, newValue in
@@ -112,26 +84,29 @@ struct VehicleFormView: View {
                 }
 
                 Section {
-                    Picker(selection: $firstRegistrationMonth) {
+                    MenuPickerRow(
+                        title: Text("First registration, month", comment: "Vehicle form: month of the first registration"),
+                        valueText: firstRegistrationMonth.map { Text(YearMonth.monthName($0, locale: locale)) }
+                            ?? Text("Not set", comment: "Picker option for no month"),
+                        selection: $firstRegistrationMonth
+                    ) {
                         Text("Not set", comment: "Picker option for no month").tag(Int?.none)
                         ForEach(1...12, id: \.self) { month in
                             Text(YearMonth.monthName(month, locale: locale)).tag(Int?.some(month))
                         }
-                    } label: {
-                        Text("First registration, month", comment: "Vehicle form: month of the first registration")
                     }
-                    Picker(selection: $firstRegistrationYear) {
+                    MenuPickerRow(
+                        title: Text("First registration, year", comment: "Vehicle form: year of the first registration"),
+                        valueText: firstRegistrationYear.map { Text($0, format: .number.grouping(.never)) }
+                            ?? Text("Not set", comment: "Picker option for no year"),
+                        selection: $firstRegistrationYear
+                    ) {
                         Text("Not set", comment: "Picker option for no year").tag(Int?.none)
                         ForEach((1950...today.year).reversed(), id: \.self) { year in
                             Text(year, format: .number.grouping(.never)).tag(Int?.some(year))
                         }
-                    } label: {
-                        Text("First registration, year", comment: "Vehicle form: year of the first registration")
                     }
-                    TextField(value: $kilometers, format: .number) {
-                        Text("Odometer (km)", comment: "Vehicle form: current odometer in kilometres")
-                    }
-                    .keyboardType(.numberPad)
+                    FormNumberField(title: Text("Odometer (km)", comment: "Vehicle form: current odometer in kilometres"), value: $kilometers)
                 }
 
                 Section {

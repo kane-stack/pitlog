@@ -23,7 +23,15 @@ struct UpcomingView: View {
             }
             .sorted { $0.status.window.closes < $1.status.window.closes }
 
-        List {
+        VStack(spacing: 0) {
+            if !rows.isEmpty {
+                // Above the list, away from the floating tab bar (contrast) and outside the list cells.
+                LegalNoticeView()
+                    .padding(.horizontal)
+                    .padding(.vertical, 8)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            List {
             Section {
                 ForEach(rows) { row in
             let presentation = InspectionPresentation(status: row.status, today: today, locale: locale)
@@ -40,9 +48,6 @@ struct UpcomingView: View {
             }
                 }
             }
-            if !rows.isEmpty {
-                // A row, not a footer: part of the list content and in the primary color.
-                Section { LegalNoticeView() }
             }
         }
         .overlay {
