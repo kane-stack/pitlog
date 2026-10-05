@@ -27,6 +27,8 @@ struct VehicleDetailView: View {
             RemindersSummaryRow(vehicle: vehicle, today: CalendarDay.today(in: .current))
         }
         .listStyle(.plain)
+        // Hide the floating tab bar so it never overlaps the last rows (as in About).
+        .toolbar(.hidden, for: .tabBar)
         .navigationTitle(vehicle.displayName)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

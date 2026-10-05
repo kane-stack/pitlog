@@ -19,6 +19,7 @@ struct RemindersView: View {
     @Environment(NotificationPermission.self) private var permission
     @State private var editorTarget: ReminderEditorTarget?
     @State private var showingPermissionPrompt = false
+    @State private var showingAddDialog = false
     @State private var today = CalendarDay.today(in: .current)
 
     private let builder = ReminderScheduleBuilder()
@@ -42,7 +43,7 @@ struct RemindersView: View {
             ForEach(presentations, id: \.reminder.persistentModelID) { presentation in
                 row(presentation)
             }
-            addMenu
+            addButton
             if hasActiveReminders {
                 NotificationPermissionRow()
             }
@@ -160,26 +161,27 @@ struct RemindersView: View {
 
     // MARK: Add
 
-    private var addMenu: some View {
-        Menu {
-            ForEach(ReminderCategory.allCases, id: \.self) { category in
-                Button {
-                    editorTarget = ReminderEditorTarget(category: category, reminder: nil)
-                } label: {
-                    Label(category.addTitle(locale: locale), systemImage: category.iconName)
-                }
-            }
+    private var addButton: some View {
+        Button {
+            showingAddDialog = true
         } label: {
-            // Full width, so a tap anywhere in the row opens the menu.
             Label {
                 Text("Add reminder", comment: "Menu button on the vehicle detail to add a reminder")
                     .fixedSize(horizontal: false, vertical: true)
             } icon: {
                 Image(systemName: "plus.circle")
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .contentShape(Rectangle())
         }
         .accessibilityIdentifier("addReminderButton")
+        .confirmationDialog(
+            Text("Add reminder", comment: "Menu button on the vehicle detail to add a reminder"),
+            isPresented: $showingAddDialog
+        ) {
+            ForEach(ReminderCategory.allCases, id: \.self) { category in
+                Button(category.addTitle(locale: locale)) {
+                    editorTarget = ReminderEditorTarget(category: category, reminder: nil)
+                }
+            }
+        }
     }
 }

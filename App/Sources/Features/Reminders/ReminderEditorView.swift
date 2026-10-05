@@ -29,11 +29,30 @@ struct ReminderEditorView: View {
     @State private var repeatKmEnabled = false
     @State private var repeatKm = 15_000
     @State private var note = ""
-    @State private var loaded = false
     @State private var showingPermissionPrompt = false
 
     private let builder = ReminderScheduleBuilder()
-    private let today = CalendarDay.today(in: .current)
+
+    init(vehicle: Vehicle, category: ReminderCategory, reminder: Reminder?) {
+        self.vehicle = vehicle
+        self.category = category
+        self.reminder = reminder
+        let f = Self.fields(vehicle: vehicle, category: category, reminder: reminder)
+        _title = State(initialValue: f.title)
+        _isEnabled = State(initialValue: f.isEnabled)
+        _date = State(initialValue: f.date)
+        _hasDate = State(initialValue: f.hasDate)
+        _hasKm = State(initialValue: f.hasKm)
+        _kilometers = State(initialValue: f.kilometers)
+        _leadDays = State(initialValue: f.leadDays)
+        _leadKm = State(initialValue: f.leadKm)
+        _repeatRule = State(initialValue: f.repeatRule)
+        _repeatMonths = State(initialValue: f.repeatMonths)
+        _repeatMonthsEnabled = State(initialValue: f.repeatMonthsEnabled)
+        _repeatKmEnabled = State(initialValue: f.repeatKmEnabled)
+        _repeatKm = State(initialValue: f.repeatKm)
+        _note = State(initialValue: f.note)
+    }
 
     private var isService: Bool { category == .service }
     private var isCustom: Bool { category == .custom }
@@ -77,7 +96,6 @@ struct ReminderEditorView: View {
                     .accessibilityIdentifier("saveReminderButton")
                 }
             }
-            .onAppear(perform: load)
             .notificationPermissionPrompt(isPresented: $showingPermissionPrompt) { dismiss() }
         }
     }
@@ -239,42 +257,61 @@ struct ReminderEditorView: View {
 
     // MARK: Load and save
 
-    private func load() {
-        guard !loaded else { return }
-        loaded = true
+    /// Everything the form starts with. Computed once in `init`, so the form never changes after it appears.
+    private struct Fields {
+        var title = ""
+        var isEnabled = true
+        var date = Date()
+        var hasDate = true
+        var hasKm = false
+        var kilometers: Int?
+        var leadDays = 14
+        var leadKm = ReminderSettings.Defaults.serviceLeadKm
+        var repeatRule: ReminderRepeatRule = .none
+        var repeatMonths = 12
+        var repeatMonthsEnabled = false
+        var repeatKmEnabled = false
+        var repeatKm = 15_000
+        var note = ""
+    }
+
+    private static func fields(vehicle: Vehicle, category: ReminderCategory, reminder: Reminder?) -> Fields {
+        let today = CalendarDay.today(in: .current)
         let settings = ReminderSettings.load()
-        let defaults = builder.defaults(for: vehicle)
+        let defaults = ReminderScheduleBuilder().defaults(for: vehicle)
+        var fields = Fields()
         guard let reminder else {
-            leadDays = settings.leadDays(for: category)
-            leadKm = settings.serviceLeadKm
-            date = CalendarDay.date(from: defaultDay(defaults: defaults), in: .current)
-            hasDate = true
-            hasKm = false
-            repeatRule = .none
-            return
+            fields.leadDays = settings.leadDays(for: category)
+            fields.leadKm = settings.serviceLeadKm
+            fields.date = CalendarDay.date(
+                from: defaultDay(category: category, defaults: defaults, today: today), in: .current)
+            return fields
         }
-        title = reminder.title
-        isEnabled = reminder.isEnabled
-        leadDays = reminder.leadDays
-        leadKm = reminder.leadKm
-        note = reminder.note
-        repeatRule = reminder.repeatRule
+        fields.title = reminder.title
+        fields.isEnabled = reminder.isEnabled
+        fields.leadDays = reminder.leadDays
+        fields.leadKm = reminder.leadKm
+        fields.note = reminder.note
+        fields.repeatRule = reminder.repeatRule
         if let months = reminder.repeatMonths {
-            repeatMonths = months
-            repeatMonthsEnabled = isService
+            fields.repeatMonths = months
+            fields.repeatMonthsEnabled = category == .service
         }
         if let km = reminder.repeatKm {
-            repeatKm = km
-            repeatKmEnabled = true
+            fields.repeatKm = km
+            fields.repeatKmEnabled = true
         }
-        hasDate = reminder.dueDate != nil
-        hasKm = reminder.dueKm != nil
-        kilometers = reminder.dueKm
-        date = CalendarDay.date(from: editingDay(reminder, defaults: defaults), in: .current)
+        fields.hasDate = reminder.dueDate != nil
+        fields.hasKm = reminder.dueKm != nil
+        fields.kilometers = reminder.dueKm
+        fields.date = CalendarDay.date(
+            from: editingDay(reminder, vehicle: vehicle, category: category, defaults: defaults, today: today),
+            in: .current)
+        return fields
     }
 
     /// Prefill of a new reminder: the country default for tyres and vignette, otherwise a month from now.
-    private func defaultDay(defaults: any ReminderDefaults) -> DayDate {
+    private static func defaultDay(category: ReminderCategory, defaults: any ReminderDefaults, today: DayDate) -> DayDate {
         switch category {
         case .tyreWinter: defaults.nextTyreChangeDay(for: .winter, from: today)
         case .tyreSummer: defaults.nextTyreChangeDay(for: .summer, from: today)
@@ -285,8 +322,13 @@ struct ReminderEditorView: View {
 
     /// For yearly kinds the stored date is the first legal day still to come, which may lie in the past
     /// if nobody marked it done. The editor shows the next one instead.
-    private func editingDay(_ reminder: Reminder, defaults: any ReminderDefaults) -> DayDate {
-        guard let stored = reminder.dueDate else { return defaultDay(defaults: defaults) }
+    private static func editingDay(
+        _ reminder: Reminder, vehicle: Vehicle, category: ReminderCategory,
+        defaults: any ReminderDefaults, today: DayDate
+    ) -> DayDate {
+        guard let stored = reminder.dueDate else {
+            return defaultDay(category: category, defaults: defaults, today: today)
+        }
         guard category == .tyreWinter || category == .tyreSummer || category == .vignette else { return stored }
         let schedule = reminder.schedule(
             vehicleID: vehicle.id.uuidString, projection: nil, defaults: defaults, today: today)
