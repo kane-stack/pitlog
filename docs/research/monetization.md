@@ -255,7 +255,8 @@ Preisannahme für alle Rechnungen: Verkaufspreis € 9,99 brutto in AT. Apple f�
 
 ## 9. Entscheidung (Christopher, 05.10.2026)
 
-- Variante B, Einmalkauf **„Pitlog Pro“ 9,99 €**, kein Abo.
+- Variante B (Schnitt nach Funktion), aber als **Kombination aus Jahresabo 4,99 € (14 Tage gratis) und Lifetime-Kauf 14,99 €** (Nachtrag am selben Tag; zuerst war Einmalkauf 9,99 € geplant).
+- Begründung (Christopher): Die App läuft langfristig im Hintergrund wegen der Erinnerungen; bei 4,99 € ist der Anreiz zu kündigen gering. Lifetime für Abo-Verweigerer, 14,99 € damit es nicht schon nach zwei Abo-Jahren billiger ist. Netto ca. 3,53 €/Jahr (Abo) bzw. 10,62 € (Lifetime) [Schätzung].
 - **Abweichung von der Empfehlung:** In der Gratis-Version ist **1 Fahrzeug** möglich (nicht 3).
 - **Keine Werbung.** Geprüft und verworfen: Ein Werbe-SDK bräche ADR-12, das Label „Keine Daten erfasst“ und die Regel
   „keine Netzwerkaufrufe außer CloudKit“, bräuchte Consent-Banner (DSGVO) und ggf. ATT und brächte bei einer selten geöffneten
