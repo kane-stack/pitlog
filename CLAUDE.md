@@ -166,7 +166,10 @@ Prompt: `docs/research/local-session-prompt.md`.
 5. **Testdaten Zulassungsschein:** 2 bis 3 geschwärzte Fotos echter österreichischer Zulassungsscheine
    (Papier und Scheckkarte) von Christopher. Zu klären ist, welche Formate aktuell im Umlauf sind,
    inklusive einer eventuellen digitalen Variante.
-6. **Foundation Models:** Qualität bei deutschsprachigen Werkstattrechnungen erst im Spike
+6. **Belegscan (M5b):** Recherche in `docs/sources/receipts/README.md`. Es gibt keine öffentlichen AT-Werkstattbelege.
+   Die Tests nutzen synthetische Belege, Christopher liefert Belege von 2 Werkstätten als Gegentest. Offen sind
+   E-1 (Kosten = Rechnungsbetrag brutto oder Restbetrag nach Anzahlung) und E-2 (Historiendatum = Leistungs- oder Rechnungsdatum).
+7. **Foundation Models:** Qualität bei deutschsprachigen Werkstattrechnungen erst im Spike
    (M5) bewerten, mit 15 bis 20 echten, anonymisierten Belegen.
-7. **Bundle-ID, Team und CloudKit-Container:** finale Werte vor M6.
-8. **App-Name:** „Pitlog“ ist ein Arbeitsname. Markenrecherche vor der Einreichung.
+8. **Bundle-ID, Team und CloudKit-Container:** finale Werte vor M6.
+9. **App-Name:** „Pitlog“ ist ein Arbeitsname. Markenrecherche vor der Einreichung.
