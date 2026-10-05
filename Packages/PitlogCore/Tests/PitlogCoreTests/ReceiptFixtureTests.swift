@@ -84,6 +84,7 @@ func fixtureIsExtracted(_ fixture: ReceiptFixture) async {
         lines.append(pad("variant \(variant)", 24) + pad("\(c + m + w)", 5) + pad(pct(c, c + m + w), 10) + pad(pct(m, c + m + w), 10) + pad(pct(w, c + m + w), 8))
     }
     lines.append(contentsOf: mismatches.map { "  " + $0 })
+    print(holdoutReportText().0)
     print(lines.joined(separator: "\n"))
     #expect(totalWrong == 0, "wrong values must be 0 %")
 }

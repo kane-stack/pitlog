@@ -43,8 +43,15 @@ private func loadHoldout() -> [HoldoutReceipt] {
 }
 
 @Test func holdoutReport() {
+    let (text, count) = holdoutReportText()
+    #expect(count == 25, "holdout files unreadable or missing")
+    print(text)
+}
+
+/// The holdout table as text (also printed next to the fixture accuracy table, so that it sits
+/// at the end of the CI log).
+func holdoutReportText() -> (String, Int) {
     let receipts = loadHoldout()
-    #expect(receipts.count == 25, "holdout files unreadable or missing")
     let context = ReceiptContext(today: day(2026, 10, 5))
     let extractor = HeuristicReceiptExtractor()
     let fields = [
@@ -112,5 +119,5 @@ private func loadHoldout() -> [HoldoutReceipt] {
         pad("ALL FIELDS", 18) + pad("\(n)", 5) + pad(pct(totals[.correct] ?? 0, n), 10)
             + pad(pct(totals[.missing] ?? 0, n), 10) + pad(pct(totals[.wrong] ?? 0, n), 8))
     lines.append(contentsOf: details.map { "  " + $0 })
-    print(lines.joined(separator: "\n"))
+    return (lines.joined(separator: "\n"), receipts.count)
 }

@@ -276,7 +276,7 @@ struct StringCase: Sendable {
     StringCase("Kennzeichen W-12345 A", "W 12345 A"), StringCase("Kz: G 456 AB", "G 456 AB"),
     StringCase("Pol. Kennzeichen: LL 123 AB", "LL 123 AB"), StringCase("Kennzeichen: W 12345 A  FIN: X", "W 12345 A"),
     StringCase("Kennzeichen W 12345 KM-Stand 80000", nil), StringCase("Kennzeichen: -", nil),
-    StringCase("W 12345 A", nil),
+    StringCase("W 12345 A", "W 12345 A"), StringCase("Rechnung W 12345 A", nil),
 ])
 func readsThePlateNextToALabel(_ c: StringCase) {
     #expect(draft([c.line]).plate == c.expected, "\(c.line)")
