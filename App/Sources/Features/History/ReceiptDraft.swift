@@ -4,13 +4,15 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 /// A receipt in the entry editor, before "Save". It either wraps a stored `ReceiptDocument` or is new.
-struct ReceiptDraft: Identifiable {
+struct EditorReceiptDraft: Identifiable {
     let id = UUID()
     let data: Data
     let contentType: String
     let pageCount: Int
     /// The stored receipt this draft stands for, `nil` for a new one.
     let existing: ReceiptDocument?
+    /// OCR text of a scanned receipt (without the customer block); empty for a plain attachment.
+    var recognizedText: String = ""
 
     var isPDF: Bool { contentType == ReceiptDocument.pdfType }
 
@@ -36,14 +38,14 @@ enum ReceiptImport {
 
     /// A draft from file or photo data: PDFs are kept as they are, images become JPEG. `nil` if the data is
     /// neither or too large.
-    static func draft(from data: Data) -> ReceiptDraft? {
+    static func draft(from data: Data) -> EditorReceiptDraft? {
         guard data.count <= maximumBytes else { return nil }
         if data.prefix(5) == Data("%PDF-".utf8) {
             guard let document = PDFDocument(data: data), document.pageCount > 0 else { return nil }
-            return ReceiptDraft(
+            return EditorReceiptDraft(
                 data: data, contentType: ReceiptDocument.pdfType, pageCount: document.pageCount, existing: nil)
         }
         guard let jpeg = PhotoDownscaler.jpegData(from: data, maxPixel: maximumPixel) else { return nil }
-        return ReceiptDraft(data: jpeg, contentType: ReceiptDocument.jpegType, pageCount: 1, existing: nil)
+        return EditorReceiptDraft(data: jpeg, contentType: ReceiptDocument.jpegType, pageCount: 1, existing: nil)
     }
 }

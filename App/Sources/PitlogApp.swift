@@ -32,12 +32,17 @@ struct PitlogApp: App {
     var body: some Scene {
         WindowGroup {
             RootView()
-                .environment(\.entitlements, UnlimitedEntitlements())
+                .environment(\.entitlements, Self.entitlements)
                 .environment(\.reminderCoordinator, coordinator)
                 .environment(router)
                 .environment(permission)
         }
         .modelContainer(container)
+    }
+
+    private static var entitlements: any Entitlements {
+        ProcessInfo.processInfo.arguments.contains("-UITestNoReceiptScan")
+            ? NoReceiptScanEntitlements() : UnlimitedEntitlements()
     }
 
     @MainActor

@@ -12,6 +12,12 @@ struct UnlimitedEntitlements: Entitlements {
     var canScanReceipts: Bool { true }
 }
 
+/// For the UI test of the restricted state (`-UITestNoReceiptScan`): everything free except the receipt scan.
+struct NoReceiptScanEntitlements: Entitlements {
+    var vehicleLimit: Int { .max }
+    var canScanReceipts: Bool { false }
+}
+
 extension Entitlements {
     /// `true` if one more vehicle may be added to `currentCount` existing ones.
     func canAddVehicle(currentCount: Int) -> Bool {

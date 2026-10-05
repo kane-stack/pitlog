@@ -6,12 +6,12 @@ import Foundation
 public struct HeuristicReceiptExtractor: ReceiptExtractor {
     public init() {}
 
-    public func extract(lines: [ReceiptLine], context: ReceiptContext) async -> ReceiptDraft {
+    public func extract(lines: [RecognizedLine], context: ReceiptContext) async -> ReceiptDraft {
         draft(lines: lines, context: context)
     }
 
     /// The synchronous implementation behind `extract(lines:context:)`.
-    public func draft(lines: [ReceiptLine], context: ReceiptContext) -> ReceiptDraft {
+    public func draft(lines: [RecognizedLine], context: ReceiptContext) -> ReceiptDraft {
         var draft = ReceiptDraft()
         let rksv = Self.findRKSV(lines: lines, context: context)
         // The QR payload is machine-readable and must not be analysed as text.
@@ -110,7 +110,7 @@ public struct HeuristicReceiptExtractor: ReceiptExtractor {
 
     /// The first usable RKSV QR code: from the context or printed as text in a line. Training
     /// receipts and codes with an implausible date are ignored.
-    static func findRKSV(lines: [ReceiptLine], context: ReceiptContext) -> RKSVReceipt? {
+    public static func findRKSV(lines: [RecognizedLine], context: ReceiptContext) -> RKSVReceipt? {
         var payloads = context.rksvPayloads
         for line in lines {
             guard let range = line.text.range(of: "_R1-AT") else { continue }

@@ -84,3 +84,28 @@ Stand: Branch `claude/m5a-registration-scan`, Lauf <https://github.com/kane-stac
 - **Behoben:** „Contrast nearly passed“ (alle Review-Tests im ersten Lauf, `no element`). Ursache war der Textausschnitt in `.secondary`. Er steht jetzt in `.primary`; der Befund ist weg.
 - **Grün:** EN mit größter Schrift (nur die gefilterten Navigationsleisten-Buttons), Review-Unit-Flows (Standardauswahl, Übernehmen, Abwählen, Abbrechen).
 - **Offen, vermutlich Systemartefakt:** „Dynamic Type font sizes are partially unsupported“ auf **genau einem** reinen SwiftUI-Text, der von Lauf zu Lauf wechselt (EN: „Type“, DE: „Pkw“, beide in der `MenuPickerRow`-Zeile der Fahrzeugart). Dasselbe Muster wie bei den Befunden 1 bis 4 oben. Mit dem Accessibility Inspector auf einem Gerät in M6 prüfen. Die Navigationsleisten-Buttons „Apply“/„Cancel“ meldet der Audit ebenfalls (UIKit), sie werden wie bisher gefiltert.
+
+## M5b: Review-Bildschirm des Belegscans
+
+UI-Audit-Läufe: https://github.com/kane-stack/pitlog/actions/runs/37317325504 (mit Screenshots, Branch
+`ci-screenshots/run-37317325504`) und https://github.com/kane-stack/pitlog/actions/runs/37324715519.
+Vergleichslauf auf dem M5a-Stand (`claude/practical-edison-jhlpos`, Commit `511cdb9`):
+https://github.com/kane-stack/pitlog/actions/runs/37321386084.
+
+**Der Gesamtlauf ist auch auf dem M5a-Stand rot.** Auf nahezu allen Bildschirmen meldet der Audit „Dynamic Type font
+sizes are (partially) unsupported“ für Textzeilen (type=48) und Bar-Buttons, auch für Bildschirme, die vor M5b
+unverändert sind (Erinnerungen, Fahrzeugdetail, Formular). Das ist nicht durch M5b entstanden; die Ursache liegt
+vermutlich in der Runner-/Xcode-Umgebung, ist aber nicht belegt. Zu klären in M6 (Accessibility Inspector, Gerät).
+
+Befunde, die M5b selbst betrafen, und was daraus wurde:
+
+| Befund | Ursache | Umgang |
+|---|---|---|
+| Kontrast „EUR“-Label im Review | sekundäre Farbe neben dem Betragsfeld | behoben (`.primary`), im Folgelauf weg |
+| „Text clipped“ Debug-Zeile „Receipt extraction comparison“ | Zeile umbrach nicht | behoben (`fixedSize`), im Folgelauf weg |
+| Settings-Test griff die Debug-Zeile statt „Legal“ | Zeile stand vor „Legal“ | behoben: Developer-Abschnitt steht zuletzt |
+| „Text clipped“ Titel „Check the receipt“ bei xxxl | zu langer Titel in der Navigationsleiste | Titel auf „Receipt“/„Beleg“ gekürzt, **nicht erneut gemessen** |
+| Dynamic Type „Scan receipt“, „EUR“, „Eintrag hinzufügen“, Bar-Buttons | wie überall (siehe oben) | Befund der Umgebung, nichts gefiltert |
+| `history-list-de`: „Contrast failed“ ohne Element | unklar; im M5a-Lauf dort „Dynamic Type, no element“ | **offen**, Screenshot im Branch `ci-screenshots/run-37317325504` ansehen |
+
+Gefiltert wird weiterhin nichts außer den beiden dokumentierten Bar-Button-Fällen.

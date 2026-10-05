@@ -23,6 +23,17 @@
         }
       }
     },
+    "%@: %@" : {
+      "comment" : "Receipt review: one reading in the list of readings. First argument: who read it, second: the value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@: %2$@"
+          }
+        }
+      }
+    },
     "%lld days" : {
       "comment" : "Number of days in a picker value, plural",
       "localizations" : {
@@ -368,6 +379,17 @@
         }
       }
     },
+    "Add from receipt" : {
+      "comment" : "History: button that scans a workshop receipt and creates a new entry from it",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aus Beleg hinzufügen"
+          }
+        }
+      }
+    },
     "Add odometer reading" : {
       "comment" : "Button in the vehicle header when no odometer reading exists",
       "localizations" : {
@@ -478,6 +500,17 @@
         }
       }
     },
+    "Also saved as an odometer reading if it is newer than your latest one." : {
+      "comment" : "Receipt review: what happens with the scanned odometer reading",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wird auch als Kilometerstand gespeichert, wenn er neuer ist als dein letzter."
+          }
+        }
+      }
+    },
     "Amount" : {
       "comment" : "Entry editor: what the visit cost",
       "localizations" : {
@@ -496,6 +529,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Eine Austauschplakette ist möglicherweise möglich. Das ist unverbindlich."
+          }
+        }
+      }
+    },
+    "Apple Intelligence" : {
+      "comment" : "Receipt review: name of the on-device language model",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apple Intelligence"
           }
         }
       }
@@ -643,6 +687,17 @@
         }
       }
     },
+    "Check the month against the punch on your inspection sticker before you save." : {
+      "comment" : "Sticker update from a receipt: reminds the user that the sticker is authoritative",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vergleiche den Monat mit der Lochung auf deinem Pickerl, bevor du sicherst."
+          }
+        }
+      }
+    },
     "Check the new sticker and adjust if needed." : {
       "comment" : "Record inspection: ask the user to verify the proposal against the sticker",
       "localizations" : {
@@ -676,6 +731,28 @@
         }
       }
     },
+    "Check what was read from your receipt. Only values that are switched on are copied into the entry. Nothing is saved until you tap Save." : {
+      "comment" : "Receipt review: introduction when the review fills the entry form",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prüfe, was aus deinem Beleg gelesen wurde. Nur Werte, die eingeschaltet sind, werden in den Eintrag übernommen. Gespeichert wird erst mit „Sichern“."
+          }
+        }
+      }
+    },
+    "Check what was read from your receipt. Only values that are switched on go into the new entry." : {
+      "comment" : "Receipt review: introduction when the review creates a new entry",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prüfe, was aus deinem Beleg gelesen wurde. Nur Werte, die eingeschaltet sind, kommen in den neuen Eintrag."
+          }
+        }
+      }
+    },
     "Choose a file" : {
       "comment" : "Scan source: an image or PDF from the Files app",
       "localizations" : {
@@ -694,6 +771,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wähle ein Foto oder ein PDF mit höchstens 20 MB."
+          }
+        }
+      }
+    },
+    "Choose a vehicle" : {
+      "comment" : "Receipt review: picker value while no vehicle is chosen",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fahrzeug wählen"
           }
         }
       }
@@ -1322,6 +1410,17 @@
         }
       }
     },
+    "License plate on the receipt: %@" : {
+      "comment" : "Receipt review: the license plate read from the receipt; the argument is the plate",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kennzeichen auf dem Beleg: %@"
+          }
+        }
+      }
+    },
     "Light commercial vehicle (N1)" : {
       "comment" : "Vehicle category, N1",
       "localizations" : {
@@ -1384,6 +1483,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Achte darauf, dass der ganze Zulassungsschein im Bild und gut beleuchtet ist, oder gib die Daten von Hand ein."
+          }
+        }
+      }
+    },
+    "Make sure the whole receipt is in view and well lit, or enter the data by hand." : {
+      "comment" : "Alert message when no field could be read from a receipt scan",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Achte darauf, dass der ganze Beleg im Bild und gut beleuchtet ist, oder gib die Daten von Hand ein."
           }
         }
       }
@@ -1626,6 +1736,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Es konnte nichts gelesen werden"
+          }
+        }
+      }
+    },
+    "Nothing could be read from this receipt." : {
+      "comment" : "Receipt review: notice when no field was found",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aus diesem Beleg konnte nichts gelesen werden."
           }
         }
       }
@@ -2001,6 +2122,28 @@
         }
       }
     },
+    "QR code" : {
+      "comment" : "Receipt review: name of the cash register QR code as a source",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QR-Code"
+          }
+        }
+      }
+    },
+    "Read as “%@”" : {
+      "comment" : "Receipt review: the printed text a value was read from",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gelesen als „%@“"
+          }
+        }
+      }
+    },
     "Read as “%@” (field %@)" : {
       "comment" : "Registration review: the text a value was read from. First argument: the text, second: the field code on the certificate",
       "localizations" : {
@@ -2008,6 +2151,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gelesen als „%1$@“ (Feld %2$@)"
+          }
+        }
+      }
+    },
+    "Read by the on-device language model." : {
+      "comment" : "Receipt review: the value comes from the language model, which has no source line",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vom Sprachmodell auf dem Gerät gelesen."
           }
         }
       }
@@ -2023,6 +2177,17 @@
         }
       }
     },
+    "Reading" : {
+      "comment" : "Receipt review: picker to choose between two readings of one field",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lesart"
+          }
+        }
+      }
+    },
     "Reading the certificate…" : {
       "comment" : "Shown while the scanned certificate is being recognized",
       "localizations" : {
@@ -2034,6 +2199,17 @@
         }
       }
     },
+    "Reading the receipt…" : {
+      "comment" : "Shown while the scanned receipt is being recognized",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beleg wird gelesen …"
+          }
+        }
+      }
+    },
     "Reads the vehicle data from your registration certificate. The photo stays on your device and is not saved." : {
       "comment" : "Vehicle form: explanation under the scan button",
       "localizations" : {
@@ -2041,6 +2217,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Liest die Fahrzeugdaten von deinem Zulassungsschein. Das Foto bleibt auf deinem Gerät und wird nicht gespeichert."
+          }
+        }
+      }
+    },
+    "Receipt" : {
+      "comment" : "Navigation title of the receipt review",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beleg"
+          }
+        }
+      }
+    },
+    "Receipt text" : {
+      "comment" : "Receipt review: name of the reader that works with the printed text and labels",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Belegtext"
           }
         }
       }
@@ -2254,6 +2452,17 @@
         }
       }
     },
+    "Scan receipt" : {
+      "comment" : "Entry editor: scan a workshop receipt with the camera or from a file and fill in the entry",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beleg scannen"
+          }
+        }
+      }
+    },
     "Scan registration certificate" : {
       "comment" : "Vehicle form: button that scans the registration certificate to fill in the vehicle data; Title of the source choice for scanning the registration certificate",
       "localizations" : {
@@ -2272,6 +2481,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mit der Kamera scannen"
+          }
+        }
+      }
+    },
+    "Scanning receipts is not included in your current plan. You can still attach a receipt from Photos or Files and enter the values yourself." : {
+      "comment" : "Shown instead of the receipt scan button when the scan is not part of the user's plan",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Scannen von Belegen ist in deinem aktuellen Tarif nicht enthalten. Du kannst weiterhin einen Beleg aus Fotos oder Dateien anhängen und die Werte selbst eingeben."
           }
         }
       }
@@ -2430,6 +2650,17 @@
         }
       }
     },
+    "Taken from the QR code of the cash register receipt." : {
+      "comment" : "Receipt review: the value comes from the RKSV QR code",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aus dem QR-Code des Kassenbons übernommen."
+          }
+        }
+      }
+    },
     "Taxi, ambulance or patient transport" : {
       "comment" : "Vehicle category",
       "localizations" : {
@@ -2437,6 +2668,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Taxi, Rettung oder Krankentransport"
+          }
+        }
+      }
+    },
+    "The VIN on the receipt matches this vehicle." : {
+      "comment" : "Receipt review: the VIN of the receipt belongs to the selected vehicle",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die FIN auf dem Beleg passt zu diesem Fahrzeug."
           }
         }
       }
@@ -2529,6 +2771,28 @@
         }
       }
     },
+    "The license plate on the receipt matches this vehicle." : {
+      "comment" : "Receipt review: the license plate of the receipt belongs to the selected vehicle",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Kennzeichen auf dem Beleg passt zu diesem Fahrzeug."
+          }
+        }
+      }
+    },
+    "The license plate or VIN on the receipt does not match this vehicle. Check that the receipt belongs to it." : {
+      "comment" : "Receipt review: warning when the receipt seems to belong to another vehicle",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kennzeichen oder FIN auf dem Beleg passen nicht zu diesem Fahrzeug. Prüfe, ob der Beleg dazugehört."
+          }
+        }
+      }
+    },
     "The new vignette is available from today." : {
       "comment" : "Notification body: the new annual vignette can be bought from today (1 December in Austria)",
       "localizations" : {
@@ -2562,6 +2826,28 @@
         }
       }
     },
+    "The receipt shows no license plate or VIN. Check that it belongs to this vehicle." : {
+      "comment" : "Receipt review: notice when the receipt does not name a vehicle",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auf dem Beleg stehen weder Kennzeichen noch FIN. Prüfe, ob er zu diesem Fahrzeug gehört."
+          }
+        }
+      }
+    },
+    "The receipt states the new inspection sticker: %@. Your sticker is not changed unless you do it yourself." : {
+      "comment" : "Receipt review: hint with the month a § 57a receipt says was punched; the argument is the month",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auf dem Beleg steht die neue Pickerl-Lochung: %@. Dein Pickerl wird nur geändert, wenn du es selbst tust."
+          }
+        }
+      }
+    },
     "The scan failed" : {
       "comment" : "Alert title when the scan or the import failed",
       "localizations" : {
@@ -2569,6 +2855,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Der Scan ist fehlgeschlagen"
+          }
+        }
+      }
+    },
+    "The scan is attached to the entry as a receipt. The name and address of the customer are not kept in its text." : {
+      "comment" : "Receipt review: what happens with the scanned pages",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Scan wird als Beleg an den Eintrag angehängt. Name und Anschrift des Kunden werden nicht im Text gespeichert."
+          }
+        }
+      }
+    },
+    "The two readings differ. Choose the right one below." : {
+      "comment" : "Receipt review: the rules and the on-device model read different values",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die beiden Lesarten weichen ab. Wähle unten die richtige."
           }
         }
       }
@@ -2628,6 +2936,17 @@
         }
       }
     },
+    "This looks like a credit note or a cancellation. No amount was taken over." : {
+      "comment" : "Receipt review: notice when the receipt is a credit note",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das sieht nach einer Gutschrift oder einem Storno aus. Es wurde kein Betrag übernommen."
+          }
+        }
+      }
+    },
     "Time of day" : {
       "comment" : "Settings: time of day reminder notifications arrive",
       "localizations" : {
@@ -2679,6 +2998,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Versuche es noch einmal oder wähle ein Foto oder eine Datei."
+          }
+        }
+      }
+    },
+    "Two independent readings agree." : {
+      "comment" : "Receipt review: the rules and the on-device model read the same value",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zwei unabhängige Lesarten stimmen überein."
           }
         }
       }
@@ -2749,6 +3079,17 @@
         }
       }
     },
+    "Update sticker month…" : {
+      "comment" : "Receipt review: opens the sticker picker, prefilled with the month from the receipt",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pickerl-Monat ändern …"
+          }
+        }
+      }
+    },
     "Use VIN" : {
       "comment" : "Registration review: switch to copy the scanned vehicle identification number into the form",
       "localizations" : {
@@ -2756,6 +3097,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "FIN übernehmen"
+          }
+        }
+      }
+    },
+    "Use amount" : {
+      "comment" : "Receipt review: switch to take the scanned total over into the entry",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Betrag übernehmen"
+          }
+        }
+      }
+    },
+    "Use category" : {
+      "comment" : "Receipt review: switch to take the guessed category over into the entry",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kategorie übernehmen"
+          }
+        }
+      }
+    },
+    "Use date" : {
+      "comment" : "Receipt review: switch to take the scanned date over into the entry",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datum übernehmen"
           }
         }
       }
@@ -2804,6 +3178,17 @@
         }
       }
     },
+    "Use odometer reading" : {
+      "comment" : "Receipt review: switch to take the scanned odometer reading over into the entry",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kilometerstand übernehmen"
+          }
+        }
+      }
+    },
     "Use suggestion: %@" : {
       "comment" : "Button that fills the sticker picker with the estimated due month; the argument is the month",
       "localizations" : {
@@ -2822,6 +3207,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fahrzeugart übernehmen"
+          }
+        }
+      }
+    },
+    "Use work done" : {
+      "comment" : "Receipt review: switch to take the scanned work items over into the entry",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Durchgeführte Arbeiten übernehmen"
+          }
+        }
+      }
+    },
+    "Use workshop" : {
+      "comment" : "Receipt review: switch to take the scanned workshop name over into the entry",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Werkstatt übernehmen"
           }
         }
       }
@@ -2859,6 +3266,17 @@
         }
       }
     },
+    "VIN on the receipt: %@" : {
+      "comment" : "Receipt review: the vehicle identification number read from the receipt; the argument is the VIN",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FIN auf dem Beleg: %@"
+          }
+        }
+      }
+    },
     "Valid until" : {
       "comment" : "Vignette reminder editor: last day of validity",
       "localizations" : {
@@ -2877,6 +3295,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gültig bis %@"
+          }
+        }
+      }
+    },
+    "Vehicle" : {
+      "comment" : "Receipt review: which vehicle the entry belongs to",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fahrzeug"
           }
         }
       }

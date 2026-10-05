@@ -42,7 +42,7 @@ struct ReceiptFixture: Sendable, CustomTestStringConvertible {
     let id: String
     /// "clean", "noisy" (OCR confusions) or "shuffled" (line order).
     let variant: String
-    let lines: [ReceiptLine]
+    let lines: [RecognizedLine]
     let context: ReceiptContext
     let expected: ExpectedReceipt
 
@@ -98,15 +98,15 @@ enum ReceiptFixtures {
     }
 
     /// One line per text line; a line `=== PAGE ===` starts the next page.
-    static func lines(from text: String) -> [ReceiptLine] {
+    static func lines(from text: String) -> [RecognizedLine] {
         var page = 1
-        var out: [ReceiptLine] = []
+        var out: [RecognizedLine] = []
         for raw in text.split(separator: "\n", omittingEmptySubsequences: true) {
             let line = String(raw)
             if line == "=== PAGE ===" {
                 page += 1
             } else {
-                out.append(ReceiptLine(line, page: page))
+                out.append(RecognizedLine(line, page: page))
             }
         }
         return out

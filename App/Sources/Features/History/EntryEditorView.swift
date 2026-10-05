@@ -6,7 +6,8 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 /// Add and edit form for one history entry. Edits are applied only on "Save". Receipts are attached from
-/// Files or Photos and previewed with QuickLook, which also offers the share sheet. No OCR yet (M5).
+/// Files, Photos or the scanner and previewed with QuickLook, which also offers the share sheet. A scan fills
+/// the form through the review screen (M5b).
 struct EntryEditorView: View {
     let vehicle: Vehicle
     /// `nil` creates a new entry.
@@ -15,6 +16,8 @@ struct EntryEditorView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) private var modelContext
     @Environment(\.locale) private var locale
+    @Environment(\.entitlements) private var entitlements
+    @Query private var allVehicles: [Vehicle]
 
     @State private var category: MaintenanceCategory
     @State private var date: Date
@@ -24,13 +27,14 @@ struct EntryEditorView: View {
     @State private var amountText: String
     @State private var currency: String
     @State private var note: String
-    @State private var receipts: [ReceiptDraft]
+    @State private var receipts: [EditorReceiptDraft]
 
     @State private var previewURL: URL?
     @State private var showingFileImporter = false
     @State private var showingPhotoPicker = false
     @State private var photoSelection: PhotosPickerItem?
     @State private var importFailed = false
+    @State private var scan = ReceiptScanController()
 
     init(vehicle: Vehicle, entry: MaintenanceEntry?, prefill: EntryPrefill?) {
         self.vehicle = vehicle
@@ -50,7 +54,7 @@ struct EntryEditorView: View {
                 .sorted { $0.createdAt < $1.createdAt }
                 .compactMap { receipt in
                     receipt.data.map {
-                        ReceiptDraft(data: $0, contentType: receipt.contentType, pageCount: receipt.pageCount, existing: receipt)
+                        EditorReceiptDraft(data: $0, contentType: receipt.contentType, pageCount: receipt.pageCount, existing: receipt)
                     }
                 })
         } else {
@@ -103,6 +107,12 @@ struct EntryEditorView: View {
                     }
                     .disabled(!canSave)
                     .accessibilityIdentifier("saveEntryButton")
+                }
+            }
+            // On a view of its own: two `fileImporter`s on one view would compete.
+            .background {
+                Color.clear.receiptScan(scan, mode: .fillForm) { application, attachment in
+                    applyScan(application, attachment: attachment)
                 }
             }
             .quickLookPreview($previewURL)
@@ -205,6 +215,14 @@ struct EntryEditorView: View {
             ForEach(receipts) { receipt in
                 receiptRow(receipt)
             }
+            if entitlements.canScanReceipts {
+                addRow(
+                    Text("Scan receipt", comment: "Entry editor: scan a workshop receipt with the camera or from a file and fill in the entry"),
+                    systemImage: "doc.text.viewfinder", identifier: "scanReceiptRow"
+                ) { startScan() }
+            } else {
+                ReceiptScanUnavailableNote()
+            }
             addRow(
                 Text("Add from Files", comment: "Entry editor: attach a receipt from the Files app"),
                 systemImage: "doc.badge.plus", identifier: "addReceiptFileRow"
@@ -216,7 +234,7 @@ struct EntryEditorView: View {
         }
     }
 
-    private func receiptRow(_ receipt: ReceiptDraft) -> some View {
+    private func receiptRow(_ receipt: EditorReceiptDraft) -> some View {
         let title = receiptTitle(receipt)
         return Label {
             Text(verbatim: title)
@@ -246,7 +264,7 @@ struct EntryEditorView: View {
         }
     }
 
-    private func receiptTitle(_ receipt: ReceiptDraft) -> String {
+    private func receiptTitle(_ receipt: EditorReceiptDraft) -> String {
         if receipt.isPDF {
             String(localized: "PDF receipt, \(receipt.pageCount) pages", locale: locale, comment: "Entry editor: an attached PDF receipt with its number of pages, plural")
         } else {
@@ -272,11 +290,35 @@ struct EntryEditorView: View {
 
     // MARK: Receipts
 
-    private func preview(_ receipt: ReceiptDraft) {
+    private func startScan() {
+        let infos = allVehicles.filter { !$0.isArchived || $0.id == vehicle.id }.map { ReceiptVehicleInfo($0) }
+        scan.start(ReceiptScanInput(vehicles: infos, contextVehicleID: vehicle.id, vehicleIsFixed: true))
+    }
+
+    /// Copies the values the user kept on the review into the form and attaches the scan. Nothing is saved here.
+    private func applyScan(_ application: ReceiptApplication, attachment: ReceiptAttachment?) {
+        if let day = application.date { date = CalendarDay.date(from: day, in: .current) }
+        if let scanned = application.category { category = scanned }
+        if let scanned = application.workshop { workshop = scanned }
+        if let scanned = application.workItems { workItems = scanned }
+        if let money = application.amount {
+            amountText = MoneyFormat.editText(money, locale: locale)
+            currency = money.currencyCode
+        }
+        if let km = application.odometerKm { kilometers = km }
+        if let attachment {
+            receipts.append(
+                EditorReceiptDraft(
+                    data: attachment.data, contentType: attachment.contentType, pageCount: attachment.pageCount,
+                    existing: nil, recognizedText: attachment.recognizedText))
+        }
+    }
+
+    private func preview(_ receipt: EditorReceiptDraft) {
         previewURL = receipt.previewFile()
     }
 
-    private func remove(_ receipt: ReceiptDraft) {
+    private func remove(_ receipt: EditorReceiptDraft) {
         receipts.removeAll { $0.id == receipt.id }
     }
 
@@ -335,6 +377,7 @@ struct EntryEditorView: View {
         for draft in receipts where draft.existing == nil {
             let stored = ReceiptDocument(
                 data: draft.data, contentType: draft.contentType, pageCount: draft.pageCount)
+            stored.recognizedText = draft.recognizedText
             modelContext.insert(stored)
             stored.entry = target
         }
