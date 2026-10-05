@@ -30,6 +30,8 @@ final class AccessibilityAuditTests: XCTestCase {
     /// Runs the audit, attaches every issue as text and never filters anything by itself.
     @MainActor
     private func audit(_ app: XCUIApplication, _ name: String) throws {
+        // Let push and sheet transitions finish: elements still moving are measured at the wrong size.
+        Thread.sleep(forTimeInterval: 1.5)
         defer {
             if !auditReport.isEmpty {
                 let attachment = XCTAttachment(string: auditReport.joined(separator: "\n\n"))

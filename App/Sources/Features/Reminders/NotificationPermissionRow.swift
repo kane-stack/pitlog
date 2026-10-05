@@ -53,17 +53,19 @@ struct NotificationPermissionRow: View {
         Group {
             switch permission.state {
             case .notDetermined:
-                Button {
-                    showingPrompt = true
-                } label: {
-                    HStack(alignment: .firstTextBaseline, spacing: 8) {
-                        Image(systemName: "bell.badge")
-                            .accessibilityHidden(true)
-                        Text("Allow notifications", comment: "Button to start the notification permission flow")
-                            .fixedSize(horizontal: false, vertical: true)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                    }
+                HStack(alignment: .firstTextBaseline, spacing: 8) {
+                    Image(systemName: "bell.badge")
+                        .accessibilityHidden(true)
+                    Text("Allow notifications", comment: "Button to start the notification permission flow")
+                        .fixedSize(horizontal: false, vertical: true)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                 }
+                .foregroundStyle(Color.accentColor)
+                .contentShape(Rectangle())
+                .onTapGesture { showingPrompt = true }
+                .accessibilityElement(children: .combine)
+                .accessibilityAddTraits(.isButton)
+                .accessibilityAction { showingPrompt = true }
                 .accessibilityIdentifier("allowNotificationsButton")
             case .denied:
                 Label {

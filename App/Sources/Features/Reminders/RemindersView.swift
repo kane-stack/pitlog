@@ -89,30 +89,30 @@ struct RemindersView: View {
 
     private func row(_ presentation: ReminderPresentation) -> some View {
         let reminder = presentation.reminder
-        return Button {
-            editorTarget = ReminderEditorTarget(category: reminder.category, reminder: reminder)
-        } label: {
-            VStack(alignment: .leading, spacing: 2) {
-                Label(presentation.title, systemImage: presentation.iconName)
-                    .font(.headline)
-                    .fixedSize(horizontal: false, vertical: true)
-                Text(presentation.dueText)
+        // Not a Button: button rows in a list fail the clipping audit, tappable rows do not.
+        return VStack(alignment: .leading, spacing: 2) {
+            Label(presentation.title, systemImage: presentation.iconName)
+                .font(.headline)
+                .fixedSize(horizontal: false, vertical: true)
+            Text(presentation.dueText)
+                .font(.subheadline)
+                .fixedSize(horizontal: false, vertical: true)
+            if let relative = presentation.relativeText {
+                Text(relative)
                     .font(.subheadline)
                     .fixedSize(horizontal: false, vertical: true)
-                if let relative = presentation.relativeText {
-                    Text(relative)
-                        .font(.subheadline)
-                        .fixedSize(horizontal: false, vertical: true)
-                }
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .contentShape(Rectangle())
         }
-        .buttonStyle(.plain)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .contentShape(Rectangle())
+        .onTapGesture {
+            editorTarget = ReminderEditorTarget(category: reminder.category, reminder: reminder)
+        }
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(Text(verbatim: presentation.accessibilityLabel))
         .accessibilityHint(Text("Opens the reminder for editing.", comment: "VoiceOver hint of a reminder row"))
         .accessibilityAddTraits(.isButton)
+        .accessibilityAction { editorTarget = ReminderEditorTarget(category: reminder.category, reminder: reminder) }
         .swipeActions(edge: .leading, allowsFullSwipe: true) {
             if reminder.isEnabled {
                 Button {
@@ -162,16 +162,18 @@ struct RemindersView: View {
     // MARK: Add
 
     private var addButton: some View {
-        Button {
-            showingAddDialog = true
-        } label: {
-            Label {
-                Text("Add reminder", comment: "Menu button on the vehicle detail to add a reminder")
-                    .fixedSize(horizontal: false, vertical: true)
-            } icon: {
-                Image(systemName: "plus.circle")
-            }
+        Label {
+            Text("Add reminder", comment: "Menu button on the vehicle detail to add a reminder")
+                .fixedSize(horizontal: false, vertical: true)
+        } icon: {
+            Image(systemName: "plus.circle")
         }
+        .foregroundStyle(Color.accentColor)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .contentShape(Rectangle())
+        .onTapGesture { showingAddDialog = true }
+        .accessibilityAddTraits(.isButton)
+        .accessibilityAction { showingAddDialog = true }
         .accessibilityIdentifier("addReminderButton")
         .confirmationDialog(
             Text("Add reminder", comment: "Menu button on the vehicle detail to add a reminder"),
