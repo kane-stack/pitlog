@@ -55,6 +55,7 @@ targets:
         BGTaskSchedulerPermittedIdentifiers:
           - com.example.pitlog.refresh-reminders
         ITSAppUsesNonExemptEncryption: false
+        NSCameraUsageDescription: Pitlog uses the camera to scan your registration certificate and workshop receipts. Images stay on your device.
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.example.pitlog

@@ -1,0 +1,23 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "NSCameraUsageDescription" : {
+      "comment" : "Shown in the system dialog that asks for camera access. The camera is used by the document scanner for registration certificates and workshop receipts.",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pitlog nutzt die Kamera, um Zulassungsschein und Werkstattrechnungen zu scannen. Die Bilder bleiben auf deinem Gerät."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pitlog uses the camera to scan your registration certificate and workshop receipts. Images stay on your device."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
