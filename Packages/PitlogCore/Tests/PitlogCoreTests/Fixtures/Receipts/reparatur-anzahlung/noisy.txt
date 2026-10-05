@@ -1,0 +1,23 @@
+Kfz-Technik Maier GmbH
+Gewerbestraße 8, 5020 Salzburg
+Tel. 0662 445566 · FN 98765x · UID: ATU77445536
+Frau Anna Beispiel
+Beispielgasse 3
+5020 Salzburg
+Rechnung Nr. 2026-1042
+Datum: 28.09.2026
+Auftrag Nr. 8812 vom 22.O9.2O26
+Kennzeichen: S 987 AB
+km-Stand: 143.12O
+Pos. Bezeichnung Menge Preis Betrag
+1 Bremsbeläge vorne, Satz 1 Stk 118,0O 118,0O
+2 Bremsscheiben vorne 2 Stk 96,50 l93,00
+3 Arbeitszeit Bremsen vorne erneuern 2,0 Std. 190,00 380,00
+Zwischensumme netto 691,00
+Rabatt 10 % auf Teile -31,1O
+Summe netto nach Rabatt 659,90
+20 % USt 131,98
+Gesamtbetrag 791,B8
+abzgl. Anzahlung vom 22.O9.2O26 -300,0O
+zu zahlen 49l,88
+Vielen Dank für Ihren Auftrag!
