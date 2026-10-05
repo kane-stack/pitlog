@@ -114,20 +114,3 @@ private struct ReceiptScanModifier: ViewModifier {
         }
     }
 }
-
-/// Shown instead of the scan buttons when `Entitlements.canScanReceipts` is off (ADR-11): a calm explanation,
-/// no dead button.
-struct ReceiptScanUnavailableNote: View {
-    var body: some View {
-        Label {
-            Text("Scanning receipts is not included in your current plan. You can still attach a receipt from Photos or Files and enter the values yourself.", comment: "Shown instead of the receipt scan button when the scan is not part of the user's plan")
-                .font(.subheadline)
-                .fixedSize(horizontal: false, vertical: true)
-        } icon: {
-            Image(systemName: "info.circle")
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .accessibilityElement(children: .combine)
-        .accessibilityIdentifier("receiptScanUnavailableNote")
-    }
-}

@@ -98,6 +98,9 @@ schemes:
         Pitlog: all
     run:
       config: Debug
+      # Local StoreKit testing (simulator, no App Store Connect). The file lives outside the source
+      # folders on purpose: it must not be copied into the app bundle.
+      storeKitConfiguration: App/StoreKit/Pitlog.storekit
     test:
       config: Debug
       gatherCoverageData: true

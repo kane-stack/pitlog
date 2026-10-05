@@ -1,6 +1,10 @@
+import StoreKit
 import SwiftUI
 
 struct SettingsView: View {
+    @State private var paywall: PaywallContext?
+    @State private var showingManageSubscription = false
+
     var body: some View {
         List {
             Section {
@@ -46,6 +50,11 @@ struct SettingsView: View {
                 }
             }
 
+            // After the rows above on purpose: the UI tests pick those by position.
+            ProSettingsSection(
+                onShowPaywall: { paywall = .general },
+                onManageSubscription: { showingManageSubscription = true })
+
             // Last on purpose: the UI tests pick the rows above by position.
             #if DEBUG
             Section {
@@ -64,5 +73,7 @@ struct SettingsView: View {
             #endif
         }
         .navigationTitle(Text("Settings", comment: "Navigation title of the Settings tab"))
+        .paywall($paywall)
+        .manageSubscriptionsSheet(isPresented: $showingManageSubscription)
     }
 }

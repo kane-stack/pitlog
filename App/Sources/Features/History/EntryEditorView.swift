@@ -35,6 +35,7 @@ struct EntryEditorView: View {
     @State private var photoSelection: PhotosPickerItem?
     @State private var importFailed = false
     @State private var scan = ReceiptScanController()
+    @State private var paywall: PaywallContext?
 
     init(vehicle: Vehicle, entry: MaintenanceEntry?, prefill: EntryPrefill?) {
         self.vehicle = vehicle
@@ -115,6 +116,7 @@ struct EntryEditorView: View {
                     applyScan(application, attachment: attachment)
                 }
             }
+            .background { Color.clear.paywall($paywall) }
             .quickLookPreview($previewURL)
             .fileImporter(isPresented: $showingFileImporter, allowedContentTypes: [.pdf, .image]) { result in
                 importFile(result)
@@ -215,14 +217,14 @@ struct EntryEditorView: View {
             ForEach(receipts) { receipt in
                 receiptRow(receipt)
             }
-            if entitlements.canScanReceipts {
-                addRow(
-                    Text("Scan receipt", comment: "Entry editor: scan a workshop receipt with the camera or from a file and fill in the entry"),
-                    systemImage: "doc.text.viewfinder", identifier: "scanReceiptRow"
-                ) { startScan() }
-            } else {
-                ReceiptScanUnavailableNote()
-            }
+            ActionRow(
+                title: Text("Scan receipt", comment: "Entry editor: scan a workshop receipt with the camera or from a file and fill in the entry"),
+                systemImage: "doc.text.viewfinder", showsProBadge: !entitlements.canScanReceipts,
+                identifier: "scanReceiptRow",
+                accessibilityLabelText: entitlements.canScanReceipts
+                    ? nil
+                    : Text("Scan receipt, requires Pitlog Pro", comment: "VoiceOver label of the receipt scan row in the entry editor while the user has no Pro")
+            ) { startScan() }
             addRow(
                 Text("Add from Files", comment: "Entry editor: attach a receipt from the Files app"),
                 systemImage: "doc.badge.plus", identifier: "addReceiptFileRow"
@@ -291,6 +293,10 @@ struct EntryEditorView: View {
     // MARK: Receipts
 
     private func startScan() {
+        guard entitlements.canScanReceipts else {
+            paywall = .receiptScan
+            return
+        }
         let infos = allVehicles.filter { !$0.isArchived || $0.id == vehicle.id }.map { ReceiptVehicleInfo($0) }
         scan.start(ReceiptScanInput(vehicles: infos, contextVehicleID: vehicle.id, vehicleIsFixed: true))
     }

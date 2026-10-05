@@ -6,6 +6,10 @@ struct ArchivedVehiclesView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(filter: #Predicate<Vehicle> { $0.isArchived }, sort: \Vehicle.createdAt)
     private var vehicles: [Vehicle]
+    @Query(filter: #Predicate<Vehicle> { !$0.isArchived })
+    private var activeVehicles: [Vehicle]
+    @Environment(\.entitlements) private var entitlements
+    @State private var paywall: PaywallContext?
     @State private var vehicleToDelete: Vehicle?
 
     var body: some View {
@@ -26,7 +30,12 @@ struct ArchivedVehiclesView: View {
                         }
                     }
                     Button {
-                        vehicle.isArchived = false
+                        // Restoring adds an active vehicle: beyond the free limit that is a Pro feature.
+                        if entitlements.canAddVehicle(currentCount: activeVehicles.count) {
+                            vehicle.isArchived = false
+                        } else {
+                            paywall = .vehicles
+                        }
                     } label: {
                         Label {
                             Text("Restore", comment: "Swipe action to restore an archived vehicle")
@@ -53,6 +62,7 @@ struct ArchivedVehiclesView: View {
         .navigationBarTitleDisplayMode(.inline)
         // Pushed from Settings: hide the floating tab bar so it never overlaps the last rows.
         .toolbar(.hidden, for: .tabBar)
+        .paywall($paywall)
         .confirmationDialog(
             Text("Delete this vehicle?", comment: "Confirmation title for deleting a vehicle"),
             isPresented: Binding(

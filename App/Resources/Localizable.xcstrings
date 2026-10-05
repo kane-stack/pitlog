@@ -12,6 +12,28 @@
         }
       }
     },
+    "%@ every %@" : {
+      "comment" : "Paywall: price of a subscription with a longer period. First argument: the price, second: the length such as 3 months",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ alle %2$@"
+          }
+        }
+      }
+    },
+    "%@ free, then %@ per year. Cancel any time." : {
+      "comment" : "Paywall: free trial of the subscription. First argument: the length such as 14 days, second: the price",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ gratis, danach %2$@ pro Jahr. Jederzeit kündbar."
+          }
+        }
+      }
+    },
     "%@ km" : {
       "comment" : "Odometer value with unit, shown in the vehicle header",
       "localizations" : {
@@ -19,6 +41,50 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ km"
+          }
+        }
+      }
+    },
+    "%@ per day" : {
+      "comment" : "Paywall: price of a daily subscription. Argument: the price",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ pro Tag"
+          }
+        }
+      }
+    },
+    "%@ per month" : {
+      "comment" : "Paywall: price of a monthly subscription. Argument: the price",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ pro Monat"
+          }
+        }
+      }
+    },
+    "%@ per week" : {
+      "comment" : "Paywall: price of a weekly subscription. Argument: the price",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ pro Woche"
+          }
+        }
+      }
+    },
+    "%@ per year" : {
+      "comment" : "Paywall: price of the yearly subscription. Argument: the price",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ pro Jahr"
           }
         }
       }
@@ -324,6 +390,17 @@
         }
       }
     },
+    "About Pitlog Pro" : {
+      "comment" : "Row that opens the paywall",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Über Pitlog Pro"
+          }
+        }
+      }
+    },
     "Add a vehicle to keep track of inspections, service and costs." : {
       "comment" : "Empty state description on the Vehicles tab",
       "localizations" : {
@@ -390,6 +467,17 @@
         }
       }
     },
+    "Add from receipt, requires Pitlog Pro" : {
+      "comment" : "VoiceOver label of the receipt scan row while the user has no Pro",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aus Beleg hinzufügen, benötigt Pitlog Pro"
+          }
+        }
+      }
+    },
     "Add odometer reading" : {
       "comment" : "Button in the vehicle header when no odometer reading exists",
       "localizations" : {
@@ -408,6 +496,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Erinnerung hinzufügen"
+          }
+        }
+      }
+    },
+    "Add reminder, requires Pitlog Pro" : {
+      "comment" : "VoiceOver label of the add reminder row while the user has no Pro",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erinnerung hinzufügen, benötigt Pitlog Pro"
           }
         }
       }
@@ -511,6 +610,17 @@
         }
       }
     },
+    "Always free: the inspection deadline with reminders, the registration scan, your history, receipts as photos or files and the costs of the current year." : {
+      "comment" : "Paywall: what stays free",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Immer kostenlos: die Pickerl-Frist mit Erinnerungen, der Zulassungsschein-Scan, deine Historie, Belege als Foto oder Datei und die Kosten des laufenden Jahres."
+          }
+        }
+      }
+    },
     "Amount" : {
       "comment" : "Entry editor: what the visit cost",
       "localizations" : {
@@ -606,6 +716,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bevor du loslegst"
+          }
+        }
+      }
+    },
+    "Buy for %@" : {
+      "comment" : "Paywall: button that buys the lifetime purchase. Argument: the price",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kaufen für %@"
           }
         }
       }
@@ -808,6 +929,17 @@
         }
       }
     },
+    "Close" : {
+      "comment" : "Button that closes the paywall",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schließen"
+          }
+        }
+      }
+    },
     "Closes this month" : {
       "comment" : "Inspection phase: the window closes within the current month",
       "localizations" : {
@@ -837,6 +969,61 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kosten"
+          }
+        }
+      }
+    },
+    "Costs of earlier years and chart" : {
+      "comment" : "Costs: locked row for the costs of earlier years and the chart across the years",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kosten früherer Jahre und Diagramm"
+          }
+        }
+      }
+    },
+    "Costs of earlier years and chart, requires Pitlog Pro" : {
+      "comment" : "VoiceOver label of the locked costs row",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kosten früherer Jahre und Diagramm, benötigt Pitlog Pro"
+          }
+        }
+      }
+    },
+    "Costs of earlier years and chart, requires Pitlog Pro. Costs from earlier years are not shown." : {
+      "comment" : "VoiceOver label of the locked costs row when entries of earlier years exist",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kosten früherer Jahre und Diagramm, benötigt Pitlog Pro. Kosten früherer Jahre werden nicht angezeigt."
+          }
+        }
+      }
+    },
+    "Costs of earlier years and the chart across all years are part of Pitlog Pro. The current year stays free." : {
+      "comment" : "Paywall: shown when the user wanted the costs of earlier years",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kosten früherer Jahre und das Diagramm über alle Jahre gehören zu Pitlog Pro. Das laufende Jahr bleibt kostenlos."
+          }
+        }
+      }
+    },
+    "Costs over the years" : {
+      "comment" : "Pitlog Pro benefit",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kosten über die Jahre"
           }
         }
       }
@@ -1047,6 +1234,17 @@
         }
       }
     },
+    "Earlier years and the chart across all years." : {
+      "comment" : "Pitlog Pro benefit: costs over several years",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Frühere Jahre und das Diagramm über alle Jahre."
+          }
+        }
+      }
+    },
     "Edit" : {
       "comment" : "Toolbar button to edit a vehicle",
       "localizations" : {
@@ -1168,6 +1366,17 @@
         }
       }
     },
+    "Everything for more than one vehicle. No ads, no tracking." : {
+      "comment" : "Paywall: one-line summary",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alles für mehr als ein Fahrzeug. Keine Werbung, kein Tracking."
+          }
+        }
+      }
+    },
     "Exchange sticker suggestion: %@. Not binding." : {
       "comment" : "Pickerl card: optional exchange sticker with the later due month",
       "localizations" : {
@@ -1175,6 +1384,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vorschlag Austauschplakette: %@. Unverbindlich."
+          }
+        }
+      }
+    },
+    "Family Sharing included" : {
+      "comment" : "Paywall: the product can be shared with the family",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mit Familienfreigabe"
           }
         }
       }
@@ -1212,6 +1432,17 @@
         }
       }
     },
+    "Free plan: one vehicle, the inspection reminder and the costs of the current year." : {
+      "comment" : "Settings: status of the free plan",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kostenloser Tarif: ein Fahrzeug, die Pickerl-Erinnerung und die Kosten des laufenden Jahres."
+          }
+        }
+      }
+    },
     "From %@ to %@" : {
       "comment" : "Pickerl card: inspection window, from the first to the last day",
       "localizations" : {
@@ -1219,6 +1450,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Von %@ bis %@"
+          }
+        }
+      }
+    },
+    "Get Pitlog Pro" : {
+      "comment" : "Settings: opens the paywall",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pitlog Pro holen"
           }
         }
       }
@@ -1355,6 +1597,17 @@
         }
       }
     },
+    "Keep as many vehicles as you like and edit all of them." : {
+      "comment" : "Pitlog Pro benefit: more vehicles",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verwalte beliebig viele Fahrzeuge und bearbeite alle."
+          }
+        }
+      }
+    },
     "Last inspection estimated from the sticker and first registration. Enter it for a precise suggestion." : {
       "comment" : "Rule note AT-53: the last inspection was derived, entering it gives a precise exchange sticker suggestion",
       "localizations" : {
@@ -1421,6 +1674,28 @@
         }
       }
     },
+    "Lifetime, shared by a family member." : {
+      "comment" : "Settings: status when Pro comes from a lifetime purchase of a family member",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lifetime, geteilt von einem Familienmitglied."
+          }
+        }
+      }
+    },
+    "Lifetime. Thank you for your support." : {
+      "comment" : "Settings: status of the lifetime purchase",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lifetime. Danke für deine Unterstützung."
+          }
+        }
+      }
+    },
     "Light commercial vehicle (N1)" : {
       "comment" : "Vehicle category, N1",
       "localizations" : {
@@ -1439,6 +1714,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Leichter Anhänger (bis 3,5 t)"
+          }
+        }
+      }
+    },
+    "Loading prices…" : {
+      "comment" : "Paywall: shown while the products load",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preise werden geladen …"
           }
         }
       }
@@ -1498,6 +1784,17 @@
         }
       }
     },
+    "Manage subscription" : {
+      "comment" : "Settings: opens the App Store subscription management",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abo verwalten"
+          }
+        }
+      }
+    },
     "Model" : {
       "comment" : "Vehicle form: model field",
       "localizations" : {
@@ -1516,6 +1813,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Monat"
+          }
+        }
+      }
+    },
+    "More reminders" : {
+      "comment" : "Pitlog Pro benefit",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mehr Erinnerungen"
+          }
+        }
+      }
+    },
+    "More than one vehicle is part of Pitlog Pro. Nothing is ever deleted, your other vehicles stay readable." : {
+      "comment" : "Paywall: shown when the user wanted to add or edit another vehicle",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mehr als ein Fahrzeug gehört zu Pitlog Pro. Es wird nie etwas gelöscht, deine anderen Fahrzeuge bleiben lesbar."
+          }
+        }
+      }
+    },
+    "More vehicles" : {
+      "comment" : "Pitlog Pro benefit",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mehr Fahrzeuge"
           }
         }
       }
@@ -1619,6 +1949,17 @@
         }
       }
     },
+    "No costs this year yet." : {
+      "comment" : "Costs: empty state for the current year when only earlier years have costs",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dieses Jahr noch keine Kosten."
+          }
+        }
+      }
+    },
     "No costs yet. Add an amount to an entry to see your workshop costs per year." : {
       "comment" : "Costs: empty state",
       "localizations" : {
@@ -1626,6 +1967,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Noch keine Kosten. Gib bei einem Eintrag einen Betrag an, um deine Werkstattkosten pro Jahr zu sehen."
+          }
+        }
+      }
+    },
+    "No earlier purchase of Pitlog Pro was found for this Apple Account." : {
+      "comment" : "Paywall: restoring found nothing",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Für diesen Apple-Account wurde kein früherer Kauf von Pitlog Pro gefunden."
           }
         }
       }
@@ -1659,6 +2011,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Keine Fahrzeuge"
+          }
+        }
+      }
+    },
+    "Not active without Pitlog Pro. Your reminder is kept and works again with Pro." : {
+      "comment" : "Reminders list: a reminder of a Pro type while the user has no Pro",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ohne Pitlog Pro nicht aktiv. Deine Erinnerung bleibt gespeichert und läuft mit Pro wieder."
           }
         }
       }
@@ -1861,6 +2224,17 @@
         }
       }
     },
+    "One purchase, no subscription. Yours for good." : {
+      "comment" : "Paywall: explains the lifetime purchase",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einmal kaufen, kein Abo. Gehört dir dauerhaft."
+          }
+        }
+      }
+    },
     "Only the back of the card was read. Scan the front as well for the license plate and the first registration." : {
       "comment" : "Registration review: notice when only the back of the chip card was scanned",
       "localizations" : {
@@ -1901,6 +2275,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Offene Rechtsfrage bei Fahrzeugen im Alter von 9 bis 10 Jahren."
+          }
+        }
+      }
+    },
+    "Opens Pitlog Pro." : {
+      "comment" : "VoiceOver hint of a locked reminder row",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Öffnet Pitlog Pro."
           }
         }
       }
@@ -2045,6 +2430,17 @@
         }
       }
     },
+    "Payment is charged to your Apple Account when you confirm the purchase. The subscription renews every year at the price shown unless you cancel at least 24 hours before the end of the current period. You can manage and cancel it in the settings of your Apple Account. The free trial ends automatically into the paid subscription unless you cancel before it ends. The lifetime purchase is paid once and does not renew." : {
+      "comment" : "Paywall: renewal terms required by the App Store (automatic renewal, cancellation, payment)",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Zahlung wird deinem Apple-Account belastet, wenn du den Kauf bestätigst. Das Abo verlängert sich jedes Jahr zum angezeigten Preis, wenn du nicht mindestens 24 Stunden vor Ende des laufenden Zeitraums kündigst. Du kannst es in den Einstellungen deines Apple-Accounts verwalten und kündigen. Der Gratiszeitraum geht automatisch in das kostenpflichtige Abo über, wenn du nicht vor seinem Ende kündigst. Der Einmalkauf wird nur einmal bezahlt und verlängert sich nicht."
+          }
+        }
+      }
+    },
     "Photo" : {
       "comment" : "Vehicle form: section header for the photo",
       "localizations" : {
@@ -2122,6 +2518,39 @@
         }
       }
     },
+    "Privacy Policy" : {
+      "comment" : "Paywall: link to the privacy policy",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datenschutzerklärung"
+          }
+        }
+      }
+    },
+    "Pro" : {
+      "comment" : "Badge on a feature that needs Pitlog Pro. Keep it short.",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pro"
+          }
+        }
+      }
+    },
+    "Purchases could not be restored. Check your connection and try again." : {
+      "comment" : "Paywall: restoring failed",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Käufe konnten nicht wiederhergestellt werden. Prüfe deine Verbindung und versuche es erneut."
+          }
+        }
+      }
+    },
     "QR code" : {
       "comment" : "Receipt review: name of the cash register QR code as a source",
       "localizations" : {
@@ -2177,6 +2606,17 @@
         }
       }
     },
+    "Read only" : {
+      "comment" : "Title of the notice on a vehicle that is over the free limit",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nur lesbar"
+          }
+        }
+      }
+    },
     "Reading" : {
       "comment" : "Receipt review: picker to choose between two readings of one field",
       "localizations" : {
@@ -2228,6 +2668,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Beleg"
+          }
+        }
+      }
+    },
+    "Receipt scan" : {
+      "comment" : "Pitlog Pro benefit",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Belegscan"
           }
         }
       }
@@ -2320,6 +2771,17 @@
         }
       }
     },
+    "Reminders for tyres, service, vignette and your own are part of Pitlog Pro. The inspection reminder stays free." : {
+      "comment" : "Paywall: shown when the user wanted a locked reminder",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erinnerungen für Reifen, Service, Vignette und eigene gehören zu Pitlog Pro. Die Pickerl-Erinnerung bleibt kostenlos."
+          }
+        }
+      }
+    },
     "Remove" : {
       "comment" : "Entry editor: remove an attached receipt",
       "localizations" : {
@@ -2408,6 +2870,28 @@
         }
       }
     },
+    "Requires Pitlog Pro" : {
+      "comment" : "VoiceOver label of the Pro badge on a locked feature",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benötigt Pitlog Pro"
+          }
+        }
+      }
+    },
+    "Requires Pitlog Pro, not active" : {
+      "comment" : "VoiceOver: a reminder of a Pro type while the user has no Pro",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benötigt Pitlog Pro, nicht aktiv"
+          }
+        }
+      }
+    },
     "Restore" : {
       "comment" : "Swipe action to restore an archived vehicle",
       "localizations" : {
@@ -2415,6 +2899,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wiederherstellen"
+          }
+        }
+      }
+    },
+    "Restore purchases" : {
+      "comment" : "Paywall and settings: restores earlier purchases",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Käufe wiederherstellen"
           }
         }
       }
@@ -2452,6 +2947,17 @@
         }
       }
     },
+    "Scan a workshop receipt and check the values before you save." : {
+      "comment" : "Pitlog Pro benefit: receipt scan",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scanne eine Werkstattrechnung und prüfe die Werte, bevor du speicherst."
+          }
+        }
+      }
+    },
     "Scan receipt" : {
       "comment" : "Entry editor: scan a workshop receipt with the camera or from a file and fill in the entry",
       "localizations" : {
@@ -2459,6 +2965,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Beleg scannen"
+          }
+        }
+      }
+    },
+    "Scan receipt, requires Pitlog Pro" : {
+      "comment" : "VoiceOver label of the receipt scan row in the entry editor while the user has no Pro",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beleg scannen, benötigt Pitlog Pro"
           }
         }
       }
@@ -2485,13 +3002,13 @@
         }
       }
     },
-    "Scanning receipts is not included in your current plan. You can still attach a receipt from Photos or Files and enter the values yourself." : {
-      "comment" : "Shown instead of the receipt scan button when the scan is not part of the user's plan",
+    "Scanning receipts is part of Pitlog Pro. You can still attach receipts as photos or files." : {
+      "comment" : "Paywall: shown when the user wanted to scan a receipt",
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Das Scannen von Belegen ist in deinem aktuellen Tarif nicht enthalten. Du kannst weiterhin einen Beleg aus Fotos oder Dateien anhängen und die Werte selbst eingeben."
+            "value" : "Das Scannen von Belegen gehört zu Pitlog Pro. Belege als Foto oder Datei anhängen geht weiterhin kostenlos."
           }
         }
       }
@@ -2617,6 +3134,50 @@
         }
       }
     },
+    "Start free trial" : {
+      "comment" : "Paywall: button that starts the free trial of the subscription",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gratis testen"
+          }
+        }
+      }
+    },
+    "Subscribe" : {
+      "comment" : "Paywall: button that starts the subscription",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abonnieren"
+          }
+        }
+      }
+    },
+    "Subscription active until %@." : {
+      "comment" : "Settings: status of the subscription. Argument: the end of the current period",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abo aktiv bis %@."
+          }
+        }
+      }
+    },
+    "Subscription shared by a family member, active until %@." : {
+      "comment" : "Settings: status of a shared subscription. Argument: the end of the current period",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abo geteilt von einem Familienmitglied, aktiv bis %@."
+          }
+        }
+      }
+    },
     "Summer tyres" : {
       "comment" : "Reminder type: summer tyre change",
       "localizations" : {
@@ -2672,6 +3233,17 @@
         }
       }
     },
+    "Terms of Use" : {
+      "comment" : "Paywall: link to the terms of use (Apple's standard license agreement)",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nutzungsbedingungen"
+          }
+        }
+      }
+    },
     "The VIN on the receipt matches this vehicle." : {
       "comment" : "Receipt review: the VIN of the receipt belongs to the selected vehicle",
       "localizations" : {
@@ -2723,6 +3295,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Der Eintrag und seine Belege werden von allen deinen Geräten gelöscht."
+          }
+        }
+      }
+    },
+    "The feature you wanted" : {
+      "comment" : "VoiceOver: marks the Pro feature the user tried to use",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Funktion, die du gerade wolltest"
+          }
+        }
+      }
+    },
+    "The free plan lets you edit one vehicle. This vehicle stays here and you can read everything. Pitlog Pro unlocks editing for all your vehicles." : {
+      "comment" : "Notice on a vehicle that is over the free limit",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Im kostenlosen Tarif kannst du ein Fahrzeug bearbeiten. Dieses Fahrzeug bleibt erhalten und du kannst alles lesen. Mit Pitlog Pro bearbeitest du alle deine Fahrzeuge."
           }
         }
       }
@@ -2804,6 +3398,17 @@
         }
       }
     },
+    "The prices could not be loaded. Check your connection and try again." : {
+      "comment" : "Paywall: the products could not be loaded",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Preise konnten nicht geladen werden. Prüfe deine Verbindung und versuche es erneut."
+          }
+        }
+      }
+    },
     "The punched month on the inspection sticker is not on the certificate. Enter it from the sticker itself." : {
       "comment" : "Registration review: hint that the sticker punch must be entered by hand",
       "localizations" : {
@@ -2811,6 +3416,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Die Lochung der Pickerl-Plakette steht nicht im Zulassungsschein. Gib sie anhand der Plakette selbst ein."
+          }
+        }
+      }
+    },
+    "The purchase did not go through. You have not been charged. Try again." : {
+      "comment" : "Paywall: the purchase failed",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Kauf ist nicht zustande gekommen. Es wurde nichts abgebucht. Versuche es erneut."
           }
         }
       }
@@ -2866,6 +3482,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Der Scan wird als Beleg an den Eintrag angehängt. Name und Anschrift des Kunden werden nicht im Text gespeichert."
+          }
+        }
+      }
+    },
+    "The subscription could not be renewed. Pro stays on while the App Store retries the payment. Check your payment method." : {
+      "comment" : "Settings: status of a subscription in its grace period",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Abo konnte nicht verlängert werden. Pro bleibt aktiv, solange der App Store die Zahlung erneut versucht. Prüfe deine Zahlungsmethode."
           }
         }
       }
@@ -2991,6 +3618,17 @@
         }
       }
     },
+    "Try again" : {
+      "comment" : "Paywall: reload the products",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erneut versuchen"
+          }
+        }
+      }
+    },
     "Try again, or choose a photo or a file." : {
       "comment" : "Alert message when the scan or the import failed",
       "localizations" : {
@@ -3020,6 +3658,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Art"
+          }
+        }
+      }
+    },
+    "Tyre changes, service, vignette and your own reminders." : {
+      "comment" : "Pitlog Pro benefit: reminders",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reifenwechsel, Service, Vignette und eigene Erinnerungen."
           }
         }
       }
@@ -3310,17 +3959,6 @@
         }
       }
     },
-    "Vehicle limit reached" : {
-      "comment" : "Alert title when the entitlement allows no more vehicles",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fahrzeuglimit erreicht"
-          }
-        }
-      }
-    },
     "Vehicles" : {
       "comment" : "Tab bar item for the vehicle list; Navigation title of the Vehicles tab",
       "localizations" : {
@@ -3350,6 +3988,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vignette"
+          }
+        }
+      }
+    },
+    "What is included" : {
+      "comment" : "Paywall: header of the list of Pro features",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das ist enthalten"
           }
         }
       }
@@ -3593,13 +4242,13 @@
         }
       }
     },
-    "Your vehicles stay available. You can view them, but not add more." : {
-      "comment" : "Alert message when the vehicle limit is reached",
+    "Your purchase is waiting for approval. Pro starts as soon as it goes through." : {
+      "comment" : "Paywall: the purchase is pending, for example Ask to Buy",
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Deine Fahrzeuge bleiben verfügbar. Du kannst sie ansehen, aber keine weiteren hinzufügen."
+            "value" : "Dein Kauf wartet auf Freigabe. Pro startet, sobald er durch ist."
           }
         }
       }

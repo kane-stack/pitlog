@@ -8,14 +8,29 @@ import SwiftUI
 /// never converted.
 struct CostsSection: View {
     let entries: [MaintenanceEntry]
+    /// Called when the user taps the Pro hint for the earlier years.
+    var onUpgrade: () -> Void = {}
 
     enum Display: Hashable { case chart, table }
 
     @Environment(\.locale) private var locale
+    @Environment(\.entitlements) private var entitlements
     @State private var display: Display = .chart
     @State private var chosenCurrency: String?
 
-    private var summary: CostSummary { CostSummary(entries: entries.compactMap(\.costEntry)) }
+    private var thisYear: Int { CalendarDay.today(in: .current).year }
+
+    /// Free: only the current year is summed and shown (ADR-11). The entries themselves stay in the history.
+    private var summary: CostSummary {
+        let costs = entries.compactMap(\.costEntry)
+        if entitlements.canViewMultiYearCosts { return CostSummary(entries: costs) }
+        return CostSummary(entries: costs.filter { $0.date.year == thisYear })
+    }
+
+    /// Costs of other years exist that the free plan does not show.
+    private var hasHiddenYears: Bool {
+        !entitlements.canViewMultiYearCosts && entries.compactMap(\.costEntry).contains { $0.date.year != thisYear }
+    }
 
     private func currency(in summary: CostSummary) -> String? {
         let available = summary.currencies
@@ -46,24 +61,50 @@ struct CostsSection: View {
                 .accessibilityIdentifier("costsCurrency")
             }
             currentYear(summary: summary, currency: currency)
-            Picker(selection: $display) {
-                Text("Chart", comment: "Costs: show the costs as a chart").tag(Display.chart)
-                Text("Table", comment: "Costs: show the costs as a table").tag(Display.table)
-            } label: {
-                Text("Show costs as", comment: "Costs: accessibility label of the switch between chart and table")
+            if entitlements.canViewMultiYearCosts {
+                multiYear(summary: summary, currency: currency)
             }
-            .pickerStyle(.segmented)
-            .accessibilityIdentifier("costsDisplayPicker")
-            switch display {
-            case .chart:
-                CostsChartView(series: summary.series(currency: currency), currency: currency)
-            case .table:
-                CostsTable(summary: summary, currency: currency)
-            }
+        } else if hasHiddenYears {
+            Text("No costs this year yet.", comment: "Costs: empty state for the current year when only earlier years have costs")
+                .font(.subheadline)
+                .fixedSize(horizontal: false, vertical: true)
         } else {
             Text("No costs yet. Add an amount to an entry to see your workshop costs per year.", comment: "Costs: empty state")
                 .font(.subheadline)
                 .fixedSize(horizontal: false, vertical: true)
+        }
+        if !entitlements.canViewMultiYearCosts {
+            earlierYearsHint
+        }
+    }
+
+    /// Free plan: where the chart would be, a note that earlier years need Pitlog Pro.
+    @ViewBuilder
+    private var earlierYearsHint: some View {
+        ActionRow(
+            title: Text("Costs of earlier years and chart", comment: "Costs: locked row for the costs of earlier years and the chart across the years"),
+            systemImage: "chart.bar", showsProBadge: true, identifier: "costsEarlierYearsRow",
+            accessibilityLabelText: hasHiddenYears
+                ? Text("Costs of earlier years and chart, requires Pitlog Pro. Costs from earlier years are not shown.", comment: "VoiceOver label of the locked costs row when entries of earlier years exist")
+                : Text("Costs of earlier years and chart, requires Pitlog Pro", comment: "VoiceOver label of the locked costs row"),
+            action: onUpgrade)
+    }
+
+    @ViewBuilder
+    private func multiYear(summary: CostSummary, currency: String) -> some View {
+        Picker(selection: $display) {
+            Text("Chart", comment: "Costs: show the costs as a chart").tag(Display.chart)
+            Text("Table", comment: "Costs: show the costs as a table").tag(Display.table)
+        } label: {
+            Text("Show costs as", comment: "Costs: accessibility label of the switch between chart and table")
+        }
+        .pickerStyle(.segmented)
+        .accessibilityIdentifier("costsDisplayPicker")
+        switch display {
+        case .chart:
+            CostsChartView(series: summary.series(currency: currency), currency: currency)
+        case .table:
+            CostsTable(summary: summary, currency: currency)
         }
     }
 

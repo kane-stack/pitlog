@@ -10,7 +10,7 @@ struct VehicleListView: View {
     private var vehicles: [Vehicle]
 
     @State private var showingForm = false
-    @State private var showingLimitAlert = false
+    @State private var paywall: PaywallContext?
     @State private var vehicleToDelete: Vehicle?
 
     private let service = InspectionService()
@@ -20,7 +20,9 @@ struct VehicleListView: View {
         List {
             ForEach(vehicles) { vehicle in
                 NavigationLink(value: vehicle) {
-                    VehicleRow(vehicle: vehicle, outcome: service.evaluate(vehicle, today: today), today: today)
+                    VehicleRow(
+                        vehicle: vehicle, outcome: service.evaluate(vehicle, today: today), today: today,
+                        isReadOnly: entitlements.isReadOnly(vehicle, among: vehicles))
                 }
                 .swipeActions(edge: .trailing, allowsFullSwipe: false) {
                     Button(role: .destructive) {
@@ -71,7 +73,7 @@ struct VehicleListView: View {
                     if entitlements.canAddVehicle(currentCount: vehicles.count) {
                         showingForm = true
                     } else {
-                        showingLimitAlert = true
+                        paywall = .vehicles
                     }
                 } label: {
                     Label {
@@ -86,16 +88,7 @@ struct VehicleListView: View {
         .sheet(isPresented: $showingForm) {
             VehicleFormView(vehicle: nil)
         }
-        .alert(
-            Text("Vehicle limit reached", comment: "Alert title when the entitlement allows no more vehicles"),
-            isPresented: $showingLimitAlert
-        ) {
-            Button(role: .cancel) {} label: {
-                Text("OK", comment: "Alert dismiss button")
-            }
-        } message: {
-            Text("Your vehicles stay available. You can view them, but not add more.", comment: "Alert message when the vehicle limit is reached")
-        }
+        .paywall($paywall)
         .confirmationDialog(
             Text("Delete this vehicle?", comment: "Confirmation title for deleting a vehicle"),
             isPresented: Binding(

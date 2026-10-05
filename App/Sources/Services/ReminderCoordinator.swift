@@ -41,13 +41,19 @@ final class ReminderCoordinator {
     private let container: ModelContainer
     private let scheduler: NotificationScheduler
     private let defaults: UserDefaults
+    /// The tier decides which reminder kinds are planned (ADR-11). Read at every plan.
+    private let tier: @MainActor () -> Tier
     private let builder = ReminderScheduleBuilder()
     private var debounce: Task<Void, Never>?
 
-    init(container: ModelContainer, scheduler: NotificationScheduler, defaults: UserDefaults = .standard) {
+    init(
+        container: ModelContainer, scheduler: NotificationScheduler, defaults: UserDefaults = .standard,
+        tier: @escaping @MainActor () -> Tier = { .pro }
+    ) {
         self.container = container
         self.scheduler = scheduler
         self.defaults = defaults
+        self.tier = tier
     }
 
     /// Plans now and replaces the pending notifications.
@@ -58,9 +64,10 @@ final class ReminderCoordinator {
             (try? context.fetch(FetchDescriptor<Vehicle>(predicate: #Predicate { !$0.isArchived }))) ?? []
         let today = CalendarDay.today(in: .current)
         let inspectionToday = CalendarDay.today(in: CalendarDay.austria)
-        let schedules = vehicles.flatMap {
-            builder.schedules(for: $0, today: today, inspectionToday: inspectionToday)
-        }
+        // Without Pro only the inspection reminders are planned, for every vehicle. The stored reminders of the
+        // other kinds stay as they are and are planned again as soon as Pro is back.
+        let schedules = AccessPolicy(tier: tier()).schedulable(
+            vehicles.flatMap { builder.schedules(for: $0, today: today, inspectionToday: inspectionToday) })
         var ledger = OverdueNoticeStore.load(from: defaults)
         let plan = NotificationPlanner.plan(schedules: schedules, today: today, ledger: ledger)
         // An overdue notice fires once: remember its day so that later plans neither move nor repeat it.

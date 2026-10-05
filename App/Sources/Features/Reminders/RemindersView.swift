@@ -17,6 +17,10 @@ struct RemindersView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.locale) private var locale
     @Environment(NotificationPermission.self) private var permission
+    @Environment(\.entitlements) private var entitlements
+    @Query(filter: #Predicate<Vehicle> { !$0.isArchived }, sort: \Vehicle.createdAt)
+    private var activeVehicles: [Vehicle]
+    @State private var paywall: PaywallContext?
     @State private var editorTarget: ReminderEditorTarget?
     @State private var showingPermissionPrompt = false
     @State private var showingAddDialog = false
@@ -27,6 +31,10 @@ struct RemindersView: View {
     @State private var today = CalendarDay.today(in: .current)
 
     private let builder = ReminderScheduleBuilder()
+
+    /// Reminders of tyres, service, vignette and custom ones need Pro (ADR-11). They stay stored and listed.
+    private var isLocked: Bool { !entitlements.canUseProReminders }
+    private var isReadOnly: Bool { entitlements.isReadOnly(vehicle, among: activeVehicles) }
 
     private var presentations: [ReminderPresentation] {
         (vehicle.reminders ?? [])
@@ -55,6 +63,7 @@ struct RemindersView: View {
         .navigationTitle(Text("Reminders", comment: "Section header on the vehicle detail: reminders"))
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(.hidden, for: .tabBar)
+        .paywall($paywall)
         .sheet(item: $editorTarget) { target in
             ReminderEditorView(vehicle: vehicle, category: target.category, reminder: target.reminder)
         }
@@ -72,7 +81,7 @@ struct RemindersView: View {
     }
 
     private var hasActiveReminders: Bool {
-        vehicle.inspectionRemindersEnabled || (vehicle.reminders ?? []).contains { $0.isEnabled }
+        vehicle.inspectionRemindersEnabled || (!isLocked && (vehicle.reminders ?? []).contains { $0.isEnabled })
     }
 
     // MARK: Inspection toggle
@@ -82,6 +91,10 @@ struct RemindersView: View {
             Toggle(isOn: Binding(
                 get: { vehicle.inspectionRemindersEnabled },
                 set: { newValue in
+                    if isReadOnly {
+                        paywall = .vehicles
+                        return
+                    }
                     vehicle.inspectionRemindersEnabled = newValue
                     if newValue, permission.state == .notDetermined { showingPermissionPrompt = true }
                 })
@@ -103,11 +116,18 @@ struct RemindersView: View {
 
     private func row(_ presentation: ReminderPresentation) -> some View {
         let reminder = presentation.reminder
+        let locked = isLocked
         // Not a Button: button rows in a list fail the clipping audit, tappable rows do not.
         return VStack(alignment: .leading, spacing: 2) {
-            Label(presentation.title, systemImage: presentation.iconName)
-                .font(.headline)
-                .fixedSize(horizontal: false, vertical: true)
+            HStack(alignment: .firstTextBaseline, spacing: 8) {
+                Label(presentation.title, systemImage: presentation.iconName)
+                    .font(.headline)
+                    .fixedSize(horizontal: false, vertical: true)
+                if locked {
+                    Spacer(minLength: 8)
+                    ProBadge()
+                }
+            }
             Text(presentation.dueText)
                 .font(.subheadline)
                 .fixedSize(horizontal: false, vertical: true)
@@ -116,19 +136,24 @@ struct RemindersView: View {
                     .font(.subheadline)
                     .fixedSize(horizontal: false, vertical: true)
             }
+            if locked {
+                Text("Not active without Pitlog Pro. Your reminder is kept and works again with Pro.", comment: "Reminders list: a reminder of a Pro type while the user has no Pro")
+                    .font(.footnote)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .contentShape(Rectangle())
-        .onTapGesture {
-            editorTarget = ReminderEditorTarget(category: reminder.category, reminder: reminder)
-        }
+        .onTapGesture { open(reminder) }
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel(Text(verbatim: presentation.accessibilityLabel))
-        .accessibilityHint(Text("Opens the reminder for editing.", comment: "VoiceOver hint of a reminder row"))
+        .accessibilityLabel(Text(verbatim: locked ? lockedLabel(presentation) : presentation.accessibilityLabel))
+        .accessibilityHint(locked
+            ? Text("Opens Pitlog Pro.", comment: "VoiceOver hint of a locked reminder row")
+            : Text("Opens the reminder for editing.", comment: "VoiceOver hint of a reminder row"))
         .accessibilityAddTraits(.isButton)
-        .accessibilityAction { editorTarget = ReminderEditorTarget(category: reminder.category, reminder: reminder) }
+        .accessibilityAction { open(reminder) }
         .swipeActions(edge: .leading, allowsFullSwipe: true) {
-            if reminder.isEnabled {
+            if reminder.isEnabled && !locked {
                 Button {
                     markDone(reminder)
                 } label: {
@@ -143,7 +168,7 @@ struct RemindersView: View {
         }
         .swipeActions(edge: .trailing, allowsFullSwipe: false) {
             Button(role: .destructive) {
-                modelContext.delete(reminder)
+                if isReadOnly { paywall = .vehicles } else { modelContext.delete(reminder) }
             } label: {
                 Label {
                     Text("Delete", comment: "Swipe action to delete a reminder")
@@ -152,7 +177,7 @@ struct RemindersView: View {
                 }
             }
             Button {
-                editorTarget = ReminderEditorTarget(category: reminder.category, reminder: reminder)
+                open(reminder)
             } label: {
                 Label {
                     Text("Edit", comment: "Swipe action to edit a reminder")
@@ -162,6 +187,22 @@ struct RemindersView: View {
             }
             .tint(.indigo)
         }
+    }
+
+    /// Opens the editor, or the paywall for a locked reminder.
+    private func open(_ reminder: Reminder) {
+        if isLocked {
+            paywall = .reminders
+        } else if isReadOnly {
+            paywall = .vehicles
+        } else {
+            editorTarget = ReminderEditorTarget(category: reminder.category, reminder: reminder)
+        }
+    }
+
+    private func lockedLabel(_ presentation: ReminderPresentation) -> String {
+        let pro = String(localized: "Requires Pitlog Pro, not active", locale: locale, comment: "VoiceOver: a reminder of a Pro type while the user has no Pro")
+        return "\(presentation.title). \(pro). \(presentation.dueText)."
     }
 
     private func markDone(_ reminder: Reminder) {
@@ -180,20 +221,39 @@ struct RemindersView: View {
 
     // MARK: Add
 
-    private var addButton: some View {
-        Label {
-            Text("Add reminder", comment: "Menu button on the vehicle detail to add a reminder")
-                .fixedSize(horizontal: false, vertical: true)
-        } icon: {
-            Image(systemName: "plus.circle")
+    private func addTapped() {
+        if isLocked {
+            paywall = .reminders
+        } else if isReadOnly {
+            paywall = .vehicles
+        } else {
+            showingAddDialog = true
         }
-        .foregroundStyle(Color.accentColor)
+    }
+
+    private var addButton: some View {
+        HStack(alignment: .firstTextBaseline, spacing: 8) {
+            Label {
+                Text("Add reminder", comment: "Menu button on the vehicle detail to add a reminder")
+                    .fixedSize(horizontal: false, vertical: true)
+            } icon: {
+                Image(systemName: "plus.circle")
+            }
+            .foregroundStyle(Color.accentColor)
+            if isLocked {
+                Spacer(minLength: 8)
+                ProBadge()
+            }
+        }
         .frame(maxWidth: .infinity, alignment: .leading)
         .contentShape(Rectangle())
-        .onTapGesture { showingAddDialog = true }
-        .accessibilityElement(children: .combine)
+        .onTapGesture { addTapped() }
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(isLocked
+            ? Text("Add reminder, requires Pitlog Pro", comment: "VoiceOver label of the add reminder row while the user has no Pro")
+            : Text("Add reminder", comment: "Menu button on the vehicle detail to add a reminder"))
         .accessibilityAddTraits(.isButton)
-        .accessibilityAction { showingAddDialog = true }
+        .accessibilityAction { addTapped() }
         .accessibilityIdentifier("addReminderButton")
         .confirmationDialog(
             Text("Add reminder", comment: "Menu button on the vehicle detail to add a reminder"),
