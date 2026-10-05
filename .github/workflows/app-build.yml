@@ -17,6 +17,10 @@ on:
         description: "Also run the screenshot tours (slow)"
         type: boolean
         default: false
+      screenshots:
+        description: "Commit screenshots and the audit report to ci-screenshots/ on the branch (remove them after review)"
+        type: boolean
+        default: false
 
 env:
   # Simulator builds run unsigned, so the CloudKit entitlements are stripped (see CLAUDE.md).
@@ -149,7 +153,7 @@ jobs:
       # The artifact host is blocked in the cloud environment, git is not: commit downscaled PNGs and the
       # audit report below ci-screenshots/ on the dispatched branch. They are removed again after review.
       - name: Publish screenshots
-        if: always()
+        if: always() && inputs.screenshots
         run: |
           OUT="ci-screenshots/run-${{ github.run_id }}"
           mkdir -p "$OUT"
