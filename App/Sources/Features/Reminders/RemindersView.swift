@@ -146,7 +146,7 @@ struct RemindersView: View {
         .contentShape(Rectangle())
         .onTapGesture { open(reminder) }
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel(Text(verbatim: locked ? lockedLabel(presentation) : presentation.accessibilityLabel))
+        .accessibilityLabel(Text(verbatim: (locked ? lockedLabel(presentation) : presentation.accessibilityLabel).withoutSoftHyphens))
         .accessibilityHint(locked
             ? Text("Opens Pitlog Pro.", comment: "VoiceOver hint of a locked reminder row")
             : Text("Opens the reminder for editing.", comment: "VoiceOver hint of a reminder row"))

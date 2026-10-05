@@ -87,7 +87,7 @@ struct UpcomingView: View {
                                 }
                             }
                             .accessibilityElement(children: .ignore)
-                            .accessibilityLabel(Text(verbatim: item.accessibilityLabel))
+                            .accessibilityLabel(Text(verbatim: item.accessibilityLabel.withoutSoftHyphens))
                         }
                     }
                 }

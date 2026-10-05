@@ -48,6 +48,17 @@ struct SettingsView: View {
                         Image(systemName: "info.circle")
                     }
                 }
+                // Last in the section on purpose: the UI tests pick the rows above by position.
+                if let privacy = AppLinks.privacyPolicy {
+                    Link(destination: privacy) {
+                        Label {
+                            Text("Privacy Policy", comment: "Paywall: link to the privacy policy")
+                        } icon: {
+                            Image(systemName: "hand.raised")
+                        }
+                    }
+                    .accessibilityIdentifier("settingsPrivacyRow")
+                }
             }
 
             // After the rows above on purpose: the UI tests pick those by position.

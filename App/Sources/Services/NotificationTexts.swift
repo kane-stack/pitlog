@@ -25,7 +25,8 @@ enum NotificationTexts {
     static func text(for item: PlannedNotification, vehicleName: String, locale: Locale) -> Message {
         let type = typeTitle(for: item, locale: locale)
         let title = vehicleName.isEmpty ? type : "\(vehicleName) · \(type)"
-        return Message(title: title, body: body(for: item, locale: locale))
+        // The German strings carry soft hyphens for line breaking in views; a notification must not.
+        return Message(title: title.withoutSoftHyphens, body: body(for: item, locale: locale).withoutSoftHyphens)
     }
 
     /// Kind of the reminder; the user's own title for service and custom reminders.

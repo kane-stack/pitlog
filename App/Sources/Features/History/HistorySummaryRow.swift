@@ -27,7 +27,7 @@ struct HistorySummaryRow: View {
                     .fixedSize(horizontal: false, vertical: true)
             }
             .accessibilityElement(children: .ignore)
-            .accessibilityLabel(Text(verbatim: accessibilityText))
+            .accessibilityLabel(Text(verbatim: accessibilityText.withoutSoftHyphens))
         }
         .accessibilityIdentifier("historyRow")
     }

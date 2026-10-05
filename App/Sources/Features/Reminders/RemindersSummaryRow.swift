@@ -39,7 +39,7 @@ struct RemindersSummaryRow: View {
                 }
             }
             .accessibilityElement(children: .ignore)
-            .accessibilityLabel(Text(verbatim: label))
+            .accessibilityLabel(Text(verbatim: label.withoutSoftHyphens))
         }
         .accessibilityIdentifier("remindersRow")
     }

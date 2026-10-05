@@ -270,13 +270,13 @@ struct PaywallView: View {
             .font(.footnote)
             .fixedSize(horizontal: false, vertical: true)
             HStack(spacing: 16) {
-                if let terms = StoreService.termsOfUseURL {
+                if let terms = AppLinks.termsOfUse {
                     Link(destination: terms) {
                         Text("Terms of Use", comment: "Paywall: link to the terms of use (Apple's standard license agreement)")
                     }
                     .accessibilityIdentifier("termsLink")
                 }
-                if let privacy = StoreService.privacyPolicyURL {
+                if let privacy = AppLinks.privacyPolicy {
                     Link(destination: privacy) {
                         Text("Privacy Policy", comment: "Paywall: link to the privacy policy")
                     }

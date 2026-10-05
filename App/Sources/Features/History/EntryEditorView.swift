@@ -248,7 +248,7 @@ struct EntryEditorView: View {
         .contentShape(Rectangle())
         .onTapGesture { preview(receipt) }
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel(Text(verbatim: title))
+        .accessibilityLabel(Text(verbatim: title.withoutSoftHyphens))
         .accessibilityHint(Text("Opens a preview. You can share the receipt from there.", comment: "VoiceOver hint of an attached receipt"))
         .accessibilityAddTraits(.isButton)
         .accessibilityAction { preview(receipt) }

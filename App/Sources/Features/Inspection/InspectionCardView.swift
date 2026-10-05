@@ -75,7 +75,7 @@ struct InspectionCardView: View {
         .accessibilityLabel(
             ([presentation.accessibilityLabel] + noteTexts
                 + [presentation.exchangeSuggestionText, presentation.exchangeAvailabilityText].compactMap { $0 })
-                .joined(separator: " "))
+                .joined(separator: " ").withoutSoftHyphens)
 
         recordButton
     }
