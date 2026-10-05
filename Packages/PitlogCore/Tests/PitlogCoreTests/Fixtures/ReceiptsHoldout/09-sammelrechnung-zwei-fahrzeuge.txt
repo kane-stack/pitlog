@@ -1,0 +1,19 @@
+Fuhrpark-Service Wimmer GmbH
+Triester Str. 200, 1100 Wien   UID ATU 55302118
+Rechnungsempfänger:
+Taxi Hofer GmbH
+Autohaus-Gasse 3
+1100 Wien
+Sammelrechnung 2026-0233
+Rechnungsdatum 12.05.2026
+Leistungsdatum 11.05.2026
+Fahrzeug 1: W 53211 F  km 51.200
+Fahrzeug 2: W 53212 F  km 48.900
+Pos 1  Kleines Service W 53211 F pauschal   238,00
+Pos 2  Wischerblätter W 53211 F              24,00
+Pos 3  Kleines Service W 53212 F pauschal   238,00
+Pos 4  Pollenfilter W 53212 F                31,50
+Netto  531,50
+20 % USt 106,30
+Brutto EUR 637,80
+Zahlungsziel 14 Tage
