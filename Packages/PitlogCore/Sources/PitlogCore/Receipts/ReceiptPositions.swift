@@ -26,7 +26,8 @@ enum ReceiptPositions {
         ]),
         (.repair, [
             "reparatur", "bremsbelag", "bremsbelage", "bremsscheibe", "stossdampfer", "auspuff", "kupplung", "zahnriemen",
-            "lichtmaschine", "anlasser", "getriebe", "wasserpumpe", "spurstange", "tausch", "erneuer",
+            "lichtmaschine", "anlasser", "getriebe", "wasserpumpe", "spurstange", "tausch", "erneuer", "batterie", "einbau",
+            "karosserie", "lackier", "stossfanger", "kotflugel", "scheinwerfer",
         ]),
     ]
 
@@ -68,8 +69,13 @@ enum ReceiptPositions {
 
     // MARK: Category
 
+    /// Keywords are also matched with "oe", "ue", "ae" read as ö, ü, ä ("OELWECHSEL" on receipts
+    /// printed without umlauts).
     private static func matchCategory(_ folded: String) -> MaintenanceCategory? {
-        for (category, keywords) in categoryKeywords where ReceiptText.containsAny(folded, keywords) {
+        let alt = folded.replacingOccurrences(of: "oe", with: "o").replacingOccurrences(of: "ue", with: "u")
+            .replacingOccurrences(of: "ae", with: "a")
+        for (category, keywords) in categoryKeywords
+        where ReceiptText.containsAny(folded, keywords) || ReceiptText.containsAny(alt, keywords) {
             return category
         }
         return nil

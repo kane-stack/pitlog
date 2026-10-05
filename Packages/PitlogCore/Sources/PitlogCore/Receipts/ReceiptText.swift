@@ -190,15 +190,15 @@ enum ReceiptText {
         allDigits(w) && w.count <= 3
     }
 
-    /// "234,56", "234.56", "234,-": the rest of "1 234,56".
+    /// "234,56", "234.56", "234,-", with OCR look-alikes ("841,5o"): the rest of "1 234,56".
     private static func isThousandTail(_ s: String) -> Bool {
         let c = Array(s)
-        guard c.count >= 5, c[0..<3].allSatisfy({ isDigit($0) }) else { return false }
-        let rest = String(c[3...])
-        if rest.count == 3, rest.first == "," || rest.first == ".", rest.dropFirst().allSatisfy({ isDigit($0) }) {
-            return true
+        guard c.count >= 5, c[0..<3].allSatisfy({ ocrDigit($0) != nil }) else { return false }
+        let rest = Array(c[3...])
+        if rest.count == 3, rest[0] == "," || rest[0] == ".", ocrDigit(rest[1]) != nil, ocrDigit(rest[2]) != nil {
+            return c.filter { isDigit($0) }.count >= 2
         }
-        return rest == ",-" || rest == ",--"
+        return String(rest) == ",-" || String(rest) == ",--"
     }
 
     private static func stripCurrency(_ word: String) -> (core: String, strong: Bool, letter: Bool) {
