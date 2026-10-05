@@ -147,7 +147,7 @@ Prompt: `docs/research/local-session-prompt.md`.
 | M2 | Nov | Datenmodell (inkl. FIN-Feld), Fahrzeugverwaltung, Plaketten-Auswahl, Pickerl-Karte, Hinweis, Lokalisierung | erledigt (UI-Audit grün auf `claude/m2-vehicles`) |
 | M3 | Dez | Erinnerungen und Benachrichtigungen (siehe `docs/reminders.md`) | implementiert; UI-Audit-Reste dokumentiert in `docs/accessibility-audit.md` (M6) |
 | M4 | Jan 2027 | Historie, manuelle Einträge, Kosten pro Jahr | implementiert: Core `Money`/`CostSummary`, Historie mit Diagramm und Tabelle, Eintragseditor mit Belegen (ohne OCR), Angebote nach Pickerl und Service, einmalige „Pickerl überfällig“-Mitteilung. UI-Audit-Reste in `docs/accessibility-audit.md` (M6) |
-| M5 | Jan–Feb | Scan-Pipeline: Zulassungsschein-Scan, Spike Belegextraktion, dann Belegscan | |
+| M5 | Jan–Feb | Scan-Pipeline: Zulassungsschein-Scan, Spike Belegextraktion, dann Belegscan | M5a implementiert: `RegistrationDocumentParser` (Core, Heuristik auf Feldcodes, Zellen per Boxen zu Zeilen), Scan-Pipeline (`App/Sources/Services/Scan/`: Dokumentenkamera, Vision, Import aus Fotos/Dateien), Review-Bildschirm mit Annehmen/Bearbeiten/Verwerfen je Feld. Offen: Test mit echtem Gerät und dem eigenen Zulassungsschein von Christopher (Kameraqualität, OCR-Güte); M5b (Belegscan) |
 | M6 | Feb | StoreKit-2-Gating, Durchgang Barrierefreiheit, Datenschutz, TestFlight. Offen aus M2.1: `wrapsLongWords()` nutzt `minimumScaleFactor(0.6)` und verkleinert damit lange deutsche Texte inkl. Rechtshinweis bei großen Schriftgrößen. Ersetzen durch weiche Trennung (Soft Hyphens in den Strings) | |
 | M7 | März | Beta, rechtlicher Re-Check, Featuring-Nominierung, Einreichung | |
 
@@ -163,10 +163,7 @@ Prompt: `docs/research/local-session-prompt.md`.
    ab dem zehnten Jahr jährlich, keine Austauschplakette. Rest: AT-54a.
 4. **Reichweite des −4/0-Fensters (AT-43):** Gelöst: gilt für alle Fahrzeuge (N1, Taxi,
    historische), in der Engine umgesetzt.
-5. **Testdaten Zulassungsschein:** 2 bis 3 geschwärzte Fotos echter österreichischer Zulassungsscheine
-   (Papier und Scheckkarte) von Christopher. Zu klären ist, welche Formate aktuell im Umlauf sind,
-   inklusive einer eventuellen digitalen Variante.
-6. **Foundation Models:** Qualität bei deutschsprachigen Werkstattrechnungen erst im Spike
+5. **Foundation Models:** Qualität bei deutschsprachigen Werkstattrechnungen erst im Spike
    (M5) bewerten, mit 15 bis 20 echten, anonymisierten Belegen.
-7. **Bundle-ID, Team und CloudKit-Container:** finale Werte vor M6.
-8. **App-Name:** „Pitlog“ ist ein Arbeitsname. Markenrecherche vor der Einreichung.
+6. **Bundle-ID, Team und CloudKit-Container:** finale Werte vor M6.
+7. **App-Name:** „Pitlog“ ist ein Arbeitsname. Markenrecherche vor der Einreichung.
