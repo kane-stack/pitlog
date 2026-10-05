@@ -109,3 +109,33 @@ Befunde, die M5b selbst betrafen, und was daraus wurde:
 | `history-list-de`: „Contrast failed“ ohne Element | unklar; im M5a-Lauf dort „Dynamic Type, no element“ | **offen**, Screenshot im Branch `ci-screenshots/run-37317325504` ansehen |
 
 Gefiltert wird weiterhin nichts außer den beiden dokumentierten Bar-Button-Fällen.
+
+## M6a: Pitlog Pro (Paywall, gesperrte Funktionen, nur lesbare Fahrzeuge)
+
+Stand: Branch `claude/m6a-storekit`, Commit `27a1192`, Lauf <https://github.com/kane-stack/pitlog/actions/runs/37351011635> (`screenshots: true`; Unit-Tests grün, UI-Job rot). Es wurde **nichts gefiltert**, nur die zwei Fälle aus CLAUDE.md (Bar-Buttons). Neue Tests (je EN/DE, Paywall auch mit größter Schrift): Paywall, gesperrte Erinnerungen, nur lesbares Fahrzeug (Detail und Liste), Einstellungen mit Pro-Abschnitt (gratis und Pro), Kosten im Gratis-Tarif.
+
+### Echte Befunde, behoben (Folgelauf siehe unten)
+
+| Befund | Ursache | Behebung |
+|---|---|---|
+| Erklärung unter „Pickerl-Erinnerungen“ blieb in DE englisch (und „Text clipped“ im Test `reminders-locked-de`) | Der Quelltext des Strings stimmte nicht mit dem Schlüssel im String Catalog überein (seit M3) | Quelltext an den Katalogschlüssel angepasst |
+| `readOnlyUnlockRow` war für die UI-Tests nicht auffindbar (3 Tests) | `accessibilityIdentifier("readOnlyBanner")` am Container überschrieb die Kennungen der Kinder | Kennung am Container entfernt |
+| Pro-Kennzeichen in Erinnerungszeilen zog sich über die Zeilenbreite | Label ohne `fixedSize` in der Zeile mit `Spacer` | `fixedSize()` am Kennzeichen |
+| `testWithoutProTheReceiptScanOpensThePaywall` scheiterte im Aufbau | Test wartete auf den Kosten-Umschalter, den der Gratis-Tarif nicht zeigt | Test navigiert selbst und wartet auf die gesperrte Kostenzeile |
+
+### Offene Befunde
+
+- **Dynamic Type „(partially) unsupported“ auf je einem Textelement** bzw. an Bar-Buttons („Cancel“/„Save“/„Close“ der Navigationsleiste von Paywall, Formularen und Reviews) in nahezu allen Tests, auch in den Bildschirmen aus M2 bis M5, die in M6a nicht angefasst wurden (Fahrzeugdetail, Formulare, Historie, Reviews). Neu hinzugekommen sind nur „Get Pitlog Pro“/„Pitlog Pro holen“ (Tippzeile in den Einstellungen) und der Bar-Button „Close“/„Schließen“ der Paywall. Das ist dasselbe Muster wie in M3 bis M5 (siehe oben): ein wechselndes `StaticText`, in den Screenshots in der erwarteten Größe. Die Bar-Buttons „Close“/„Schließen“ der Paywall fallen **nicht** unter den Filter, weil dieser an die Label der Navigationsleisten-Buttons gebunden ist, der Befund tritt hier aber mit `type=9` auf: Er wird also gemeldet, nicht gefiltert. Zu klären in M6 mit Accessibility Inspector auf einem Gerät.
+- **`paywall-de`: „Text clipped“** am Satz „14 Tage gratis, danach €4.99 pro Jahr. Jederzeit kündbar.“ (Rahmen 267 × 38 pt). Der Screenshot zeigt den Text vollständig, zweizeilig, in der Karte. Vermutlich derselbe Messfehler wie bei den früheren „Text clipped“-Befunden, nicht belegt. Zu prüfen auf dem Gerät.
+- `history-list-de` „Contrast failed“ und `history-list-en` „Dynamic Type“ ohne Element (gescrollter Zustand): wie in M4/M5 dokumentiert.
+- `testReceiptReviewPassesAccessibilityAudit` (vorhandener Test) scheiterte im Aufbau (`recordInspectionButton` nach 5 s nicht da, Zeitüberschreitung auf dem Runner); die anderen Review-Tests liefen durch. Vermutlich Flake des Runners.
+
+### Bildschirme ohne eigenen Befund im Lauf
+
+Paywall EN und mit größter Schrift (nur der Bar-Button „Close“, siehe oben), Einstellungen mit Pro-Abschnitt in Pro (der Test brach in der Schleife beim Gratis-Zustand ab, der Pro-Zustand wurde dadurch nicht geprüft: Test in zwei aufgeteilt), Fahrzeugliste mit gesperrten Fahrzeugen (grün).
+
+### Offen für M6 (Gerät, Accessibility Inspector)
+
+1. Paywall mit VoiceOver: Reihenfolge (Kontext-Hinweis, Funktionsliste, Karten, Kaufen-Buttons, Wiederherstellen, Links), hervorgehobene Funktion („Die Funktion, die du gerade wolltest“), Dynamic Type bis AX5 inkl. Kaufen-Button.
+2. Gesperrte Zeilen („Pro“-Kennzeichen, Hinweis, Aktion „Öffnet Pitlog Pro“) und das Banner „Nur lesbar“ mit VoiceOver, Switch Control und Sprachsteuerung.
+3. Die Tippzeilen mit `ActionRow` (wie „Add reminder“ in M3, Punkt 3).

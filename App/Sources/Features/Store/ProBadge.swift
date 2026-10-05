@@ -12,6 +12,7 @@ struct ProBadge: View {
         .padding(.horizontal, 8)
         .padding(.vertical, 2)
         .overlay(Capsule().strokeBorder(Color.primary, lineWidth: 1))
+        .fixedSize()
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(Text("Requires Pitlog Pro", comment: "VoiceOver label of the Pro badge on a locked feature"))
     }
@@ -77,6 +78,5 @@ struct ReadOnlyBanner: View {
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Color(.secondarySystemBackground), in: RoundedRectangle(cornerRadius: 16))
-        .accessibilityIdentifier("readOnlyBanner")
     }
 }

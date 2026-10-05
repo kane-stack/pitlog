@@ -99,10 +99,18 @@ public enum ProEntitlementEvaluator {
 
     /// Never locks the user out because verification failed: if StoreKit returned an entitlement of ours that
     /// could not be verified (no network for the certificate, for example) and the fresh result says "free",
-    /// the last verified status stays.
-    public static func resolve(computed: ProStatus, cached: ProStatus?, sawUnverified: Bool) -> ProStatus {
+    /// the last verified status stays. A cached subscription that ended longer ago than the longest grace
+    /// period is not kept: an expired subscription must not stay Pro for good while offline.
+    public static func resolve(
+        computed: ProStatus, cached: ProStatus?, sawUnverified: Bool, now: Date
+    ) -> ProStatus {
         if computed.tier == .pro { return computed }
-        if sawUnverified, let cached { return cached }
-        return computed
+        guard sawUnverified, let cached else { return computed }
+        if cached.source == .subscription, let expiry = cached.expiresAt,
+           now.timeIntervalSince(expiry) > maximumGracePeriod
+        {
+            return computed
+        }
+        return cached
     }
 }

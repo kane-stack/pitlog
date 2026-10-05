@@ -683,15 +683,22 @@ final class AccessibilityAuditTests: XCTestCase {
     }
 
     @MainActor
-    func testSettingsProSectionPassesAccessibilityAuditInFreeAndProState() throws {
-        for (arguments, name) in [(["-UITestFree"], "free"), (["-UITestPro"], "pro")] {
-            let app = launch(extraArguments: arguments)
-            app.tabBars.buttons.element(boundBy: 2).tap()
-            let status = app.descendants(matching: .any)["proStatusRow"]
-            XCTAssertTrue(scrollUntilVisible(status, in: app))
-            try audit(app, "settings-pro-\(name)-en")
-            app.terminate()
-        }
+    private func settingsProAudit(_ argument: String, _ name: String) throws {
+        let app = launch(extraArguments: [argument])
+        app.tabBars.buttons.element(boundBy: 2).tap()
+        let status = app.descendants(matching: .any)["proStatusRow"]
+        XCTAssertTrue(scrollUntilVisible(status, in: app))
+        try audit(app, "settings-pro-\(name)-en")
+    }
+
+    @MainActor
+    func testSettingsProSectionPassesAccessibilityAuditFree() throws {
+        try settingsProAudit("-UITestFree", "free")
+    }
+
+    @MainActor
+    func testSettingsProSectionPassesAccessibilityAuditPro() throws {
+        try settingsProAudit("-UITestPro", "pro")
     }
 
     @MainActor
@@ -774,7 +781,15 @@ final class AccessibilityAuditTests: XCTestCase {
     /// The receipt scan stays visible with the Pro mark; a tap opens the paywall, not the scan.
     @MainActor
     func testWithoutProTheReceiptScanOpensThePaywall() {
-        let app = openHistory(extraArguments: ["-UITestFree", "-UITestReceiptScan"])
+        // Not `openHistory`: that waits for the costs picker, which the free plan does not show.
+        let app = launch(extraArguments: ["-UITestFree", "-UITestReceiptScan"])
+        app.tabBars.buttons.element(boundBy: 1).tap()
+        XCTAssertTrue(tap(app.cells.firstMatch))
+        XCTAssertTrue(app.buttons["recordInspectionButton"].waitForExistence(timeout: 10))
+        let history = app.descendants(matching: .any)["historyRow"]
+        XCTAssertTrue(scrollUntilVisible(history, in: app))
+        history.tap()
+        XCTAssertTrue(app.descendants(matching: .any)["costsEarlierYearsRow"].waitForExistence(timeout: 15))
         let add = app.descendants(matching: .any)["addFromReceiptRow"]
         XCTAssertTrue(scrollUntilVisible(add, in: app))
         add.tap()
