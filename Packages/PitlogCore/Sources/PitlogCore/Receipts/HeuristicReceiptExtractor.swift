@@ -15,9 +15,8 @@ public struct HeuristicReceiptExtractor: ReceiptExtractor {
         var draft = ReceiptDraft()
         let rksv = Self.findRKSV(lines: lines, context: context)
         // The QR payload is machine-readable and must not be analysed as text.
-        let parsed = lines.enumerated()
-            .filter { !$0.element.text.contains("_R1-AT") }
-            .map { ParsedLine(index: $0.offset, original: $0.element.text) }
+        let texts = lines.map(\.text).filter { !$0.contains("_R1-AT") }
+        let parsed = Self.mergeSplitLines(texts).enumerated().map { ParsedLine(index: $0.offset, original: $0.element) }
 
         func put<V: Sendable>(_ field: ReceiptField, _ pick: Pick<V>?, _ assign: (V) -> Void) {
             guard let pick else { return }
@@ -84,6 +83,27 @@ public struct HeuristicReceiptExtractor: ReceiptExtractor {
         }
         if amounts.isSmallKeyword { draft.isSmallAmountInvoice = true }
         return draft
+    }
+
+    /// OCR often puts a label and its amount on two lines ("Gesamtbetrag" / "15 841,50"). A label
+    /// line without an amount followed by a line with nothing but an amount becomes one line.
+    static func mergeSplitLines(_ texts: [String]) -> [String] {
+        var out: [String] = []
+        var i = 0
+        while i < texts.count {
+            if i + 1 < texts.count {
+                let label = ParsedLine(index: i, original: texts[i])
+                let next = ParsedLine(index: i + 1, original: texts[i + 1])
+                if ReceiptAmounts.isLabelOnlyLine(label), ReceiptAmounts.isAmountOnlyLine(next) {
+                    out.append(texts[i] + " " + texts[i + 1])
+                    i += 2
+                    continue
+                }
+            }
+            out.append(texts[i])
+            i += 1
+        }
+        return out
     }
 
     // MARK: RKSV

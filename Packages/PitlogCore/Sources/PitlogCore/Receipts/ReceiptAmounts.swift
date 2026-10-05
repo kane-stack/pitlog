@@ -199,10 +199,34 @@ enum ReceiptAmounts {
         line.containsAny(["inkl", "enthalten", "brutto"])
     }
 
+    /// Total label strength: 2 strong, 1 weak, 0 none. "rn" is read as "m" ("Surnme" -> "Summe").
     private static func tier(of line: ParsedLine) -> Int {
-        if line.containsAny(strongTotalPhrases) { return 2 }
-        if line.hasAnyWord(weakTotalWords) { return 1 }
+        let alt = line.folded.replacingOccurrences(of: "rn", with: "m")
+        if strongTotalPhrases.contains(where: { line.folded.contains($0) || alt.contains($0) }) { return 2 }
+        let altWords = Set(ReceiptText.words(alt).map { ReceiptText.cleanWord($0) })
+        if line.hasAnyWord(weakTotalWords) || !altWords.isDisjoint(with: weakTotalWords) { return 1 }
+        if isAmountBeforeInclusiveVAT(line) { return 1 }
         return 0
+    }
+
+    /// "EUR 89,90 inkl. 20% MwSt.": the amount stands before "inkl." and a VAT word follows.
+    private static func isAmountBeforeInclusiveVAT(_ line: ParsedLine) -> Bool {
+        guard hasVATWord(line), let first = line.amounts.first,
+            let inkl = line.words.firstIndex(where: { $0.hasPrefix("inkl") })
+        else { return false }
+        return first.wordIndex < inkl && !line.containsAny(["netto"])
+    }
+
+    /// A line that names a total, net or VAT amount but carries no amount itself.
+    static func isLabelOnlyLine(_ line: ParsedLine) -> Bool {
+        guard line.amounts.isEmpty, !line.containsAny(["bezeichnung", "menge"]) else { return false }
+        return tier(of: line) > 0 || line.containsAny(["netto"]) || hasVATWord(line) || isDue(line)
+    }
+
+    /// A line made of one amount (and a currency marker) only.
+    static func isAmountOnlyLine(_ line: ParsedLine) -> Bool {
+        guard !line.amounts.isEmpty else { return false }
+        return line.words.allSatisfy { ReceiptText.isCurrencyWord($0) || ReceiptText.looksNumeric($0) }
     }
 
     private static func grossCandidates(lines: [ParsedLine], hasDeposit: Bool) -> ([Candidate], String?) {

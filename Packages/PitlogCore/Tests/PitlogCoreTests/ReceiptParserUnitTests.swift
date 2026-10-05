@@ -374,7 +374,7 @@ struct CategoryCase: Sendable {
     CategoryCase(lines: ["Bremsbeläge vorne 118,00"], category: .repair),
     CategoryCase(lines: ["Service 250,00", "Pickerl § 57a 80,00"], category: .service),
     CategoryCase(lines: ["Nächstes Service: 10/2027"], category: nil),
-    CategoryCase(lines: ["Sonderteil Xyz 50,00"], category: .repair),
+    CategoryCase(lines: ["Sonderteil Xyz 50,00"], category: .otherWorkshop),
     CategoryCase(lines: ["Gesamt 50,00"], category: nil),
 ])
 func suggestsACategoryFromKeywords(_ c: CategoryCase) {

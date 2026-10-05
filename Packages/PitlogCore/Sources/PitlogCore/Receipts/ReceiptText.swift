@@ -125,6 +125,19 @@ enum ReceiptText {
 
     // MARK: Amounts
 
+    static func isCurrencyWord(_ w: String) -> Bool {
+        strongCurrencyWords.contains(w) || weakCurrencyWords.contains(w)
+    }
+
+    /// Digits with amount punctuation and OCR look-alikes only, e.g. `15`, `841,5o`, `l64,00`, `(12,50)`.
+    static func looksNumeric(_ w: String) -> Bool {
+        var digits = 0
+        for ch in w {
+            if isDigit(ch) { digits += 1 } else if !(",.-()".contains(ch) || ocrDigit(ch) != nil) { return false }
+        }
+        return digits >= 1
+    }
+
     private static let strongCurrencyWords: Set<String> = ["€", "eur", "euro", "eur."]
     private static let weakCurrencyWords: Set<String> = ["e", "c", "e.", "c."]
     private static let unitWords: Set<String> = [

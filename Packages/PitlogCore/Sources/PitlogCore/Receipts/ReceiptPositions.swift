@@ -76,7 +76,7 @@ enum ReceiptPositions {
     }
 
     /// The category with the highest sum of matching position amounts; keyword lines without a price
-    /// are used if no position matches. Without any keyword: `.repair` with low confidence, if there
+    /// are used if no position matches. Without any keyword: `.otherWorkshop` with low confidence, if there
     /// are positions at all.
     static func category(lines: [ParsedLine]) -> Pick<MaintenanceCategory>? {
         var sums: [MaintenanceCategory: Int64] = [:]
@@ -93,7 +93,7 @@ enum ReceiptPositions {
         }
         var keywordOnly: Set<MaintenanceCategory> = []
         var keywordSource = ""
-        for line in lines where !isHint(line) {
+        for line in lines where !isHint(line) && !ReceiptIdentifiers.hasLegalForm(line) {
             if let category = matchCategory(line.folded), !line.containsAny(excludedPhrases) {
                 keywordOnly.insert(category)
                 if keywordSource.isEmpty { keywordSource = line.snippet }
@@ -103,7 +103,8 @@ enum ReceiptPositions {
             return Pick(value: only, confidence: .medium, source: keywordSource)
         }
         if lines.contains(where: { isItemLine($0) }) {
-            return Pick(value: .repair, confidence: .low, source: "no keyword")
+            // Repair needs evidence; without a keyword the work is simply something else.
+            return Pick(value: .otherWorkshop, confidence: .low, source: "no keyword")
         }
         return nil
     }

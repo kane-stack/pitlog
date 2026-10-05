@@ -6,6 +6,7 @@ enum ReceiptOdometer {
         "kilometerstand", "kilometerleistung", "kilometer-stand", "km-stand", "km stand", "kmstand", "laufleistung",
         "tachostand", "odometer", "kilometer",
     ]
+    private static let fillerWords = ["bei annahme", "lt.", "laut", "bei", "tacho", "annahme", "aktuell", "ca."]
     /// Lines about the next service or intervals never carry the current reading.
     private static let rejectedLineMarkers = [
         "nachst", "naechst", "intervall", "spatestens", "fallig", "wieder", "alle ", "empfehl", "next ",
@@ -49,7 +50,19 @@ enum ReceiptOdometer {
     static func parseNumber(_ tail: String) -> Int? {
         let c = Array(tail)
         var i = 0
-        while i < c.count, c[i] == " " || c[i] == ":" || c[i] == "=" || c[i] == "." || c[i] == "-" { i += 1 }
+        func skipSeparators() {
+            while i < c.count, c[i] == " " || c[i] == ":" || c[i] == "=" || c[i] == "." || c[i] == "-" { i += 1 }
+        }
+        skipSeparators()
+        // "Km-Stand lt. Tacho 188.040", "km bei Annahme 87.456"
+        var skipped = 0
+        while skipped < 3, i < c.count {
+            let rest = String(c[i...])
+            guard let filler = fillerWords.first(where: { rest.hasPrefix($0 + " ") || rest.hasPrefix($0 + ":") }) else { break }
+            i += filler.count
+            skipSeparators()
+            skipped += 1
+        }
         var groups: [String] = []
         var genuine = 0
         var confusables = 0

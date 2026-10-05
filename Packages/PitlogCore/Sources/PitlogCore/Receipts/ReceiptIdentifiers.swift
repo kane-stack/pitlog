@@ -31,7 +31,7 @@ public enum AustrianUID {
 enum ReceiptIdentifiers {
     // MARK: Plate
 
-    private static let plateLabels = ["kennzeichen", "kennz", "kz", "nummerntafel"]
+    private static let plateLabels = ["kennzeichen", "kennz", "kz", "nummerntafel", "fahrzeug"]
     private static let plateSuffixStoplist: Set<String> = ["km", "kw", "ps", "kg", "ccm", "fin", "vin", "uid", "fn", "tel", "nr"]
 
     static func plate(lines: [ParsedLine], context: ReceiptContext) -> Pick<String>? {
@@ -42,19 +42,25 @@ enum ReceiptIdentifiers {
                 return Pick(value: original, confidence: .high, source: line.snippet)
             }
         }
-        var found: [(plate: String, line: ParsedLine)] = []
+        var found: [(plate: String, line: ParsedLine, labelled: Bool)] = []
         for line in lines {
             let ws = line.cleanWords
             for (i, w) in ws.enumerated() {
                 guard plateLabels.contains(where: { w == $0 || w.hasPrefix($0 + "-") || (w.hasPrefix("kennz") && w != "kennzahl") })
                 else { continue }
                 let following = Array(ws[(i + 1)...].prefix(3))
-                if let plate = plateFrom(words: following) { found.append((plate: plate, line: line)) }
+                if let result = plateFrom(words: following) { found.append((plate: result.plate, line: line, labelled: true)) }
+            }
+            // A line that consists of a plate only ("OW 321 AB", "GU - 451AB").
+            let alone = ws.filter { $0 != "-" && !$0.isEmpty }
+            if (1...3).contains(alone.count), let result = plateFrom(words: alone), result.used == alone.count {
+                found.append((plate: result.plate, line: line, labelled: false))
             }
         }
         let distinct = Set(found.map { $0.plate })
         guard distinct.count == 1, let first = found.first else { return nil }
-        return Pick(value: first.plate, confidence: .high, source: first.line.snippet)
+        let labelled = found.contains { $0.labelled }
+        return Pick(value: first.plate, confidence: labelled ? .high : .medium, source: first.line.snippet)
     }
 
     private static func compact(_ s: String) -> String {
@@ -86,26 +92,32 @@ enum ReceiptIdentifiers {
     }
 
     /// `W 12345 A`, `W-12345A`, `W-12345 A`, `W 12345A` (words after the label).
-    private static func plateFrom(words w: [String]) -> String? {
+    private static func plateFrom(words w: [String]) -> (plate: String, used: Int)? {
         func plain(_ s: String) -> String { s.replacingOccurrences(of: "-", with: "") }
         var parts: (String, String, String)?
+        var used = 0
         if w.count >= 3, isLetters(w[0], 1...2), isDigits(w[1], 1...5), isLetters(w[2], 1...3),
             !plateSuffixStoplist.contains(w[2])
         {
             parts = (w[0], w[1], w[2])
+            used = 3
         }
         if parts == nil, w.count >= 2 {
             let a = plain(w[0])
             let b = plain(w[1])
             let boundaryOK = (isLetters(a, 1...2) && (b.first.map { ReceiptText.isDigit($0) } ?? false))
                 || (a.last.map { ReceiptText.isDigit($0) } ?? false) && isLetters(b, 1...3)
-            if boundaryOK { parts = splitPlate(a + b) }
+            if boundaryOK, let split = splitPlate(a + b) {
+                parts = split
+                used = 2
+            }
         }
         if parts == nil, w.count >= 1 {
             parts = splitPlate(plain(w[0]))
+            used = 1
         }
         guard let parts else { return nil }
-        return "\(parts.0.uppercased()) \(parts.1) \(parts.2.uppercased())"
+        return (plate: "\(parts.0.uppercased()) \(parts.1) \(parts.2.uppercased())", used: used)
     }
 
     // MARK: VIN
@@ -217,18 +229,51 @@ enum ReceiptIdentifiers {
         "bon", "leistung", "nachstes", "nachste", "nachster", "plakette", "pickerl",
     ]
     private static let nameSeparators = [
-        "·", "|", "•", " - ", " – ", " — ", ",", " tel.", " tel:", " tel ", " fax", " uid", " fn ", " e-mail", " www", "  ",
+        "·", " | ", "•", " - ", " – ", " — ", ",", " tel.", " tel:", " tel ", " fax", " uid", " fn ", " e-mail", " www", "  ",
     ]
     private static let customerLineMarkers = ["herrn", "frau ", "familie", "kunde", "empfanger", "auftraggeber", "an:"]
+
+    /// The line names a legal form (GmbH, KG, e.U., ...).
+    static func hasLegalForm(_ line: ParsedLine) -> Bool {
+        line.words.contains { w in
+            legalFormWords.contains(w.trimmingCharacters(in: CharacterSet(charactersIn: ",;()")))
+        }
+    }
 
     private struct NameCandidate {
         let name: String
         let score: Int
         let line: ParsedLine
+        /// Digits or "|" inside words, e.g. "H1NTERBERGER", "Sch|osserei": the name is misread.
+        let damaged: Bool
+        /// Part of the customer's address block: not the workshop.
+        let inCustomerBlock: Bool
+    }
+
+    private static func isOCRDamaged(_ name: String) -> Bool {
+        name.split(separator: " ").contains { word in
+            word.filter { $0.isLetter }.count >= 3 && word.contains { "0158|".contains($0) }
+        }
+    }
+
+    /// Positions of lines that belong to the customer's block: the three lines above a customer UID
+    /// and the two lines after a "Rechnungsempfänger" label.
+    private static func customerBlock(_ lines: [ParsedLine]) -> Set<Int> {
+        var block: Set<Int> = []
+        for (position, line) in lines.enumerated() {
+            if !uids(in: line).isEmpty, line.containsAny(customerMarkers) {
+                for p in max(0, position - 3)...position { block.insert(p) }
+            }
+            if line.containsAny(["empfanger", "auftraggeber", "rechnungsempf"]) {
+                for p in (position + 1)...(position + 2) { block.insert(p) }
+            }
+        }
+        return block
     }
 
     static func workshopName(lines: [ParsedLine]) -> Pick<String>? {
         var candidates: [NameCandidate] = []
+        let block = customerBlock(lines)
         for line in lines where line.amounts.isEmpty {
             let name = cutName(line.original)
             guard name.count >= 4, name.contains(where: { $0.isLetter }) else { continue }
@@ -247,11 +292,19 @@ enum ReceiptIdentifiers {
             if legal { score += 2 }
             if ReceiptText.containsAny(folded, automotiveKeywords) { score += 2 }
             if line.index < 6 { score += 1 }
-            if score >= 2, legal || line.index < 8 { candidates.append(NameCandidate(name: name, score: score, line: line)) }
+            if score >= 2, legal || line.index < 8 {
+                candidates.append(
+                    NameCandidate(
+                        name: name, score: score, line: line, damaged: isOCRDamaged(name),
+                        inCustomerBlock: block.contains(line.index)))
+            }
         }
-        guard let top = candidates.max(by: { $0.score < $1.score }) else { return nil }
-        let rivals = candidates.filter { $0.score == top.score && $0.name != top.name }
-        guard rivals.isEmpty else { return nil }
+        // Candidates in the customer's block rank below all others.
+        let outside = candidates.filter { !$0.inCustomerBlock }
+        let pool = outside.isEmpty ? candidates : outside
+        guard let top = pool.max(by: { $0.score < $1.score }) else { return nil }
+        let rivals = pool.filter { $0.score == top.score && $0.name != top.name }
+        guard rivals.isEmpty, !top.damaged else { return nil }
         return Pick(value: top.name, confidence: top.score >= 4 ? .high : .medium, source: top.line.snippet)
     }
 

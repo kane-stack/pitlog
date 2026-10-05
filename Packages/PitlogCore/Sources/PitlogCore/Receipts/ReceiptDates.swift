@@ -201,10 +201,14 @@ enum ReceiptDates {
         guard !c.isEmpty else { return nil }
         if otherWords.contains(c) || otherSubstrings.contains(where: { c.contains($0) }) { return .other }
         if serviceSubstrings.contains(where: { c.contains($0) }) { return .service }
-        if c == "datum" || c.hasSuffix("datum") || invoiceStrongSubstrings.contains(where: { c.contains($0) }) {
+        if c == "datum" || c.hasSuffix("rechnungsdatum") || c.hasSuffix("re-datum") || c.hasSuffix("re.-datum")
+            || invoiceStrongSubstrings.contains(where: { c.contains($0) })
+        {
             return .invoice
         }
         if invoiceWeakSubstrings.contains(where: { c.contains($0) }) { return .invoiceWeak }
+        // Any other "...datum" (Schadendatum, Auftragsdatum, ...) is some other date.
+        if c.hasSuffix("datum") { return .other }
         return nil
     }
 
