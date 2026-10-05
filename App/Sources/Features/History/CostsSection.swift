@@ -285,6 +285,7 @@ struct CostsTable: View {
             }
             .accessibilityElement(children: .combine)
             .accessibilityAddTraits(.isHeader)
+            .accessibilityIdentifier("costsTableYear")
             .listRowSeparator(.hidden)
             if year.categories.isEmpty {
                 Text("No costs", comment: "Costs table: a year without any costs")
@@ -294,6 +295,5 @@ struct CostsTable: View {
                 CategoryAmountRow(part: part)
             }
         }
-        .accessibilityIdentifier("costsTable")
     }
 }

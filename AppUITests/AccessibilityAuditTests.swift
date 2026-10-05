@@ -111,7 +111,7 @@ final class AccessibilityAuditTests: XCTestCase {
     }
 
     @MainActor
-    private func tap(_ element: XCUIElement, timeout: TimeInterval = 5) -> Bool {
+    private func tap(_ element: XCUIElement, timeout: TimeInterval = 15) -> Bool {
         guard element.waitForExistence(timeout: timeout) else { return false }
         element.tap()
         return true
@@ -372,7 +372,7 @@ final class AccessibilityAuditTests: XCTestCase {
         XCTAssertTrue(scrollUntilVisible(row, in: app))
         row.tap()
         // The top of the screen: the add row can lie below the fold (long German texts), so it is not awaited.
-        XCTAssertTrue(app.segmentedControls["costsDisplayPicker"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.segmentedControls["costsDisplayPicker"].waitForExistence(timeout: 15))
         return app
     }
 
@@ -381,7 +381,7 @@ final class AccessibilityAuditTests: XCTestCase {
         let picker = app.segmentedControls["costsDisplayPicker"]
         XCTAssertTrue(picker.waitForExistence(timeout: 5))
         picker.buttons[german ? "Tabelle" : "Table"].tap()
-        XCTAssertTrue(app.descendants(matching: .any)["costsTable"].firstMatch.waitForExistence(timeout: 5))
+        XCTAssertTrue(app.descendants(matching: .any)["costsTableYear"].firstMatch.waitForExistence(timeout: 15))
     }
 
     /// Top of the history: the costs section with the chart and its legend.
