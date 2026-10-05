@@ -76,16 +76,23 @@ struct ResolveCase: Sendable {
 }
 
 private let proCached = ProStatus(source: .subscription, expiresAt: now.addingTimeInterval(dayLength))
+private let longExpired = ProStatus(source: .subscription, expiresAt: now.addingTimeInterval(-17 * dayLength))
+private let expiredInGrace = ProStatus(source: .subscription, expiresAt: now.addingTimeInterval(-16 * dayLength))
+private let lifetimeCached = ProStatus(source: .lifetime)
 
 @Test(arguments: [
     ResolveCase(name: "fresh Pro wins over the cache", computed: ProStatus(source: .lifetime), cached: .free, unverified: false, expected: ProStatus(source: .lifetime)),
     ResolveCase(name: "fresh free replaces a cached Pro", computed: .free, cached: proCached, unverified: false, expected: .free),
     ResolveCase(name: "unverified entitlement keeps the cached Pro", computed: .free, cached: proCached, unverified: true, expected: proCached),
+    ResolveCase(name: "unverified keeps a cached lifetime", computed: .free, cached: lifetimeCached, unverified: true, expected: lifetimeCached),
+    ResolveCase(name: "unverified keeps a cached subscription within the grace period", computed: .free, cached: expiredInGrace, unverified: true, expected: expiredInGrace),
+    ResolveCase(name: "unverified does not keep a long expired subscription", computed: .free, cached: longExpired, unverified: true, expected: .free),
     ResolveCase(name: "unverified, nothing cached: free", computed: .free, cached: nil, unverified: true, expected: .free),
     ResolveCase(name: "unverified, cached free: free", computed: .free, cached: .free, unverified: true, expected: .free),
 ])
 func resolveNeverLocksOutBecauseOfVerification(_ c: ResolveCase) {
-    let result = ProEntitlementEvaluator.resolve(computed: c.computed, cached: c.cached, sawUnverified: c.unverified)
+    let result = ProEntitlementEvaluator.resolve(
+        computed: c.computed, cached: c.cached, sawUnverified: c.unverified, now: now)
     #expect(result == c.expected, "\(c.name)")
 }
 

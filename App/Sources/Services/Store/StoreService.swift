@@ -80,7 +80,7 @@ final class StoreService {
         let snapshot = await backend.currentEntitlements()
         let computed = ProEntitlementEvaluator.status(from: snapshot.records, now: now())
         let resolved = ProEntitlementEvaluator.resolve(
-            computed: computed, cached: status, sawUnverified: snapshot.sawUnverified)
+            computed: computed, cached: status, sawUnverified: snapshot.sawUnverified, now: now())
         if resolved != status { status = resolved }
         Self.saveCache(resolved, to: defaults)
     }
