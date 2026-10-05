@@ -1,0 +1,875 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		14D18CDB4D1C14BDAEFB789C /* ModelContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658ADD4086C53AD93F7056F /* ModelContainerFactory.swift */; };
+		1E25C160C102E5B909AA5958 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FF8EC7E70B6C007DA18198 /* FormTextField.swift */; };
+		1EC55C166A7F57DC5326165F /* CalendarDayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0368039F9116B96DAB72DC /* CalendarDayTests.swift */; };
+		228B6DA509F5326D3643B144 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 9CB272FE298F45F0DD1CD2B6 /* Localizable.xcstrings */; };
+		27F63EB5BB48DA1F16310A76 /* MenuPickerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA968E556BDB74702AE23BF9 /* MenuPickerRow.swift */; };
+		382234D4D362C296537D7203 /* WrapsLongWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A838EDA7F54B1713F548E9 /* WrapsLongWords.swift */; };
+		3B0A25DFE94FE14D0B2E7FD8 /* NotificationPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0E27DBA5C17C3614FCDFE8 /* NotificationPermission.swift */; };
+		3CB9F9B059BB4C16002B935D /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D6803FBAAF694D2B3CC7C2 /* PreviewData.swift */; };
+		3FAAD7B03562B22EE0930E5F /* InspectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577548F73D68B28AF3F1A695 /* InspectionService.swift */; };
+		44971B68E6D8CE51D42451B5 /* NotificationTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646B86F33F1E712941FB2644 /* NotificationTexts.swift */; };
+		45449916770ACAB05AA1A51B /* LegalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A36EC1E8AB99C2B055687C /* LegalView.swift */; };
+		47A5BE0E2DC9B586598E09E7 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3BBB2CDB7F3275C022094F /* AppRouter.swift */; };
+		4DC1E9090EE71F89EC1AF072 /* NotificationScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81264957B1C2C521BC0A6D93 /* NotificationScheduler.swift */; };
+		58F412B51658DFB191AB5BCF /* UpcomingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790256E99FC871FE0A2E5824 /* UpcomingView.swift */; };
+		5B2167AF43DE0AA53CF9E81B /* VehicleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB4524D82F60E461C8D3AA /* VehicleDetailView.swift */; };
+		5BBAD757ED4235E2FFAC8B06 /* RecordInspectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085455032523C21AC5E126EF /* RecordInspectionView.swift */; };
+		5C662DFABCE1722A2B91E5B0 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7FFB156D68DD9DF4D82EA7 /* AboutView.swift */; };
+		5F66A11221FCD6D76B9F5B50 /* Entitlements.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44CDEE0909FF404F663580A /* Entitlements.swift */; };
+		65D826CA0D93643E54372269 /* PhotoDownscaler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3980DAD1A61CD204DBEE3427 /* PhotoDownscaler.swift */; };
+		68357B8229B56CA14D9CD377 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3A41946E63257D978CD7441 /* Assets.xcassets */; };
+		71D563CD524D5C2868254F70 /* CalendarDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DDA9C601BCCF41792A2B28 /* CalendarDay.swift */; };
+		7329D383CE29B9D11287D75D /* RemindersSummaryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937E000F59F6841DA5B4822C /* RemindersSummaryRow.swift */; };
+		73B849741D5DC665F7C684C2 /* ReminderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2E2DA13CE15D1174D4905D /* ReminderCoordinator.swift */; };
+		751B6AAFB99877A058E8B821 /* VehicleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D14F1D635C4F59EB94F7F4 /* VehicleListView.swift */; };
+		776934F3217AFE3B3DC2DBF2 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A0046D43A0DC374E9B7A0B /* ModelTests.swift */; };
+		79851272049FDB5ED759D5C7 /* VehicleFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3391B86C88A0F29AF44BCADD /* VehicleFormView.swift */; };
+		7ABCCF5CD2A1DF1C523B8E93 /* PlaqueAccessibilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA44183106C8D2ED16B7B5E7 /* PlaqueAccessibilityTests.swift */; };
+		7BFD647F77DD031CEF24BE22 /* NotificationSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C95884C3AFEE69BB510775 /* NotificationSettingsView.swift */; };
+		7EA4BA5F6D59C732309DD73A /* InspectionPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5914682545D7D6EEFA2513C /* InspectionPresentation.swift */; };
+		813AB2ED66E34EA76A54537F /* FirstLaunchNoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2C712FDA8F35861010FF68 /* FirstLaunchNoticeView.swift */; };
+		87B0FCA6B6C15361CAE05867 /* PlaquePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055296E47A795C324880473D /* PlaquePicker.swift */; };
+		8BFF426B44B5AAC7F95A7F65 /* ReminderScheduleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9019283EABDFC7AB3AA9FB /* ReminderScheduleBuilder.swift */; };
+		8EA45A881824DFAA6AC431C5 /* VehicleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C23F347ACDF3334CC43FA49 /* VehicleRow.swift */; };
+		8FDFCB9775847AA7DBD8E267 /* ReminderPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2918C46C7D4A2F296D9C67D2 /* ReminderPresentation.swift */; };
+		933E95E6D9DA02480987B7F7 /* NotificationPermissionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A56C6C8C50282A56AC4496 /* NotificationPermissionRow.swift */; };
+		95273E314F34BC19039457E8 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC5D4E454FC6CB8C16A2DA5 /* RootView.swift */; };
+		954E47539BB7D4A76EA225E7 /* InfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17211A926D4323CB4586A2D /* InfoRow.swift */; };
+		95AEC733C0083F6728DA2845 /* ReminderEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8246CB532E19B5D8309E8 /* ReminderEditorView.swift */; };
+		9ECFE8C40A44FF272D7D15B5 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = EFA60FE4B84E33FACCB13D9B /* PrivacyInfo.xcprivacy */; };
+		A4EA0978F2CB450ED26CE756 /* PitlogCore in Frameworks */ = {isa = PBXBuildFile; productRef = 0599F14C3F2252F212867EF0 /* PitlogCore */; };
+		AF9B149D1E9699E4B133D575 /* ReminderSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217A8A2FD9C6BEA2F855A3A3 /* ReminderSettings.swift */; };
+		B144F6939B93E036A7EE964E /* ReminderMappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F0B837BEF2C503FC29D73E /* ReminderMappingTests.swift */; };
+		B523C4DD958E3F0E50BDC6C8 /* LegalNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0210E64CE116D0054583E4A /* LegalNotice.swift */; };
+		B53C060DA020AB09F214599E /* VehicleThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC77346F7DD3224F2C48A2B /* VehicleThumbnail.swift */; };
+		B6D7DE720C36EA181B508F31 /* NotificationSchedulerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEAB6F1A0AA11D01C20D7FC /* NotificationSchedulerTests.swift */; };
+		B87FCE07A6860C1F2EE9F975 /* LeadPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BF7B8EFE1F9B66D16EADE8 /* LeadPicker.swift */; };
+		BA7234FE60A7C53CE1CAB56C /* PitlogAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6583DEA9D2E73947E3D93B7 /* PitlogAppTests.swift */; };
+		C5CA76CC07396842291042D4 /* VehicleCategory+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D168E3326FA2D21B7DCF4F /* VehicleCategory+Presentation.swift */; };
+		CF3BBFF5F213817FEE70FB53 /* SchemaV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DC1CA60D82C18E849A8044 /* SchemaV1.swift */; };
+		D15EBC44C158D1E7B0C815FA /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9A0406DDDDB0BB76B70445 /* Reminder.swift */; };
+		D1FB3D4394A621B49E1980CE /* OdometerEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6488C432951C5CD020D40530 /* OdometerEntryView.swift */; };
+		D8A942F3BD28BEF23AD9A9F1 /* AccessibilityAuditTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475487AEF9C5ABFB3B5948DA /* AccessibilityAuditTests.swift */; };
+		E0DAB312950EDC11F19C45C4 /* InspectionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8A99190EA056D029D874A5 /* InspectionCardView.swift */; };
+		E66DABCBFF7077577790457A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4480EB2A59F73B2E805067 /* SettingsView.swift */; };
+		E926A0E2B4B4724EAE366C54 /* InspectionBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD54F4F004C45395D20B0ED5 /* InspectionBadge.swift */; };
+		E94B9C81A5308D23DF9293B3 /* OdometerReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88AEA1A570157185DFFAFCB /* OdometerReading.swift */; };
+		ED5D9804BBD6DA515CA50A49 /* PitlogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD40898E220F8C3C3D2A055 /* PitlogApp.swift */; };
+		F3D7EAFCB94F0937775CD7FC /* RemindersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF8C47AFD73FE975C2165BA /* RemindersView.swift */; };
+		F6D5BA7430C79AB816FD3A3F /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE8DD50C446B12292A85DF1 /* Vehicle.swift */; };
+		F7026F0BC39E58933B4B0F98 /* InspectionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6087F1FC14A8BCD4F3BB6C0 /* InspectionServiceTests.swift */; };
+		FA7A5AC9156851649875AF03 /* ArchivedVehiclesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B871C838FA1D55F4615798E5 /* ArchivedVehiclesView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AB33B20F9424B078B93AD863 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 39AA289DFFEBF117A1D25DF1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D1410EB90BA24ED559700055;
+			remoteInfo = Pitlog;
+		};
+		CF6062A562394521FBBE1F90 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 39AA289DFFEBF117A1D25DF1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D1410EB90BA24ED559700055;
+			remoteInfo = Pitlog;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01A56C6C8C50282A56AC4496 /* NotificationPermissionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPermissionRow.swift; sourceTree = "<group>"; };
+		055296E47A795C324880473D /* PlaquePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaquePicker.swift; sourceTree = "<group>"; };
+		085455032523C21AC5E126EF /* RecordInspectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordInspectionView.swift; sourceTree = "<group>"; };
+		0DC5D4E454FC6CB8C16A2DA5 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		1B7FFB156D68DD9DF4D82EA7 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		1C23F347ACDF3334CC43FA49 /* VehicleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleRow.swift; sourceTree = "<group>"; };
+		1CC77346F7DD3224F2C48A2B /* VehicleThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleThumbnail.swift; sourceTree = "<group>"; };
+		217A8A2FD9C6BEA2F855A3A3 /* ReminderSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderSettings.swift; sourceTree = "<group>"; };
+		2918C46C7D4A2F296D9C67D2 /* ReminderPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderPresentation.swift; sourceTree = "<group>"; };
+		293B187F714E33A490D7F929 /* Pitlog.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Pitlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		29A36EC1E8AB99C2B055687C /* LegalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalView.swift; sourceTree = "<group>"; };
+		3391B86C88A0F29AF44BCADD /* VehicleFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleFormView.swift; sourceTree = "<group>"; };
+		33D168E3326FA2D21B7DCF4F /* VehicleCategory+Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VehicleCategory+Presentation.swift"; sourceTree = "<group>"; };
+		36BB4524D82F60E461C8D3AA /* VehicleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDetailView.swift; sourceTree = "<group>"; };
+		3980DAD1A61CD204DBEE3427 /* PhotoDownscaler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDownscaler.swift; sourceTree = "<group>"; };
+		3AEAB6F1A0AA11D01C20D7FC /* NotificationSchedulerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSchedulerTests.swift; sourceTree = "<group>"; };
+		40A0046D43A0DC374E9B7A0B /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
+		41DDA9C601BCCF41792A2B28 /* CalendarDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDay.swift; sourceTree = "<group>"; };
+		475487AEF9C5ABFB3B5948DA /* AccessibilityAuditTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityAuditTests.swift; sourceTree = "<group>"; };
+		4A9019283EABDFC7AB3AA9FB /* ReminderScheduleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderScheduleBuilder.swift; sourceTree = "<group>"; };
+		4BE8246CB532E19B5D8309E8 /* ReminderEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderEditorView.swift; sourceTree = "<group>"; };
+		52FF8EC7E70B6C007DA18198 /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
+		577548F73D68B28AF3F1A695 /* InspectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectionService.swift; sourceTree = "<group>"; };
+		5D2C712FDA8F35861010FF68 /* FirstLaunchNoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchNoticeView.swift; sourceTree = "<group>"; };
+		63BF7B8EFE1F9B66D16EADE8 /* LeadPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadPicker.swift; sourceTree = "<group>"; };
+		646B86F33F1E712941FB2644 /* NotificationTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTexts.swift; sourceTree = "<group>"; };
+		6488C432951C5CD020D40530 /* OdometerEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdometerEntryView.swift; sourceTree = "<group>"; };
+		6F9A0406DDDDB0BB76B70445 /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		76C95884C3AFEE69BB510775 /* NotificationSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsView.swift; sourceTree = "<group>"; };
+		78D14F1D635C4F59EB94F7F4 /* VehicleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleListView.swift; sourceTree = "<group>"; };
+		790256E99FC871FE0A2E5824 /* UpcomingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingView.swift; sourceTree = "<group>"; };
+		81264957B1C2C521BC0A6D93 /* NotificationScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationScheduler.swift; sourceTree = "<group>"; };
+		81D6803FBAAF694D2B3CC7C2 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
+		8D2E2DA13CE15D1174D4905D /* ReminderCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCoordinator.swift; sourceTree = "<group>"; };
+		937E000F59F6841DA5B4822C /* RemindersSummaryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersSummaryRow.swift; sourceTree = "<group>"; };
+		9BF8C47AFD73FE975C2165BA /* RemindersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersView.swift; sourceTree = "<group>"; };
+		9CB272FE298F45F0DD1CD2B6 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		9E4480EB2A59F73B2E805067 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		AA44183106C8D2ED16B7B5E7 /* PlaqueAccessibilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaqueAccessibilityTests.swift; sourceTree = "<group>"; };
+		AE8A99190EA056D029D874A5 /* InspectionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectionCardView.swift; sourceTree = "<group>"; };
+		B0210E64CE116D0054583E4A /* LegalNotice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalNotice.swift; sourceTree = "<group>"; };
+		B17211A926D4323CB4586A2D /* InfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRow.swift; sourceTree = "<group>"; };
+		B1A838EDA7F54B1713F548E9 /* WrapsLongWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapsLongWords.swift; sourceTree = "<group>"; };
+		B3DC1CA60D82C18E849A8044 /* SchemaV1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemaV1.swift; sourceTree = "<group>"; };
+		B44CDEE0909FF404F663580A /* Entitlements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entitlements.swift; sourceTree = "<group>"; };
+		B871C838FA1D55F4615798E5 /* ArchivedVehiclesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivedVehiclesView.swift; sourceTree = "<group>"; };
+		BDD40898E220F8C3C3D2A055 /* PitlogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitlogApp.swift; sourceTree = "<group>"; };
+		C6583DEA9D2E73947E3D93B7 /* PitlogAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitlogAppTests.swift; sourceTree = "<group>"; };
+		C737F8A66C89AE9DBAFD3C6B /* PitlogUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = PitlogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C876FA3C049D18A48B709F73 /* PitlogCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = PitlogCore; path = Packages/PitlogCore; sourceTree = SOURCE_ROOT; };
+		CAB1B01E00E7E58B1E4B600E /* PitlogTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = PitlogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB0E27DBA5C17C3614FCDFE8 /* NotificationPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPermission.swift; sourceTree = "<group>"; };
+		CBE8DD50C446B12292A85DF1 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
+		D6087F1FC14A8BCD4F3BB6C0 /* InspectionServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectionServiceTests.swift; sourceTree = "<group>"; };
+		DA968E556BDB74702AE23BF9 /* MenuPickerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPickerRow.swift; sourceTree = "<group>"; };
+		DF0368039F9116B96DAB72DC /* CalendarDayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayTests.swift; sourceTree = "<group>"; };
+		E5914682545D7D6EEFA2513C /* InspectionPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectionPresentation.swift; sourceTree = "<group>"; };
+		E658ADD4086C53AD93F7056F /* ModelContainerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContainerFactory.swift; sourceTree = "<group>"; };
+		E88AEA1A570157185DFFAFCB /* OdometerReading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdometerReading.swift; sourceTree = "<group>"; };
+		EFA60FE4B84E33FACCB13D9B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		F1F0B837BEF2C503FC29D73E /* ReminderMappingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderMappingTests.swift; sourceTree = "<group>"; };
+		F3A41946E63257D978CD7441 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FD54F4F004C45395D20B0ED5 /* InspectionBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectionBadge.swift; sourceTree = "<group>"; };
+		FF3BBB2CDB7F3275C022094F /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		259CF3CFEAF1A8DDAC44047D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4EA0978F2CB450ED26CE756 /* PitlogCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1FDFCE78AE070B3FBFF27DCE /* Inspection */ = {
+			isa = PBXGroup;
+			children = (
+				AE8A99190EA056D029D874A5 /* InspectionCardView.swift */,
+				E5914682545D7D6EEFA2513C /* InspectionPresentation.swift */,
+				055296E47A795C324880473D /* PlaquePicker.swift */,
+				085455032523C21AC5E126EF /* RecordInspectionView.swift */,
+			);
+			path = Inspection;
+			sourceTree = "<group>";
+		};
+		217716B0F06A3831E503B84F /* Reminders */ = {
+			isa = PBXGroup;
+			children = (
+				63BF7B8EFE1F9B66D16EADE8 /* LeadPicker.swift */,
+				01A56C6C8C50282A56AC4496 /* NotificationPermissionRow.swift */,
+				4BE8246CB532E19B5D8309E8 /* ReminderEditorView.swift */,
+				2918C46C7D4A2F296D9C67D2 /* ReminderPresentation.swift */,
+				937E000F59F6841DA5B4822C /* RemindersSummaryRow.swift */,
+				9BF8C47AFD73FE975C2165BA /* RemindersView.swift */,
+			);
+			path = Reminders;
+			sourceTree = "<group>";
+		};
+		256E0A42B874FE550E66D41D /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				1FDFCE78AE070B3FBFF27DCE /* Inspection */,
+				920A16644F072555F5DE791D /* Onboarding */,
+				217716B0F06A3831E503B84F /* Reminders */,
+				48625F242F1569EEE032FBE6 /* Settings */,
+				C530BE2E1B0C8550412AF0BF /* Upcoming */,
+				6C05781727B9D4C3D82DB0E4 /* Vehicles */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		26B1C1B0FA3D7E5C38BD36C5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				293B187F714E33A490D7F929 /* Pitlog.app */,
+				CAB1B01E00E7E58B1E4B600E /* PitlogTests.xctest */,
+				C737F8A66C89AE9DBAFD3C6B /* PitlogUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3AE9F4409F1D21087B83C459 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				C876FA3C049D18A48B709F73 /* PitlogCore */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		48625F242F1569EEE032FBE6 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1B7FFB156D68DD9DF4D82EA7 /* AboutView.swift */,
+				B871C838FA1D55F4615798E5 /* ArchivedVehiclesView.swift */,
+				29A36EC1E8AB99C2B055687C /* LegalView.swift */,
+				76C95884C3AFEE69BB510775 /* NotificationSettingsView.swift */,
+				9E4480EB2A59F73B2E805067 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		6C05781727B9D4C3D82DB0E4 /* Vehicles */ = {
+			isa = PBXGroup;
+			children = (
+				52FF8EC7E70B6C007DA18198 /* FormTextField.swift */,
+				B17211A926D4323CB4586A2D /* InfoRow.swift */,
+				FD54F4F004C45395D20B0ED5 /* InspectionBadge.swift */,
+				B0210E64CE116D0054583E4A /* LegalNotice.swift */,
+				DA968E556BDB74702AE23BF9 /* MenuPickerRow.swift */,
+				6488C432951C5CD020D40530 /* OdometerEntryView.swift */,
+				3980DAD1A61CD204DBEE3427 /* PhotoDownscaler.swift */,
+				33D168E3326FA2D21B7DCF4F /* VehicleCategory+Presentation.swift */,
+				36BB4524D82F60E461C8D3AA /* VehicleDetailView.swift */,
+				3391B86C88A0F29AF44BCADD /* VehicleFormView.swift */,
+				78D14F1D635C4F59EB94F7F4 /* VehicleListView.swift */,
+				1C23F347ACDF3334CC43FA49 /* VehicleRow.swift */,
+				1CC77346F7DD3224F2C48A2B /* VehicleThumbnail.swift */,
+				B1A838EDA7F54B1713F548E9 /* WrapsLongWords.swift */,
+			);
+			path = Vehicles;
+			sourceTree = "<group>";
+		};
+		88210A9FC7D9A466F8CEF282 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E658ADD4086C53AD93F7056F /* ModelContainerFactory.swift */,
+				E88AEA1A570157185DFFAFCB /* OdometerReading.swift */,
+				81D6803FBAAF694D2B3CC7C2 /* PreviewData.swift */,
+				6F9A0406DDDDB0BB76B70445 /* Reminder.swift */,
+				B3DC1CA60D82C18E849A8044 /* SchemaV1.swift */,
+				CBE8DD50C446B12292A85DF1 /* Vehicle.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		920A16644F072555F5DE791D /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				5D2C712FDA8F35861010FF68 /* FirstLaunchNoticeView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		9ED1C6237E633A726A86807A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A83D85F10F5C7F094116479B /* Resources */,
+				E9250DDE14C6D490E4BCF83F /* Sources */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A83D85F10F5C7F094116479B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F3A41946E63257D978CD7441 /* Assets.xcassets */,
+				9CB272FE298F45F0DD1CD2B6 /* Localizable.xcstrings */,
+				EFA60FE4B84E33FACCB13D9B /* PrivacyInfo.xcprivacy */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AD6451424FC56172974B4CAD /* AppTests */ = {
+			isa = PBXGroup;
+			children = (
+				DF0368039F9116B96DAB72DC /* CalendarDayTests.swift */,
+				D6087F1FC14A8BCD4F3BB6C0 /* InspectionServiceTests.swift */,
+				40A0046D43A0DC374E9B7A0B /* ModelTests.swift */,
+				3AEAB6F1A0AA11D01C20D7FC /* NotificationSchedulerTests.swift */,
+				C6583DEA9D2E73947E3D93B7 /* PitlogAppTests.swift */,
+				AA44183106C8D2ED16B7B5E7 /* PlaqueAccessibilityTests.swift */,
+				F1F0B837BEF2C503FC29D73E /* ReminderMappingTests.swift */,
+			);
+			path = AppTests;
+			sourceTree = "<group>";
+		};
+		C530BE2E1B0C8550412AF0BF /* Upcoming */ = {
+			isa = PBXGroup;
+			children = (
+				790256E99FC871FE0A2E5824 /* UpcomingView.swift */,
+			);
+			path = Upcoming;
+			sourceTree = "<group>";
+		};
+		C98B9042BFD5822145EB2AF5 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FF3BBB2CDB7F3275C022094F /* AppRouter.swift */,
+				41DDA9C601BCCF41792A2B28 /* CalendarDay.swift */,
+				B44CDEE0909FF404F663580A /* Entitlements.swift */,
+				577548F73D68B28AF3F1A695 /* InspectionService.swift */,
+				CB0E27DBA5C17C3614FCDFE8 /* NotificationPermission.swift */,
+				81264957B1C2C521BC0A6D93 /* NotificationScheduler.swift */,
+				646B86F33F1E712941FB2644 /* NotificationTexts.swift */,
+				8D2E2DA13CE15D1174D4905D /* ReminderCoordinator.swift */,
+				4A9019283EABDFC7AB3AA9FB /* ReminderScheduleBuilder.swift */,
+				217A8A2FD9C6BEA2F855A3A3 /* ReminderSettings.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E5373194EA999828CBF968B5 /* AppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				475487AEF9C5ABFB3B5948DA /* AccessibilityAuditTests.swift */,
+			);
+			path = AppUITests;
+			sourceTree = "<group>";
+		};
+		E9250DDE14C6D490E4BCF83F /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				256E0A42B874FE550E66D41D /* Features */,
+				88210A9FC7D9A466F8CEF282 /* Model */,
+				C98B9042BFD5822145EB2AF5 /* Services */,
+				BDD40898E220F8C3C3D2A055 /* PitlogApp.swift */,
+				0DC5D4E454FC6CB8C16A2DA5 /* RootView.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		F7AA0AA13B57931DBAC3FBE4 = {
+			isa = PBXGroup;
+			children = (
+				9ED1C6237E633A726A86807A /* App */,
+				AD6451424FC56172974B4CAD /* AppTests */,
+				E5373194EA999828CBF968B5 /* AppUITests */,
+				3AE9F4409F1D21087B83C459 /* Packages */,
+				26B1C1B0FA3D7E5C38BD36C5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A3C069FE0D70266A222C9B5A /* PitlogUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 10DA73D75094DE9F03B2F328 /* Build configuration list for PBXNativeTarget "PitlogUITests" */;
+			buildPhases = (
+				032743971822F19E50BC195A /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B9C79FDBD8F2BFCF89B95BBF /* PBXTargetDependency */,
+			);
+			name = PitlogUITests;
+			packageProductDependencies = (
+			);
+			productName = PitlogUITests;
+			productReference = C737F8A66C89AE9DBAFD3C6B /* PitlogUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		B813F5DA31D84D3CE330EFE6 /* PitlogTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88A6B91799CDB298ED9611A0 /* Build configuration list for PBXNativeTarget "PitlogTests" */;
+			buildPhases = (
+				9EC8639F2C4E3EDA575C8155 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C81B2443EBE46F18AEA836FC /* PBXTargetDependency */,
+			);
+			name = PitlogTests;
+			packageProductDependencies = (
+			);
+			productName = PitlogTests;
+			productReference = CAB1B01E00E7E58B1E4B600E /* PitlogTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D1410EB90BA24ED559700055 /* Pitlog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E905F1CC8A80AE66C4E93DFF /* Build configuration list for PBXNativeTarget "Pitlog" */;
+			buildPhases = (
+				3173D38CAA0EE9F71E5B61FB /* Sources */,
+				D7CCBDD7123725FE22D1C852 /* Resources */,
+				259CF3CFEAF1A8DDAC44047D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pitlog;
+			packageProductDependencies = (
+				0599F14C3F2252F212867EF0 /* PitlogCore */,
+			);
+			productName = Pitlog;
+			productReference = 293B187F714E33A490D7F929 /* Pitlog.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		39AA289DFFEBF117A1D25DF1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					A3C069FE0D70266A222C9B5A = {
+						DevelopmentTeam = "";
+						TestTargetID = D1410EB90BA24ED559700055;
+					};
+					B813F5DA31D84D3CE330EFE6 = {
+						DevelopmentTeam = "";
+					};
+					D1410EB90BA24ED559700055 = {
+						DevelopmentTeam = "";
+					};
+				};
+			};
+			buildConfigurationList = 3925B2DCB366EAA2175CB978 /* Build configuration list for PBXProject "Pitlog" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				de,
+				en,
+			);
+			mainGroup = F7AA0AA13B57931DBAC3FBE4;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				5A676B3A4A40ABD3AAF58E46 /* XCLocalSwiftPackageReference "Packages/PitlogCore" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 26B1C1B0FA3D7E5C38BD36C5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D1410EB90BA24ED559700055 /* Pitlog */,
+				B813F5DA31D84D3CE330EFE6 /* PitlogTests */,
+				A3C069FE0D70266A222C9B5A /* PitlogUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D7CCBDD7123725FE22D1C852 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68357B8229B56CA14D9CD377 /* Assets.xcassets in Resources */,
+				228B6DA509F5326D3643B144 /* Localizable.xcstrings in Resources */,
+				9ECFE8C40A44FF272D7D15B5 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		032743971822F19E50BC195A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8A942F3BD28BEF23AD9A9F1 /* AccessibilityAuditTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3173D38CAA0EE9F71E5B61FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C662DFABCE1722A2B91E5B0 /* AboutView.swift in Sources */,
+				47A5BE0E2DC9B586598E09E7 /* AppRouter.swift in Sources */,
+				FA7A5AC9156851649875AF03 /* ArchivedVehiclesView.swift in Sources */,
+				71D563CD524D5C2868254F70 /* CalendarDay.swift in Sources */,
+				5F66A11221FCD6D76B9F5B50 /* Entitlements.swift in Sources */,
+				813AB2ED66E34EA76A54537F /* FirstLaunchNoticeView.swift in Sources */,
+				1E25C160C102E5B909AA5958 /* FormTextField.swift in Sources */,
+				954E47539BB7D4A76EA225E7 /* InfoRow.swift in Sources */,
+				E926A0E2B4B4724EAE366C54 /* InspectionBadge.swift in Sources */,
+				E0DAB312950EDC11F19C45C4 /* InspectionCardView.swift in Sources */,
+				7EA4BA5F6D59C732309DD73A /* InspectionPresentation.swift in Sources */,
+				3FAAD7B03562B22EE0930E5F /* InspectionService.swift in Sources */,
+				B87FCE07A6860C1F2EE9F975 /* LeadPicker.swift in Sources */,
+				B523C4DD958E3F0E50BDC6C8 /* LegalNotice.swift in Sources */,
+				45449916770ACAB05AA1A51B /* LegalView.swift in Sources */,
+				27F63EB5BB48DA1F16310A76 /* MenuPickerRow.swift in Sources */,
+				14D18CDB4D1C14BDAEFB789C /* ModelContainerFactory.swift in Sources */,
+				3B0A25DFE94FE14D0B2E7FD8 /* NotificationPermission.swift in Sources */,
+				933E95E6D9DA02480987B7F7 /* NotificationPermissionRow.swift in Sources */,
+				4DC1E9090EE71F89EC1AF072 /* NotificationScheduler.swift in Sources */,
+				7BFD647F77DD031CEF24BE22 /* NotificationSettingsView.swift in Sources */,
+				44971B68E6D8CE51D42451B5 /* NotificationTexts.swift in Sources */,
+				D1FB3D4394A621B49E1980CE /* OdometerEntryView.swift in Sources */,
+				E94B9C81A5308D23DF9293B3 /* OdometerReading.swift in Sources */,
+				65D826CA0D93643E54372269 /* PhotoDownscaler.swift in Sources */,
+				ED5D9804BBD6DA515CA50A49 /* PitlogApp.swift in Sources */,
+				87B0FCA6B6C15361CAE05867 /* PlaquePicker.swift in Sources */,
+				3CB9F9B059BB4C16002B935D /* PreviewData.swift in Sources */,
+				5BBAD757ED4235E2FFAC8B06 /* RecordInspectionView.swift in Sources */,
+				D15EBC44C158D1E7B0C815FA /* Reminder.swift in Sources */,
+				73B849741D5DC665F7C684C2 /* ReminderCoordinator.swift in Sources */,
+				95AEC733C0083F6728DA2845 /* ReminderEditorView.swift in Sources */,
+				8FDFCB9775847AA7DBD8E267 /* ReminderPresentation.swift in Sources */,
+				8BFF426B44B5AAC7F95A7F65 /* ReminderScheduleBuilder.swift in Sources */,
+				AF9B149D1E9699E4B133D575 /* ReminderSettings.swift in Sources */,
+				7329D383CE29B9D11287D75D /* RemindersSummaryRow.swift in Sources */,
+				F3D7EAFCB94F0937775CD7FC /* RemindersView.swift in Sources */,
+				95273E314F34BC19039457E8 /* RootView.swift in Sources */,
+				CF3BBFF5F213817FEE70FB53 /* SchemaV1.swift in Sources */,
+				E66DABCBFF7077577790457A /* SettingsView.swift in Sources */,
+				58F412B51658DFB191AB5BCF /* UpcomingView.swift in Sources */,
+				F6D5BA7430C79AB816FD3A3F /* Vehicle.swift in Sources */,
+				C5CA76CC07396842291042D4 /* VehicleCategory+Presentation.swift in Sources */,
+				5B2167AF43DE0AA53CF9E81B /* VehicleDetailView.swift in Sources */,
+				79851272049FDB5ED759D5C7 /* VehicleFormView.swift in Sources */,
+				751B6AAFB99877A058E8B821 /* VehicleListView.swift in Sources */,
+				8EA45A881824DFAA6AC431C5 /* VehicleRow.swift in Sources */,
+				B53C060DA020AB09F214599E /* VehicleThumbnail.swift in Sources */,
+				382234D4D362C296537D7203 /* WrapsLongWords.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9EC8639F2C4E3EDA575C8155 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EC55C166A7F57DC5326165F /* CalendarDayTests.swift in Sources */,
+				F7026F0BC39E58933B4B0F98 /* InspectionServiceTests.swift in Sources */,
+				776934F3217AFE3B3DC2DBF2 /* ModelTests.swift in Sources */,
+				B6D7DE720C36EA181B508F31 /* NotificationSchedulerTests.swift in Sources */,
+				BA7234FE60A7C53CE1CAB56C /* PitlogAppTests.swift in Sources */,
+				7ABCCF5CD2A1DF1C523B8E93 /* PlaqueAccessibilityTests.swift in Sources */,
+				B144F6939B93E036A7EE964E /* ReminderMappingTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B9C79FDBD8F2BFCF89B95BBF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D1410EB90BA24ED559700055 /* Pitlog */;
+			targetProxy = CF6062A562394521FBBE1F90 /* PBXContainerItemProxy */;
+		};
+		C81B2443EBE46F18AEA836FC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D1410EB90BA24ED559700055 /* Pitlog */;
+			targetProxy = AB33B20F9424B078B93AD863 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		39F58C6BB50525149B4249C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.pitlog.uitests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Pitlog;
+			};
+			name = Release;
+		};
+		4C5C0D77AC01DF409AC2BB50 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.pitlog.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pitlog.app/Pitlog";
+			};
+			name = Release;
+		};
+		7173011D6E0CEC5BAADC583C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = App/Pitlog.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.pitlog;
+				PRODUCT_NAME = Pitlog;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		7819F772E1C446E7054072F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.pitlog.uitests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Pitlog;
+			};
+			name = Debug;
+		};
+		7FEC28D0FECD6D90E40AAC8B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		D6C763439BB5FD4218BCBDF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.pitlog.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pitlog.app/Pitlog";
+			};
+			name = Debug;
+		};
+		D8C9F21AFE61D386C16B6732 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = App/Pitlog.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.pitlog;
+				PRODUCT_NAME = Pitlog;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		DCA2E0C1A49679751B65AB4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		10DA73D75094DE9F03B2F328 /* Build configuration list for PBXNativeTarget "PitlogUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7819F772E1C446E7054072F6 /* Debug */,
+				39F58C6BB50525149B4249C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		3925B2DCB366EAA2175CB978 /* Build configuration list for PBXProject "Pitlog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCA2E0C1A49679751B65AB4F /* Debug */,
+				7FEC28D0FECD6D90E40AAC8B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		88A6B91799CDB298ED9611A0 /* Build configuration list for PBXNativeTarget "PitlogTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6C763439BB5FD4218BCBDF0 /* Debug */,
+				4C5C0D77AC01DF409AC2BB50 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E905F1CC8A80AE66C4E93DFF /* Build configuration list for PBXNativeTarget "Pitlog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7173011D6E0CEC5BAADC583C /* Debug */,
+				D8C9F21AFE61D386C16B6732 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		5A676B3A4A40ABD3AAF58E46 /* XCLocalSwiftPackageReference "Packages/PitlogCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/PitlogCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0599F14C3F2252F212867EF0 /* PitlogCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PitlogCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 39AA289DFFEBF117A1D25DF1 /* Project object */;
+}
