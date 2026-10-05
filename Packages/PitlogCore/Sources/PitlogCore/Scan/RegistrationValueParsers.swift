@@ -148,11 +148,24 @@ enum PlateScan {
     /// Austrian plates: district code of one or two letters, then digits with up to two letters
     /// (`W 12345 A`, `L-777BX`, old `W 123.456`) or a personalized combination of up to seven characters.
     static func parse(_ tokens: [String]) -> (value: String, corrected: Bool, standard: Bool)? {
-        var best: (value: String, corrected: Bool, standard: Bool)?
+        var best: (value: String, corrected: Bool, standard: Bool, count: Int)?
         for count in 1...min(4, max(tokens.count, 1)) where count <= tokens.count {
-            if let parsed = parseWhole(tokens.prefix(count).joined(separator: " ")) { best = parsed }
+            if let parsed = parseWhole(tokens.prefix(count).joined(separator: " ")) {
+                best = (parsed.value, parsed.corrected, parsed.standard, count)
+            }
         }
-        return best
+        guard let best else { return nil }
+        // A short token right behind the plate that is no field code could be part of it (`W 12345 ABC`):
+        // the plate is then not clear, and a truncated plate would be wrong.
+        if best.count < tokens.count {
+            let next = tokens[best.count]
+            if next.count <= 4, next.allSatisfy({ ScanText.isASCIIAlphanumeric($0) }),
+               !RowSegmenter.knownCodes.contains(ScanText.codeKey(next))
+            {
+                return nil
+            }
+        }
+        return (best.value, best.corrected, best.standard)
     }
 
     static func parseWhole(_ raw: String) -> (value: String, corrected: Bool, standard: Bool)? {
