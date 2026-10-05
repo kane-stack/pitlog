@@ -150,7 +150,7 @@ Keine funktionalen Testfehler mehr (alle `XCTAssert`-Aufbauten laufen durch, auc
 
 ## M6b: PDF-Servicenachweis (Optionen-Sheet, Vorschau, gesperrter Einstieg)
 
-Stand: Branch `claude/m6b-service-record`. Läufe (UI-Job, `screenshots: true`): 37362070137 (Commit `0655cbd`), 37378648685 (`6a6f61c`), 37383228969 (`5de446a`, Merge von `claude/practical-edison-jhlpos`), jeweils rot, Unit-Tests grün. Zwei weitere Läufe (37365716944, 37372129475) wurden nach 15 Minuten abgebrochen, ohne dass der UI-Job einen Runner bekam; das ist kein Workflow-Timeout (dort stehen 60 Minuten). **Nichts wurde gefiltert**, es gelten nur die zwei Filter aus CLAUDE.md.
+Stand: Branch `claude/m6b-service-record`. Läufe (UI-Job, `screenshots: true`): 37362070137 (Commit `0655cbd`), 37378648685 (`6a6f61c`), 37383228969 (`5de446a`, Merge von `claude/practical-edison-jhlpos`), 37386280665 (`cf0b837`), jeweils rot, Unit-Tests grün. Zwei weitere Läufe (37365716944, 37372129475) wurden nach 15 Minuten abgebrochen, ohne dass der UI-Job einen Runner bekam; das ist kein Workflow-Timeout (dort stehen 60 Minuten). **Nichts wurde gefiltert**, es gelten nur die zwei Filter aus CLAUDE.md.
 
 Neue Tests: Optionen-Sheet (EN, DE, größte Schrift EN und DE), Vorschau (EN, DE, größte Schrift EN), gesperrte Historienzeile im Gratis-Tarif (EN, DE), Tippen ohne Pro öffnet die Paywall (grün).
 
@@ -159,7 +159,7 @@ Neue Tests: Optionen-Sheet (EN, DE, größte Schrift EN und DE), Vorschau (EN, D
 | Befund | Ursache | Behebung |
 |---|---|---|
 | Zwei Tests (Pro) fanden die Zeile „Servicenachweis exportieren“ nicht | Die Zeile liegt unter dem Diagramm; eine `List` legt sie erst beim Scrollen an | Test wartet nicht mehr auf die Zeile, sondern scrollt; im größten deutschen Schriftgrad wartet er auf die Zurück-Taste |
-| `service-record-options-xxxl-de`: „Text clipped“ am Navigationstitel „Servicenachweis“ | Der Inline-Titel passt bei AX3 nicht zwischen „Abbrechen“ und „Erstellen“ | Großer Titel (`.large`), der umbricht. Im Lauf nach `cf0b837` bestätigt, siehe unten |
+| `service-record-options-xxxl-de`: „Text clipped“ am Navigationstitel „Servicenachweis“ | Der Inline-Titel passt bei AX3 nicht zwischen „Abbrechen“ und „Erstellen“ | Großer Titel (`.large`), der umbricht. Im Lauf 37386280665 bestätigt: der Befund ist weg |
 
 ### Befunde, nicht von M6b verursacht oder nicht behebbar
 
