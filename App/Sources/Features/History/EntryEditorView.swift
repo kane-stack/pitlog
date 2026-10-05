@@ -27,7 +27,7 @@ struct EntryEditorView: View {
     @State private var amountText: String
     @State private var currency: String
     @State private var note: String
-    @State private var receipts: [ReceiptDraft]
+    @State private var receipts: [EditorReceiptDraft]
 
     @State private var previewURL: URL?
     @State private var showingFileImporter = false
@@ -54,7 +54,7 @@ struct EntryEditorView: View {
                 .sorted { $0.createdAt < $1.createdAt }
                 .compactMap { receipt in
                     receipt.data.map {
-                        ReceiptDraft(data: $0, contentType: receipt.contentType, pageCount: receipt.pageCount, existing: receipt)
+                        EditorReceiptDraft(data: $0, contentType: receipt.contentType, pageCount: receipt.pageCount, existing: receipt)
                     }
                 })
         } else {
@@ -234,7 +234,7 @@ struct EntryEditorView: View {
         }
     }
 
-    private func receiptRow(_ receipt: ReceiptDraft) -> some View {
+    private func receiptRow(_ receipt: EditorReceiptDraft) -> some View {
         let title = receiptTitle(receipt)
         return Label {
             Text(verbatim: title)
@@ -264,7 +264,7 @@ struct EntryEditorView: View {
         }
     }
 
-    private func receiptTitle(_ receipt: ReceiptDraft) -> String {
+    private func receiptTitle(_ receipt: EditorReceiptDraft) -> String {
         if receipt.isPDF {
             String(localized: "PDF receipt, \(receipt.pageCount) pages", locale: locale, comment: "Entry editor: an attached PDF receipt with its number of pages, plural")
         } else {
@@ -308,17 +308,17 @@ struct EntryEditorView: View {
         if let km = application.odometerKm { kilometers = km }
         if let attachment {
             receipts.append(
-                ReceiptDraft(
+                EditorReceiptDraft(
                     data: attachment.data, contentType: attachment.contentType, pageCount: attachment.pageCount,
                     existing: nil, recognizedText: attachment.recognizedText))
         }
     }
 
-    private func preview(_ receipt: ReceiptDraft) {
+    private func preview(_ receipt: EditorReceiptDraft) {
         previewURL = receipt.previewFile()
     }
 
-    private func remove(_ receipt: ReceiptDraft) {
+    private func remove(_ receipt: EditorReceiptDraft) {
         receipts.removeAll { $0.id == receipt.id }
     }
 

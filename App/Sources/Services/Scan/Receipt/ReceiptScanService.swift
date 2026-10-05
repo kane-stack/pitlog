@@ -3,9 +3,9 @@ import ImageIO
 import PitlogCore
 import Vision
 
-/// Core's receipt draft. The app has its own `ReceiptDraft` (an attachment in the entry editor), which would
-/// shadow it, so the extraction code uses this name.
-typealias ExtractedReceipt = PitlogCore.ReceiptDraft
+/// Core's receipt draft under a name that says what it is (the entry editor's attachment type is
+/// `EditorReceiptDraft`). Not spelled `PitlogCore.ReceiptDraft`: the module contains an enum `PitlogCore`.
+typealias ExtractedReceipt = ReceiptDraft
 
 /// Reads QR codes from a page image. Everything runs on the device.
 protocol BarcodeReading: Sendable {
