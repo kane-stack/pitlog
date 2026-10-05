@@ -45,7 +45,7 @@ struct ReceiptReviewView: View {
                     }
                 }
             }
-            .navigationTitle(Text("Check the receipt", comment: "Navigation title of the receipt review"))
+            .navigationTitle(Text("Receipt", comment: "Navigation title of the receipt review"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {

@@ -709,17 +709,6 @@
         }
       }
     },
-    "Check the receipt" : {
-      "comment" : "Navigation title of the receipt review",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Beleg prüfen"
-          }
-        }
-      }
-    },
     "Check the scan" : {
       "comment" : "Navigation title of the registration review",
       "localizations" : {
@@ -2228,6 +2217,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Liest die Fahrzeugdaten von deinem Zulassungsschein. Das Foto bleibt auf deinem Gerät und wird nicht gespeichert."
+          }
+        }
+      }
+    },
+    "Receipt" : {
+      "comment" : "Navigation title of the receipt review",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beleg"
           }
         }
       }
