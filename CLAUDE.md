@@ -144,7 +144,7 @@ Prompt: `docs/research/local-session-prompt.md`.
 |---|---|---|---|
 | M0 | Okt 2026 | Gerüst, CLAUDE.md, Regeldoku, XcodeGen, PitlogCore, CI | erledigt |
 | M1 | Okt–Nov | Fristen-Engine und Tests (final erst nach Primärquellen-Abgleich) | Engine an Primärquellen angepasst |
-| M2 | Nov | Datenmodell (inkl. FIN-Feld), Fahrzeugverwaltung, Plaketten-Auswahl, Pickerl-Karte, Hinweis, Lokalisierung | gemergt; offene UI-Audit-Befunde als M2.1 (Branch `claude/m2-1-a11y-audit`) |
+| M2 | Nov | Datenmodell (inkl. FIN-Feld), Fahrzeugverwaltung, Plaketten-Auswahl, Pickerl-Karte, Hinweis, Lokalisierung | erledigt (UI-Audit grün auf `claude/m2-vehicles`) |
 | M3 | Dez | Erinnerungen und Benachrichtigungen | |
 | M4 | Jan 2027 | Historie, manuelle Einträge, Kosten pro Jahr | |
 | M5 | Jan–Feb | Scan-Pipeline: Zulassungsschein-Scan, Spike Belegextraktion, dann Belegscan | |
