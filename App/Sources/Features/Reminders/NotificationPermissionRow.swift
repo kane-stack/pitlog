@@ -56,10 +56,12 @@ struct NotificationPermissionRow: View {
                 Button {
                     showingPrompt = true
                 } label: {
-                    Label {
-                        Text("Allow notifications", comment: "Button to start the notification permission flow").fixedSize(horizontal: false, vertical: true)
-                    } icon: {
+                    HStack(alignment: .firstTextBaseline, spacing: 8) {
                         Image(systemName: "bell.badge")
+                            .accessibilityHidden(true)
+                        Text("Allow notifications", comment: "Button to start the notification permission flow")
+                            .fixedSize(horizontal: false, vertical: true)
+                            .frame(maxWidth: .infinity, alignment: .leading)
                     }
                 }
                 .accessibilityIdentifier("allowNotificationsButton")

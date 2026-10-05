@@ -63,26 +63,25 @@ struct RemindersSection: View {
     // MARK: Inspection toggle
 
     private var inspectionToggle: some View {
-        Toggle(
-            isOn: Binding(
+        Group {
+            Toggle(isOn: Binding(
                 get: { vehicle.inspectionRemindersEnabled },
                 set: { newValue in
                     vehicle.inspectionRemindersEnabled = newValue
                     if newValue, permission.state == .notDetermined { showingPermissionPrompt = true }
                 })
-        ) {
-            VStack(alignment: .leading, spacing: 2) {
+            ) {
                 Text("Inspection reminders", comment: "Toggle on the vehicle detail: notifications for the inspection deadline")
                     .fixedSize(horizontal: false, vertical: true)
-                Text(
-                    "When the window opens, a month ahead, in the due month and a week before the window closes. Check the date on your sticker.",
-                    comment: "Explanation below the inspection reminders toggle"
-                )
-                .font(.footnote)
-                .fixedSize(horizontal: false, vertical: true)
             }
+            .accessibilityIdentifier("inspectionRemindersToggle")
+            Text(
+                "When the window opens, a month ahead, in the due month and a week before the window closes. Check the date on your sticker.",
+                comment: "Explanation below the inspection reminders toggle"
+            )
+            .font(.footnote)
+            .fixedSize(horizontal: false, vertical: true)
         }
-        .accessibilityIdentifier("inspectionRemindersToggle")
     }
 
     // MARK: Rows
@@ -171,11 +170,15 @@ struct RemindersSection: View {
                 }
             }
         } label: {
+            // Full width, so a tap anywhere in the row opens the menu.
             Label {
                 Text("Add reminder", comment: "Menu button on the vehicle detail to add a reminder")
+                    .fixedSize(horizontal: false, vertical: true)
             } icon: {
                 Image(systemName: "plus.circle")
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .contentShape(Rectangle())
         }
         .accessibilityIdentifier("addReminderButton")
     }

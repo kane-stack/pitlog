@@ -130,9 +130,11 @@ struct NotificationSchedulerTests {
         let scheduler = NotificationScheduler(center: center)
         let old = (1...20).map { planned("v", "old\($0)", .custom, fire: day(2026, 11, 1)) }
         let new = [planned("v", "new", .custom, fire: day(2026, 11, 2))]
-        async let first: Void = run(scheduler, old)
-        async let second: Void = run(scheduler, new)
-        _ = await (first, second)
+        // Main-actor tasks start in order, and `schedule` queues itself before its first suspension.
+        let first = Task { @MainActor in await run(scheduler, old) }
+        let second = Task { @MainActor in await run(scheduler, new) }
+        await first.value
+        await second.value
         #expect(center.pending.map(\.identifier) == [NotificationScheduler.identifierPrefix + "v/new/custom/2026-11-02"])
     }
 
