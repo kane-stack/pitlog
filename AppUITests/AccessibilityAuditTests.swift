@@ -371,7 +371,8 @@ final class AccessibilityAuditTests: XCTestCase {
         let row = app.descendants(matching: .any)["historyRow"]
         XCTAssertTrue(scrollUntilVisible(row, in: app))
         row.tap()
-        XCTAssertTrue(app.descendants(matching: .any)["addEntryButton"].waitForExistence(timeout: 5))
+        // The top of the screen: the add row can lie below the fold (long German texts), so it is not awaited.
+        XCTAssertTrue(app.segmentedControls["costsDisplayPicker"].waitForExistence(timeout: 5))
         return app
     }
 
