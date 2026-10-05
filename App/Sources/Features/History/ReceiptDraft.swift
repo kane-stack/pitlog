@@ -11,6 +11,8 @@ struct ReceiptDraft: Identifiable {
     let pageCount: Int
     /// The stored receipt this draft stands for, `nil` for a new one.
     let existing: ReceiptDocument?
+    /// OCR text of a scanned receipt (without the customer block); empty for a plain attachment.
+    var recognizedText: String = ""
 
     var isPDF: Bool { contentType == ReceiptDocument.pdfType }
 

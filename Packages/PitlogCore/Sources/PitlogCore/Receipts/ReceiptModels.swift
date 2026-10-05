@@ -1,19 +1,5 @@
 import Foundation
 
-/// One recognized line of text of a receipt, in reading order.
-///
-/// Deliberately independent of the scan pipeline's own line type (the two get unified later).
-public struct ReceiptLine: Hashable, Sendable {
-    public var text: String
-    /// 1-based page number. Multi-page receipts are passed as one concatenated list.
-    public var page: Int
-
-    public init(_ text: String, page: Int = 1) {
-        self.text = text
-        self.page = page
-    }
-}
-
 /// What the app already knows. Used only for plausibility checks, never to change a value.
 public struct ReceiptContext: Hashable, Sendable {
     public var today: DayDate
@@ -128,5 +114,5 @@ public struct ReceiptDraft: Hashable, Sendable {
 /// ADR-10: receipt extraction behind a protocol. The heuristic implementation lives in Core;
 /// a Foundation Models implementation can be added in the app.
 public protocol ReceiptExtractor: Sendable {
-    func extract(lines: [ReceiptLine], context: ReceiptContext) async -> ReceiptDraft
+    func extract(lines: [RecognizedLine], context: ReceiptContext) async -> ReceiptDraft
 }

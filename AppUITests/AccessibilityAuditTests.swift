@@ -543,4 +543,111 @@ final class AccessibilityAuditTests: XCTestCase {
         XCTAssertTrue(plateField.waitForExistence(timeout: 5))
         XCTAssertNotEqual(plateField.value as? String, "W 12345 A")
     }
+
+    // MARK: Receipt scan (M5b)
+
+    /// The review of a receipt scan, started from the history ("Add from receipt"). The simulator has no document
+    /// camera and no Apple Intelligence: the launch argument shows a fixed recognition result and a fake language
+    /// model (`ReceiptScanFixtures`), both going through the real heuristic and merge.
+    @MainActor
+    private func openReceiptReviewFromHistory(
+        german: Bool = false, largeText: Bool = false, extraArguments: [String] = []
+    ) -> XCUIApplication {
+        let app = launch(
+            german: german, largeText: largeText, extraArguments: ["-UITestReceiptScan"] + extraArguments)
+        app.tabBars.buttons.element(boundBy: 1).tap()
+        XCTAssertTrue(tap(app.cells.firstMatch))
+        XCTAssertTrue(app.buttons["recordInspectionButton"].waitForExistence(timeout: 5))
+        let row = app.descendants(matching: .any)["historyRow"]
+        XCTAssertTrue(scrollUntilVisible(row, in: app))
+        row.tap()
+        XCTAssertTrue(app.segmentedControls["costsDisplayPicker"].waitForExistence(timeout: 15))
+        let add = app.descendants(matching: .any)["addFromReceiptRow"]
+        XCTAssertTrue(scrollUntilVisible(add, in: app))
+        add.tap()
+        XCTAssertTrue(app.buttons["receiptReviewApplyButton"].waitForExistence(timeout: 15))
+        return app
+    }
+
+    @MainActor
+    func testReceiptReviewPassesAccessibilityAudit() throws {
+        let app = openReceiptReviewFromHistory()
+        try audit(app, "receipt-review-en")
+    }
+
+    @MainActor
+    func testReceiptReviewPassesAccessibilityAuditInGerman() throws {
+        let app = openReceiptReviewFromHistory(german: true)
+        try audit(app, "receipt-review-de")
+    }
+
+    @MainActor
+    func testReceiptReviewPassesAccessibilityAuditWithLargeText() throws {
+        let app = openReceiptReviewFromHistory(largeText: true)
+        try audit(app, "receipt-review-xxxl-en")
+    }
+
+    /// Agreeing readings start switched on, the disagreement on the workshop name starts off, and the vehicle is
+    /// preselected from the plate on the receipt.
+    @MainActor
+    func testReceiptReviewDefaults() {
+        let app = openReceiptReviewFromHistory()
+        let date = app.switches["receiptToggle-date"]
+        XCTAssertTrue(date.waitForExistence(timeout: 5))
+        XCTAssertEqual(date.value as? String, "1")
+        let amount = app.switches["receiptToggle-amount"]
+        XCTAssertTrue(scrollUntilVisible(amount, in: app))
+        XCTAssertEqual(amount.value as? String, "1")
+        let workshop = app.switches["receiptToggle-workshop"]
+        XCTAssertTrue(scrollUntilVisible(workshop, in: app))
+        XCTAssertEqual(workshop.value as? String, "0")
+        // Both readings of the workshop are offered.
+        XCTAssertTrue(app.buttons["receiptChoice-workshop"].exists)
+    }
+
+    @MainActor
+    func testReceiptReviewAddsAnEntryFromTheHistory() {
+        let app = openReceiptReviewFromHistory()
+        XCTAssertTrue(tap(app.buttons["receiptReviewApplyButton"]))
+        // The sheet closes; the entry was created without opening the editor.
+        XCTAssertTrue(app.buttons["receiptReviewApplyButton"].waitForNonExistence(timeout: 10))
+    }
+
+    @MainActor
+    func testReceiptReviewFromTheEntryEditorFillsTheFormWithoutSaving() {
+        let app = launch(extraArguments: ["-UITestReceiptScan"])
+        app.tabBars.buttons.element(boundBy: 1).tap()
+        XCTAssertTrue(tap(app.cells.firstMatch))
+        XCTAssertTrue(app.buttons["recordInspectionButton"].waitForExistence(timeout: 5))
+        let row = app.descendants(matching: .any)["historyRow"]
+        XCTAssertTrue(scrollUntilVisible(row, in: app))
+        row.tap()
+        XCTAssertTrue(app.segmentedControls["costsDisplayPicker"].waitForExistence(timeout: 15))
+        openEntryEditor(app)
+        let scanRow = app.descendants(matching: .any)["scanReceiptRow"]
+        XCTAssertTrue(scrollUntilVisible(scanRow, in: app))
+        scanRow.tap()
+        XCTAssertTrue(app.buttons["receiptReviewApplyButton"].waitForExistence(timeout: 15))
+        XCTAssertTrue(tap(app.buttons["receiptReviewApplyButton"]))
+        let amount = app.textFields["entryAmount"]
+        XCTAssertTrue(amount.waitForExistence(timeout: 10))
+        XCTAssertEqual(amount.value as? String, "379.90")
+        // Still in the editor, not saved.
+        XCTAssertTrue(app.buttons["saveEntryButton"].exists)
+    }
+
+    @MainActor
+    func testWithoutTheEntitlementThereIsAnExplanationInsteadOfAScanButton() {
+        let app = launch(extraArguments: ["-UITestNoReceiptScan"])
+        app.tabBars.buttons.element(boundBy: 1).tap()
+        XCTAssertTrue(tap(app.cells.firstMatch))
+        XCTAssertTrue(app.buttons["recordInspectionButton"].waitForExistence(timeout: 5))
+        let row = app.descendants(matching: .any)["historyRow"]
+        XCTAssertTrue(scrollUntilVisible(row, in: app))
+        row.tap()
+        XCTAssertTrue(app.segmentedControls["costsDisplayPicker"].waitForExistence(timeout: 15))
+        let note = app.descendants(matching: .any)["receiptScanUnavailableNote"]
+        XCTAssertTrue(scrollUntilVisible(note, in: app))
+        XCTAssertFalse(app.descendants(matching: .any)["addFromReceiptRow"].exists)
+    }
 }

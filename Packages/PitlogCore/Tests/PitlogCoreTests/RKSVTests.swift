@@ -56,7 +56,7 @@ func malformedRKSVPayloadsGiveNilAndNeverCrash(_ payload: String) {
     let ctx = ReceiptContext(today: day(2026, 10, 5), firstRegistration: ym(2018, 4))
     let lines = [
         "Datum: 01.10.2026", "Summe EUR 70,00", rksvExample,
-    ].map { ReceiptLine($0) }
+    ].map { RecognizedLine($0) }
     let d = HeuristicReceiptExtractor().draft(lines: lines, context: ctx)
     #expect(d.grossTotal?.amountMinor == 7_492)
     #expect(d.confidence(of: .grossTotal) == .high)
@@ -66,14 +66,14 @@ func malformedRKSVPayloadsGiveNilAndNeverCrash(_ payload: String) {
 
 @Test func rksvPayloadFromTheContextIsUsed() {
     let ctx = ReceiptContext(today: day(2026, 10, 5), rksvPayloads: ["garbage", rksvExample])
-    let d = HeuristicReceiptExtractor().draft(lines: [ReceiptLine("Summe EUR 70,00")], context: ctx)
+    let d = HeuristicReceiptExtractor().draft(lines: [RecognizedLine("Summe EUR 70,00")], context: ctx)
     #expect(d.grossTotal?.amountMinor == 7_492)
 }
 
 @Test func rksvCancellationIsACreditNote() {
     let payload = "_R1-AT1_K_1_2026-10-02T09:00:00_-1,00_0,00_0,00_0,00_0,00_U1RP_y_z"
     let ctx = ReceiptContext(today: day(2026, 10, 5), rksvPayloads: [payload])
-    let d = HeuristicReceiptExtractor().draft(lines: [ReceiptLine("Summe EUR 1,00")], context: ctx)
+    let d = HeuristicReceiptExtractor().draft(lines: [RecognizedLine("Summe EUR 1,00")], context: ctx)
     #expect(d.isCreditNote)
     #expect(d.grossTotal == nil)
 }
@@ -82,7 +82,7 @@ func malformedRKSVPayloadsGiveNilAndNeverCrash(_ payload: String) {
     let training = "_R1-AT1_K_1_2026-10-02T09:00:00_1,00_0,00_0,00_0,00_0,00_VFJB_y_z"
     let future = "_R1-AT1_K_1_2026-11-02T09:00:00_1,00_0,00_0,00_0,00_0,00_x_y_z"
     let ctx = ReceiptContext(today: day(2026, 10, 5), rksvPayloads: [training, future])
-    let d = HeuristicReceiptExtractor().draft(lines: [ReceiptLine("Summe EUR 70,00")], context: ctx)
+    let d = HeuristicReceiptExtractor().draft(lines: [RecognizedLine("Summe EUR 70,00")], context: ctx)
     #expect(d.grossTotal?.amountMinor == 7_000)
     #expect(d.invoiceDate == nil)
 }

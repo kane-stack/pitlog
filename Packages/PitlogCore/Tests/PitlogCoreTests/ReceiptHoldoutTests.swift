@@ -20,7 +20,7 @@ private struct HoldoutExpected: Codable {
 
 private struct HoldoutReceipt {
     let name: String
-    let lines: [ReceiptLine]
+    let lines: [RecognizedLine]
     let expected: HoldoutExpected
 }
 
@@ -36,7 +36,7 @@ private func loadHoldout() -> [HoldoutReceipt] {
             let data = try? Data(contentsOf: dir.appendingPathComponent("\(stem).expected.json")),
             let expected = try? JSONDecoder().decode(HoldoutExpected.self, from: data)
         else { continue }
-        let lines = text.split(separator: "\n", omittingEmptySubsequences: true).map { ReceiptLine(String($0)) }
+        let lines = text.split(separator: "\n", omittingEmptySubsequences: true).map { RecognizedLine(String($0)) }
         out.append(HoldoutReceipt(name: stem, lines: lines, expected: expected))
     }
     return out

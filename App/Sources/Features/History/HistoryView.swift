@@ -10,6 +10,9 @@ struct HistoryView: View {
 
     @Environment(\.modelContext) private var modelContext
     @Environment(\.locale) private var locale
+    @Environment(\.entitlements) private var entitlements
+    @Query private var allVehicles: [Vehicle]
+    @State private var scan = ReceiptScanController()
     @State private var editorTarget: EntryEditorTarget?
     @State private var filter: MaintenanceCategory?
     @State private var entryToDelete: MaintenanceEntry?
@@ -24,6 +27,11 @@ struct HistoryView: View {
             timelineHeader
             filterRow
             addRow
+            if entitlements.canScanReceipts {
+                addFromReceiptRow
+            } else {
+                ReceiptScanUnavailableNote()
+            }
             if entries.isEmpty {
                 note(Text("No entries yet. Add service, repairs and other workshop visits.", comment: "History: empty state"))
             } else if groups.isEmpty {
@@ -40,6 +48,9 @@ struct HistoryView: View {
         .navigationTitle(Text("History", comment: "Section header on the vehicle detail: maintenance history and costs"))
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(.hidden, for: .tabBar)
+        .receiptScan(scan, mode: .saveEntry) { application, attachment in
+            createEntry(from: application, attachment: attachment)
+        }
         .sheet(item: $editorTarget) { target in
             EntryEditorView(vehicle: vehicle, entry: target.entry, prefill: target.prefill)
         }
@@ -114,6 +125,34 @@ struct HistoryView: View {
         .accessibilityAddTraits(.isButton)
         .accessibilityAction { editorTarget = .new() }
         .accessibilityIdentifier("addEntryButton")
+    }
+
+    private var addFromReceiptRow: some View {
+        Label {
+            Text("Add from receipt", comment: "History: button that scans a workshop receipt and creates a new entry from it")
+                .fixedSize(horizontal: false, vertical: true)
+        } icon: {
+            Image(systemName: "doc.text.viewfinder")
+        }
+        .foregroundStyle(Color.accentColor)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .contentShape(Rectangle())
+        .onTapGesture { startScan() }
+        .accessibilityElement(children: .combine)
+        .accessibilityAddTraits(.isButton)
+        .accessibilityAction { startScan() }
+        .accessibilityIdentifier("addFromReceiptRow")
+    }
+
+    private func startScan() {
+        let infos = allVehicles.filter { !$0.isArchived || $0.id == vehicle.id }.map { ReceiptVehicleInfo($0) }
+        scan.start(ReceiptScanInput(vehicles: infos, contextVehicleID: vehicle.id, vehicleIsFixed: false))
+    }
+
+    /// The review's vehicle picker may have chosen another vehicle than the one this screen shows.
+    private func createEntry(from application: ReceiptApplication, attachment: ReceiptAttachment?) {
+        let target = allVehicles.first { $0.id == application.vehicleID } ?? vehicle
+        ReceiptEntryWriter.createEntry(from: application, attachment: attachment, vehicle: target, in: modelContext)
     }
 
     // MARK: Rows

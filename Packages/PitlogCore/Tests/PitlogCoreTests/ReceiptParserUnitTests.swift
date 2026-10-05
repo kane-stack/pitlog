@@ -6,7 +6,7 @@ private let today = day(2026, 10, 5)
 private let context = ReceiptContext(today: today, firstRegistration: ym(2018, 4))
 
 private func draft(_ lines: [String], context: ReceiptContext = context) -> ReceiptDraft {
-    HeuristicReceiptExtractor().draft(lines: lines.map { ReceiptLine($0) }, context: context)
+    HeuristicReceiptExtractor().draft(lines: lines.map { RecognizedLine($0) }, context: context)
 }
 
 private func parsed(_ lines: [String]) -> [ParsedLine] {
@@ -414,7 +414,7 @@ func suggestsACategoryFromKeywords(_ c: CategoryCase) {
 
 @Test func extractorConformsToTheProtocol() async {
     let any: any ReceiptExtractor = HeuristicReceiptExtractor()
-    let result = await any.extract(lines: [ReceiptLine("Gesamtbetrag 10,00")], context: context)
+    let result = await any.extract(lines: [RecognizedLine("Gesamtbetrag 10,00")], context: context)
     #expect(result.grossTotal?.amountMinor == 1_000)
 }
 

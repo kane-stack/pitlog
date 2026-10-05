@@ -16,6 +16,21 @@ struct SettingsView: View {
                 .accessibilityIdentifier("settingsNotificationsRow")
             }
 
+            #if DEBUG
+            Section {
+                NavigationLink {
+                    DeveloperView()
+                } label: {
+                    Label {
+                        Text(verbatim: "Developer")
+                    } icon: {
+                        Image(systemName: "hammer")
+                    }
+                }
+                .accessibilityIdentifier("settingsDeveloperRow")
+            }
+            #endif
+
             Section {
                 NavigationLink {
                     LegalView()
