@@ -13,9 +13,11 @@ final class AccessibilityAuditTests: XCTestCase {
 
     /// Sample data, notice already acknowledged unless asked otherwise.
     @MainActor
-    private func launch(german: Bool = false, largeText: Bool = false, acknowledged: Bool = true) -> XCUIApplication {
+    private func launch(
+        german: Bool = false, largeText: Bool = false, acknowledged: Bool = true, extraArguments: [String] = []
+    ) -> XCUIApplication {
         let app = XCUIApplication()
-        app.launchArguments += ["-UITestSampleData"]
+        app.launchArguments += ["-UITestSampleData"] + extraArguments
         if acknowledged { app.launchArguments += ["-legalNoticeAcknowledged", "YES"] }
         if german { app.launchArguments += ["-AppleLanguages", "(de)", "-AppleLocale", "de_AT"] }
         if largeText {
@@ -448,5 +450,97 @@ final class AccessibilityAuditTests: XCTestCase {
         let app = openHistory(german: true)
         openEntryEditor(app)
         try audit(app, "entry-editor-de")
+    }
+
+    // MARK: Registration scan (M5a)
+
+    /// The review screen of a scan. The simulator has no document camera, so the launch argument makes the scan
+    /// button show a fixed recognition result (`RegistrationScanFixtures`) that goes through the real parser.
+    @MainActor
+    private func openRegistrationReview(
+        german: Bool = false, largeText: Bool = false, unsupportedClass: Bool = false
+    ) -> XCUIApplication {
+        var arguments = ["-UITestRegistrationScan"]
+        if unsupportedClass { arguments.append("-UITestRegistrationScanUnsupported") }
+        let app = launch(german: german, largeText: largeText, extraArguments: arguments)
+        app.tabBars.buttons.element(boundBy: 1).tap()
+        XCTAssertTrue(tap(app.buttons["addVehicleButton"]))
+        XCTAssertTrue(tap(app.buttons["scanRegistrationButton"]))
+        XCTAssertTrue(app.buttons["registrationReviewApplyButton"].waitForExistence(timeout: 10))
+        return app
+    }
+
+    @MainActor
+    func testRegistrationReviewPassesAccessibilityAudit() throws {
+        let app = openRegistrationReview()
+        try audit(app, "registration-review-en")
+    }
+
+    @MainActor
+    func testRegistrationReviewPassesAccessibilityAuditInGerman() throws {
+        let app = openRegistrationReview(german: true)
+        try audit(app, "registration-review-de")
+    }
+
+    @MainActor
+    func testRegistrationReviewPassesAccessibilityAuditWithLargeText() throws {
+        let app = openRegistrationReview(largeText: true)
+        try audit(app, "registration-review-xxxl-en")
+    }
+
+    @MainActor
+    func testRegistrationReviewUnsupportedClassPassesAccessibilityAudit() throws {
+        let app = openRegistrationReview(unsupportedClass: true)
+        try audit(app, "registration-review-unsupported-en")
+    }
+
+    /// Clear and checkable values start switched on, the uncertain date starts off; "Apply" fills the form and
+    /// leaves the date alone, and nothing is saved by it.
+    @MainActor
+    func testRegistrationReviewDefaultsAndApply() {
+        let app = openRegistrationReview()
+        let plate = app.switches["registrationToggle-licensePlate"]
+        XCTAssertTrue(plate.waitForExistence(timeout: 5))
+        XCTAssertEqual(plate.value as? String, "1")
+        let vin = app.switches["registrationToggle-vin"]
+        XCTAssertTrue(scrollUntilVisible(vin, in: app))
+        XCTAssertEqual(vin.value as? String, "1")
+        // The date is the last item: scroll until it is there.
+        let first = app.switches["registrationToggle-firstRegistration"]
+        XCTAssertTrue(scrollUntilVisible(first, in: app))
+        XCTAssertEqual(first.value as? String, "0")
+
+        XCTAssertTrue(tap(app.buttons["registrationReviewApplyButton"]))
+        let plateField = app.textFields["License plate"]
+        XCTAssertTrue(plateField.waitForExistence(timeout: 5))
+        XCTAssertEqual(plateField.value as? String, "W 12345 A")
+        XCTAssertEqual(app.textFields["Make"].value as? String, "BEISPIELMARKE")
+        XCTAssertEqual(app.textFields["Model"].value as? String, "Beispiel 1.5")
+        // Still in the form, not saved: Cancel is there.
+        XCTAssertTrue(app.buttons["cancelButton"].exists)
+    }
+
+    @MainActor
+    func testRegistrationReviewKeepsASwitchedOffValueOutOfTheForm() {
+        let app = openRegistrationReview()
+        let make = app.switches["registrationToggle-make"]
+        XCTAssertTrue(make.waitForExistence(timeout: 5))
+        // The switch sits at the trailing edge of its row; a tap in the middle hits the label.
+        make.coordinate(withNormalizedOffset: CGVector(dx: 0.92, dy: 0.5)).tap()
+        XCTAssertEqual(make.value as? String, "0")
+        XCTAssertTrue(tap(app.buttons["registrationReviewApplyButton"]))
+        let plateField = app.textFields["License plate"]
+        XCTAssertTrue(plateField.waitForExistence(timeout: 5))
+        XCTAssertEqual(plateField.value as? String, "W 12345 A")
+        XCTAssertNotEqual(app.textFields["Make"].value as? String, "BEISPIELMARKE")
+    }
+
+    @MainActor
+    func testRegistrationReviewCancelLeavesTheFormEmpty() {
+        let app = openRegistrationReview()
+        XCTAssertTrue(tap(app.buttons["registrationReviewCancelButton"]))
+        let plateField = app.textFields["License plate"]
+        XCTAssertTrue(plateField.waitForExistence(timeout: 5))
+        XCTAssertNotEqual(plateField.value as? String, "W 12345 A")
     }
 }

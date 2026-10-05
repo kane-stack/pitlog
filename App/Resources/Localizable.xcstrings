@@ -291,6 +291,17 @@
         }
       }
     },
+    "A transfer permit does not contain the vehicle data. Scan the registration certificate (part I) instead." : {
+      "comment" : "Registration scan: a transfer permit was scanned",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ein Überstellungsfahrtschein enthält die Fahrzeugdaten nicht. Scanne stattdessen den Zulassungsschein (Teil I)."
+          }
+        }
+      }
+    },
     "About" : {
       "comment" : "Settings row for the about screen; Navigation title of the about screen",
       "localizations" : {
@@ -489,6 +500,17 @@
         }
       }
     },
+    "Apply" : {
+      "comment" : "Registration review: copies the switched-on values into the vehicle form",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Übernehmen"
+          }
+        }
+      }
+    },
     "Archive" : {
       "comment" : "Swipe action to archive a vehicle",
       "localizations" : {
@@ -632,6 +654,39 @@
         }
       }
     },
+    "Check the scan" : {
+      "comment" : "Navigation title of the registration review",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan prüfen"
+          }
+        }
+      }
+    },
+    "Check what was read from your certificate. Only values that are switched on are copied into the form. Nothing is saved until you tap Save." : {
+      "comment" : "Registration review: introduction",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prüfe, was vom Zulassungsschein gelesen wurde. Nur eingeschaltete Werte werden ins Formular übernommen. Gespeichert wird erst, wenn du auf Sichern tippst."
+          }
+        }
+      }
+    },
+    "Choose a file" : {
+      "comment" : "Scan source: an image or PDF from the Files app",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datei wählen"
+          }
+        }
+      }
+    },
     "Choose a photo or a PDF of up to 20 MB." : {
       "comment" : "Entry editor: alert message when a receipt file cannot be read",
       "localizations" : {
@@ -639,6 +694,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wähle ein Foto oder ein PDF mit höchstens 20 MB."
+          }
+        }
+      }
+    },
+    "Choose from Photos" : {
+      "comment" : "Scan source: the photo library",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aus Fotos wählen"
           }
         }
       }
@@ -1025,6 +1091,17 @@
         }
       }
     },
+    "First registration" : {
+      "comment" : "Registration review: date of the first registration",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erstzulassung"
+          }
+        }
+      }
+    },
     "First registration, month" : {
       "comment" : "Vehicle form: month of the first registration",
       "localizations" : {
@@ -1300,6 +1377,17 @@
         }
       }
     },
+    "Make sure the whole certificate is in view and well lit, or enter the data by hand." : {
+      "comment" : "Alert message when no field could be read from the scan",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Achte darauf, dass der ganze Zulassungsschein im Bild und gut beleuchtet ist, oder gib die Daten von Hand ein."
+          }
+        }
+      }
+    },
     "Model" : {
       "comment" : "Vehicle form: model field",
       "localizations" : {
@@ -1531,6 +1619,17 @@
         }
       }
     },
+    "Nothing could be read" : {
+      "comment" : "Alert title when no field could be read from the scan",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Es konnte nichts gelesen werden"
+          }
+        }
+      }
+    },
     "Nothing due" : {
       "comment" : "Empty state title on the Upcoming tab",
       "localizations" : {
@@ -1637,6 +1736,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Offizielle Quellen"
+          }
+        }
+      }
+    },
+    "Only the back of the card was read. Scan the front as well for the license plate and the first registration." : {
+      "comment" : "Registration review: notice when only the back of the chip card was scanned",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nur die Rückseite der Karte wurde gelesen. Scanne auch die Vorderseite für Kennzeichen und Erstzulassung."
+          }
+        }
+      }
+    },
+    "Only the front of the card was read. Scan the back as well for VIN, make and model." : {
+      "comment" : "Registration review: notice when only the front of the chip card was scanned",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nur die Vorderseite der Karte wurde gelesen. Scanne auch die Rückseite für FIN, Marke und Modell."
           }
         }
       }
@@ -1858,6 +1979,17 @@
         }
       }
     },
+    "Please check" : {
+      "comment" : "Registration review: the scanned value may contain a reading error",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte prüfen"
+          }
+        }
+      }
+    },
     "Previous year" : {
       "comment" : "VoiceOver label of the minus button of the sticker year",
       "localizations" : {
@@ -1865,6 +1997,50 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vorheriges Jahr"
+          }
+        }
+      }
+    },
+    "Read as “%@” (field %@)" : {
+      "comment" : "Registration review: the text a value was read from. First argument: the text, second: the field code on the certificate",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gelesen als „%1$@“ (Feld %2$@)"
+          }
+        }
+      }
+    },
+    "Read clearly" : {
+      "comment" : "Registration review: the scanned value is reliable",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klar gelesen"
+          }
+        }
+      }
+    },
+    "Reading the certificate…" : {
+      "comment" : "Shown while the scanned certificate is being recognized",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zulassungsschein wird gelesen …"
+          }
+        }
+      }
+    },
+    "Reads the vehicle data from your registration certificate. The photo stays on your device and is not saved." : {
+      "comment" : "Vehicle form: explanation under the scan button",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Liest die Fahrzeugdaten von deinem Zulassungsschein. Das Foto bleibt auf deinem Gerät und wird nicht gespeichert."
           }
         }
       }
@@ -2074,6 +2250,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sichern"
+          }
+        }
+      }
+    },
+    "Scan registration certificate" : {
+      "comment" : "Vehicle form: button that scans the registration certificate to fill in the vehicle data; Title of the source choice for scanning the registration certificate",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zulassungsschein scannen"
+          }
+        }
+      }
+    },
+    "Scan with camera" : {
+      "comment" : "Scan source: the document camera",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mit der Kamera scannen"
           }
         }
       }
@@ -2342,6 +2540,17 @@
         }
       }
     },
+    "The punched month on the inspection sticker is not on the certificate. Enter it from the sticker itself." : {
+      "comment" : "Registration review: hint that the sticker punch must be entered by hand",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Lochung der Pickerl-Plakette steht nicht im Zulassungsschein. Gib sie anhand der Plakette selbst ein."
+          }
+        }
+      }
+    },
     "The receipt could not be added." : {
       "comment" : "Entry editor: alert title when a receipt file cannot be read",
       "localizations" : {
@@ -2349,6 +2558,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Der Beleg konnte nicht hinzugefügt werden."
+          }
+        }
+      }
+    },
+    "The scan failed" : {
+      "comment" : "Alert title when the scan or the import failed",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Scan ist fehlgeschlagen"
           }
         }
       }
@@ -2382,6 +2602,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Die Winterreifenperiode beginnt am %@, %@."
+          }
+        }
+      }
+    },
+    "This is not a registration certificate" : {
+      "comment" : "Alert title when a transfer permit or similar was scanned",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das ist kein Zulassungsschein"
+          }
+        }
+      }
+    },
+    "This is part II of the registration certificate. Its data is usually the same as in part I, which you carry in the car." : {
+      "comment" : "Registration review: notice when part II was scanned",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das ist Teil II der Zulassungsbescheinigung. Die Daten sind meist dieselben wie in Teil I, den du im Auto mitführst."
           }
         }
       }
@@ -2430,6 +2672,17 @@
         }
       }
     },
+    "Try again, or choose a photo or a file." : {
+      "comment" : "Alert message when the scan or the import failed",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versuche es noch einmal oder wähle ein Foto oder eine Datei."
+          }
+        }
+      }
+    },
     "Type" : {
       "comment" : "Vehicle form: vehicle category picker",
       "localizations" : {
@@ -2463,6 +2716,17 @@
         }
       }
     },
+    "Uncertain" : {
+      "comment" : "Registration review: the scanned value is doubtful and not used unless switched on",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unsicher"
+          }
+        }
+      }
+    },
     "Upcoming" : {
       "comment" : "Tab bar item for upcoming deadlines; Navigation title of the Upcoming tab",
       "localizations" : {
@@ -2485,6 +2749,61 @@
         }
       }
     },
+    "Use VIN" : {
+      "comment" : "Registration review: switch to copy the scanned vehicle identification number into the form",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FIN übernehmen"
+          }
+        }
+      }
+    },
+    "Use first registration" : {
+      "comment" : "Registration review: switch to copy the scanned first registration into the form",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erstzulassung übernehmen"
+          }
+        }
+      }
+    },
+    "Use license plate" : {
+      "comment" : "Registration review: switch to copy the scanned license plate into the form",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kennzeichen übernehmen"
+          }
+        }
+      }
+    },
+    "Use make" : {
+      "comment" : "Registration review: switch to copy the scanned make into the form",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Marke übernehmen"
+          }
+        }
+      }
+    },
+    "Use model" : {
+      "comment" : "Registration review: switch to copy the scanned model into the form",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modell übernehmen"
+          }
+        }
+      }
+    },
     "Use suggestion: %@" : {
       "comment" : "Button that fills the sticker picker with the estimated due month; the argument is the month",
       "localizations" : {
@@ -2496,6 +2815,17 @@
         }
       }
     },
+    "Use vehicle type" : {
+      "comment" : "Registration review: switch to copy the scanned vehicle type into the form",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fahrzeugart übernehmen"
+          }
+        }
+      }
+    },
     "Used for new reminders. Existing reminders keep their own lead time." : {
       "comment" : "Settings footer below the default lead times",
       "localizations" : {
@@ -2503,6 +2833,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gilt für neue Erinnerungen. Bestehende Erinnerungen behalten ihre eigene Vorlaufzeit."
+          }
+        }
+      }
+    },
+    "VIN" : {
+      "comment" : "Registration review: vehicle identification number",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FIN"
           }
         }
       }

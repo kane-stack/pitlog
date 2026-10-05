@@ -26,6 +26,7 @@ struct VehicleFormView: View {
     @State private var photo: Data?
     @State private var photoItem: PhotosPickerItem?
     @State private var loaded = false
+    @State private var scan = RegistrationScanController()
 
     private let service = InspectionService()
     private let today = CalendarDay.today(in: CalendarDay.austria)
@@ -51,6 +52,10 @@ struct VehicleFormView: View {
     var body: some View {
         NavigationStack {
             Form {
+                if vehicle == nil {
+                    scanSection
+                }
+
                 Section {
                     FormTextField(title: Text("Name", comment: "Vehicle form: name field"), text: $name)
                     FormTextField(title: Text("License plate", comment: "Vehicle form: license plate field"), text: $licensePlate)
@@ -168,6 +173,7 @@ struct VehicleFormView: View {
                 }
             }
             .onAppear(perform: load)
+            .registrationScan(scan) { apply($0) }
             .onChange(of: photoItem) { _, item in
                 guard let item else { return }
                 Task {
@@ -175,6 +181,41 @@ struct VehicleFormView: View {
                     photo = PhotoDownscaler.jpegData(from: data)
                 }
             }
+        }
+    }
+
+    /// Fills the form from a scan. Only what the user kept on the review screen; nothing is saved here.
+    private func apply(_ prefill: RegistrationPrefill) {
+        if let plate = prefill.licensePlate { licensePlate = plate }
+        if let scanned = prefill.category { category = scanned }
+        if let scanned = prefill.make { make = scanned }
+        if let scanned = prefill.model { model = scanned }
+        if let scanned = prefill.vin { vin = scanned }
+        if let first = prefill.firstRegistration {
+            firstRegistrationMonth = first.month
+            firstRegistrationYear = first.year
+        }
+    }
+
+    private var scanSection: some View {
+        Section {
+            Button {
+                scan.start()
+            } label: {
+                Label {
+                    Text("Scan registration certificate", comment: "Vehicle form: button that scans the registration certificate to fill in the vehicle data")
+                        .fixedSize(horizontal: false, vertical: true)
+                } icon: {
+                    Image(systemName: "doc.viewfinder")
+                }
+                .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.borderedProminent)
+            .controlSize(.large)
+            .disabled(scan.isRecognizing)
+            .accessibilityIdentifier("scanRegistrationButton")
+        } footer: {
+            Text("Reads the vehicle data from your registration certificate. The photo stays on your device and is not saved.", comment: "Vehicle form: explanation under the scan button")
         }
     }
 
