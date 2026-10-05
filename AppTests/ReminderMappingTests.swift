@@ -12,7 +12,7 @@ struct ReminderMappingTests {
 
     private func day(_ y: Int, _ m: Int, _ d: Int) -> DayDate { DayDate(year: y, month: m, day: d)! }
 
-    private func schedule(_ reminder: Reminder, projection: OdometerProjection? = nil) -> ReminderSchedule? {
+    private func makeSchedule(_ reminder: Reminder, projection: OdometerProjection? = nil) -> ReminderSchedule? {
         reminder.schedule(vehicleID: "v", projection: projection, defaults: austria, today: today)
     }
 
@@ -20,7 +20,7 @@ struct ReminderMappingTests {
 
     @Test func tyreReminderPrefilledFromTheCountryDefaults() throws {
         let reminder = Reminder(category: .tyreWinter)
-        let schedule = try #require(schedule(reminder))
+        let schedule = try #require(makeSchedule(reminder))
         guard case .tyreChange(let tyre) = schedule.kind else { Issue.record("not a tyre change"); return }
         #expect(tyre.season == .winter)
         #expect(tyre.firstEventDay == day(2026, 11, 1))
@@ -32,7 +32,7 @@ struct ReminderMappingTests {
         let reminder = Reminder(category: .tyreSummer)
         reminder.dueDate = day(2027, 4, 15)
         reminder.leadDays = 10
-        let schedule = try #require(schedule(reminder))
+        let schedule = try #require(makeSchedule(reminder))
         guard case .tyreChange(let tyre) = schedule.kind else { Issue.record("not a tyre change"); return }
         #expect(tyre.season == .summer)
         #expect(tyre.firstEventDay == day(2027, 4, 15))
@@ -42,7 +42,7 @@ struct ReminderMappingTests {
     @Test func vignetteReminderUsesTheAustrianDates() throws {
         let reminder = Reminder(category: .vignette)
         reminder.leadDays = 25
-        let schedule = try #require(schedule(reminder))
+        let schedule = try #require(makeSchedule(reminder))
         guard case .vignette(let vignette) = schedule.kind else { Issue.record("not a vignette"); return }
         #expect(vignette.firstExpiryDay == day(2027, 1, 31))
         #expect(vignette.announce == MonthDay(month: 12, day: 1))
@@ -58,7 +58,7 @@ struct ReminderMappingTests {
         reminder.leadKm = 800
         reminder.repeatMonths = 12
         reminder.repeatKm = 15_000
-        let schedule = try #require(schedule(reminder))
+        let schedule = try #require(makeSchedule(reminder))
         #expect(schedule.title == "Oil")
         guard case .service(let service) = schedule.kind else { Issue.record("not a service"); return }
         #expect(service.dueDay == day(2027, 3, 1))
@@ -70,7 +70,7 @@ struct ReminderMappingTests {
     }
 
     @Test func serviceWithoutDateAndKmHasNoSchedule() {
-        #expect(schedule(Reminder(category: .service)) == nil)
+        #expect(makeSchedule(Reminder(category: .service)) == nil)
     }
 
     @Test func customReminderMapsRepeat() throws {
@@ -85,14 +85,14 @@ struct ReminderMappingTests {
         ] as [(ReminderRepeatRule, Int?, ReminderRecurrence)] {
             reminder.repeatRule = rule
             reminder.repeatMonths = months
-            let schedule = try #require(schedule(reminder))
+            let schedule = try #require(makeSchedule(reminder))
             guard case .custom(let custom) = schedule.kind else { Issue.record("not custom"); return }
             #expect(custom.recurrence == expected)
         }
     }
 
     @Test func customReminderWithoutDateHasNoSchedule() {
-        #expect(schedule(Reminder(category: .custom)) == nil)
+        #expect(makeSchedule(Reminder(category: .custom)) == nil)
     }
 
     @Test func unknownRawValuesFallBack() {

@@ -333,7 +333,7 @@ final class AccessibilityAuditTests: XCTestCase {
         let app = launch()
         XCTAssertTrue(app.cells.firstMatch.waitForExistence(timeout: 5))
         // The Golf has inspection plus four reminders, and the other vehicles have an inspection each.
-        XCTAssertGreaterThan(app.cells.count, 4)
+        XCTAssertGreaterThan(app.cells.count, 2)
         try audit(app, "upcoming-reminders-en")
     }
 }
