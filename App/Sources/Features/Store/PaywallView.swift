@@ -193,6 +193,7 @@ struct PaywallView: View {
             if product.isFamilyShareable {
                 Text("Family Sharing included", comment: "Paywall: the product can be shared with the family")
                     .font(.footnote)
+                    .fixedSize(horizontal: false, vertical: true)
             }
             buyButton(product)
         }
