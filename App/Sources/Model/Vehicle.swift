@@ -41,6 +41,9 @@ final class Vehicle {
     @Relationship(deleteRule: .cascade, inverse: \Reminder.vehicle)
     var reminders: [Reminder]? = []
 
+    @Relationship(deleteRule: .cascade, inverse: \MaintenanceEntry.vehicle)
+    var maintenanceEntries: [MaintenanceEntry]? = []
+
     init(
         name: String = "",
         licensePlate: String = "",
