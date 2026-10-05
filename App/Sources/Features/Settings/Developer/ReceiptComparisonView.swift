@@ -17,6 +17,7 @@ struct DeveloperView: View {
             } label: {
                 Label {
                     Text(verbatim: "Receipt extraction comparison")
+                        .fixedSize(horizontal: false, vertical: true)
                 } icon: {
                     Image(systemName: "doc.text.magnifyingglass")
                 }

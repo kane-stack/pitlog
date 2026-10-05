@@ -272,7 +272,9 @@ private struct ReceiptReviewRow: View {
                     .keyboardType(.decimalPad)
                     .accessibilityLabel(Text(item.field.title))
                     .accessibilityIdentifier("receiptAmount")
+                    // Primary on purpose: the secondary color of a value next to a field fails the contrast audit.
                     Text(verbatim: item.currency)
+                        .foregroundStyle(.primary)
                 }
             } label: {
                 Text(item.field.title)

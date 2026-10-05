@@ -16,21 +16,6 @@ struct SettingsView: View {
                 .accessibilityIdentifier("settingsNotificationsRow")
             }
 
-            #if DEBUG
-            Section {
-                NavigationLink {
-                    DeveloperView()
-                } label: {
-                    Label {
-                        Text(verbatim: "Developer")
-                    } icon: {
-                        Image(systemName: "hammer")
-                    }
-                }
-                .accessibilityIdentifier("settingsDeveloperRow")
-            }
-            #endif
-
             Section {
                 NavigationLink {
                     LegalView()
@@ -60,6 +45,23 @@ struct SettingsView: View {
                     }
                 }
             }
+
+            // Last on purpose: the UI tests pick the rows above by position.
+            #if DEBUG
+            Section {
+                NavigationLink {
+                    DeveloperView()
+                } label: {
+                    Label {
+                        Text(verbatim: "Developer")
+                            .fixedSize(horizontal: false, vertical: true)
+                    } icon: {
+                        Image(systemName: "hammer")
+                    }
+                }
+                .accessibilityIdentifier("settingsDeveloperRow")
+            }
+            #endif
         }
         .navigationTitle(Text("Settings", comment: "Navigation title of the Settings tab"))
     }
