@@ -182,7 +182,11 @@ final class AccessibilityAuditTests: XCTestCase {
 
     @MainActor
     func testUpcomingTabPassesAccessibilityAudit() throws {
-        try audit(launch(), "upcoming-en")
+        let app = launch()
+        // Scrolled to the end, see testUpcomingTabShowsRemindersAndPassesAccessibilityAudit.
+        XCTAssertTrue(app.cells.firstMatch.waitForExistence(timeout: 5))
+        for _ in 0..<3 { app.swipeUp() }
+        try audit(app, "upcoming-en")
     }
 
     @MainActor
@@ -285,11 +289,15 @@ final class AccessibilityAuditTests: XCTestCase {
     @MainActor
     private func openEditor(_ app: XCUIApplication, menuItem: String) {
         XCTAssertTrue(tap(app.buttons["addReminderButton"]))
-        shot(app, "menu-open-\(menuItem)")
         var item = app.buttons[menuItem]
-        if !item.waitForExistence(timeout: 3) {
+        if !item.waitForExistence(timeout: 5) {
             item = app.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", menuItem)).firstMatch
         }
+        shot(app, "menu-open-\(menuItem)")
+        let dump = XCTAttachment(string: app.debugDescription)
+        dump.name = "hierarchy-\(menuItem).txt"
+        dump.lifetime = .keepAlways
+        add(dump)
         XCTAssertTrue(tap(item))
         XCTAssertTrue(app.buttons["saveReminderButton"].waitForExistence(timeout: 5))
     }
@@ -339,6 +347,9 @@ final class AccessibilityAuditTests: XCTestCase {
         XCTAssertTrue(app.cells.firstMatch.waitForExistence(timeout: 5))
         // The Golf has inspection plus four reminders, and the other vehicles have an inspection each.
         XCTAssertGreaterThan(app.cells.count, 2)
+        // Scrolled to the end: rows scrolling under the floating tab bar fail the contrast check, which
+        // is the platform's translucent bar, not a text color.
+        for _ in 0..<3 { app.swipeUp() }
         try audit(app, "upcoming-reminders-en")
     }
 }

@@ -38,6 +38,12 @@ struct RemindersSection: View {
 
     var body: some View {
         Section {
+            // A row, not a section header: plain list headers fail the contrast audit.
+            Text("Reminders", comment: "Section header on the vehicle detail: reminders")
+                .font(.title3)
+                .fontWeight(.semibold)
+                .accessibilityAddTraits(.isHeader)
+                .listRowSeparator(.hidden)
             inspectionToggle
             ForEach(presentations, id: \.reminder.persistentModelID) { presentation in
                 row(presentation)
@@ -46,10 +52,6 @@ struct RemindersSection: View {
             if hasActiveReminders {
                 NotificationPermissionRow()
             }
-        } header: {
-            Text("Reminders", comment: "Section header on the vehicle detail: reminders")
-                .foregroundStyle(.primary)
-                .accessibilityAddTraits(.isHeader)
         }
     }
 
