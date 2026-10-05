@@ -84,8 +84,8 @@ struct RegistrationReviewTests {
 
     @Test func editedValuesAreTheOnesApplied() {
         var review = RegistrationReview(draft: RegistrationDraft(
-            plate: field("W 12345 A", .medium), vin: field("WBX1A23456B789012", .medium),
-            firstRegistration: field(DayDate(year: 2020, month: 3, day: 15)!, .medium)))
+            plate: field("W 12345 A", .medium), firstRegistration: field(DayDate(year: 2020, month: 3, day: 15)!, .medium),
+            vin: field("WBX1A23456B789012", .medium)))
         review.items[0].text = "  W 54321 B  "
         review.items[1].text = "wbx1a23456b789 999"
         review.items[2].month = 11
