@@ -183,7 +183,7 @@ Stand: Branch `claude/m6c-a11y-privacy`. Vergleichsläufe des UI-Jobs (`screensh
 | 37388396867 | M6c `a7cbdeb` (weiche Trennung, Vorschau-Zusammenfassung, Datenschutz-Zeile) | 35 rote UI-Tests |
 | 37393145074 | M6c `c58531e` (Rechtshinweis mit Label ohne Trennzeichen, Titel als Überschrift) | rot, 35 UI-Tests |
 | 37397257305 | M6c `56ed436` (Rechtshinweis ohne Trennzeichen, Datenschutz-Zeile als `Link` in Primärfarbe) | rot, 35 UI-Tests |
-| (nach Abschluss) | M6c `b101837` (Datenschutz-Zeile als `ActionRow`, Trennung im Rechtshinweis wieder drin) | Ergebnis im Abschluss-Absatz unten |
+| 37400853421 | M6c `b101837` (Datenschutz-Zeile als `ActionRow`, Trennung im Rechtshinweis wieder drin; ohne Screenshots) | rot, 35 UI-Tests (Build und Unit-Tests grün) |
 
 Build und Unit-Tests waren in allen Läufen grün (Push-Läufe 37388386871, 37393140152). Unverändert gelten nur die zwei Filter aus CLAUDE.md (Bar-Buttons).
 
@@ -213,9 +213,16 @@ Screenshot `service-record-options-xxxl-de` (AX3, Deutsch): Lange Wörter breche
 ### Neue Befunde durch M6c
 
 - **`notice-de` „Text clipped“** am Rechtshinweis (Test `testFirstLaunchNoticePassesAccessibilityAuditInGerman`, der im Vorher-Lauf grün war). Der Screenshot zeigt den Text vollständig. Es ist **nicht** die weiche Trennung von „Maßgeblich“: Der Befund blieb in Lauf 37397257305 bestehen, obwohl dort keine Trennung im Rechtshinweis stand und das gesprochene Label ohne Trennzeichen gebaut war. Die einzige weitere Änderung an dieser Ansicht ist das Entfernen von `minimumScaleFactor`. Das passt zur Vermutung, dass der Audit den Text bei der Messung anders umbricht als SwiftUI ihn zeichnet, ist aber **nicht belegt**. Der Text steht in voller Höhe im Bildschirm. Zu prüfen auf dem Gerät.
-- **Datenschutz-Zeile in den Einstellungen** (neu): Als `Link` in der Liste erzeugte sie „Contrast failed“ (`settings-pro-free-*`, ohne Element) und „Text clipped“ am Text „Privacy Policy“ (`settings-pro-pro-en`), auch in Primärfarbe. Das passt zu den früheren Experimenten (Systemsteuerelemente in Listen, siehe oben). Die Zeile ist jetzt die Tippzeile der App (`ActionRow`, öffnet dieselbe URL über `openURL`). Ergebnis im Abschluss-Absatz.
+- **Datenschutz-Zeile in den Einstellungen** (neu): Als `Link` in der Liste erzeugte sie „Contrast failed“ (`settings-pro-free-*`, ohne Element) und „Text clipped“ am Text „Privacy Policy“ (`settings-pro-pro-en`), auch in Primärfarbe. Das passt zu den früheren Experimenten (Systemsteuerelemente in Listen, siehe oben). Die Zeile ist jetzt die Tippzeile der App (`ActionRow`, öffnet dieselbe URL über `openURL`). Ergebnis siehe Abschluss unten.
 - Die anderen Befunde im Lauf 37397257305 sind das bekannte wechselnde Muster (z. B. „Amount“, „Betrag“, „Art“, „Repeat“, „Allow notifications“); „Text clipped“ wandert weiter zwischen Elementen der Paywall (`paywall-de`), der gesperrten Erinnerungen (`reminders-locked-de`) und der Einstellungen.
 
 ### Offen (nur auf dem Gerät)
 
 Siehe `docs/device-test.md`: Inspector-Audit, VoiceOver (liest keine Trennstriche vor? Die Labels der Pickerl-Karte, der Erinnerungen und der Historie sind ohne Trennzeichen gebaut; reine `Text("…")` verlassen sich auf die Systemvorlesung), AX5 in beiden Sprachen.
+
+### Abschluss (Lauf 37400853421, `b101837`)
+
+- **Datenschutz-Zeile:** Mit der Tippzeile (`ActionRow`) sind die Befunde „Contrast failed“ und „Text clipped“ am Element „Privacy Policy“ weg. In den drei Einstellungs-Tests (`settings-pro-free-de/-en`, `settings-pro-pro-en`) steht jetzt „Text clipped“ **ohne Element**. Diese Bildschirme waren auch vorher rot (Basis: „Dynamic Type“ an „Pitlog Pro holen“, „Text clipped“ an „About“); ob die neue Zeile etwas beiträgt, ist daher nicht trennbar und nicht belegt.
+- **`notice-de` „Text clipped“:** besteht weiter, auch mit der Trennung im Rechtshinweis wieder drin und ohne sie (Lauf 37397257305). Sie ist also nicht die Ursache; der Screenshot zeigt den Text vollständig. Vermutlich Folge des entfernten `minimumScaleFactor` (Messung des Audits), nicht belegt. Auf dem Gerät prüfen.
+- **Weitere schwankende Befunde:** `notification-settings-en` „Contrast failed“ an einer Fußnote (in M3 grün, in diesem Lauf rot), `history-list-*` je nach Lauf „Contrast failed“ oder „Dynamic Type“ ohne Element. Das passt zum bekannten Muster, dass der Audit je Lauf wechselnde Elemente meldet.
+- **Fazit M6c:** 35 rote UI-Tests wie vorher. Behoben: PDF-Vorschau (Hit area), Servicenachweis-Titel (abgeschnitten). Neu rot: `testFirstLaunchNoticePassesAccessibilityAuditInGerman`. Die wechselnden Dynamic-Type-Befunde bleiben ungeklärt, `minimumScaleFactor` war nicht die Ursache. Weitere Audit-Läufe bringen in der Cloud keine neue Erkenntnis; der nächste Schritt ist der Inspector-Durchgang auf dem Gerät (`docs/device-test.md`).
