@@ -1,0 +1,643 @@
+===== testAddVehicleFormPassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testCustomReminderEditorPassesAccessibilityAudit / Debug description for `"saveReminderButton" Button`_0_3191DEF9-B858-4057-A5F4-C1E9AE862824.txt
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  ↪︎Find: Descendants matching type Button
+    ↪︎Find: Elements matching predicate '"saveReminderButton" IN identifiers'
+
+===== testCustomReminderEditorPassesAccessibilityAudit / hierarchy-Custom reminder_0_700B284E-3221-4E89-83C1-562E6564EA2E.txt
+Attributes: Application, 0x1155ffe80, pid: 16841, label: 'Pitlog'
+Element subtree:
+ →Application, 0x1155ffe80, pid: 16841, label: 'Pitlog'
+    Window (Main), 0x1155ffd40, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x1155fd900, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x1155fdb80, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x1155ff5c0, {{0.0, 0.0}, {390.0, 844.0}}
+          Other, 0x1155fda40, {{0.0, 0.0}, {390.0, 844.0}}
+            Other, 0x1155ff340, {{0.0, 0.0}, {390.0, 844.0}}
+              Other, 0x1155ff840, {{0.0, 0.0}, {390.0, 844.0}}
+                Other, 0x1155ff980, {{0.0, 0.0}, {390.0, 844.0}}
+                  Other, 0x1155ff480, {{0.0, 0.0}, {390.0, 844.0}}
+                    Other, 0x1155fcb40, {{0.0, 0.0}, {390.0, 844.0}}
+                      Other, 0x1155fee40, {{0.0, 0.0}, {390.0, 844.0}}
+                        Other, 0x1155fed00, {{0.0, 0.0}, {390.0, 844.0}}
+                          Other, 0x1155fe800, {{0.0, 0.0}, {390.0, 844.0}}
+                            NavigationBar, 0x1155fe940, {{0.0, 47.0}, {390.0, 54.0}}, identifier: 'Reminders'
+                              Button, 0x1155fea80, {{16.0, 47.0}, {44.0, 44.0}}, identifier: 'BackButton', label: 'Golf'
+                              StaticText, 0x1155fcdc0, {{152.3, 58.7}, {85.0, 20.7}}, label: 'Reminders'
+                            Other, 0x1155fcf00, {{0.0, 0.0}, {390.0, 844.0}}
+                              Other, 0x1155fd040, {{0.0, 0.0}, {390.0, 844.0}}
+                                Other, 0x1155fd540, {{0.0, 0.0}, {390.0, 844.0}}
+                                  Other, 0x1155fd680, {{0.0, 0.0}, {390.0, 844.0}}
+                                    CollectionView, 0x1155fd7c0, {{0.0, 0.0}, {390.0, 844.0}}
+                                      Other, 0x1155fd180, {{-16.0, -1587.0}, {422.0, 4050.0}}
+                                      Other, 0x1155fd2c0, {{0.0, 0.0}, {390.0, 844.0}}
+                                      Other, 0x1155fd400, {{0.0, 0.0}, {390.0, 844.0}}
+                                      Cell, 0x1155ff0c0, {{16.0, 136.0}, {358.0, 52.0}}
+                                        Other, 0x1155ff200, {{16.0, 136.0}, {358.0, 52.0}}
+                                          Other, 0x1155ff700, {{16.0, 136.0}, {358.0, 52.0}}
+                                        Other, 0x1155fcc80, {{16.0, 136.0}, {358.0, 52.0}}
+                                          Other, 0x1155fde00, {{16.0, 136.0}, {358.0, 52.0}}
+                                            Other, 0x108088000, {{16.0, 136.0}, {358.0, 52.0}}
+                                              Switch, 0x108088140, {{16.0, 136.0}, {358.0, 52.0}}, identifier: 'inspectionRemindersToggle', label: 'Inspection reminders', value: 1
+                                                StaticText, 0x108088280, {{32.0, 151.8}, {160.0, 20.3}}, label: 'Inspection reminders'
+                                                Switch, 0x1080883c0, {{297.0, 148.0}, {63.0, 28.0}}, value: 1
+                                      Cell, 0x108088500, {{16.0, 188.0}, {358.0, 81.7}}
+                                        Other, 0x108088640, {{16.0, 188.0}, {358.0, 81.7}}
+                                          Other, 0x108088780, {{16.0, 188.0}, {358.0, 81.7}}
+                                        Other, 0x1080888c0, {{16.0, 188.0}, {358.0, 81.7}}
+                                          Other, 0x108088a00, {{16.0, 188.0}, {358.0, 81.7}}
+                                            Other, 0x108088b40, {{16.0, 188.0}, {358.0, 81.7}}
+                                              StaticText, 0x108088c80, {{16.0, 188.0}, {358.0, 81.7}}, label: 'When the window opens, the month before it is due, in the due month and a week before the window closes. Check the date on your sticker.'
+                                      Other, 0x108088dc0, {{32.0, 187.0}, {326.0, 1.0}}
+                                      Cell, 0x108088f00, {{16.0, 269.7}, {358.0, 90.3}}
+                                        Other, 0x108089040, {{16.0, 269.7}, {358.0, 90.3}}
+                                          Other, 0x108089180, {{16.0, 269.7}, {358.0, 90.3}}
+                                        Other, 0x1080892c0, {{16.0, 269.7}, {358.0, 90.3}}
+                                          Other, 0x108089400, {{16.0, 269.7}, {358.0, 90.3}}
+                                            Other, 0x108089540, {{16.0, 269.7}, {358.0, 90.3}}
+                                              Button, 0x108089680, {{16.0, 269.7}, {358.0, 90.3}}, label: 'Winter tyres. Winter period starts November 1, 2026. in 27 days.'
+                                                Image, 0x1080897c0, {{34.3, 284.0}, {19.7, 22.0}}, identifier: 'snowflake', label: 'Snow Flurry'
+                                                StaticText, 0x108089900, {{34.3, 284.0}, {135.7, 22.0}}, label: 'Winter tyres'
+                                                StaticText, 0x108089a40, {{32.0, 307.0}, {265.7, 18.0}}, label: 'Winter period starts November 1, 2026'
+                                                StaticText, 0x108089b80, {{32.0, 327.0}, {69.3, 18.0}}, label: 'in 27 days'
+                                      Other, 0x108089cc0, {{32.0, 268.7}, {326.0, 1.0}}
+                                      Cell, 0x108089e00, {{16.0, 360.0}, {358.0, 90.3}}
+                                        Other, 0x108089f40, {{16.0, 360.0}, {358.0, 90.3}}
+                                          Other, 0x10808a080, {{16.0, 360.0}, {358.0, 90.3}}
+                                        Other, 0x10808a1c0, {{16.0, 360.0}, {358.0, 90.3}}
+                                          Other, 0x10808a300, {{16.0, 360.0}, {358.0, 90.3}}
+                                            Other, 0x10808a440, {{16.0, 360.0}, {358.0, 90.3}}
+                                              Button, 0x10808a580, {{16.0, 360.0}, {358.0, 90.3}}, label: 'Vignette. New vignette from December 1, 2026. in 57 days.'
+                                                Image, 0x10808a6c0, {{28.0, 377.0}, {32.3, 16.7}}, identifier: 'road.lanes', label: 'road.lanes'
+                                                StaticText, 0x10808a800, {{28.0, 375.0}, {112.0, 20.3}}, label: 'Vignette'
+                                                StaticText, 0x10808a940, {{32.0, 397.3}, {256.3, 18.0}}, label: 'New vignette from December 1, 2026'
+                                                StaticText, 0x10808aa80, {{32.0, 417.3}, {69.7, 18.0}}, label: 'in 57 days'
+                                      Other, 0x10808abc0, {{72.0, 359.0}, {286.0, 1.0}}
+                                      Cell, 0x10808ad00, {{16.0, 450.3}, {358.0, 90.3}}
+                                        Other, 0x10808ae40, {{16.0, 450.3}, {358.0, 90.3}}
+                                          Other, 0x10808af80, {{16.0, 450.3}, {358.0, 90.3}}
+                                        Other, 0x10808b0c0, {{16.0, 450.3}, {358.0, 90.3}}
+                                          Other, 0x10808b200, {{16.0, 450.3}, {358.0, 90.3}}
+                                            Other, 0x10808b340, {{16.0, 450.3}, {358.0, 90.3}}
+                                              Button, 0x10808b480, {{16.0, 450.3}, {358.0, 90.3}}, label: 'Insurance. Due December 5, 2026. in 61 days.'
+                                                Image, 0x10808b5c0, {{33.7, 464.3}, {21.0, 22.7}}, identifier: 'bell', label: 'Notifications'
+                                                StaticText, 0x10808b700, {{33.7, 464.3}, {116.7, 22.7}}, label: 'Insurance'
+                                                StaticText, 0x10808b840, {{32.0, 487.7}, {159.7, 18.0}}, label: 'Due December 5, 2026'
+                                                StaticText, 0x10808b980, {{32.0, 507.7}, {68.3, 18.0}}, label: 'in 61 days'
+                                      Other, 0x10808bac0, {{72.0, 449.3}, {286.0, 1.0}}
+                                      Cell, 0x10808bc00, {{16.0, 540.7}, {358.0, 110.3}}
+                                        Other, 0x10808bd40, {{16.0, 540.7}, {358.0, 110.3}}
+                                          Other, 0x10808be80, {{16.0, 540.7}, {358.0, 110.3}}
+                                        Other, 0x1082e8000, {{16.0, 540.7}, {358.0, 110.3}}
+                                          Other, 0x1082e8140, {{16.0, 540.7}, {358.0, 110.3}}
+                                            Other, 0x1082e8280, {{16.0, 540.7}, {358.0, 110.3}}
+                                              Button, 0x1082e83c0, {{16.0, 540.7}, {358.0, 110.3}}, label: 'Oil service. At 75,000 km, estimated around February 25, 2027. in 143 days.'
+                                                Image, 0x1082e8500, {{30.7, 552.7}, {26.7, 26.3}}, identifier: 'wrench.and.screwdriver', label: 'wrench.and.screwdriver'
+                                                StaticText, 0x1082e8640, {{30.7, 552.7}, {124.7, 26.3}}, label: 'Oil service'
+                                                StaticText, 0x1082e8780, {{32.0, 578.0}, {288.7, 38.0}}, label: 'At 75,000 km, estimated around February 25, 2027'
+                                                StaticText, 0x1082e88c0, {{32.0, 618.0}, {77.3, 18.0}}, label: 'in 143 days'
+                                      Other, 0x1082e8a00, {{72.0, 539.7}, {286.0, 1.0}}
+                                      Cell, 0x1082e8b40, {{16.0, 651.0}, {358.0, 52.0}}
+                                        Other, 0x1082e8c80, {{16.0, 651.0}, {358.0, 52.0}}
+                                          Other, 0x1082e8dc0, {{16.0, 651.0}, {358.0, 52.0}}
+                                        Other, 0x1082e8f00, {{16.0, 651.0}, {358.0, 52.0}}
+                                          Other, 0x1082e9040, {{16.0, 651.0}, {358.0, 52.0}}
+                                            Other, 0x1082e9180, {{16.0, 651.0}, {358.0, 52.0}}
+                                              Button, 0x1082e92c0, {{16.0, 651.0}, {358.0, 52.0}}, identifier: 'addReminderButton', label: 'Add reminder'
+                                                Image, 0x1082e9400, {{33.3, 666.3}, {21.7, 21.7}}, identifier: 'plus.circle', label: 'Add'
+                                                StaticText, 0x1082e9540, {{32.0, 667.0}, {326.0, 20.3}}, label: 'Add reminder'
+                                      Other, 0x1082e9680, {{72.0, 650.0}, {286.0, 1.0}}
+                                      Cell, 0x1082e97c0, {{16.0, 703.0}, {358.0, 52.0}}
+                                        Other, 0x1082e9900, {{16.0, 703.0}, {358.0, 52.0}}
+                                          Other, 0x1082e9a40, {{16.0, 703.0}, {358.0, 52.0}}
+                                        Other, 0x1082e9b80, {{16.0, 703.0}, {358.0, 52.0}}
+                                          Other, 0x1082e9cc0, {{16.0, 703.0}, {358.0, 52.0}}
+                                            Other, 0x1082e9e00, {{16.0, 703.0}, {358.0, 52.0}}
+                                              Button, 0x1082e9f40, {{16.0, 703.0}, {358.0, 52.0}}, identifier: 'allowNotificationsButton', label: 'Allow notifications'
+                                                Image, 0x1082ea080, {{33.7, 719.7}, {16.0, 18.7}}, identifier: 'bell.badge', label: 'bell.badge'
+                                                StaticText, 0x1082ea1c0, {{32.0, 718.7}, {326.0, 21.0}}, label: 'Allow notifications'
+                                      Other, 0x1082ea300, {{72.0, 702.0}, {286.0, 1.0}}
+                                      Other, 0x1082ea440, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertical scroll bar, 1 page', value: 0%
+                                        Other, 0x1082ea580, {{384.0, 139.0}, {3.0, 654.7}}
+                                      Other, 0x1082ea6c0, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertical scroll bar, 1 page', value: 0%
+                                        Other, 0x1082ea800, {{384.0, 139.0}, {3.0, 654.7}}
+                            Other, 0x1082ea940, {{0.0, 0.0}, {390.0, 844.0}}
+                              Other, 0x1082eaa80, {{0.0, 0.0}, {390.0, 844.0}}
+                Other, 0x1082eabc0, {{0.0, 761.0}, {390.0, 83.0}}
+                  Other, 0x1082ead00, {{0.0, 0.0}, {390.0, 844.0}}
+                  Other, 0x1082eae40, {{0.0, 761.0}, {390.0, 83.0}}
+      Other, 0x1082eaf80, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x1082eb0c0, {{0.0, 0.0}, {390.0, 844.0}}, identifier: 'PopoverDismissRegion', label: 'dismiss popup'
+        Popover, 0x1082eb200, {{75.0, 350.0}, {240.0, 317.0}}
+          Image, 0x1082eb340, {{-75.0, 200.0}, {540.0, 604.0}}
+          Other, 0x1082eb480, {{75.0, 350.0}, {240.0, 304.0}}
+            Sheet, 0x1082eb5c0, {{75.0, 350.0}, {240.0, 304.0}}
+              Other, 0x1082eb700, {{75.0, 350.0}, {240.0, 304.0}}
+                Other, 0x1082eb840, {{75.0, 350.0}, {240.0, 304.0}}
+                  Other, 0x1082eb980, {{75.0, 350.0}, {240.0, 304.0}}
+                  Other, 0x1082ebac0, {{75.0, 350.0}, {240.0, 304.0}}
+                    ScrollView, 0x1082ebc00, {{75.0, 350.0}, {240.0, 304.0}}
+                      Other, 0x1082ebd40, {{75.0, 350.0}, {240.0, 304.0}}
+                        Other, 0x1082ebe80, {{91.0, 366.0}, {208.0, 272.0}}
+                          Button, 0x1082ec000, {{91.0, 366.0}, {208.0, 48.0}}, label: 'Winter tyres'
+                          Button, 0x1082ec140, {{91.0, 422.0}, {208.0, 48.0}}, label: 'Summer tyres'
+                          Button, 0x1082ec280, {{91.0, 478.0}, {208.0, 48.0}}, label: 'Service'
+                          Button, 0x1082ec3c0, {{91.0, 534.0}, {208.0, 48.0}}, label: 'Vignette'
+                          Button, 0x1082ec500, {{91.0, 590.0}, {208.0, 48.0}}, label: 'Custom reminder'
+                      Other, 0x1082ec640, {{282.0, 384.0}, {30.0, 249.0}}, label: 'Vertical scroll bar, 1 page', value: 0%
+                        Other, 0x1082ec780, {{309.0, 440.0}, {3.0, 7.0}}
+                      Other, 0x1082ec8c0, {{96.0, 621.0}, {198.0, 30.0}}, label: 'Horizontal scroll bar, 1 page', value: 0%
+                        Other, 0x1082eca00, {{165.0, 648.0}, {7.0, 3.0}}
+                      Other, 0x1082ecb40, {{282.0, 384.0}, {30.0, 249.0}}, label: 'Vertical scroll bar, 1 page', value: 0%
+                        Other, 0x1082ecc80, {{309.0, 440.0}, {3.0, 7.0}}
+                      Other, 0x1082ecdc0, {{96.0, 621.0}, {198.0, 30.0}}, label: 'Horizontal scroll bar, 1 page', value: 0%
+                        Other, 0x1082ecf00, {{165.0, 648.0}, {7.0, 3.0}}
+          Other, 0x1082ed040, {{75.0, 350.0}, {240.0, 317.0}}
+            Other, 0x1082ed180, {{75.0, 350.0}, {240.0, 317.0}}
+              Other, 0x1082ed2c0, {{75.0, 350.0}, {240.0, 317.0}}
+                Other, 0x1082ed400, {{75.0, 350.0}, {240.0, 317.0}}
+                  Other, 0x1082ed540, {{75.0, 350.0}, {240.0, 317.0}}
+                    Other, 0x1082ed680, {{75.0, 350.0}, {0.0, 0.0}}
+                      Other, 0x1082ed7c0, {{75.0, 350.0}, {240.0, 317.0}}
+                        Other, 0x1082ed900, {{75.0, 350.0}, {240.0, 317.0}}
+                          Other, 0x1082eda40, {{75.0, 350.0}, {240.0, 317.0}}
+                            Other, 0x1082edb80, {{75.0, 350.0}, {240.0, 317.0}}
+    Window, 0x1082edcc0, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x1082ede00, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x1082edf40, {{0.0, 0.0}, {390.0, 844.0}}
+Path to element:
+ →Application, 0x1155ffe80, pid: 16841, label: 'Pitlog'
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  Output: {
+    Application, 0x1082ee080, pid: 16841, label: 'Pitlog'
+  }
+
+===== testCustomReminderEditorPassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testEditVehicleFormPassesAccessibilityAudit / audit-form-edit-en_0_0C14534D-B638-446A-9717-E0B37AD26E9D.txt
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Cancel' id='cancelButton' frame=(20.0, 67.0, 76.66666666666667, 36.0)
+
+(ignored: system navigation bar button)
+
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Save' id='' frame=(307.6666666666667, 67.0, 62.333333333333314, 36.0)
+
+(ignored: system navigation bar button)
+===== testEntryEditorPassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testEntryEditorPassesAccessibilityAuditInGerman / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testFirstLaunchNoticePassesAccessibilityAuditInGerman / Complete Issue Description.txt
+Text of this SwiftUI.AccessibilityNode may be clipped at larger Dynamic Type sizes.
+===== testFreeCostsPassAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testHistoryCostsChartPassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testHistoryCostsChartPassesAccessibilityAuditInGerman / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testHistoryCostsTablePassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testHistoryCostsTablePassesAccessibilityAuditInGerman / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testHistoryTimelinePassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testHistoryTimelinePassesAccessibilityAuditInGerman / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testLockedRemindersPassAccessibilityAuditInGerman / Complete Issue Description.txt
+Text of this SwiftUI.AccessibilityNode may be clipped at larger Dynamic Type sizes.
+===== testLockedServiceRecordRowPassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testLockedServiceRecordRowPassesAccessibilityAuditInGerman / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testPaywallPassesAccessibilityAudit / audit-paywall-en_0_3AFF030C-08B7-4768-BFAF-7EBC07B55A5F.txt
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Close' id='paywallCloseButton' frame=(19.999999999999996, 67.0, 67.0, 36.0)
+
+(ignored: system navigation bar button)
+===== testPaywallPassesAccessibilityAuditInGerman / Complete Issue Description.txt
+Text of this SwiftUI.AccessibilityNode may be clipped at larger Dynamic Type sizes.
+===== testPaywallPassesAccessibilityAuditWithLargeText / audit-paywall-xxxl-en_0_7CE95529-DFF2-4D32-9A6E-9B5006C33583.txt
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Close' id='paywallCloseButton' frame=(20.0, 67.0, 76.0, 36.0)
+
+(ignored: system navigation bar button)
+===== testReadOnlyVehiclePassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testReadOnlyVehiclePassesAccessibilityAuditInGerman / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testReceiptReviewPassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testReceiptReviewPassesAccessibilityAuditInGerman / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testReceiptReviewPassesAccessibilityAuditWithLargeText / audit-receipt-review-xxxl-en_0_2EC6E1D5-A11F-4D6D-A308-7BE3D8FE3B6C.txt
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Cancel' id='receiptReviewCancelButton' frame=(20.000000000000004, 67.0, 87.66666666666667, 36.0)
+
+(ignored: system navigation bar button)
+
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Add entry' id='receiptReviewApplyButton' frame=(251.66666666666666, 67.0, 118.33333333333334, 36.0)
+
+(ignored: system navigation bar button)
+===== testRegistrationReviewPassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testRegistrationReviewPassesAccessibilityAuditInGerman / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testRegistrationReviewPassesAccessibilityAuditWithLargeText / audit-registration-review-xxxl-en_0_96C91C35-567C-4068-930E-BFC98C7E198F.txt
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Cancel' id='registrationReviewCancelButton' frame=(20.000000000000004, 77.0, 87.66666666666667, 36.0)
+
+(ignored: system navigation bar button)
+
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Apply' id='registrationReviewApplyButton' frame=(290.3333333333333, 77.0, 79.66666666666669, 36.0)
+
+(ignored: system navigation bar button)
+===== testRegistrationReviewUnsupportedClassPassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testReminderListPassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testReminderListPassesAccessibilityAuditInGerman / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testServiceRecordOptionsPassAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testServiceRecordOptionsPassAccessibilityAuditInGerman / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testServiceRecordOptionsPassAccessibilityAuditWithLargeText / audit-service-record-options-xxxl-en_0_FD556914-8907-4DAF-8AF5-7F58DBBEED8D.txt
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Create' id='createServiceRecordButton' frame=(281.6666666666667, 67.0, 88.33333333333331, 36.0)
+
+(ignored: system navigation bar button)
+
+[XCUIAccessibilityAuditType(rawValue: 65536)] Dynamic Type font sizes are partially unsupported
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+element: type=9 label='Cancel' id='cancelButton' frame=(20.000000000000004, 67.0, 87.66666666666667, 36.0)
+
+(ignored: system navigation bar button)
+===== testServiceRecordOptionsPassAccessibilityAuditWithLargeTextInGerman / Complete Issue Description.txt
+Text of this element may be clipped at larger Dynamic Type sizes.
+===== testServiceReminderEditorPassesAccessibilityAudit / hierarchy-Service_0_0243B59E-EC3A-4A72-9DA9-69CBFBB54E64.txt
+Attributes: Application, 0x116b46800, pid: 75527, label: 'Pitlog'
+Element subtree:
+ →Application, 0x116b46800, pid: 75527, label: 'Pitlog'
+    Window (Main), 0x116b46940, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x116b46a80, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x116b46bc0, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x116b46d00, {{0.0, 0.0}, {390.0, 844.0}}
+          Other, 0x116b44a00, {{0.0, 0.0}, {390.0, 844.0}}
+            Other, 0x116b45b80, {{0.0, 0.0}, {390.0, 844.0}}
+              Other, 0x116b45cc0, {{0.0, 0.0}, {390.0, 844.0}}
+                Other, 0x116b45e00, {{0.0, 0.0}, {390.0, 844.0}}
+                  Other, 0x116b47700, {{0.0, 0.0}, {390.0, 844.0}}
+                    Other, 0x116b45f40, {{0.0, 0.0}, {390.0, 844.0}}
+                      Other, 0x116b44140, {{0.0, 0.0}, {390.0, 844.0}}
+                        Other, 0x116b47c00, {{0.0, 0.0}, {390.0, 844.0}}
+                          Other, 0x116b47d40, {{0.0, 0.0}, {390.0, 844.0}}
+                            NavigationBar, 0x116b47e80, {{0.0, 47.0}, {390.0, 54.0}}, identifier: 'Reminders'
+                              Button, 0x116b46080, {{16.0, 47.0}, {44.0, 44.0}}, identifier: 'BackButton', label: 'Golf'
+                              StaticText, 0x116b44000, {{152.3, 58.7}, {85.0, 20.7}}, label: 'Reminders'
+                            Other, 0x116b44b40, {{0.0, 0.0}, {390.0, 844.0}}
+                              Other, 0x116b44dc0, {{0.0, 0.0}, {390.0, 844.0}}
+                                Other, 0x116b44c80, {{0.0, 0.0}, {390.0, 844.0}}
+                                  Other, 0x116b44f00, {{0.0, 0.0}, {390.0, 844.0}}
+                                    CollectionView, 0x116b45040, {{0.0, 0.0}, {390.0, 844.0}}
+                                      Other, 0x116b45180, {{-16.0, -1587.0}, {422.0, 4050.0}}
+                                      Other, 0x116b452c0, {{0.0, 0.0}, {390.0, 844.0}}
+                                      Other, 0x116b45400, {{0.0, 0.0}, {390.0, 844.0}}
+                                      Cell, 0x116b46e40, {{16.0, 136.0}, {358.0, 52.0}}
+                                        Other, 0x116b46f80, {{16.0, 136.0}, {358.0, 52.0}}
+                                          Other, 0x116b470c0, {{16.0, 136.0}, {358.0, 52.0}}
+                                        Other, 0x116b47200, {{16.0, 136.0}, {358.0, 52.0}}
+                                          Other, 0x116b47340, {{16.0, 136.0}, {358.0, 52.0}}
+                                            Other, 0x116b47480, {{16.0, 136.0}, {358.0, 52.0}}
+                                              Switch, 0x116b475c0, {{16.0, 136.0}, {358.0, 52.0}}, identifier: 'inspectionRemindersToggle', label: 'Inspection reminders', value: 1
+                                                StaticText, 0x116b47840, {{32.0, 151.8}, {160.0, 20.3}}, label: 'Inspection reminders'
+                                                Switch, 0x116b47980, {{297.0, 148.0}, {63.0, 28.0}}, value: 1
+                                      Cell, 0x116b47ac0, {{16.0, 188.0}, {358.0, 81.7}}
+                                        Other, 0x116a75040, {{16.0, 188.0}, {358.0, 81.7}}
+                                          Other, 0x116a74c80, {{16.0, 188.0}, {358.0, 81.7}}
+                                        Other, 0x116a752c0, {{16.0, 188.0}, {358.0, 81.7}}
+                                          Other, 0x116a748c0, {{16.0, 188.0}, {358.0, 81.7}}
+                                            Other, 0x116a743c0, {{16.0, 188.0}, {358.0, 81.7}}
+                                              StaticText, 0x116a74000, {{16.0, 188.0}, {358.0, 81.7}}, label: 'When the window opens, the month before it is due, in the due month and a week before the window closes. Check the date on your sticker.'
+                                      Other, 0x116a75540, {{32.0, 187.0}, {326.0, 1.0}}
+                                      Cell, 0x116a75900, {{16.0, 269.7}, {358.0, 90.3}}
+                                        Other, 0x116a74640, {{16.0, 269.7}, {358.0, 90.3}}
+                                          Other, 0x116a74dc0, {{16.0, 269.7}, {358.0, 90.3}}
+                                        Other, 0x116a74f00, {{16.0, 269.7}, {358.0, 90.3}}
+                                          Other, 0x116a74140, {{16.0, 269.7}, {358.0, 90.3}}
+                                            Other, 0x116a74780, {{16.0, 269.7}, {358.0, 90.3}}
+                                              Button, 0x116a77980, {{16.0, 269.7}, {358.0, 90.3}}, label: 'Winter tyres. Winter period starts November 1, 2026. in 27 days.'
+                                                Image, 0x116a77ac0, {{34.3, 284.0}, {19.7, 22.0}}, identifier: 'snowflake', label: 'Snow Flurry'
+                                                StaticText, 0x116a74280, {{34.3, 284.0}, {135.7, 22.0}}, label: 'Winter tyres'
+                                                StaticText, 0x116a77c00, {{32.0, 307.0}, {265.7, 18.0}}, label: 'Winter period starts November 1, 2026'
+                                                StaticText, 0x116a7a1c0, {{32.0, 327.0}, {69.3, 18.0}}, label: 'in 27 days'
+                                      Other, 0x116a78280, {{32.0, 268.7}, {326.0, 1.0}}
+                                      Cell, 0x116a79540, {{16.0, 360.0}, {358.0, 90.3}}
+                                        Other, 0x116a7b700, {{16.0, 360.0}, {358.0, 90.3}}
+                                          Other, 0x116a79cc0, {{16.0, 360.0}, {358.0, 90.3}}
+                                        Other, 0x116a7af80, {{16.0, 360.0}, {358.0, 90.3}}
+                                          Other, 0x116a7b840, {{16.0, 360.0}, {358.0, 90.3}}
+                                            Other, 0x116a78a00, {{16.0, 360.0}, {358.0, 90.3}}
+                                              Button, 0x116a7b980, {{16.0, 360.0}, {358.0, 90.3}}, label: 'Vignette. New vignette from December 1, 2026. in 57 days.'
+                                                Image, 0x116a7a6c0, {{28.0, 377.0}, {32.3, 16.7}}, identifier: 'road.lanes', label: 'road.lanes'
+                                                StaticText, 0x116a7b200, {{28.0, 375.0}, {112.0, 20.3}}, label: 'Vignette'
+                                                StaticText, 0x116a7bd40, {{32.0, 397.3}, {256.3, 18.0}}, label: 'New vignette from December 1, 2026'
+                                                StaticText, 0x116a79f40, {{32.0, 417.3}, {69.7, 18.0}}, label: 'in 57 days'
+                                      Other, 0x116a7b0c0, {{72.0, 359.0}, {286.0, 1.0}}
+                                      Cell, 0x116a78dc0, {{16.0, 450.3}, {358.0, 90.3}}
+                                        Other, 0x116a7a300, {{16.0, 450.3}, {358.0, 90.3}}
+                                          Other, 0x116a78780, {{16.0, 450.3}, {358.0, 90.3}}
+                                        Other, 0x116a79b80, {{16.0, 450.3}, {358.0, 90.3}}
+                                          Other, 0x116a797c0, {{16.0, 450.3}, {358.0, 90.3}}
+                                            Other, 0x116a79680, {{16.0, 450.3}, {358.0, 90.3}}
+                                              Button, 0x116a79400, {{16.0, 450.3}, {358.0, 90.3}}, label: 'Insurance. Due December 5, 2026. in 61 days.'
+                                                Image, 0x116a79180, {{33.7, 464.3}, {21.0, 22.7}}, identifier: 'bell', label: 'Notifications'
+                                                StaticText, 0x116a78f00, {{33.7, 464.3}, {116.7, 22.7}}, label: 'Insurance'
+                                                StaticText, 0x116a7a940, {{32.0, 487.7}, {159.7, 18.0}}, label: 'Due December 5, 2026'
+                                                StaticText, 0x116a7bc00, {{32.0, 507.7}, {68.3, 18.0}}, label: 'in 61 days'
+                                      Other, 0x116a7b480, {{72.0, 449.3}, {286.0, 1.0}}
+                                      Cell, 0x116a7ae40, {{16.0, 540.7}, {358.0, 110.3}}
+                                        Other, 0x116b74000, {{16.0, 540.7}, {358.0, 110.3}}
+                                          Other, 0x116b74140, {{16.0, 540.7}, {358.0, 110.3}}
+                                        Other, 0x116b74280, {{16.0, 540.7}, {358.0, 110.3}}
+                                          Other, 0x116b743c0, {{16.0, 540.7}, {358.0, 110.3}}
+                                            Other, 0x116b74500, {{16.0, 540.7}, {358.0, 110.3}}
+                                              Button, 0x116b74640, {{16.0, 540.7}, {358.0, 110.3}}, label: 'Oil service. At 75,000 km, estimated around February 25, 2027. in 143 days.'
+                                                Image, 0x116b74780, {{30.7, 552.7}, {26.7, 26.3}}, identifier: 'wrench.and.screwdriver', label: 'wrench.and.screwdriver'
+                                                StaticText, 0x116b748c0, {{30.7, 552.7}, {124.7, 26.3}}, label: 'Oil service'
+                                                StaticText, 0x116b74a00, {{32.0, 578.0}, {288.7, 38.0}}, label: 'At 75,000 km, estimated around February 25, 2027'
+                                                StaticText, 0x116b74b40, {{32.0, 618.0}, {77.3, 18.0}}, label: 'in 143 days'
+                                      Other, 0x116b74c80, {{72.0, 539.7}, {286.0, 1.0}}
+                                      Cell, 0x116b74dc0, {{16.0, 651.0}, {358.0, 52.0}}
+                                        Other, 0x116b74f00, {{16.0, 651.0}, {358.0, 52.0}}
+                                          Other, 0x116b75040, {{16.0, 651.0}, {358.0, 52.0}}
+                                        Other, 0x116b75180, {{16.0, 651.0}, {358.0, 52.0}}
+                                          Other, 0x116b752c0, {{16.0, 651.0}, {358.0, 52.0}}
+                                            Other, 0x116b75400, {{16.0, 651.0}, {358.0, 52.0}}
+                                              Button, 0x116b75540, {{16.0, 651.0}, {358.0, 52.0}}, identifier: 'addReminderButton', label: 'Add reminder'
+                                                Image, 0x116b75680, {{33.3, 666.3}, {21.7, 21.7}}, identifier: 'plus.circle', label: 'Add'
+                                                StaticText, 0x116b757c0, {{32.0, 667.0}, {326.0, 20.3}}, label: 'Add reminder'
+                                      Other, 0x116b75900, {{72.0, 650.0}, {286.0, 1.0}}
+                                      Cell, 0x116b75a40, {{16.0, 703.0}, {358.0, 52.0}}
+                                        Other, 0x116b75b80, {{16.0, 703.0}, {358.0, 52.0}}
+                                          Other, 0x116b75cc0, {{16.0, 703.0}, {358.0, 52.0}}
+                                        Other, 0x116b75e00, {{16.0, 703.0}, {358.0, 52.0}}
+                                          Other, 0x116b75f40, {{16.0, 703.0}, {358.0, 52.0}}
+                                            Other, 0x116b76080, {{16.0, 703.0}, {358.0, 52.0}}
+                                              Button, 0x116b761c0, {{16.0, 703.0}, {358.0, 52.0}}, identifier: 'allowNotificationsButton', label: 'Allow notifications'
+                                                Image, 0x116b76300, {{33.7, 719.7}, {16.0, 18.7}}, identifier: 'bell.badge', label: 'bell.badge'
+                                                StaticText, 0x116b76440, {{32.0, 718.7}, {326.0, 21.0}}, label: 'Allow notifications'
+                                      Other, 0x116b76580, {{72.0, 702.0}, {286.0, 1.0}}
+                                      Other, 0x116b766c0, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertical scroll bar, 1 page', value: 0%
+                                        Other, 0x116b76800, {{384.0, 139.0}, {3.0, 654.7}}
+                                      Other, 0x116b76940, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertical scroll bar, 1 page', value: 0%
+                                        Other, 0x116b76a80, {{384.0, 139.0}, {3.0, 654.7}}
+                            Other, 0x116b76bc0, {{0.0, 0.0}, {390.0, 844.0}}
+                              Other, 0x116b76d00, {{0.0, 0.0}, {390.0, 844.0}}
+                Other, 0x116b76e40, {{0.0, 761.0}, {390.0, 83.0}}
+                  Other, 0x116b76f80, {{0.0, 0.0}, {390.0, 844.0}}
+                  Other, 0x116b770c0, {{0.0, 761.0}, {390.0, 83.0}}
+      Other, 0x116b77200, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x116b77340, {{0.0, 0.0}, {390.0, 844.0}}, identifier: 'PopoverDismissRegion', label: 'dismiss popup'
+        Popover, 0x116b77480, {{75.0, 350.0}, {240.0, 317.0}}
+          Image, 0x116b775c0, {{-75.0, 200.0}, {540.0, 604.0}}
+          Other, 0x116b77700, {{75.0, 350.0}, {240.0, 304.0}}
+            Sheet, 0x116b77840, {{75.0, 350.0}, {240.0, 304.0}}
+              Other, 0x116b77980, {{75.0, 350.0}, {240.0, 304.0}}
+                Other, 0x116b77ac0, {{75.0, 350.0}, {240.0, 304.0}}
+                  Other, 0x116b77c00, {{75.0, 350.0}, {240.0, 304.0}}
+                  Other, 0x116b77d40, {{75.0, 350.0}, {240.0, 304.0}}
+                    ScrollView, 0x116b77e80, {{75.0, 350.0}, {240.0, 304.0}}
+                      Other, 0x116b78000, {{75.0, 350.0}, {240.0, 304.0}}
+                        Other, 0x116b78140, {{91.0, 366.0}, {208.0, 272.0}}
+                          Button, 0x116b78280, {{91.0, 366.0}, {208.0, 48.0}}, label: 'Winter tyres'
+                          Button, 0x116b783c0, {{91.0, 422.0}, {208.0, 48.0}}, label: 'Summer tyres'
+                          Button, 0x116b78500, {{91.0, 478.0}, {208.0, 48.0}}, label: 'Service'
+                          Button, 0x116b78640, {{91.0, 534.0}, {208.0, 48.0}}, label: 'Vignette'
+                          Button, 0x116b78780, {{91.0, 590.0}, {208.0, 48.0}}, label: 'Custom reminder'
+                      Other, 0x116b788c0, {{282.0, 384.0}, {30.0, 249.0}}, label: 'Vertical scroll bar, 1 page', value: 0%
+                        Other, 0x116b78a00, {{309.0, 440.0}, {3.0, 7.0}}
+                      Other, 0x116b78b40, {{96.0, 621.0}, {198.0, 30.0}}, label: 'Horizontal scroll bar, 1 page', value: 0%
+                        Other, 0x116b78c80, {{165.0, 648.0}, {7.0, 3.0}}
+                      Other, 0x116b78dc0, {{282.0, 384.0}, {30.0, 249.0}}, label: 'Vertical scroll bar, 1 page', value: 0%
+                        Other, 0x116b78f00, {{309.0, 440.0}, {3.0, 7.0}}
+                      Other, 0x116b79040, {{96.0, 621.0}, {198.0, 30.0}}, label: 'Horizontal scroll bar, 1 page', value: 0%
+                        Other, 0x116b79180, {{165.0, 648.0}, {7.0, 3.0}}
+          Other, 0x116b792c0, {{75.0, 350.0}, {240.0, 317.0}}
+            Other, 0x116b79400, {{75.0, 350.0}, {240.0, 317.0}}
+              Other, 0x116b79540, {{75.0, 350.0}, {240.0, 317.0}}
+                Other, 0x116b79680, {{75.0, 350.0}, {240.0, 317.0}}
+                  Other, 0x116b797c0, {{75.0, 350.0}, {240.0, 317.0}}
+                    Other, 0x116b79900, {{75.0, 350.0}, {0.0, 0.0}}
+                      Other, 0x116b79a40, {{75.0, 350.0}, {240.0, 317.0}}
+                        Other, 0x116b79b80, {{75.0, 350.0}, {240.0, 317.0}}
+                          Other, 0x116b79cc0, {{75.0, 350.0}, {240.0, 317.0}}
+                            Other, 0x116b79e00, {{75.0, 350.0}, {240.0, 317.0}}
+    Window, 0x116b79f40, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x116b7a080, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x116b7a1c0, {{0.0, 0.0}, {390.0, 844.0}}
+Path to element:
+ →Application, 0x116b46800, pid: 75527, label: 'Pitlog'
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  Output: {
+    Application, 0x116b7a300, pid: 75527, label: 'Pitlog'
+  }
+
+===== testServiceReminderEditorPassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testSettingsProSectionPassesAccessibilityAuditFree / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testSettingsProSectionPassesAccessibilityAuditInGerman / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testSettingsProSectionPassesAccessibilityAuditPro / Complete Issue Description.txt
+Text of this element may be clipped at larger Dynamic Type sizes.
+===== testVehicleDetailPassesAccessibilityAuditInGerman / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testVehicleDetailWithPickerlCardPassesAccessibilityAudit / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
+===== testVignetteReminderEditorPassesAccessibilityAuditInGerman / hierarchy-Vignette_0_47959A48-F5FE-43B8-A8D5-4B4832BB728E.txt
+Attributes: Application, 0x11703a800, pid: 85919, label: 'Pitlog'
+Element subtree:
+ →Application, 0x11703a800, pid: 85919, label: 'Pitlog'
+    Window (Main), 0x11703bc00, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x11703a1c0, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x11703b840, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x11703b200, {{0.0, 0.0}, {390.0, 844.0}}
+          Other, 0x11703a580, {{0.0, 0.0}, {390.0, 844.0}}
+            Other, 0x11703a440, {{0.0, 0.0}, {390.0, 844.0}}
+              Other, 0x11703a940, {{0.0, 0.0}, {390.0, 844.0}}
+                Other, 0x11703a6c0, {{0.0, 0.0}, {390.0, 844.0}}
+                  Other, 0x11703b0c0, {{0.0, 0.0}, {390.0, 844.0}}
+                    Other, 0x117039e00, {{0.0, 0.0}, {390.0, 844.0}}
+                      Other, 0x117039cc0, {{0.0, 0.0}, {390.0, 844.0}}
+                        Other, 0x11703b480, {{0.0, 0.0}, {390.0, 844.0}}
+                          Other, 0x11703b980, {{0.0, 0.0}, {390.0, 844.0}}
+                            NavigationBar, 0x117039900, {{0.0, 47.0}, {390.0, 54.0}}, identifier: 'Er­in­ne­run­gen'
+                              Button, 0x11702b0c0, {{16.0, 47.0}, {44.0, 44.0}}, identifier: 'BackButton', label: 'Golf'
+                              StaticText, 0x11702b5c0, {{141.3, 58.7}, {107.0, 20.7}}, label: 'Er­in­ne­run­gen'
+                            Other, 0x11702af80, {{0.0, 0.0}, {390.0, 844.0}}
+                              Other, 0x11702ae40, {{0.0, 0.0}, {390.0, 844.0}}
+                                Other, 0x11702ad00, {{0.0, 0.0}, {390.0, 844.0}}
+                                  Other, 0x117037e80, {{0.0, 0.0}, {390.0, 844.0}}
+                                    CollectionView, 0x117037d40, {{0.0, 0.0}, {390.0, 844.0}}
+                                      Other, 0x117037ac0, {{-16.0, -1587.0}, {422.0, 4050.0}}
+                                      Other, 0x117037480, {{0.0, 0.0}, {390.0, 844.0}}
+                                      Other, 0x117037c00, {{0.0, 0.0}, {390.0, 844.0}}
+                                      Cell, 0x1170375c0, {{16.0, 136.0}, {358.0, 52.0}}
+                                        Other, 0x117037340, {{16.0, 136.0}, {358.0, 52.0}}
+                                          Other, 0x117036e40, {{16.0, 136.0}, {358.0, 52.0}}
+                                        Other, 0x117036f80, {{16.0, 136.0}, {358.0, 52.0}}
+                                          Other, 0x117036800, {{16.0, 136.0}, {358.0, 52.0}}
+                                            Other, 0x116b45a40, {{16.0, 136.0}, {358.0, 52.0}}
+                                              Switch, 0x116b461c0, {{16.0, 136.0}, {358.0, 52.0}}, identifier: 'inspectionRemindersToggle', label: 'Pickerl-Er­in­ne­run­gen', value: 1
+                                                StaticText, 0x116b44640, {{32.0, 151.8}, {160.0, 20.3}}, label: 'Pickerl-Er­in­ne­run­gen'
+                                                Switch, 0x117078000, {{297.0, 148.0}, {63.0, 28.0}}, value: 1
+                                      Cell, 0x117078140, {{16.0, 188.0}, {358.0, 81.7}}
+                                        Other, 0x117078280, {{16.0, 188.0}, {358.0, 81.7}}
+                                          Other, 0x1170783c0, {{16.0, 188.0}, {358.0, 81.7}}
+                                        Other, 0x117078500, {{16.0, 188.0}, {358.0, 81.7}}
+                                          Other, 0x117078640, {{16.0, 188.0}, {358.0, 81.7}}
+                                            Other, 0x117078780, {{16.0, 188.0}, {358.0, 81.7}}
+                                              StaticText, 0x1170788c0, {{16.0, 188.0}, {358.0, 81.7}}, label: 'Wenn das Fenster öffnet, im Monat davor, im Fäl­lig­keits­mo­nat und eine Woche, bevor das Fenster schließt. Datum auf der Plakette prüfen.'
+                                      Other, 0x117078a00, {{32.0, 187.0}, {326.0, 1.0}}
+                                      Cell, 0x117078b40, {{16.0, 269.7}, {358.0, 90.3}}
+                                        Other, 0x117078c80, {{16.0, 269.7}, {358.0, 90.3}}
+                                          Other, 0x117078dc0, {{16.0, 269.7}, {358.0, 90.3}}
+                                        Other, 0x117078f00, {{16.0, 269.7}, {358.0, 90.3}}
+                                          Other, 0x117079040, {{16.0, 269.7}, {358.0, 90.3}}
+                                            Other, 0x117079180, {{16.0, 269.7}, {358.0, 90.3}}
+                                              Button, 0x1170792c0, {{16.0, 269.7}, {358.0, 90.3}}, label: 'Winterreifen. Winterperiode beginnt am 1. November 2026. in 26 Tagen.'
+                                                Image, 0x117079400, {{34.3, 284.0}, {19.7, 22.0}}, identifier: 'snowflake', label: 'Wirbelnder Schnee'
+                                                StaticText, 0x117079540, {{34.3, 284.0}, {136.7, 22.0}}, label: 'Win­ter­rei­fen'
+                                                StaticText, 0x117079680, {{32.0, 307.0}, {308.0, 18.0}}, label: 'Win­ter­pe­ri­ode beginnt am 1. November 2026'
+                                                StaticText, 0x1170797c0, {{32.0, 327.0}, {79.7, 18.0}}, label: 'in 26 Tagen'
+                                      Other, 0x117079900, {{32.0, 268.7}, {326.0, 1.0}}
+                                      Cell, 0x117079a40, {{16.0, 360.0}, {358.0, 90.3}}
+                                        Other, 0x117079b80, {{16.0, 360.0}, {358.0, 90.3}}
+                                          Other, 0x117079cc0, {{16.0, 360.0}, {358.0, 90.3}}
+                                        Other, 0x117079e00, {{16.0, 360.0}, {358.0, 90.3}}
+                                          Other, 0x117079f40, {{16.0, 360.0}, {358.0, 90.3}}
+                                            Other, 0x11707a080, {{16.0, 360.0}, {358.0, 90.3}}
+                                              Button, 0x11707a1c0, {{16.0, 360.0}, {358.0, 90.3}}, label: 'Vignette. Neue Vignette ab 1. Dezember 2026. in 56 Tagen.'
+                                                Image, 0x11707a300, {{28.0, 377.0}, {32.3, 16.7}}, identifier: 'road.lanes', label: 'road.lanes'
+                                                StaticText, 0x11707a440, {{28.0, 375.0}, {112.0, 20.3}}, label: 'Vignette'
+                                                StaticText, 0x11707a580, {{32.0, 397.3}, {248.3, 18.0}}, label: 'Neue Vignette ab 1. Dezember 2026'
+                                                StaticText, 0x11707a6c0, {{32.0, 417.3}, {80.0, 18.0}}, label: 'in 56 Tagen'
+                                      Other, 0x11707a800, {{72.0, 359.0}, {286.0, 1.0}}
+                                      Cell, 0x11707a940, {{16.0, 450.3}, {358.0, 90.3}}
+                                        Other, 0x11707aa80, {{16.0, 450.3}, {358.0, 90.3}}
+                                          Other, 0x11707abc0, {{16.0, 450.3}, {358.0, 90.3}}
+                                        Other, 0x11707ad00, {{16.0, 450.3}, {358.0, 90.3}}
+                                          Other, 0x11707ae40, {{16.0, 450.3}, {358.0, 90.3}}
+                                            Other, 0x11707af80, {{16.0, 450.3}, {358.0, 90.3}}
+                                              Button, 0x11707b0c0, {{16.0, 450.3}, {358.0, 90.3}}, label: 'Insurance. Fällig: 6. Dezember 2026. in 61 Tagen.'
+                                                Image, 0x11707b200, {{33.7, 464.3}, {21.0, 22.7}}, identifier: 'bell', label: 'Mitteilungen'
+                                                StaticText, 0x11707b340, {{33.7, 464.3}, {116.7, 22.7}}, label: 'Insurance'
+                                                StaticText, 0x11707b480, {{32.0, 487.7}, {171.3, 18.0}}, label: 'Fällig: 6. Dezember 2026'
+                                                StaticText, 0x11707b5c0, {{32.0, 507.7}, {77.7, 18.0}}, label: 'in 61 Tagen'
+                                      Other, 0x11707b700, {{72.0, 449.3}, {286.0, 1.0}}
+                                      Cell, 0x11707b840, {{16.0, 540.7}, {358.0, 110.3}}
+                                        Other, 0x11707b980, {{16.0, 540.7}, {358.0, 110.3}}
+                                          Other, 0x11707bac0, {{16.0, 540.7}, {358.0, 110.3}}
+                                        Other, 0x11707bc00, {{16.0, 540.7}, {358.0, 110.3}}
+                                          Other, 0x11707bd40, {{16.0, 540.7}, {358.0, 110.3}}
+                                            Other, 0x11707be80, {{16.0, 540.7}, {358.0, 110.3}}
+                                              Button, 0x11707c000, {{16.0, 540.7}, {358.0, 110.3}}, label: 'Oil service. Bei 75.000 km, geschätzt um den 25. Februar 2027. in 142 Tagen.'
+                                                Image, 0x11707c140, {{30.7, 552.7}, {26.7, 26.3}}, identifier: 'wrench.and.screwdriver', label: 'wrench.and.screwdriver'
+                                                StaticText, 0x11707c280, {{30.7, 552.7}, {124.7, 26.3}}, label: 'Oil service'
+                                                StaticText, 0x11707c3c0, {{32.0, 578.0}, {316.3, 38.0}}, label: 'Bei 75.000 km, geschätzt um den 25. Februar 2027'
+                                                StaticText, 0x11707c500, {{32.0, 618.0}, {86.7, 18.0}}, label: 'in 142 Tagen'
+                                      Other, 0x11707c640, {{72.0, 539.7}, {286.0, 1.0}}
+                                      Cell, 0x11707c780, {{16.0, 651.0}, {358.0, 52.0}}
+                                        Other, 0x11707c8c0, {{16.0, 651.0}, {358.0, 52.0}}
+                                          Other, 0x11707ca00, {{16.0, 651.0}, {358.0, 52.0}}
+                                        Other, 0x11707cb40, {{16.0, 651.0}, {358.0, 52.0}}
+                                          Other, 0x11707cc80, {{16.0, 651.0}, {358.0, 52.0}}
+                                            Other, 0x11707cdc0, {{16.0, 651.0}, {358.0, 52.0}}
+                                              Button, 0x11707cf00, {{16.0, 651.0}, {358.0, 52.0}}, identifier: 'addReminderButton', label: 'Er­in­ne­rung hinzufügen'
+                                                Image, 0x11707d040, {{33.3, 666.3}, {21.7, 21.7}}, identifier: 'plus.circle', label: 'Hinzufügen'
+                                                StaticText, 0x11707d180, {{32.0, 667.0}, {326.0, 20.3}}, label: 'Er­in­ne­rung hinzufügen'
+                                      Other, 0x11707d2c0, {{72.0, 650.0}, {286.0, 1.0}}
+                                      Cell, 0x11707d400, {{16.0, 703.0}, {358.0, 52.0}}
+                                        Other, 0x11707d540, {{16.0, 703.0}, {358.0, 52.0}}
+                                          Other, 0x11707d680, {{16.0, 703.0}, {358.0, 52.0}}
+                                        Other, 0x11707d7c0, {{16.0, 703.0}, {358.0, 52.0}}
+                                          Other, 0x11707d900, {{16.0, 703.0}, {358.0, 52.0}}
+                                            Other, 0x11707da40, {{16.0, 703.0}, {358.0, 52.0}}
+                                              Button, 0x11707db80, {{16.0, 703.0}, {358.0, 52.0}}, identifier: 'allowNotificationsButton', label: 'Mitteilungen erlauben'
+                                                Image, 0x11707dcc0, {{33.7, 719.7}, {16.0, 18.7}}, identifier: 'bell.badge', label: 'bell.badge'
+                                                StaticText, 0x11707de00, {{32.0, 718.7}, {326.0, 21.0}}, label: 'Mitteilungen erlauben'
+                                      Other, 0x11707df40, {{72.0, 702.0}, {286.0, 1.0}}
+                                      Other, 0x11707e080, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertikaler Rollbalken, 1 Seite', value: 0 %
+                                        Other, 0x11707e1c0, {{384.0, 139.0}, {3.0, 654.7}}
+                                      Other, 0x11707e300, {{357.0, 101.0}, {30.0, 695.7}}, label: 'Vertikaler Rollbalken, 1 Seite', value: 0 %
+                                        Other, 0x11707e440, {{384.0, 139.0}, {3.0, 654.7}}
+                            Other, 0x11707e580, {{0.0, 0.0}, {390.0, 844.0}}
+                              Other, 0x11707e6c0, {{0.0, 0.0}, {390.0, 844.0}}
+                Other, 0x11707e800, {{0.0, 761.0}, {390.0, 83.0}}
+                  Other, 0x11707e940, {{0.0, 0.0}, {390.0, 844.0}}
+                  Other, 0x11707ea80, {{0.0, 761.0}, {390.0, 83.0}}
+      Other, 0x11707ebc0, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x11707ed00, {{0.0, 0.0}, {390.0, 844.0}}, identifier: 'PopoverDismissRegion', label: 'Einblendmenü schließen'
+        Popover, 0x11707ee40, {{75.0, 350.0}, {240.0, 317.0}}
+          Image, 0x11707ef80, {{-75.0, 200.0}, {540.0, 604.0}}
+          Other, 0x11707f0c0, {{75.0, 350.0}, {240.0, 304.0}}
+            Sheet, 0x11707f200, {{75.0, 350.0}, {240.0, 304.0}}
+              Other, 0x11707f340, {{75.0, 350.0}, {240.0, 304.0}}
+                Other, 0x11707f480, {{75.0, 350.0}, {240.0, 304.0}}
+                  Other, 0x11707f5c0, {{75.0, 350.0}, {240.0, 304.0}}
+                  Other, 0x11707f700, {{75.0, 350.0}, {240.0, 304.0}}
+                    ScrollView, 0x11707f840, {{75.0, 350.0}, {240.0, 304.0}}
+                      Other, 0x11707f980, {{75.0, 350.0}, {240.0, 304.0}}
+                        Other, 0x11707fac0, {{91.0, 366.0}, {208.0, 272.0}}
+                          Button, 0x11707fc00, {{91.0, 366.0}, {208.0, 48.0}}, label: 'Win­ter­rei­fen'
+                          Button, 0x11707fd40, {{91.0, 422.0}, {208.0, 48.0}}, label: 'Som­mer­rei­fen'
+                          Button, 0x11707fe80, {{91.0, 478.0}, {208.0, 48.0}}, label: 'Service'
+                          Button, 0x117080000, {{91.0, 534.0}, {208.0, 48.0}}, label: 'Vignette'
+                          Button, 0x117080140, {{91.0, 590.0}, {208.0, 48.0}}, label: 'Eigene Er­in­ne­rung'
+                      Other, 0x117080280, {{282.0, 384.0}, {30.0, 249.0}}, label: 'Vertikaler Rollbalken, 1 Seite', value: 0 %
+                        Other, 0x1170803c0, {{309.0, 440.0}, {3.0, 7.0}}
+                      Other, 0x117080500, {{96.0, 621.0}, {198.0, 30.0}}, label: 'Horizontaler Rollbalken, 1 Seite', value: 0 %
+                        Other, 0x117080640, {{165.0, 648.0}, {7.0, 3.0}}
+                      Other, 0x117080780, {{282.0, 384.0}, {30.0, 249.0}}, label: 'Vertikaler Rollbalken, 1 Seite', value: 0 %
+                        Other, 0x1170808c0, {{309.0, 440.0}, {3.0, 7.0}}
+                      Other, 0x117080a00, {{96.0, 621.0}, {198.0, 30.0}}, label: 'Horizontaler Rollbalken, 1 Seite', value: 0 %
+                        Other, 0x117080b40, {{165.0, 648.0}, {7.0, 3.0}}
+          Other, 0x117080c80, {{75.0, 350.0}, {240.0, 317.0}}
+            Other, 0x117080dc0, {{75.0, 350.0}, {240.0, 317.0}}
+              Other, 0x117080f00, {{75.0, 350.0}, {240.0, 317.0}}
+                Other, 0x117081040, {{75.0, 350.0}, {240.0, 317.0}}
+                  Other, 0x117081180, {{75.0, 350.0}, {240.0, 317.0}}
+                    Other, 0x1170812c0, {{75.0, 350.0}, {0.0, 0.0}}
+                      Other, 0x117081400, {{75.0, 350.0}, {240.0, 317.0}}
+                        Other, 0x117081540, {{75.0, 350.0}, {240.0, 317.0}}
+                          Other, 0x117081680, {{75.0, 350.0}, {240.0, 317.0}}
+                            Other, 0x1170817c0, {{75.0, 350.0}, {240.0, 317.0}}
+    Window, 0x117081900, {{0.0, 0.0}, {390.0, 844.0}}
+      Other, 0x117081a40, {{0.0, 0.0}, {390.0, 844.0}}
+        Other, 0x117081b80, {{0.0, 0.0}, {390.0, 844.0}}
+Path to element:
+ →Application, 0x11703a800, pid: 85919, label: 'Pitlog'
+Query chain:
+ →Find: Target Application 'com.kane.pitlog'
+  Output: {
+    Application, 0x117081cc0, pid: 85919, label: 'Pitlog'
+  }
+
+===== testVignetteReminderEditorPassesAccessibilityAuditInGerman / Complete Issue Description.txt
+User will not be able to change the font size of this SwiftUI.AccessibilityNode
