@@ -64,6 +64,12 @@ public struct RegistrationDocumentParser: Sendable {
     /// Fields that may stand on the line after their code (code and value in separate lines).
     private static let pairableCodes: Set<String> = ["A", "B", "E", "J", "D1", "D2", "D3", "F2", "A4"]
 
+    /// Date fields the parser reads. Their value may stand below the label, found by `dateBelow`.
+    private static let dateCodes: Set<String> = ["B", "I"]
+
+    /// Labels of the other date fields (I, H, A.3, A.6): a date behind one of them is not B.
+    private static let otherDateLabels: [String] = ["I", "H", "A3", "A6"].flatMap { ScanLabels.vocabulary(for: $0) }
+
     private func parsePage(_ lines: [RecognizedLine], today: DayDate) -> (draft: RegistrationDraft, signals: PageSignals) {
         var signals = PageSignals()
         let allText = lines.map(\.text).joined(separator: " ").uppercased()
@@ -102,12 +108,24 @@ public struct RegistrationDocumentParser: Sendable {
             for (position, segment) in segments.enumerated() {
                 var tokens = ScanLabels.strip(segment.tokens, code: segment.code)
                 var orphan = false
+                var orphanDate = false
                 if tokens.isEmpty, position == segments.count - 1, Self.pairableCodes.contains(segment.code),
+                   !Self.dateCodes.contains(segment.code),
                    index + 1 < rows.count, !skipped.contains(index + 1), segmentsByRow[index + 1].isEmpty,
                    !ScanLabels.startsWithLabel(rows[index + 1].tokens)
                 {
                     tokens = rows[index + 1].tokens
                     orphan = true
+                } else if tokens.isEmpty, Self.dateCodes.contains(segment.code),
+                          let below = Self.dateBelow(
+                              rows: rows, skipped: skipped, segmentsByRow: segmentsByRow, index: index,
+                              position: position, pivot: today.year)
+                {
+                    // The date stands in the line below the label (or below a label-only line). Only the
+                    // date's own tokens are taken, never the rest of that line.
+                    tokens = below
+                    orphan = true
+                    orphanDate = true
                 }
                 guard !tokens.isEmpty else { continue }
                 let raw = String(tokens.joined(separator: " ").prefix(80))
@@ -129,11 +147,19 @@ public struct RegistrationDocumentParser: Sendable {
                             confidence: confidence(base, corrected: parsed.corrected, orphanCap: .medium)))
                     }
                 case "B", "I":
-                    guard let match = DateScan.firstDate(in: tokens) else { break }
+                    guard let match = DateScan.firstDate(in: tokens, twoDigitPivot: today.year) else { break }
                     let corrected = match.corrected || match.tokenIndex > 0
-                    let candidate = Candidate(
-                        value: match.date, rawText: raw,
-                        confidence: confidence(.high, corrected: corrected, orphanCap: .low))
+                    var dateConfidence = confidence(
+                        .high, corrected: corrected, orphanCap: orphanDate ? .medium : .low)
+                    // Words before the date that label another date field ("Zugelassen am", "gültig bis"):
+                    // the date belongs to that field, not to this one.
+                    if match.tokenIndex > 0, tokens[..<match.tokenIndex].contains(where: { token in
+                        ScanLabels.isLabel(token, vocabulary: Self.otherDateLabels)
+                            && !ScanLabels.isLabel(token, vocabulary: ScanLabels.vocabulary(for: segment.code))
+                    }) {
+                        dateConfidence = .low
+                    }
+                    let candidate = Candidate(value: match.date, rawText: raw, confidence: dateConfidence)
                     if segment.code == "B" {
                         // The first registration lies between 1900 and today.
                         if match.date.year >= 1900, match.date <= today { firstRegistration.append(candidate) }
@@ -223,6 +249,36 @@ public struct RegistrationDocumentParser: Sendable {
         return (draft, signals)
     }
 
+    /// The tokens of a date that stands below the empty date field at `position` of row `index`.
+    ///
+    /// Looks at the next row, or the one after it if the next holds only the label's words (`B` / `Erstmalige
+    /// Zulassung am:` / `15.03.2020`). The row must begin with the date. If several date fields of the row are
+    /// empty (`B` and `I` labels side by side), their dates are paired left to right, and only when there are
+    /// exactly as many dates as empty fields; anything else yields nothing.
+    private static func dateBelow(
+        rows: [ScanRow], skipped: Set<Int>, segmentsByRow: [[Segment]], index: Int, position: Int, pivot: Int
+    ) -> [String]? {
+        let segments = segmentsByRow[index]
+        let code = segments[position].code
+        var next = index + 1
+        if next < rows.count, !skipped.contains(next), segmentsByRow[next].isEmpty,
+           ScanLabels.strip(rows[next].tokens, code: code).isEmpty
+        {
+            next += 1
+        }
+        guard next < rows.count, !skipped.contains(next) else { return nil }
+        let dates = DateScan.allDates(in: rows[next].tokens, twoDigitPivot: pivot)
+        guard let first = dates.first, first.tokenIndex == 0 else { return nil }
+        let empties = segments.indices.filter {
+            ScanLabels.strip(segments[$0].tokens, code: segments[$0].code).isEmpty
+        }
+        guard empties.allSatisfy({ dateCodes.contains(segments[$0].code) }), dates.count == empties.count,
+              let rank = empties.firstIndex(of: position)
+        else { return nil }
+        let match = dates[rank]
+        return Array(rows[next].tokens[match.tokenIndex..<(match.tokenIndex + match.width)])
+    }
+
     // MARK: Resolution
 
     /// One value per field. The same value twice keeps the higher confidence. Different values cancel out
@@ -278,13 +334,39 @@ struct ScanRow {
 }
 
 enum RowBuilder {
+    /// Tokens of a line. A date code that OCR glued to its date (`B12.03.2015`, `B:12.03.2015`) is split in two.
+    static func tokenize(_ text: String) -> [String] {
+        var result: [String] = []
+        for token in ScanText.tokens(text) {
+            if let split = splitGluedDateCode(token) {
+                result.append(split.code)
+                result.append(split.date)
+            } else {
+                result.append(token)
+            }
+        }
+        return result
+    }
+
+    private static func splitGluedDateCode(_ token: String) -> (code: String, date: String)? {
+        guard token.count >= 7, let first = token.first, "BbIi".contains(first) else { return nil }
+        var rest = Substring(token).dropFirst()
+        while let character = rest.first, character == ":" || character == "." || character == "-" {
+            rest = rest.dropFirst()
+        }
+        guard let digit = rest.first, ScanText.isASCIIDigit(digit),
+              DateScan.parseWhole(String(rest), twoDigitPivot: 2100) != nil
+        else { return nil }
+        return (String(first), String(rest))
+    }
+
     /// Without geometry (or if any line lacks a box) every line is a row. With boxes everywhere, lines on the same
     /// height are joined left to right, so label and value cells of one table row become one row again.
     static func rows(from lines: [RecognizedLine]) -> [ScanRow] {
         let usable = lines.filter { !ScanText.tokens($0.text).isEmpty }
         let allBoxed = !usable.isEmpty && usable.allSatisfy { $0.box != nil }
         guard allBoxed else {
-            return usable.map { ScanRow(tokens: ScanText.tokens($0.text), cellStarts: [0]) }
+            return usable.map { ScanRow(tokens: tokenize($0.text), cellStarts: [0]) }
         }
 
         struct Group {
@@ -314,7 +396,7 @@ enum RowBuilder {
             var starts: Set<Int> = []
             for line in group.lines.sorted(by: { $0.x < $1.x }) {
                 starts.insert(tokens.count)
-                tokens.append(contentsOf: ScanText.tokens(line.text))
+                tokens.append(contentsOf: tokenize(line.text))
             }
             return ScanRow(tokens: tokens, cellStarts: starts)
         }
@@ -450,7 +532,7 @@ enum RowSegmenter {
         guard atCellStart else { return false }
         switch code {
         case "B", "I", "H", "A6", "A3":
-            return DateScan.firstDate(in: Array(rest.prefix(3)))?.tokenIndex == 0
+            return DateScan.firstDate(in: Array(rest.prefix(5)), twoDigitPivot: 2100)?.tokenIndex == 0
         case "A":
             return PlateScan.parse(Array(rest.prefix(4))) != nil
         case "E":

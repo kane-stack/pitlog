@@ -110,9 +110,10 @@ struct RegistrationFixtureTests {
     func brokenLines() {
         let draft = parse(RegistrationFixtures.paperBroken)
         check(draft, RegistrationFixtures.paperNaturalPerson.expected, .lenient)
-        // Values on the line after their label are read, but dates and free text only as `.low`.
+        // Values on the line after their label are read. Free text only as `.low`; a date has a shape that
+        // anchors it, so it is `.medium` and switched on in the review.
         #expect(draft.firstRegistration?.value == day(2020, 3, 15))
-        #expect(draft.firstRegistration?.confidence == .low)
+        #expect(draft.firstRegistration?.confidence == .medium)
         #expect(draft.make?.confidence == .low)
         #expect(draft.vin?.value == "WBX1A23456B789012")
         #expect(draft.plate?.value == "W 12345 A")
@@ -277,6 +278,134 @@ struct RegistrationDateTests {
         let parsed = DateScan.parseWhole(text)
         #expect(parsed?.date == expected, "\(text)")
         if expected != nil { #expect(parsed?.corrected == corrected, "\(text)") }
+    }
+}
+
+// MARK: Field B in real-world layouts
+
+struct FirstRegistrationCase: Sendable, CustomTestStringConvertible {
+    let lines: [String]
+    let expected: DayDate?
+    /// Lowest confidence the date may arrive with (`.medium` = switched on in the review).
+    let minimum: ScanConfidence
+
+    init(_ lines: [String], _ expected: DayDate?, _ minimum: ScanConfidence = .medium) {
+        self.lines = lines
+        self.expected = expected
+        self.minimum = minimum
+    }
+
+    var testDescription: String { lines.joined(separator: " ⏎ ") }
+}
+
+private let march2015 = day(2015, 3, 12)
+
+private func box(_ x: Double, _ y: Double, _ w: Double = 0.2) -> Rect {
+    Rect(x: x, y: y, w: w, h: 0.02)
+}
+
+@Suite("RegistrationDocumentParser field B")
+struct RegistrationFieldBTests {
+    @Test("B in many spellings and with OCR errors", arguments: [
+        // spelling of the code
+        FirstRegistrationCase(["B 12.03.2015"], march2015, .high),
+        FirstRegistrationCase(["B: 12.03.2015"], march2015, .high),
+        FirstRegistrationCase(["B. 12.03.2015"], march2015, .high),
+        FirstRegistrationCase(["B12.03.2015"], march2015),
+        FirstRegistrationCase(["B:12.03.2015"], march2015),
+        FirstRegistrationCase(["b 12.03.2015"], march2015),
+        FirstRegistrationCase(["B Erstmalige Zulassung am: 12.03.2015"], march2015, .high),
+        FirstRegistrationCase(["A Kennzeichen W 12345 A B Erstmalige Zulassung am: 12.03.2015"], march2015),
+        // blanks and OCR errors inside the date
+        FirstRegistrationCase(["B 12 .03. 2015"], march2015),
+        FirstRegistrationCase(["B 12. 03. 2015"], march2015),
+        FirstRegistrationCase(["B 12 . 03 . 2015"], march2015),
+        FirstRegistrationCase(["B 12,03.2015"], march2015),
+        FirstRegistrationCase(["B 12,03,2015"], march2015),
+        FirstRegistrationCase(["B l2.O3.2O15"], march2015),
+        FirstRegistrationCase(["B 12O32015"], march2015),
+        FirstRegistrationCase(["8 12.03.2015"], march2015),
+        // two-digit years: up to the current year the 2000s, above it the 1900s
+        FirstRegistrationCase(["B 12.03.15"], march2015),
+        FirstRegistrationCase(["B 12.03.98"], day(1998, 3, 12)),
+        FirstRegistrationCase(["B 12.03.26"], day(2026, 3, 12)),
+        FirstRegistrationCase(["B 12.03.27"], day(1927, 3, 12)),
+        // value below the label, also behind the label text
+        FirstRegistrationCase(["B", "12.03.2015"], march2015),
+        FirstRegistrationCase(["B Erstmalige Zulassung am:", "12.03.2015"], march2015),
+        FirstRegistrationCase(["B", "Erstmalige Zulassung am:", "12.03.2015"], march2015),
+        FirstRegistrationCase(["B Erstmalige Zulassung am:", "12 .03. 2015"], march2015),
+        FirstRegistrationCase(["B Erstmalige Zulassung am:", "12.03.2015 A4 01"], march2015),
+        FirstRegistrationCase(["B Erstmalige Zulassung am: I Zugelassen am:", "12.03.2015 20.03.2024"], march2015),
+        // B wins over the other date fields, wherever they stand
+        FirstRegistrationCase(["I Zugelassen am: 20.03.2024", "B Erstmalige Zulassung am: 12.03.2015"], march2015, .high),
+        FirstRegistrationCase(["B Erstmalige Zulassung am: 12.03.2015 A6 Genehmigungsdatum 10.03.2015"], march2015, .high),
+        FirstRegistrationCase(["B 12.03.2015 H gültig bis: 31.12.2030", "I 20.03.2024"], march2015),
+        // B missing: nothing is guessed
+        FirstRegistrationCase(["I Zugelassen am: 20.03.2024", "H gültig bis: 31.12.2030"], nil),
+        FirstRegistrationCase(["A6 Genehmigungsdatum 10.03.2015", "I 20.03.2024"], nil),
+        FirstRegistrationCase(["B Erstmalige Zulassung am:", "Familienname MUSTERMANN", "I Zugelassen am: 20.03.2024"], nil),
+        FirstRegistrationCase(["B Erstmalige Zulassung am: I Zugelassen am:", "20.03.2024"], nil),
+        FirstRegistrationCase(["B Erstmalige Zulassung am: I Zugelassen am:", "12.03.2015 20.03.2024 31.12.2030"], nil),
+        FirstRegistrationCase(["Erstmalige Zulassung am: 12.03.2015"], nil),
+        // implausible
+        FirstRegistrationCase(["B 12.03.2030"], nil),
+        FirstRegistrationCase(["B 12.03.1850"], nil),
+    ])
+    func spellings(testCase: FirstRegistrationCase) {
+        let field = parse([testCase.lines]).firstRegistration
+        #expect(field?.value == testCase.expected, "\(testCase.testDescription): \(String(describing: field))")
+        if testCase.expected != nil, let field {
+            #expect(field.confidence >= testCase.minimum, "\(testCase.testDescription): \(field.confidence)")
+        }
+    }
+
+    @Test("a date behind the label of another date field is not B")
+    func foreignLabelBeforeDate() {
+        let field = parse([["B Erstmalige Zulassung am: Zugelassen am: 20.03.2024"]]).firstRegistration
+        #expect((field?.confidence ?? .low) == .low)
+    }
+
+    @Test("a two-digit year is not read as a date elsewhere")
+    func twoDigitYearsOnlyForDates() {
+        #expect(DateScan.parseWhole("15.03.20") == nil)
+        #expect(DateScan.parseWhole("15.03.20", twoDigitPivot: 2026)?.date == day(2020, 3, 15))
+        #expect(DateScan.parseWhole("15.03.20", twoDigitPivot: 2026)?.corrected == true)
+    }
+
+    @Test("with boxes: label and date in one table row, in cells")
+    func boxedCells() {
+        let draft = RegistrationDocumentParser().parse(
+            [
+                RecognizedLine(text: "A", box: box(0.05, 0.20, 0.03)),
+                RecognizedLine(text: "W 12345 A", box: box(0.40, 0.20)),
+                RecognizedLine(text: "B", box: box(0.05, 0.30, 0.03)),
+                RecognizedLine(text: "Erstmalige Zulassung am:", box: box(0.10, 0.30, 0.25)),
+                RecognizedLine(text: "12.03.2015", box: box(0.40, 0.30)),
+                RecognizedLine(text: "I", box: box(0.05, 0.40, 0.03)),
+                RecognizedLine(text: "20.03.2024", box: box(0.40, 0.40)),
+            ], today: today)
+        #expect(draft.firstRegistration?.value == march2015)
+        #expect(draft.firstRegistration?.confidence == .high)
+    }
+
+    @Test("with boxes: the date one table row below the label")
+    func boxedRowBelow() {
+        let draft = RegistrationDocumentParser().parse(
+            [
+                RecognizedLine(text: "B Erstmalige Zulassung am:", box: box(0.05, 0.30, 0.30)),
+                RecognizedLine(text: "I Zugelassen am:", box: box(0.55, 0.30, 0.30)),
+                RecognizedLine(text: "12.03.2015", box: box(0.05, 0.34)),
+                RecognizedLine(text: "20.03.2024", box: box(0.55, 0.34)),
+            ], today: today)
+        #expect(draft.firstRegistration?.value == march2015)
+        #expect(draft.firstRegistration?.confidence != .low)
+    }
+
+    @Test("only the date's own text is kept as the snippet")
+    func snippetIsOnlyTheDate() {
+        let draft = parse([["B Erstmalige Zulassung am:", "12.03.2015 A4 01"]])
+        #expect(draft.firstRegistration?.rawText == "12.03.2015")
     }
 }
 

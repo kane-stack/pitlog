@@ -3,12 +3,13 @@ import PitlogCore
 /// Fake recognition results for the UI tests (`-UITestRegistrationScan`): the simulator has no document camera.
 /// The lines go through the real parser. All values are invented.
 enum RegistrationScanFixtures {
-    /// Paper certificate read with one OCR slip (`O` for `0` in the VIN, so medium) and the first registration
-    /// on the line below its label (so low). The holder lines must not show up anywhere.
+    /// Paper certificate read with one OCR slip (`O` for `0` in the VIN, so medium) and a first registration that
+    /// is later than the date of the current registration (I, so one of the two is misread and B is low).
+    /// B stands on the line below its label, which alone is only medium. The holder lines must not show up anywhere.
     static let mixed: [[RecognizedLine]] = [lines([
         "A1 Zulassungsstelle 1234",
         "A Kennzeichen W 12345 A",
-        "I Zugelassen am: 20.03.2024 H gültig bis:",
+        "I Zugelassen am: 20.03.2019 H gültig bis:",
         "C1.1 Familienname MUSTERMANN",
         "C1.2 Vorname / A3 Geb.datum MAXIMILIAN 01.02.1985",
         "C1.3 Anschrift BEISPIELGASSE 1 1010 WIEN",

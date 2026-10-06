@@ -8,11 +8,25 @@ struct RegistrationReviewView: View {
     let onApply: (RegistrationPrefill) -> Void
 
     @Environment(\.dismiss) private var dismiss
+    #if DEBUG
+    private var recognizedPages: [[RecognizedLine]] = []
+    @State private var copiedLines = false
+    #endif
 
     init(review: RegistrationReview, onApply: @escaping (RegistrationPrefill) -> Void) {
         _review = State(initialValue: review)
         self.onApply = onApply
     }
+
+    #if DEBUG
+    init(
+        review: RegistrationReview, recognizedPages: [[RecognizedLine]],
+        onApply: @escaping (RegistrationPrefill) -> Void
+    ) {
+        self.init(review: review, onApply: onApply)
+        self.recognizedPages = recognizedPages
+    }
+    #endif
 
     var body: some View {
         NavigationStack {
@@ -36,6 +50,10 @@ struct RegistrationReviewView: View {
                         text: Text("The punched month on the inspection sticker is not on the certificate. Enter it from the sticker itself.", comment: "Registration review: hint that the sticker punch must be entered by hand"),
                         systemImage: "circle.dashed")
                 }
+
+                #if DEBUG
+                debugSection
+                #endif
             }
             .navigationTitle(Text("Check the scan", comment: "Navigation title of the registration review"))
             .navigationBarTitleDisplayMode(.inline)
@@ -62,6 +80,33 @@ struct RegistrationReviewView: View {
         }
     }
 }
+
+#if DEBUG
+extension RegistrationReviewView {
+    /// Debug builds only, never in Release: copies the recognized lines for diagnosing a real certificate.
+    /// Plain English on purpose, like the other developer tools.
+    fileprivate var debugSection: some View {
+        Section {
+            Button {
+                UIPasteboard.general.string = RecognizedLinesDump.text(from: recognizedPages)
+                copiedLines = true
+            } label: {
+                Text(verbatim: "Copy recognized lines")
+            }
+            .accessibilityIdentifier("registrationCopyLinesButton")
+            if copiedLines {
+                Text(verbatim: "Copied to the clipboard.")
+                    .font(.footnote)
+                    .accessibilityIdentifier("registrationCopiedLines")
+            }
+        } header: {
+            Text(verbatim: "Debug")
+        } footer: {
+            Text(verbatim: "Copies every recognized line with its box coordinates. The text can contain the holder's name and address: redact them before you pass it on.")
+        }
+    }
+}
+#endif
 
 /// One scanned value: the switch, the editor, and how sure the scan is, with the snippet it was read from.
 private struct RegistrationReviewRow: View {

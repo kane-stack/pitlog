@@ -152,7 +152,7 @@ struct RegistrationReviewTests {
     @Test func theMixedFixtureShowsEveryConfidenceLevel() throws {
         let draft = RegistrationScanService.draft(from: RegistrationScanFixtures.mixed, today: DayDate(year: 2026, month: 10, day: 5)!)
         let review = RegistrationReview(draft: draft)
-        // Clear: plate. Check: VIN with an O for 0. Uncertain: the date on the line below its label.
+        // Clear: plate. Check: VIN with an O for 0. Uncertain: the date, later than the date of the current registration.
         #expect(item(.licensePlate, in: review)?.confidence == .high)
         #expect(item(.licensePlate, in: review)?.included == true)
         #expect(item(.vin, in: review)?.confidence == .medium)
@@ -179,4 +179,25 @@ struct RegistrationReviewTests {
         #expect(review.prefill.licensePlate == "LL 7788 X")
         #expect(review.prefill.firstRegistration == YearMonth(year: 2019, month: 11))
     }
+
+    @Test func aDateOnTheLineBelowItsLabelIsSwitchedOn() throws {
+        let draft = RegistrationScanService.draft(
+            from: [[RecognizedLine(text: "B Erstmalige Zulassung am:"), RecognizedLine(text: "12.03.2015")]],
+            today: DayDate(year: 2026, month: 10, day: 5)!)
+        let review = RegistrationReview(draft: draft)
+        #expect(item(.firstRegistration, in: review)?.confidence == .medium)
+        #expect(item(.firstRegistration, in: review)?.included == true)
+        #expect(review.prefill.firstRegistration == YearMonth(year: 2015, month: 3))
+    }
+
+    #if DEBUG
+    @Test func theRecognizedLinesDumpHasBoxesAndText() {
+        let text = RecognizedLinesDump.text(from: [
+            [RecognizedLine(text: "B", box: Rect(x: 0.05, y: 0.3, w: 0.03, h: 0.02)), RecognizedLine(text: "12.03.2015")],
+        ])
+        #expect(text.contains("## page 1 of 1"))
+        #expect(text.contains("0.050 0.300 0.030 0.020 | B"))
+        #expect(text.contains("- - - - | 12.03.2015"))
+    }
+    #endif
 }

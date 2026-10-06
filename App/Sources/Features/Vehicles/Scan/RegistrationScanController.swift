@@ -18,6 +18,11 @@ final class RegistrationScanController {
     struct Presentation: Identifiable {
         let id = UUID()
         let review: RegistrationReview
+        #if DEBUG
+        /// Debug builds only: the recognized lines, for "Copy recognized lines" on the review screen.
+        /// Release builds do not keep them (they hold the holder's name and address).
+        var recognizedPages: [[RecognizedLine]] = []
+        #endif
     }
 
     var showingOptions = false
@@ -41,7 +46,7 @@ final class RegistrationScanController {
         if arguments.contains(Self.uiTestArgument) {
             let pages = arguments.contains(Self.uiTestUnsupportedArgument)
                 ? RegistrationScanFixtures.unsupportedClass : RegistrationScanFixtures.mixed
-            finish(with: RegistrationScanService.draft(from: pages, today: Self.today))
+            finish(with: RegistrationScanService.draft(from: pages, today: Self.today), lines: pages)
             return
         }
         showingOptions = true
@@ -93,7 +98,8 @@ final class RegistrationScanController {
         let today = Self.today
         Task {
             do {
-                finish(with: try await service.read(pages, today: today))
+                let result = try await service.read(pages, today: today)
+                finish(with: result.draft, lines: result.lines)
             } catch {
                 problem = .failed
             }
@@ -101,7 +107,7 @@ final class RegistrationScanController {
         }
     }
 
-    private func finish(with draft: RegistrationDraft) {
+    private func finish(with draft: RegistrationDraft, lines: [[RecognizedLine]]) {
         if draft.notices.contains(.transferPermit) {
             problem = .notACertificate
             return
@@ -110,7 +116,11 @@ final class RegistrationScanController {
         if review.isEmpty {
             problem = .nothingRead
         } else {
+            #if DEBUG
+            presentation = Presentation(review: review, recognizedPages: lines)
+            #else
             presentation = Presentation(review: review)
+            #endif
         }
     }
 }
