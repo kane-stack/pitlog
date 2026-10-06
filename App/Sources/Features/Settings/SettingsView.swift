@@ -2,6 +2,7 @@ import StoreKit
 import SwiftUI
 
 struct SettingsView: View {
+    @Environment(\.openURL) private var openURL
     @State private var paywall: PaywallContext?
     @State private var showingManageSubscription = false
 
@@ -50,16 +51,12 @@ struct SettingsView: View {
                 }
                 // Last in the section on purpose: the UI tests pick the rows above by position.
                 if let privacy = AppLinks.privacyPolicy {
-                    Link(destination: privacy) {
-                        Label {
-                            Text("Privacy Policy", comment: "Link to the privacy policy (paywall and settings)")
-                        } icon: {
-                            Image(systemName: "hand.raised")
-                        }
-                        // Primary color like the other rows: the link tint failed the contrast audit on this background.
-                        .foregroundStyle(.primary)
-                    }
-                    .accessibilityIdentifier("settingsPrivacyRow")
+                    // The tap row of the app instead of `Link`: a `Link` in a list failed the audit (contrast, clipped text).
+                    ActionRow(
+                        title: Text("Privacy Policy", comment: "Link to the privacy policy (paywall and settings)"),
+                        systemImage: "hand.raised",
+                        identifier: "settingsPrivacyRow",
+                        action: { openURL(privacy) })
                 }
             }
 
