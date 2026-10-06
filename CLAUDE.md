@@ -1,4 +1,7 @@
-# Pitlog (Arbeitsname)
+# Wagemo (vorläufiger App-Name, Arbeitsname war Pitlog)
+
+Im Code, in Ordnern, Targets, Bundle-ID und Produkt-IDs bleibt `Pitlog`/`pitlog` (interne Kennungen, Bundle-ID ist final).
+Nutzerseitig (Anzeigename, Texte, Store) heißt die App **Wagemo**. App-Icon: `App/Resources/Assets.xcassets/AppIcon.appiconset/AppIcon.png`.
 
 Fahrzeug-Wartungsheft fürs iPhone: Fristen, Erinnerungen und Wartungshistorie für die eigenen
 Autos an einem Ort. Startmarkt ist Österreich: Die Pickerl-Reform (§ 57a KFG, 42. KFG-Novelle)
@@ -170,7 +173,7 @@ Prompt: `docs/research/local-session-prompt.md`.
 6. **Foundation Models:** Qualität bei deutschsprachigen Werkstattrechnungen erst im Spike
    (M5) bewerten, mit 15 bis 20 echten, anonymisierten Belegen.
 7. **Bundle-ID, Team und CloudKit-Container:** Gelöst, siehe Konventionen, Kennungen. Vor dem App-Store-Start das CloudKit-Schema in der CloudKit Console nach Production deployen.
-8. **App-Name:** „Pitlog“ ist ein Arbeitsname. Markenrecherche vor der Einreichung.
+8. **App-Name:** vorläufig **„Wagemo“** (Christopher, 06.10.2026), Icon vorhanden. Markenrecherche (EUIPO/ÖPA, App Store) und Domain vor der Einreichung. Nutzertexte mit „Pitlog“ (z. B. „Pitlog Pro“) noch auf „Wagemo“ umstellen.
 9. **Vor der Einreichung (in Evidenz, Reihenfolge):** (1) Christopher testet die App auf dem Gerät, (2) App-Name festlegen,
    (3) Domain festlegen, (4) Datenschutzerklärung und Impressum auf einer Cloudflare-Seite mit eigener Domain (wie bei Culinoria),
    URLs in der App und in App Store Connect eintragen, (5) App in App Store Connect anlegen (`com.kane.pitlog`), Abo-Gruppe und

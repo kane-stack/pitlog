@@ -7,13 +7,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pitlog nutzt die Kamera, um Zulassungsschein und Werkstattrechnungen zu scannen. Die Bilder bleiben auf deinem Gerät."
+            "value" : "Wagemo nutzt die Kamera, um Zulassungsschein und Werkstattrechnungen zu scannen. Die Bilder bleiben auf deinem Gerät."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pitlog uses the camera to scan your registration certificate and workshop receipts. Images stay on your device."
+            "value" : "Wagemo uses the camera to scan your registration certificate and workshop receipts. Images stay on your device."
           }
         }
       }

@@ -41,7 +41,7 @@ targets:
     info:
       path: App/Info.plist
       properties:
-        CFBundleDisplayName: Pitlog
+        CFBundleDisplayName: Wagemo
         UILaunchScreen: {}
         UIApplicationSceneManifest:
           UIApplicationSupportsMultipleScenes: false
@@ -55,7 +55,7 @@ targets:
         BGTaskSchedulerPermittedIdentifiers:
           - com.kane.pitlog.refresh-reminders
         ITSAppUsesNonExemptEncryption: false
-        NSCameraUsageDescription: Pitlog uses the camera to scan your registration certificate and workshop receipts. Images stay on your device.
+        NSCameraUsageDescription: Wagemo uses the camera to scan your registration certificate and workshop receipts. Images stay on your device.
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.kane.pitlog
