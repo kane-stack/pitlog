@@ -181,8 +181,9 @@ Stand: Branch `claude/m6c-a11y-privacy`. Vergleichsläufe des UI-Jobs (`screensh
 |---|---|---|
 | 37388399223 | **vorher**: Basis `claude/practical-edison-jhlpos` (`3d46b85`) | 35 rote UI-Tests |
 | 37388396867 | M6c `a7cbdeb` (weiche Trennung, Vorschau-Zusammenfassung, Datenschutz-Zeile) | 35 rote UI-Tests |
-| 37393145074 | M6c `c58531e` (Rechtshinweis mit Label ohne Trennzeichen, Titel als Überschrift) | rote UI-Tests (siehe Tabelle) |
-| siehe unten | M6c `56ed436` (Rechtshinweis ohne Trennzeichen, Datenschutz-Zeile in Primärfarbe) | siehe unten |
+| 37393145074 | M6c `c58531e` (Rechtshinweis mit Label ohne Trennzeichen, Titel als Überschrift) | rot, 35 UI-Tests |
+| 37397257305 | M6c `56ed436` (Rechtshinweis ohne Trennzeichen, Datenschutz-Zeile als `Link` in Primärfarbe) | rot, 35 UI-Tests |
+| (nach Abschluss) | M6c `b101837` (Datenschutz-Zeile als `ActionRow`, Trennung im Rechtshinweis wieder drin) | Ergebnis im Abschluss-Absatz unten |
 
 Build und Unit-Tests waren in allen Läufen grün (Push-Läufe 37388386871, 37393140152). Unverändert gelten nur die zwei Filter aus CLAUDE.md (Bar-Buttons).
 
@@ -211,8 +212,9 @@ Screenshot `service-record-options-xxxl-de` (AX3, Deutsch): Lange Wörter breche
 
 ### Neue Befunde durch M6c
 
-- **`notice-de` „Text clipped“** am Rechtshinweis („Ohne Gewähr. Maßgeblich ist …“) erschien erstmals mit der Trennung von „Maßgeblich“ (Vorher-Lauf: nicht vorhanden), auch nachdem das gesprochene Label ohne Trennzeichen gesetzt war. Der Screenshot zeigt den Text vollständig. Um zu prüfen, ob die Trennstriche den Befund auslösen, steht im Rechtshinweis jetzt **keine** weiche Trennung mehr (Ergebnis siehe unten). Das Wort passt in der Regel auch bei großer Schrift in eine Zeile.
-- **Datenschutz-Zeile in den Einstellungen** (neu): Die Zeile fiel als Link in der Akzentfarbe im Kontrast-/Dynamic-Type-Audit auf; sie steht jetzt in der Primärfarbe wie die anderen Zeilen.
+- **`notice-de` „Text clipped“** am Rechtshinweis (Test `testFirstLaunchNoticePassesAccessibilityAuditInGerman`, der im Vorher-Lauf grün war). Der Screenshot zeigt den Text vollständig. Es ist **nicht** die weiche Trennung von „Maßgeblich“: Der Befund blieb in Lauf 37397257305 bestehen, obwohl dort keine Trennung im Rechtshinweis stand und das gesprochene Label ohne Trennzeichen gebaut war. Die einzige weitere Änderung an dieser Ansicht ist das Entfernen von `minimumScaleFactor`. Das passt zur Vermutung, dass der Audit den Text bei der Messung anders umbricht als SwiftUI ihn zeichnet, ist aber **nicht belegt**. Der Text steht in voller Höhe im Bildschirm. Zu prüfen auf dem Gerät.
+- **Datenschutz-Zeile in den Einstellungen** (neu): Als `Link` in der Liste erzeugte sie „Contrast failed“ (`settings-pro-free-*`, ohne Element) und „Text clipped“ am Text „Privacy Policy“ (`settings-pro-pro-en`), auch in Primärfarbe. Das passt zu den früheren Experimenten (Systemsteuerelemente in Listen, siehe oben). Die Zeile ist jetzt die Tippzeile der App (`ActionRow`, öffnet dieselbe URL über `openURL`). Ergebnis im Abschluss-Absatz.
+- Die anderen Befunde im Lauf 37397257305 sind das bekannte wechselnde Muster (z. B. „Amount“, „Betrag“, „Art“, „Repeat“, „Allow notifications“); „Text clipped“ wandert weiter zwischen Elementen der Paywall (`paywall-de`), der gesperrten Erinnerungen (`reminders-locked-de`) und der Einstellungen.
 
 ### Offen (nur auf dem Gerät)
 
