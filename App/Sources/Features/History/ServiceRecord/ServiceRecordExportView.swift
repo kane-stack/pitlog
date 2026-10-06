@@ -35,9 +35,9 @@ struct ServiceRecordExportView: View {
                     }
                 }
             }
-            .navigationTitle(Text("Service record", comment: "Title of the service record PDF and of its export screens. Also the start of the file name"))
-            // A large title wraps; the inline one was clipped between the two buttons at the largest sizes in German.
-            .navigationBarTitleDisplayMode(.large)
+            // The title is a heading in the form (it wraps at soft hyphens). Neither the inline nor the large
+            // navigation title wraps inside a long German word: at the largest sizes it was cut off.
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button {
@@ -78,6 +78,10 @@ struct ServiceRecordExportView: View {
 
     private var introSection: some View {
         Section {
+            Text("Service record", comment: "Title of the service record PDF and of its export screens. Also the start of the file name")
+                .font(.title2.bold())
+                .accessibilityAddTraits(.isHeader)
+                .fixedSize(horizontal: false, vertical: true)
             Text(
                 "Creates a PDF of the history of this vehicle, for example for selling it. The PDF is created on your device. It leaves your device only when you share it.",
                 comment: "Service record export: explains what the PDF is and that it is created on the device"
