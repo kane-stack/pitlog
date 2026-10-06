@@ -278,7 +278,7 @@ struct PaywallView: View {
                 }
                 if let privacy = AppLinks.privacyPolicy {
                     Link(destination: privacy) {
-                        Text("Privacy Policy", comment: "Paywall: link to the privacy policy")
+                        Text("Privacy Policy", comment: "Link to the privacy policy (paywall and settings)")
                     }
                     .accessibilityIdentifier("privacyLink")
                 }

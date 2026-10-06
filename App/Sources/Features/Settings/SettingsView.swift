@@ -52,10 +52,12 @@ struct SettingsView: View {
                 if let privacy = AppLinks.privacyPolicy {
                     Link(destination: privacy) {
                         Label {
-                            Text("Privacy Policy", comment: "Paywall: link to the privacy policy")
+                            Text("Privacy Policy", comment: "Link to the privacy policy (paywall and settings)")
                         } icon: {
                             Image(systemName: "hand.raised")
                         }
+                        // Primary color like the other rows: the link tint failed the contrast audit on this background.
+                        .foregroundStyle(.primary)
                     }
                     .accessibilityIdentifier("settingsPrivacyRow")
                 }
