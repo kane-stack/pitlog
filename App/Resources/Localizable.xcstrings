@@ -2043,7 +2043,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Monat laut Plakette, vom Halter erfasst. Maß­geb­lich ist die Plakette am Fahrzeug."
+            "value" : "Monat laut Plakette, vom Halter erfasst. Maßgeblich ist die Plakette am Fahrzeug."
           }
         }
       }
@@ -4652,7 +4652,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ohne Gewähr. Maß­geb­lich ist das auf der Plakette gelochte Datum."
+            "value" : "Ohne Gewähr. Maßgeblich ist das auf der Plakette gelochte Datum."
           }
         }
       }

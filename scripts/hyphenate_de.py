@@ -46,7 +46,7 @@ geschlossen=ge-schlos-sen hinzugefügt=hin-zu-ge-fügt kostenpflichtige=kos-ten-
 möglicherweise=mög-li-cher-wei-se rechtlichen=recht-li-chen stattdessen=statt-des-sen
 unabhängige=un-ab-hän-gi-ge wiederhergestellt=wie-der-her-ge-stellt winterlichen=win-ter-li-chen
 überstellungsfahrtschein=über-stel-lungs-fahrt-schein
-maßgeblich=maß-geb-lich kategorie=ka-te-go-rie berechnung=be-rech-nung belegscan=be-leg-scan
+kategorie=ka-te-go-rie berechnung=be-rech-nung belegscan=be-leg-scan
 """
 TABLE = {}
 for pair in HYPHENATION.split():
