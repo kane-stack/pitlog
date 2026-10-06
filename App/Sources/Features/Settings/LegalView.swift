@@ -10,7 +10,7 @@ struct LegalView: View {
                     heading(Text("Disclaimer", comment: "Legal screen: section header"))
                     LegalNoticeView()
                     Text("Pitlog calculates inspection deadlines from the first registration and the date on your inspection sticker. Some rules of the 2027 inspection reform are still legally open. In doubt the app shows the earlier deadline. It does not replace the sticker, the registration certificate or advice from an inspection station.", comment: "Legal screen: full disclaimer")
-                        .wrapsLongWords()
+                        .wrapsText()
                 }
 
                 card {
@@ -27,7 +27,7 @@ struct LegalView: View {
                     Text(verbatim: "BGBl. I Nr. 79/2026 (42. KFG-Novelle)")
                     Text("You can look these provisions up in the Austrian Legal Information System (RIS).", comment: "Legal screen: hint where to find the sources, no link on purpose")
                         .font(.footnote)
-                        .wrapsLongWords()
+                        .wrapsText()
                 }
             }
             .padding()

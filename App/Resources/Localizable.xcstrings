@@ -396,7 +396,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ein Überstellungsfahrtschein enthält die Fahrzeugdaten nicht. Scanne stattdessen den Zulassungsschein (Teil I)."
+            "value" : "Ein Über­stel­lungs­fahrt­schein enthält die Fahr­zeug­da­ten nicht. Scanne statt­des­sen den Zu­las­sungs­schein (Teil I)."
           }
         }
       }
@@ -429,7 +429,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Füge ein Fahrzeug hinzu, um Begutachtungen, Service und Kosten im Blick zu behalten."
+            "value" : "Füge ein Fahrzeug hinzu, um Be­gut­ach­tun­gen, Service und Kosten im Blick zu behalten."
           }
         }
       }
@@ -440,7 +440,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Trage einen Kilometerstand ein, um diese Erinnerung zu planen. Für eine Schätzung braucht es zwei Stände im Abstand von mindestens zwei Wochen."
+            "value" : "Trage einen Ki­lo­me­ter­stand ein, um diese Er­in­ne­rung zu planen. Für eine Schätzung braucht es zwei Stände im Abstand von mindestens zwei Wochen."
           }
         }
       }
@@ -506,7 +506,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kilometerstand eintragen"
+            "value" : "Ki­lo­me­ter­stand eintragen"
           }
         }
       }
@@ -517,7 +517,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Erinnerung hinzufügen"
+            "value" : "Er­in­ne­rung hinzufügen"
           }
         }
       }
@@ -539,7 +539,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Trage die Erstzulassung ein, um die Frist zu sehen."
+            "value" : "Trage die Erst­zu­las­sung ein, um die Frist zu sehen."
           }
         }
       }
@@ -638,7 +638,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wird auch als Kilometerstand gespeichert, wenn er neuer ist als dein letzter."
+            "value" : "Wird auch als Ki­lo­me­ter­stand ge­spei­chert, wenn er neuer ist als dein letzter."
           }
         }
       }
@@ -649,7 +649,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Immer kostenlos: die Pickerl-Frist mit Erinnerungen, der Zulassungsschein-Scan, deine Historie, Belege als Foto oder Datei und die Kosten des laufenden Jahres."
+            "value" : "Immer kostenlos: die Pickerl-Frist mit Er­in­ne­run­gen, der Zu­las­sungs­schein-Scan, deine Historie, Belege als Foto oder Datei und die Kosten des laufenden Jahres."
           }
         }
       }
@@ -671,7 +671,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Eine Austauschplakette ist möglicherweise möglich. Das ist unverbindlich."
+            "value" : "Eine Aus­tausch­pla­ket­te ist mög­li­cher­wei­se möglich. Das ist un­ver­bind­lich."
           }
         }
       }
@@ -704,7 +704,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Archivieren"
+            "value" : "Ar­chi­vie­ren"
           }
         }
       }
@@ -715,7 +715,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Archivierte Fahrzeuge"
+            "value" : "Ar­chi­vier­te Fahrzeuge"
           }
         }
       }
@@ -825,7 +825,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nach Kilometerstand"
+            "value" : "Nach Ki­lo­me­ter­stand"
           }
         }
       }
@@ -924,7 +924,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prüfe, was vom Zulassungsschein gelesen wurde. Nur eingeschaltete Werte werden ins Formular übernommen. Gespeichert wird erst, wenn du auf Sichern tippst."
+            "value" : "Prüfe, was vom Zu­las­sungs­schein gelesen wurde. Nur ein­ge­schal­te­te Werte werden ins Formular übernommen. Ge­spei­chert wird erst, wenn du auf Sichern tippst."
           }
         }
       }
@@ -935,7 +935,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prüfe, was aus deinem Beleg gelesen wurde. Nur Werte, die eingeschaltet sind, werden in den Eintrag übernommen. Gespeichert wird erst mit „Sichern“."
+            "value" : "Prüfe, was aus deinem Beleg gelesen wurde. Nur Werte, die ein­ge­schal­tet sind, werden in den Eintrag übernommen. Ge­spei­chert wird erst mit „Sichern“."
           }
         }
       }
@@ -946,7 +946,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prüfe, was aus deinem Beleg gelesen wurde. Nur Werte, die eingeschaltet sind, kommen in den neuen Eintrag."
+            "value" : "Prüfe, was aus deinem Beleg gelesen wurde. Nur Werte, die ein­ge­schal­tet sind, kommen in den neuen Eintrag."
           }
         }
       }
@@ -1166,7 +1166,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Eigene Erinnerung"
+            "value" : "Eigene Er­in­ne­rung"
           }
         }
       }
@@ -1188,7 +1188,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Termine nach Kilometern werden aus deinen Kilometerständen geschätzt. Trage regelmäßig Stände ein."
+            "value" : "Termine nach Kilometern werden aus deinen Ki­lo­me­ter­stän­den geschätzt. Trage regelmäßig Stände ein."
           }
         }
       }
@@ -1199,7 +1199,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Standard für Österreich: Winterreifenperiode vom %@ bis %@, relevant bei winterlichen Fahrbahnverhältnissen (§ 102 Abs. 8a KFG). Du kannst das Datum ändern. Ohne Gewähr."
+            "value" : "Standard für Österreich: Win­ter­rei­fen­pe­ri­ode vom %@ bis %@, relevant bei win­ter­li­chen Fahr­bahn­ver­hält­nis­sen (§ 102 Abs. 8a KFG). Du kannst das Datum ändern. Ohne Gewähr."
           }
         }
       }
@@ -1210,7 +1210,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Standard-Vorlaufzeiten"
+            "value" : "Standard-Vor­lauf­zei­ten"
           }
         }
       }
@@ -1254,7 +1254,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Haftungsausschluss"
+            "value" : "Haf­tungs­aus­schluss"
           }
         }
       }
@@ -1350,7 +1350,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fällig: Der Kilometerstand hat %@ km erreicht"
+            "value" : "Fällig: Der Ki­lo­me­ter­stand hat %@ km erreicht"
           }
         }
       }
@@ -1416,7 +1416,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Angaben vom Fahrzeughalter erfasst, nicht geprüft. Erstellt mit Pitlog."
+            "value" : "Angaben vom Fahr­zeug­hal­ter erfasst, nicht geprüft. Erstellt mit Pitlog."
           }
         }
       }
@@ -1449,7 +1449,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Voraussichtlich fällig"
+            "value" : "Vor­aus­sicht­lich fällig"
           }
         }
       }
@@ -1460,7 +1460,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aus der Erstzulassung geschätzt. Vergleiche mit deiner Pickerl-Plakette."
+            "value" : "Aus der Erst­zu­las­sung geschätzt. Vergleiche mit deiner Pickerl-Plakette."
           }
         }
       }
@@ -1515,7 +1515,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vorschlag Austauschplakette: %@. Unverbindlich."
+            "value" : "Vorschlag Aus­tausch­pla­ket­te: %@. Un­ver­bind­lich."
           }
         }
       }
@@ -1526,7 +1526,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Servicenachweis exportieren"
+            "value" : "Ser­vice­nach­weis ex­por­tie­ren"
           }
         }
       }
@@ -1548,7 +1548,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mit Familienfreigabe"
+            "value" : "Mit Fa­mi­li­en­frei­ga­be"
           }
         }
       }
@@ -1559,7 +1559,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Erstzulassung"
+            "value" : "Erst­zu­las­sung"
           }
         }
       }
@@ -1570,7 +1570,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Erstzulassung, Monat"
+            "value" : "Erst­zu­las­sung, Monat"
           }
         }
       }
@@ -1581,7 +1581,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Erstzulassung, Jahr"
+            "value" : "Erst­zu­las­sung, Jahr"
           }
         }
       }
@@ -1592,7 +1592,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kostenloser Tarif: ein Fahrzeug, die Pickerl-Erinnerung und die Kosten des laufenden Jahres."
+            "value" : "Kos­ten­lo­ser Tarif: ein Fahrzeug, die Pickerl-Er­in­ne­rung und die Kosten des laufenden Jahres."
           }
         }
       }
@@ -1636,7 +1636,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Historisches Fahrzeug"
+            "value" : "His­to­ri­sches Fahrzeug"
           }
         }
       }
@@ -1669,7 +1669,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "FIN einschließen"
+            "value" : "FIN ein­schlie­ßen"
           }
         }
       }
@@ -1680,7 +1680,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Beträge einschließen"
+            "value" : "Beträge ein­schlie­ßen"
           }
         }
       }
@@ -1691,7 +1691,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Außerhalb des Fensters begutachtet: Gib die neue Lochung von deiner Plakette ein."
+            "value" : "Außerhalb des Fensters be­gut­ach­tet: Gib die neue Lochung von deiner Plakette ein."
           }
         }
       }
@@ -1702,7 +1702,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Außerhalb des Fensters begutachtet: Gib die Lochung genau so ein, wie sie auf deiner neuen Plakette steht."
+            "value" : "Außerhalb des Fensters be­gut­ach­tet: Gib die Lochung genau so ein, wie sie auf deiner neuen Plakette steht."
           }
         }
       }
@@ -1724,7 +1724,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Datum der Begutachtung"
+            "value" : "Datum der Be­gut­ach­tung"
           }
         }
       }
@@ -1757,7 +1757,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pickerl-Erinnerungen"
+            "value" : "Pickerl-Er­in­ne­run­gen"
           }
         }
       }
@@ -1812,7 +1812,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Letzte Begutachtung aus Plakette und Erstzulassung geschätzt. Trag sie ein, um einen genauen Vorschlag zu bekommen."
+            "value" : "Letzte Be­gut­ach­tung aus Plakette und Erst­zu­las­sung geschätzt. Trag sie ein, um einen genauen Vorschlag zu bekommen."
           }
         }
       }
@@ -1834,7 +1834,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Rechtliches"
+            "value" : "Recht­li­ches"
           }
         }
       }
@@ -1856,7 +1856,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kennzeichen"
+            "value" : "Kenn­zei­chen"
           }
         }
       }
@@ -1867,7 +1867,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kennzeichen auf dem Beleg: %@"
+            "value" : "Kenn­zei­chen auf dem Beleg: %@"
           }
         }
       }
@@ -1878,7 +1878,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Lifetime, geteilt von einem Familienmitglied."
+            "value" : "Lifetime, geteilt von einem Fa­mi­li­en­mit­glied."
           }
         }
       }
@@ -1889,7 +1889,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Lifetime. Danke für deine Unterstützung."
+            "value" : "Lifetime. Danke für deine Un­ter­stüt­zung."
           }
         }
       }
@@ -1900,7 +1900,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Leichtes Nutzfahrzeug (N1)"
+            "value" : "Leichtes Nutz­fahr­zeug (N1)"
           }
         }
       }
@@ -1955,7 +1955,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wartungshistorie"
+            "value" : "War­tungs­his­to­rie"
           }
         }
       }
@@ -1988,7 +1988,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Achte darauf, dass der ganze Zulassungsschein im Bild und gut beleuchtet ist, oder gib die Daten von Hand ein."
+            "value" : "Achte darauf, dass der ganze Zu­las­sungs­schein im Bild und gut beleuchtet ist, oder gib die Daten von Hand ein."
           }
         }
       }
@@ -2043,7 +2043,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Monat laut Plakette, vom Halter erfasst. Maßgeblich ist die Plakette am Fahrzeug."
+            "value" : "Monat laut Plakette, vom Halter erfasst. Maß­geb­lich ist die Plakette am Fahrzeug."
           }
         }
       }
@@ -2054,7 +2054,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mehr Erinnerungen"
+            "value" : "Mehr Er­in­ne­run­gen"
           }
         }
       }
@@ -2164,7 +2164,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Keine archivierten Fahrzeuge"
+            "value" : "Keine ar­chi­vier­ten Fahrzeuge"
           }
         }
       }
@@ -2197,7 +2197,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Noch keine Kosten. Gib bei einem Eintrag einen Betrag an, um deine Werkstattkosten pro Jahr zu sehen."
+            "value" : "Noch keine Kosten. Gib bei einem Eintrag einen Betrag an, um deine Werk­statt­kos­ten pro Jahr zu sehen."
           }
         }
       }
@@ -2241,7 +2241,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Noch keine Einträge. Füge Service, Reparaturen und andere Werkstattbesuche hinzu."
+            "value" : "Noch keine Einträge. Füge Service, Re­pa­ra­tu­ren und andere Werk­statt­be­su­che hinzu."
           }
         }
       }
@@ -2274,7 +2274,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ohne Pitlog Pro nicht aktiv. Deine Erinnerung bleibt gespeichert und läuft mit Pro wieder."
+            "value" : "Ohne Pitlog Pro nicht aktiv. Deine Er­in­ne­rung bleibt ge­spei­chert und läuft mit Pro wieder."
           }
         }
       }
@@ -2296,7 +2296,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Für diese Fahrzeugart wird nicht berechnet. Trage das Datum manuell ein."
+            "value" : "Für diese Fahr­zeug­art wird nicht berechnet. Trage das Datum manuell ein."
           }
         }
       }
@@ -2417,7 +2417,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mitteilungen sind für Pitlog ausgeschaltet. Du bekommst keine Erinnerungen."
+            "value" : "Mitteilungen sind für Pitlog aus­ge­schal­tet. Du bekommst keine Er­in­ne­run­gen."
           }
         }
       }
@@ -2428,7 +2428,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mitteilungen kommen zu dieser Uhrzeit am Tag jeder Erinnerung. Sie werden nur auf diesem Gerät geplant."
+            "value" : "Mitteilungen kommen zu dieser Uhrzeit am Tag jeder Er­in­ne­rung. Sie werden nur auf diesem Gerät geplant."
           }
         }
       }
@@ -2450,7 +2450,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kilometerstand"
+            "value" : "Ki­lo­me­ter­stand"
           }
         }
       }
@@ -2461,7 +2461,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kilometerstand (km)"
+            "value" : "Ki­lo­me­ter­stand (km)"
           }
         }
       }
@@ -2472,7 +2472,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kilometerstand"
+            "value" : "Ki­lo­me­ter­stand"
           }
         }
       }
@@ -2516,7 +2516,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nur die Rückseite der Karte wurde gelesen. Scanne auch die Vorderseite für Kennzeichen und Erstzulassung."
+            "value" : "Nur die Rückseite der Karte wurde gelesen. Scanne auch die Vor­der­sei­te für Kenn­zei­chen und Erst­zu­las­sung."
           }
         }
       }
@@ -2527,7 +2527,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nur die Vorderseite der Karte wurde gelesen. Scanne auch die Rückseite für FIN, Marke und Modell."
+            "value" : "Nur die Vor­der­sei­te der Karte wurde gelesen. Scanne auch die Rückseite für FIN, Marke und Modell."
           }
         }
       }
@@ -2538,7 +2538,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Einstellungen öffnen"
+            "value" : "Ein­stel­lun­gen öffnen"
           }
         }
       }
@@ -2549,7 +2549,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Offene Rechtsfrage bei Fahrzeugen im Alter von 9 bis 10 Jahren."
+            "value" : "Offene Rechts­fra­ge bei Fahr­zeu­gen im Alter von 9 bis 10 Jahren."
           }
         }
       }
@@ -2648,7 +2648,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Eigene Erinnerungen"
+            "value" : "Eigene Er­in­ne­run­gen"
           }
         }
       }
@@ -2722,7 +2722,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Die Zahlung wird deinem Apple-Account belastet, wenn du den Kauf bestätigst. Das Abo verlängert sich jedes Jahr zum angezeigten Preis, wenn du nicht mindestens 24 Stunden vor Ende des laufenden Zeitraums kündigst. Du kannst es in den Einstellungen deines Apple-Accounts verwalten und kündigen. Der Gratiszeitraum geht automatisch in das kostenpflichtige Abo über, wenn du nicht vor seinem Ende kündigst. Der Einmalkauf wird nur einmal bezahlt und verlängert sich nicht."
+            "value" : "Die Zahlung wird deinem Apple-Account belastet, wenn du den Kauf bestätigst. Das Abo verlängert sich jedes Jahr zum an­ge­zeig­ten Preis, wenn du nicht mindestens 24 Stunden vor Ende des laufenden Zeitraums kündigst. Du kannst es in den Ein­stel­lun­gen deines Apple-Accounts verwalten und kündigen. Der Gra­tis­zeit­raum geht au­to­ma­tisch in das kos­ten­pflich­ti­ge Abo über, wenn du nicht vor seinem Ende kündigst. Der Einmalkauf wird nur einmal bezahlt und verlängert sich nicht."
           }
         }
       }
@@ -2777,7 +2777,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pitlog berechnet Pickerl-Fristen aus der Erstzulassung und dem Datum auf deiner Plakette. Einzelne Regeln der Pickerl-Reform 2027 sind rechtlich noch offen. Im Zweifel zeigt die App die frühere Frist. Sie ersetzt weder die Plakette noch den Zulassungsschein noch die Beratung durch eine Prüfstelle."
+            "value" : "Pitlog berechnet Pickerl-Fristen aus der Erst­zu­las­sung und dem Datum auf deiner Plakette. Einzelne Regeln der Pickerl-Reform 2027 sind rechtlich noch offen. Im Zweifel zeigt die App die frühere Frist. Sie ersetzt weder die Plakette noch den Zu­las­sungs­schein noch die Beratung durch eine Prüfstelle."
           }
         }
       }
@@ -2788,7 +2788,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pitlog hilft dir, Pickerl-Fristen im Blick zu behalten. Die Berechnung ist ein Vorschlag auf Basis der Erstzulassung und der heute bekannten Regeln."
+            "value" : "Pitlog hilft dir, Pickerl-Fristen im Blick zu behalten. Die Be­rech­nung ist ein Vorschlag auf Basis der Erst­zu­las­sung und der heute bekannten Regeln."
           }
         }
       }
@@ -2826,6 +2826,47 @@
         }
       }
     },
+    "Preview of the service record with %lld pages. Share it to read the full document in another app." : {
+      "comment" : "VoiceOver: summary of the PDF preview, replaces reading the pages word by word. The number is the page count, plural",
+      "localizations" : {
+        "de" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Vorschau des Servicenachweises mit %lld Seite. Teile ihn, um das ganze Dokument in einer anderen App zu lesen."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Vorschau des Servicenachweises mit %lld Seiten. Teile ihn, um das ganze Dokument in einer anderen App zu lesen."
+                }
+              }
+            }
+          }
+        },
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Preview of the service record with %lld page. Share it to read the full document in another app."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Preview of the service record with %lld pages. Share it to read the full document in another app."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "Previous year" : {
       "comment" : "VoiceOver label of the minus button of the sticker year",
       "localizations" : {
@@ -2838,12 +2879,12 @@
       }
     },
     "Privacy Policy" : {
-      "comment" : "Paywall: link to the privacy policy",
+      "comment" : "Link to the privacy policy (paywall and settings)",
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Datenschutzerklärung"
+            "value" : "Da­ten­schutz­er­klä­rung"
           }
         }
       }
@@ -2865,7 +2906,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Die Käufe konnten nicht wiederhergestellt werden. Prüfe deine Verbindung und versuche es erneut."
+            "value" : "Die Käufe konnten nicht wie­der­her­ge­stellt werden. Prüfe deine Verbindung und versuche es erneut."
           }
         }
       }
@@ -2909,7 +2950,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vom Sprachmodell auf dem Gerät gelesen."
+            "value" : "Vom Sprach­mo­dell auf dem Gerät gelesen."
           }
         }
       }
@@ -2953,7 +2994,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zulassungsschein wird gelesen …"
+            "value" : "Zu­las­sungs­schein wird gelesen …"
           }
         }
       }
@@ -2975,7 +3016,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Liest die Fahrzeugdaten von deinem Zulassungsschein. Das Foto bleibt auf deinem Gerät und wird nicht gespeichert."
+            "value" : "Liest die Fahr­zeug­da­ten von deinem Zu­las­sungs­schein. Das Foto bleibt auf deinem Gerät und wird nicht ge­spei­chert."
           }
         }
       }
@@ -3063,7 +3104,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Begutachtung eintragen"
+            "value" : "Be­gut­ach­tung eintragen"
           }
         }
       }
@@ -3074,7 +3115,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Erinnerung vorher"
+            "value" : "Er­in­ne­rung vorher"
           }
         }
       }
@@ -3085,7 +3126,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Erinnerung vorher, Strecke"
+            "value" : "Er­in­ne­rung vorher, Strecke"
           }
         }
       }
@@ -3096,7 +3137,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Erinnerung"
+            "value" : "Er­in­ne­rung"
           }
         }
       }
@@ -3107,7 +3148,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Erinnerung aktiv"
+            "value" : "Er­in­ne­rung aktiv"
           }
         }
       }
@@ -3118,7 +3159,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Erinnerungen"
+            "value" : "Er­in­ne­run­gen"
           }
         }
       }
@@ -3129,7 +3170,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Erinnerungen für Reifen, Service, Vignette und eigene gehören zu Pitlog Pro. Die Pickerl-Erinnerung bleibt kostenlos."
+            "value" : "Er­in­ne­run­gen für Reifen, Service, Vignette und eigene gehören zu Pitlog Pro. Die Pickerl-Er­in­ne­rung bleibt kostenlos."
           }
         }
       }
@@ -3173,7 +3214,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wiederholen"
+            "value" : "Wie­der­ho­len"
           }
         }
       }
@@ -3184,7 +3225,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nach Strecke wiederholen"
+            "value" : "Nach Strecke wie­der­ho­len"
           }
         }
       }
@@ -3195,7 +3236,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nach Zeit wiederholen"
+            "value" : "Nach Zeit wie­der­ho­len"
           }
         }
       }
@@ -3206,7 +3247,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wiederholen alle"
+            "value" : "Wie­der­ho­len alle"
           }
         }
       }
@@ -3217,7 +3258,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wiederholen alle, Strecke"
+            "value" : "Wie­der­ho­len alle, Strecke"
           }
         }
       }
@@ -3250,7 +3291,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wiederherstellen"
+            "value" : "Wie­der­her­stel­len"
           }
         }
       }
@@ -3261,7 +3302,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Käufe wiederherstellen"
+            "value" : "Käufe wie­der­her­stel­len"
           }
         }
       }
@@ -3272,7 +3313,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Regelversion"
+            "value" : "Re­gel­ver­si­on"
           }
         }
       }
@@ -3283,7 +3324,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Regelversion %@"
+            "value" : "Re­gel­ver­si­on %@"
           }
         }
       }
@@ -3305,7 +3346,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scanne eine Werkstattrechnung und prüfe die Werte, bevor du speicherst."
+            "value" : "Scanne eine Werk­statt­rech­nung und prüfe die Werte, bevor du speicherst."
           }
         }
       }
@@ -3338,7 +3379,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zulassungsschein scannen"
+            "value" : "Zu­las­sungs­schein scannen"
           }
         }
       }
@@ -3371,7 +3412,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Siehe die rechtlichen Hinweise zu dieser Frist."
+            "value" : "Siehe die recht­li­chen Hinweise zu dieser Frist."
           }
         }
       }
@@ -3404,7 +3445,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Service bei %@ km fällig, voraussichtlich um den %@ (Schätzung)."
+            "value" : "Service bei %@ km fällig, vor­aus­sicht­lich um den %@ (Schätzung)."
           }
         }
       }
@@ -3426,7 +3467,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Servicenachweis"
+            "value" : "Ser­vice­nach­weis"
           }
         }
       }
@@ -3459,7 +3500,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Service, Reparaturen und Kosten."
+            "value" : "Service, Re­pa­ra­tu­ren und Kosten."
           }
         }
       }
@@ -3470,7 +3511,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Einstellungen"
+            "value" : "Ein­stel­lun­gen"
           }
         }
       }
@@ -3569,7 +3610,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Abo geteilt von einem Familienmitglied, aktiv bis %@."
+            "value" : "Abo geteilt von einem Fa­mi­li­en­mit­glied, aktiv bis %@."
           }
         }
       }
@@ -3580,7 +3621,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sommerreifen"
+            "value" : "Som­mer­rei­fen"
           }
         }
       }
@@ -3591,7 +3632,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Summen der aufgeführten Einträge, je Währung."
+            "value" : "Summen der auf­ge­führ­ten Einträge, je Währung."
           }
         }
       }
@@ -3635,7 +3676,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Taxi, Rettung oder Krankentransport"
+            "value" : "Taxi, Rettung oder Kran­ken­trans­port"
           }
         }
       }
@@ -3646,7 +3687,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nutzungsbedingungen"
+            "value" : "Nut­zungs­be­din­gun­gen"
           }
         }
       }
@@ -3679,7 +3720,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Das Datum, an dem das Fahrzeug die Begutachtung bestanden hat."
+            "value" : "Das Datum, an dem das Fahrzeug die Be­gut­ach­tung bestanden hat."
           }
         }
       }
@@ -3701,7 +3742,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Die eingegebenen Daten passen nicht zusammen. Prüfe Erstzulassung und Plakette."
+            "value" : "Die ein­ge­ge­be­nen Daten passen nicht zusammen. Prüfe Erst­zu­las­sung und Plakette."
           }
         }
       }
@@ -3734,7 +3775,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Im kostenlosen Tarif kannst du ein Fahrzeug bearbeiten. Dieses Fahrzeug bleibt erhalten und du kannst alles lesen. Mit Pitlog Pro bearbeitest du alle deine Fahrzeuge."
+            "value" : "Im kos­ten­lo­sen Tarif kannst du ein Fahrzeug bearbeiten. Dieses Fahrzeug bleibt erhalten und du kannst alles lesen. Mit Pitlog Pro be­ar­bei­test du alle deine Fahrzeuge."
           }
         }
       }
@@ -3767,7 +3808,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Das Begutachtungsfenster schließt %@, am %@."
+            "value" : "Das Be­gut­ach­tungs­fens­ter schließt %@, am %@."
           }
         }
       }
@@ -3778,7 +3819,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Das Begutachtungsfenster öffnet heute."
+            "value" : "Das Be­gut­ach­tungs­fens­ter öffnet heute."
           }
         }
       }
@@ -3789,7 +3830,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Das Kennzeichen auf dem Beleg passt zu diesem Fahrzeug."
+            "value" : "Das Kenn­zei­chen auf dem Beleg passt zu diesem Fahrzeug."
           }
         }
       }
@@ -3800,7 +3841,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kennzeichen oder FIN auf dem Beleg passen nicht zu diesem Fahrzeug. Prüfe, ob der Beleg dazugehört."
+            "value" : "Kenn­zei­chen oder FIN auf dem Beleg passen nicht zu diesem Fahrzeug. Prüfe, ob der Beleg dazugehört."
           }
         }
       }
@@ -3833,7 +3874,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Die Lochung der Pickerl-Plakette steht nicht im Zulassungsschein. Gib sie anhand der Plakette selbst ein."
+            "value" : "Die Lochung der Pickerl-Plakette steht nicht im Zu­las­sungs­schein. Gib sie anhand der Plakette selbst ein."
           }
         }
       }
@@ -3855,7 +3896,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Der Beleg konnte nicht hinzugefügt werden."
+            "value" : "Der Beleg konnte nicht hin­zu­ge­fügt werden."
           }
         }
       }
@@ -3866,7 +3907,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Auf dem Beleg stehen weder Kennzeichen noch FIN. Prüfe, ob er zu diesem Fahrzeug gehört."
+            "value" : "Auf dem Beleg stehen weder Kenn­zei­chen noch FIN. Prüfe, ob er zu diesem Fahrzeug gehört."
           }
         }
       }
@@ -3888,7 +3929,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Der Scan ist fehlgeschlagen"
+            "value" : "Der Scan ist fehl­ge­schla­gen"
           }
         }
       }
@@ -3899,7 +3940,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Der Scan wird als Beleg an den Eintrag angehängt. Name und Anschrift des Kunden werden nicht im Text gespeichert."
+            "value" : "Der Scan wird als Beleg an den Eintrag angehängt. Name und Anschrift des Kunden werden nicht im Text ge­spei­chert."
           }
         }
       }
@@ -3910,7 +3951,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Der Servicenachweis als PDF gehört zu Pitlog Pro. Deine Historie bleibt gratis."
+            "value" : "Der Ser­vice­nach­weis als PDF gehört zu Pitlog Pro. Deine Historie bleibt gratis."
           }
         }
       }
@@ -3921,7 +3962,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Das Abo konnte nicht verlängert werden. Pro bleibt aktiv, solange der App Store die Zahlung erneut versucht. Prüfe deine Zahlungsmethode."
+            "value" : "Das Abo konnte nicht verlängert werden. Pro bleibt aktiv, solange der App Store die Zahlung erneut versucht. Prüfe deine Zah­lungs­me­tho­de."
           }
         }
       }
@@ -3943,7 +3984,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Das Fahrzeug und seine Kilometerstände werden gelöscht. Das lässt sich nicht rückgängig machen."
+            "value" : "Das Fahrzeug und seine Ki­lo­me­ter­stän­de werden gelöscht. Das lässt sich nicht rückgängig machen."
           }
         }
       }
@@ -3954,7 +3995,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Die Winterreifenperiode endet am %@, %@."
+            "value" : "Die Win­ter­rei­fen­pe­ri­ode endet am %@, %@."
           }
         }
       }
@@ -3965,7 +4006,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Die Winterreifenperiode beginnt am %@, %@."
+            "value" : "Die Win­ter­rei­fen­pe­ri­ode beginnt am %@, %@."
           }
         }
       }
@@ -3976,7 +4017,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Das ist kein Zulassungsschein"
+            "value" : "Das ist kein Zu­las­sungs­schein"
           }
         }
       }
@@ -3987,7 +4028,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Das ist Teil II der Zulassungsbescheinigung. Die Daten sind meist dieselben wie in Teil I, den du im Auto mitführst."
+            "value" : "Das ist Teil II der Zu­las­sungs­be­schei­ni­gung. Die Daten sind meist dieselben wie in Teil I, den du im Auto mitführst."
           }
         }
       }
@@ -4097,7 +4138,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zwei unabhängige Lesarten stimmen überein."
+            "value" : "Zwei un­ab­hän­gi­ge Lesarten stimmen überein."
           }
         }
       }
@@ -4119,7 +4160,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Reifenwechsel, Service, Vignette und eigene Erinnerungen."
+            "value" : "Rei­fen­wech­sel, Service, Vignette und eigene Er­in­ne­run­gen."
           }
         }
       }
@@ -4174,7 +4215,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Anstehende Begutachtungen und Erinnerungen für alle deine Fahrzeuge erscheinen hier."
+            "value" : "Anstehende Be­gut­ach­tun­gen und Er­in­ne­run­gen für alle deine Fahrzeuge erscheinen hier."
           }
         }
       }
@@ -4240,7 +4281,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Erstzulassung übernehmen"
+            "value" : "Erst­zu­las­sung übernehmen"
           }
         }
       }
@@ -4251,7 +4292,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kennzeichen übernehmen"
+            "value" : "Kenn­zei­chen übernehmen"
           }
         }
       }
@@ -4284,7 +4325,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kilometerstand übernehmen"
+            "value" : "Ki­lo­me­ter­stand übernehmen"
           }
         }
       }
@@ -4306,7 +4347,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fahrzeugart übernehmen"
+            "value" : "Fahr­zeug­art übernehmen"
           }
         }
       }
@@ -4317,7 +4358,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Durchgeführte Arbeiten übernehmen"
+            "value" : "Durch­ge­führ­te Arbeiten übernehmen"
           }
         }
       }
@@ -4339,7 +4380,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Gilt für neue Erinnerungen. Bestehende Erinnerungen behalten ihre eigene Vorlaufzeit."
+            "value" : "Gilt für neue Er­in­ne­run­gen. Bestehende Er­in­ne­run­gen behalten ihre eigene Vor­lauf­zeit."
           }
         }
       }
@@ -4416,7 +4457,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fahrzeugart"
+            "value" : "Fahr­zeug­art"
           }
         }
       }
@@ -4471,7 +4512,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wenn das Fenster öffnet, im Monat davor, im Fälligkeitsmonat und eine Woche, bevor das Fenster schließt. Datum auf der Plakette prüfen."
+            "value" : "Wenn das Fenster öffnet, im Monat davor, im Fäl­lig­keits­mo­nat und eine Woche, bevor das Fenster schließt. Datum auf der Plakette prüfen."
           }
         }
       }
@@ -4482,7 +4523,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wenn du den Service als erledigt markierst, zählt der nächste ab diesem Tag und dem aktuellen Kilometerstand."
+            "value" : "Wenn du den Service als erledigt markierst, zählt der nächste ab diesem Tag und dem aktuellen Ki­lo­me­ter­stand."
           }
         }
       }
@@ -4496,13 +4537,13 @@
               "one" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "Fenster vor %lld Tag geschlossen"
+                  "value" : "Fenster vor %lld Tag ge­schlos­sen"
                 }
               },
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "Fenster vor %lld Tagen geschlossen"
+                  "value" : "Fenster vor %lld Tagen ge­schlos­sen"
                 }
               }
             }
@@ -4556,7 +4597,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Winterperiode endet"
+            "value" : "Win­ter­pe­ri­ode endet"
           }
         }
       }
@@ -4567,7 +4608,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Winterperiode endet am %@"
+            "value" : "Win­ter­pe­ri­ode endet am %@"
           }
         }
       }
@@ -4578,7 +4619,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Winterperiode beginnt"
+            "value" : "Win­ter­pe­ri­ode beginnt"
           }
         }
       }
@@ -4589,7 +4630,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Winterperiode beginnt am %@"
+            "value" : "Win­ter­pe­ri­ode beginnt am %@"
           }
         }
       }
@@ -4600,7 +4641,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Winterreifen"
+            "value" : "Win­ter­rei­fen"
           }
         }
       }
@@ -4611,7 +4652,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ohne Gewähr. Maßgeblich ist das auf der Plakette gelochte Datum."
+            "value" : "Ohne Gewähr. Maß­geb­lich ist das auf der Plakette gelochte Datum."
           }
         }
       }
@@ -4622,7 +4663,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Durchgeführte Arbeiten"
+            "value" : "Durch­ge­führ­te Arbeiten"
           }
         }
       }
@@ -4655,7 +4696,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Werkstattkosten"
+            "value" : "Werk­statt­kos­ten"
           }
         }
       }
@@ -4666,7 +4707,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Werkstattkosten in %@, nach Kategorie gestapelt"
+            "value" : "Werk­statt­kos­ten in %@, nach Kategorie gestapelt"
           }
         }
       }
@@ -4677,7 +4718,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Werkstattkosten pro Jahr"
+            "value" : "Werk­statt­kos­ten pro Jahr"
           }
         }
       }
@@ -4710,7 +4751,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Diese Bestimmungen findest du im Rechtsinformationssystem des Bundes (RIS)."
+            "value" : "Diese Be­stim­mun­gen findest du im Rechts­in­for­ma­ti­ons­sys­tem des Bundes (RIS)."
           }
         }
       }
@@ -4721,7 +4762,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Du bekommst am %@ eine Erinnerung, wenn die neue Vignette erhältlich ist, und vor dem Ablauf der alten. Eine online gekaufte Vignette gilt womöglich erst ab dem 18. Tag nach dem Kauf."
+            "value" : "Du bekommst am %@ eine Er­in­ne­rung, wenn die neue Vignette erhältlich ist, und vor dem Ablauf der alten. Eine online gekaufte Vignette gilt womöglich erst ab dem 18. Tag nach dem Kauf."
           }
         }
       }

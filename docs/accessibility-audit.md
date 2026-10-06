@@ -172,3 +172,50 @@ Neue Tests: Optionen-Sheet (EN, DE, größte Schrift EN und DE), Vorschau (EN, D
 1. Vorschau mit VoiceOver: liest PDFKit den Seitentext sinnvoll (ohne Tabellenstruktur, das PDF ist nicht getaggt)? Ist „Teilen“ erreichbar?
 2. Optionen-Sheet mit VoiceOver und Dynamic Type bis AX5 auf dem Gerät; Menü „Zeitraum“ und Datumsauswahl.
 3. Geteiltes PDF in Mail, Dateien und Vorschau öffnen (Dateiname, Seitenzahlen, Umlaute).
+
+## M6c: weiche Trennung, Vorschau, Datenschutz-Zeile
+
+Stand: Branch `claude/m6c-a11y-privacy`. Vergleichsläufe des UI-Jobs (`screenshots: true` nur auf dem Branch):
+
+| Lauf | Stand | Ergebnis |
+|---|---|---|
+| 37388399223 | **vorher**: Basis `claude/practical-edison-jhlpos` (`3d46b85`) | 35 rote UI-Tests |
+| 37388396867 | M6c `a7cbdeb` (weiche Trennung, Vorschau-Zusammenfassung, Datenschutz-Zeile) | 35 rote UI-Tests |
+| 37393145074 | M6c `c58531e` (Rechtshinweis mit Label ohne Trennzeichen, Titel als Überschrift) | rot, 35 UI-Tests |
+| 37397257305 | M6c `56ed436` (Rechtshinweis ohne Trennzeichen, Datenschutz-Zeile als `Link` in Primärfarbe) | rot, 35 UI-Tests |
+| (nach Abschluss) | M6c `b101837` (Datenschutz-Zeile als `ActionRow`, Trennung im Rechtshinweis wieder drin) | Ergebnis im Abschluss-Absatz unten |
+
+Build und Unit-Tests waren in allen Läufen grün (Push-Läufe 37388386871, 37393140152). Unverändert gelten nur die zwei Filter aus CLAUDE.md (Bar-Buttons).
+
+### Hypothese: kommen die Dynamic-Type-Befunde von `minimumScaleFactor`?
+
+**Nein.** `wrapsLongWords()` (mit `minimumScaleFactor(0.6)`) war nur an vier Stellen im Einsatz (`FirstLaunchNoticeView`, `LegalView`, `InfoRow`). Nach dem Entfernen (jetzt `wrapsText()`, nur `fixedSize`) bleibt das Muster aus M3 bis M6b unverändert:
+
+- Je Test meldet der Audit „Dynamic Type font sizes are (partially) unsupported“ an **genau einem** Element, das von Lauf zu Lauf wechselt (Beispiele: `reminders-*` „Add reminder“ / „Allow notifications“ / „Er·in·ne·rung hinzufügen“; `registration-review-de` „Kennzeichen“, „Pkw“, „Art“; `history-chart-en` „CHF 180.00“, „Repair“). Das sind Elemente, die `wrapsLongWords` nie benutzt haben.
+- Dieselben Befunde stehen im Vorher-Lauf auf der Basis (z. B. „Erinnerungen“, „VIN (optional)“, „Mitteilungen erlauben“). Die Zahl der roten Tests ist vorher und nachher gleich (35).
+- Die Bar-Buttons (Typ 9) melden weiter, soweit sie nicht unter den Filter fallen („Close“/„Schließen“ der Paywall, „Add entry“, „Apply“, „Cancel“, „Create“).
+
+Damit ist belegt, dass `minimumScaleFactor` nicht die Ursache ist. Die Ursache der wechselnden Befunde bleibt ungeklärt (Messartefakt des Audits oder der Runner-Umgebung, nicht belegt). Prüfung mit dem Accessibility Inspector auf dem Gerät: `docs/device-test.md`, Abschnitt 1.
+
+### Was sich geändert hat
+
+| Befund | vorher | nachher |
+|---|---|---|
+| `service-record-preview-de`: „Hit area is too small“ (PDFKit-Element „Nr.“) | rot | **weg**: Die Vorschau ist ein einziges VoiceOver-Element mit Zusammenfassung (Seitenzahl, Hinweis auf Teilen). Begründung: Die kleinen Flächen sind PDFKit-Elemente für jedes Textstück eines nicht getaggten PDFs. Größere Schrift im PDF hätte das Dokument verändert (mehr Seiten) und die Elemente blieben winzig. Wer VoiceOver nutzt, liest das Dokument über Teilen in einer App, die PDFs lesen kann (Vorschau, Bücher). |
+| `service-record-options-xxxl-de`: „Text clipped“ ohne Element | rot | **weg**: Der große Navigationstitel „Servicenachweis“ wurde bei AX3 als „Servicenac…“ abgeschnitten (Screenshot). Weiche Trennstriche greifen in Navigationstiteln nicht. Der Titel ist jetzt eine umbrechende Überschrift im Formular. |
+| `history-list-*` „Contrast failed“ ohne Element | wechselnd | **offen**, weiter nicht einem Element zuordenbar (gescrollter Zustand, Tab-Leiste); im ersten M6c-Lauf stand dort stattdessen ein Dynamic-Type-Befund mit Element, im letzten wieder „Contrast failed“. Spricht für einen Zustandsartefakt. |
+| Dynamic-Type-Befunde (siehe Hypothese) | 35 rote Tests | 35 rote Tests |
+
+### Sichtkontrolle der weichen Trennung
+
+Screenshot `service-record-options-xxxl-de` (AX3, Deutsch): Lange Wörter brechen an den Trennstellen („Histo-/rie“, „Fahr-/zeugs“, „ver-/lässt“), der Trennstrich steht nur am Zeilenende; nichts ist verkleinert. Die Wörterbuchliste enthält die langen Komposita (`scripts/hyphenate_de.py`, ca. 100 Wörter ab 10 Buchstaben); einzelne weitere Wörter trennt das System selbst.
+
+### Neue Befunde durch M6c
+
+- **`notice-de` „Text clipped“** am Rechtshinweis (Test `testFirstLaunchNoticePassesAccessibilityAuditInGerman`, der im Vorher-Lauf grün war). Der Screenshot zeigt den Text vollständig. Es ist **nicht** die weiche Trennung von „Maßgeblich“: Der Befund blieb in Lauf 37397257305 bestehen, obwohl dort keine Trennung im Rechtshinweis stand und das gesprochene Label ohne Trennzeichen gebaut war. Die einzige weitere Änderung an dieser Ansicht ist das Entfernen von `minimumScaleFactor`. Das passt zur Vermutung, dass der Audit den Text bei der Messung anders umbricht als SwiftUI ihn zeichnet, ist aber **nicht belegt**. Der Text steht in voller Höhe im Bildschirm. Zu prüfen auf dem Gerät.
+- **Datenschutz-Zeile in den Einstellungen** (neu): Als `Link` in der Liste erzeugte sie „Contrast failed“ (`settings-pro-free-*`, ohne Element) und „Text clipped“ am Text „Privacy Policy“ (`settings-pro-pro-en`), auch in Primärfarbe. Das passt zu den früheren Experimenten (Systemsteuerelemente in Listen, siehe oben). Die Zeile ist jetzt die Tippzeile der App (`ActionRow`, öffnet dieselbe URL über `openURL`). Ergebnis im Abschluss-Absatz.
+- Die anderen Befunde im Lauf 37397257305 sind das bekannte wechselnde Muster (z. B. „Amount“, „Betrag“, „Art“, „Repeat“, „Allow notifications“); „Text clipped“ wandert weiter zwischen Elementen der Paywall (`paywall-de`), der gesperrten Erinnerungen (`reminders-locked-de`) und der Einstellungen.
+
+### Offen (nur auf dem Gerät)
+
+Siehe `docs/device-test.md`: Inspector-Audit, VoiceOver (liest keine Trennstriche vor? Die Labels der Pickerl-Karte, der Erinnerungen und der Historie sind ohne Trennzeichen gebaut; reine `Text("…")` verlassen sich auf die Systemvorlesung), AX5 in beiden Sprachen.

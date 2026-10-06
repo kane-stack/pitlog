@@ -2,6 +2,7 @@ import StoreKit
 import SwiftUI
 
 struct SettingsView: View {
+    @Environment(\.openURL) private var openURL
     @State private var paywall: PaywallContext?
     @State private var showingManageSubscription = false
 
@@ -47,6 +48,15 @@ struct SettingsView: View {
                     } icon: {
                         Image(systemName: "info.circle")
                     }
+                }
+                // Last in the section on purpose: the UI tests pick the rows above by position.
+                if let privacy = AppLinks.privacyPolicy {
+                    // The tap row of the app instead of `Link`: a `Link` in a list failed the audit (contrast, clipped text).
+                    ActionRow(
+                        title: Text("Privacy Policy", comment: "Link to the privacy policy (paywall and settings)"),
+                        systemImage: "hand.raised",
+                        identifier: "settingsPrivacyRow",
+                        action: { openURL(privacy) })
                 }
             }
 

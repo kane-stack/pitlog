@@ -14,7 +14,7 @@ struct InspectionBadge: View {
             Label(presentation.badgeText, systemImage: presentation.iconName)
                 .font(.subheadline)
                 .fontWeight(status.phase == .overdue ? .bold : .regular)
-                .accessibilityLabel(presentation.badgeAccessibilityLabel)
+                .accessibilityLabel(presentation.badgeAccessibilityLabel.withoutSoftHyphens)
         case .unavailable(let reason):
             Label(reason.text(locale: locale), systemImage: "questionmark.circle")
                 .font(.subheadline)

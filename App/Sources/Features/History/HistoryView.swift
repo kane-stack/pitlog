@@ -203,7 +203,7 @@ struct HistoryView: View {
             .contentShape(Rectangle())
             .onTapGesture { edit { editorTarget = .edit(entry) } }
             .accessibilityElement(children: .ignore)
-            .accessibilityLabel(Text(verbatim: presentation.accessibilityLabel))
+            .accessibilityLabel(Text(verbatim: presentation.accessibilityLabel.withoutSoftHyphens))
             .accessibilityHint(Text("Opens the entry for editing.", comment: "VoiceOver hint of a history row"))
             .accessibilityAddTraits(.isButton)
             .accessibilityAction { edit { editorTarget = .edit(entry) } }

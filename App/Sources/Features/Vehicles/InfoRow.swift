@@ -19,7 +19,7 @@ struct InfoRow: View {
             Image(systemName: systemImage)
                 .accessibilityHidden(true)
             text
-                .wrapsLongWords()
+                .wrapsText()
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
     }

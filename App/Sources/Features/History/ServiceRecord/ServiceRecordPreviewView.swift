@@ -21,6 +21,11 @@ struct ServiceRecordPreviewView: View {
     var body: some View {
         PDFPreview(url: file.url)
             .ignoresSafeArea(edges: .bottom)
+            // One summary instead of the per-word elements PDFKit creates for an untagged PDF: those are
+            // tiny hit areas (audit) and read without structure. The full document opens through Share.
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel(Text("Preview of the service record with \(file.pageCount) pages. Share it to read the full document in another app.", comment: "VoiceOver: summary of the PDF preview, replaces reading the pages word by word. The number is the page count, plural"))
+            .accessibilityIdentifier("serviceRecordPreview")
             .navigationTitle(Text("Preview", comment: "Service record export: navigation title of the PDF preview"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -38,7 +43,7 @@ struct ServiceRecordPreviewView: View {
     }
 }
 
-/// `PDFView` for SwiftUI. VoiceOver reads the text of the pages through PDFKit.
+/// `PDFView` for SwiftUI. For VoiceOver the preview is one summary element (see the caller).
 private struct PDFPreview: UIViewRepresentable {
     let url: URL
 
@@ -50,7 +55,6 @@ private struct PDFPreview: UIViewRepresentable {
         view.pageShadowsEnabled = true
         view.backgroundColor = .systemGroupedBackground
         view.document = PDFDocument(url: url)
-        view.accessibilityIdentifier = "serviceRecordPreview"
         return view
     }
 

@@ -144,7 +144,4 @@ final class StoreService {
     }
 }
 
-extension StoreService {
-    static let privacyPolicyURL = URL(string: "https://example.com/pitlog/privacy")
-    static let termsOfUseURL = URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")
-}
+

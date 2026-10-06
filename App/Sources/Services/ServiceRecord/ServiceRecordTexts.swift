@@ -10,7 +10,7 @@ struct ServiceRecordTexts: Sendable {
     /// Looks the string up in the language of `locale`. `String(localized:locale:)` only formats with the locale
     /// and keeps the device language for the lookup; a `LocalizedStringResource` carries the locale into both.
     private func string(_ value: String.LocalizationValue, _ comment: StaticString) -> String {
-        String(localized: LocalizedStringResource(value, locale: locale, comment: comment))
+        String(localized: LocalizedStringResource(value, locale: locale, comment: comment)).withoutSoftHyphens
     }
 
     /// One line of the vehicle block: label, value and an optional small note under the value.
@@ -102,7 +102,7 @@ struct ServiceRecordTexts: Sendable {
     private func categoryTitle(_ category: VehicleCategory) -> String {
         var resource = category.title
         resource.locale = locale
-        return String(localized: resource)
+        return String(localized: resource).withoutSoftHyphens
     }
 
     private var odometerLabel: String {
