@@ -105,7 +105,8 @@ struct PlaquePicker: View {
                     }
                 }
         }
-        .buttonStyle(.plain)
+        // Borderless, not plain: inside a Form row only borderless buttons fire on their own.
+        .buttonStyle(.borderless)
     }
 
     private var yearControl: some View {
@@ -114,6 +115,7 @@ struct PlaquePicker: View {
                 .font(.title)
                 .fontWeight(.semibold)
                 .monospacedDigit()
+                .accessibilityIdentifier("plaqueYear")
             HStack(spacing: 16) {
                 Button {
                     setYear(shownYear - 1)
@@ -122,7 +124,9 @@ struct PlaquePicker: View {
                         .frame(minWidth: 44, minHeight: 44)
                 }
                 .disabled(shownYear <= yearRange.lowerBound)
+                .buttonStyle(.borderless)
                 .accessibilityLabel(Text("Previous year", comment: "VoiceOver label of the minus button of the sticker year"))
+                .accessibilityIdentifier("plaquePreviousYear")
                 Button {
                     setYear(shownYear + 1)
                 } label: {
@@ -130,7 +134,9 @@ struct PlaquePicker: View {
                         .frame(minWidth: 44, minHeight: 44)
                 }
                 .disabled(shownYear >= yearRange.upperBound)
+                .buttonStyle(.borderless)
                 .accessibilityLabel(Text("Next year", comment: "VoiceOver label of the plus button of the sticker year"))
+                .accessibilityIdentifier("plaqueNextYear")
             }
             .font(.title2)
         }
@@ -190,6 +196,8 @@ struct PlaquePicker: View {
                     Image(systemName: "wand.and.stars")
                 }
             }
+            .buttonStyle(.borderless)
+            .accessibilityIdentifier("plaqueUseSuggestion")
             Text("Estimated from the first registration. Check it against your inspection sticker.", comment: "Caption below the suggestion button of the sticker picker")
                 .font(.footnote)
         }

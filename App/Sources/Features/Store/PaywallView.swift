@@ -274,12 +274,14 @@ struct PaywallView: View {
                     Link(destination: terms) {
                         Text("Terms of Use", comment: "Paywall: link to the terms of use (Apple's standard license agreement)")
                     }
+                    .buttonStyle(.borderless)
                     .accessibilityIdentifier("termsLink")
                 }
                 if let privacy = AppLinks.privacyPolicy {
                     Link(destination: privacy) {
                         Text("Privacy Policy", comment: "Link to the privacy policy (paywall and settings)")
                     }
+                    .buttonStyle(.borderless)
                     .accessibilityIdentifier("privacyLink")
                 }
             }
