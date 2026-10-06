@@ -172,3 +172,48 @@ Neue Tests: Optionen-Sheet (EN, DE, größte Schrift EN und DE), Vorschau (EN, D
 1. Vorschau mit VoiceOver: liest PDFKit den Seitentext sinnvoll (ohne Tabellenstruktur, das PDF ist nicht getaggt)? Ist „Teilen“ erreichbar?
 2. Optionen-Sheet mit VoiceOver und Dynamic Type bis AX5 auf dem Gerät; Menü „Zeitraum“ und Datumsauswahl.
 3. Geteiltes PDF in Mail, Dateien und Vorschau öffnen (Dateiname, Seitenzahlen, Umlaute).
+
+## M6c: weiche Trennung, Vorschau, Datenschutz-Zeile
+
+Stand: Branch `claude/m6c-a11y-privacy`. Vergleichsläufe des UI-Jobs (`screenshots: true` nur auf dem Branch):
+
+| Lauf | Stand | Ergebnis |
+|---|---|---|
+| 37388399223 | **vorher**: Basis `claude/practical-edison-jhlpos` (`3d46b85`) | 35 rote UI-Tests |
+| 37388396867 | M6c `a7cbdeb` (weiche Trennung, Vorschau-Zusammenfassung, Datenschutz-Zeile) | 35 rote UI-Tests |
+| 37393145074 | M6c `c58531e` (Rechtshinweis mit Label ohne Trennzeichen, Titel als Überschrift) | rote UI-Tests (siehe Tabelle) |
+| siehe unten | M6c `56ed436` (Rechtshinweis ohne Trennzeichen, Datenschutz-Zeile in Primärfarbe) | siehe unten |
+
+Build und Unit-Tests waren in allen Läufen grün (Push-Läufe 37388386871, 37393140152). Unverändert gelten nur die zwei Filter aus CLAUDE.md (Bar-Buttons).
+
+### Hypothese: kommen die Dynamic-Type-Befunde von `minimumScaleFactor`?
+
+**Nein.** `wrapsLongWords()` (mit `minimumScaleFactor(0.6)`) war nur an vier Stellen im Einsatz (`FirstLaunchNoticeView`, `LegalView`, `InfoRow`). Nach dem Entfernen (jetzt `wrapsText()`, nur `fixedSize`) bleibt das Muster aus M3 bis M6b unverändert:
+
+- Je Test meldet der Audit „Dynamic Type font sizes are (partially) unsupported“ an **genau einem** Element, das von Lauf zu Lauf wechselt (Beispiele: `reminders-*` „Add reminder“ / „Allow notifications“ / „Er·in·ne·rung hinzufügen“; `registration-review-de` „Kennzeichen“, „Pkw“, „Art“; `history-chart-en` „CHF 180.00“, „Repair“). Das sind Elemente, die `wrapsLongWords` nie benutzt haben.
+- Dieselben Befunde stehen im Vorher-Lauf auf der Basis (z. B. „Erinnerungen“, „VIN (optional)“, „Mitteilungen erlauben“). Die Zahl der roten Tests ist vorher und nachher gleich (35).
+- Die Bar-Buttons (Typ 9) melden weiter, soweit sie nicht unter den Filter fallen („Close“/„Schließen“ der Paywall, „Add entry“, „Apply“, „Cancel“, „Create“).
+
+Damit ist belegt, dass `minimumScaleFactor` nicht die Ursache ist. Die Ursache der wechselnden Befunde bleibt ungeklärt (Messartefakt des Audits oder der Runner-Umgebung, nicht belegt). Prüfung mit dem Accessibility Inspector auf dem Gerät: `docs/device-test.md`, Abschnitt 1.
+
+### Was sich geändert hat
+
+| Befund | vorher | nachher |
+|---|---|---|
+| `service-record-preview-de`: „Hit area is too small“ (PDFKit-Element „Nr.“) | rot | **weg**: Die Vorschau ist ein einziges VoiceOver-Element mit Zusammenfassung (Seitenzahl, Hinweis auf Teilen). Begründung: Die kleinen Flächen sind PDFKit-Elemente für jedes Textstück eines nicht getaggten PDFs. Größere Schrift im PDF hätte das Dokument verändert (mehr Seiten) und die Elemente blieben winzig. Wer VoiceOver nutzt, liest das Dokument über Teilen in einer App, die PDFs lesen kann (Vorschau, Bücher). |
+| `service-record-options-xxxl-de`: „Text clipped“ ohne Element | rot | **weg**: Der große Navigationstitel „Servicenachweis“ wurde bei AX3 als „Servicenac…“ abgeschnitten (Screenshot). Weiche Trennstriche greifen in Navigationstiteln nicht. Der Titel ist jetzt eine umbrechende Überschrift im Formular. |
+| `history-list-*` „Contrast failed“ ohne Element | wechselnd | **offen**, weiter nicht einem Element zuordenbar (gescrollter Zustand, Tab-Leiste); im ersten M6c-Lauf stand dort stattdessen ein Dynamic-Type-Befund mit Element, im letzten wieder „Contrast failed“. Spricht für einen Zustandsartefakt. |
+| Dynamic-Type-Befunde (siehe Hypothese) | 35 rote Tests | 35 rote Tests |
+
+### Sichtkontrolle der weichen Trennung
+
+Screenshot `service-record-options-xxxl-de` (AX3, Deutsch): Lange Wörter brechen an den Trennstellen („Histo-/rie“, „Fahr-/zeugs“, „ver-/lässt“), der Trennstrich steht nur am Zeilenende; nichts ist verkleinert. Die Wörterbuchliste enthält die langen Komposita (`scripts/hyphenate_de.py`, ca. 100 Wörter ab 10 Buchstaben); einzelne weitere Wörter trennt das System selbst.
+
+### Neue Befunde durch M6c
+
+- **`notice-de` „Text clipped“** am Rechtshinweis („Ohne Gewähr. Maßgeblich ist …“) erschien erstmals mit der Trennung von „Maßgeblich“ (Vorher-Lauf: nicht vorhanden), auch nachdem das gesprochene Label ohne Trennzeichen gesetzt war. Der Screenshot zeigt den Text vollständig. Um zu prüfen, ob die Trennstriche den Befund auslösen, steht im Rechtshinweis jetzt **keine** weiche Trennung mehr (Ergebnis siehe unten). Das Wort passt in der Regel auch bei großer Schrift in eine Zeile.
+- **Datenschutz-Zeile in den Einstellungen** (neu): Die Zeile fiel als Link in der Akzentfarbe im Kontrast-/Dynamic-Type-Audit auf; sie steht jetzt in der Primärfarbe wie die anderen Zeilen.
+
+### Offen (nur auf dem Gerät)
+
+Siehe `docs/device-test.md`: Inspector-Audit, VoiceOver (liest keine Trennstriche vor? Die Labels der Pickerl-Karte, der Erinnerungen und der Historie sind ohne Trennzeichen gebaut; reine `Text("…")` verlassen sich auf die Systemvorlesung), AX5 in beiden Sprachen.
