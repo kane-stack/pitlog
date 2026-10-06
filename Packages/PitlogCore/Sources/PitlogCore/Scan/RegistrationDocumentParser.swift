@@ -20,10 +20,16 @@ public struct RegistrationDocumentParser: Sendable {
     public func parse(pages: [[RecognizedLine]], today: DayDate) -> RegistrationDraft {
         var draft = RegistrationDraft()
         var signals = PageSignals()
+        var scannedPages = 0
+        var legendPages = 0
+        var headingPages = 0
         for page in pages {
             let result = parsePage(page, today: today)
             draft = draft.merging(result.draft)
             signals.formUnion(result.signals)
+            if page.contains(where: { !ScanText.tokens($0.text).isEmpty }) { scannedPages += 1 }
+            if result.signals.cardBack { legendPages += 1 }
+            if result.signals.cardFront { headingPages += 1 }
         }
         if signals.transferPermit {
             return RegistrationDraft(notices: [.transferPermit])
@@ -33,8 +39,14 @@ public struct RegistrationDocumentParser: Sendable {
         let hasFront = draft.plate != nil || draft.firstRegistration != nil
         let hasBack = draft.vin != nil || draft.vehicleClass != nil || draft.make != nil || draft.type != nil
             || draft.commercialName != nil || draft.maxMassKg != nil
-        if signals.cardFront, !hasBack { notices.insert(.cardBackSideMissing) }
-        if signals.cardBack, !hasFront { notices.insert(.cardFrontSideMissing) }
+        // A side that was seen but gave nothing is "unreadable"; only a side that was not scanned at all is "missing".
+        // The front is scanned if some page is not the legend page; the back if some page is not the heading page.
+        if signals.cardFront, !hasBack {
+            notices.insert(scannedPages - headingPages >= 1 ? .cardBackUnreadable : .cardBackSideMissing)
+        }
+        if signals.cardBack, !hasFront {
+            notices.insert(scannedPages - legendPages >= 1 ? .cardFrontUnreadable : .cardFrontSideMissing)
+        }
         draft.notices = notices
         return draft
     }
@@ -73,8 +85,9 @@ public struct RegistrationDocumentParser: Sendable {
     private func parsePage(_ lines: [RecognizedLine], today: DayDate) -> (draft: RegistrationDraft, signals: PageSignals) {
         var signals = PageSignals()
         let allText = lines.map(\.text).joined(separator: " ").uppercased()
-        signals.cardFront = allText.contains("ZULASSUNGSBESCHEINIGUNG")
-            && (allText.contains("TEIL1") || allText.contains("TEIL 1") || allText.contains("TEIL I"))
+        // Heading of the card front. OCR reads the part number as 1, I or l, and may drop the blank before it.
+        signals.cardFront = allText.contains("ZULASSUNGSBESCHEIN")
+            && ["TEIL1", "TEIL 1", "TEIL I", "TEILI", "TEIL L", "TEILL"].contains { allText.contains($0) }
         signals.transferPermit = allText.contains("TRANSPORT PERMIT") || allText.contains("ÜBERSTELLUNG")
             || allText.contains("UBERSTELLUNG")
 
@@ -464,7 +477,9 @@ enum RowSegmenter {
             || tokens[..<index].allSatisfy { !ScanText.hasAlphanumeric($0) }
         for candidate in candidates(tokens, at: index) {
             let rest = Array(tokens[(index + candidate.consumed)...])
-            guard accepts(candidate.code, rest: rest, atCellStart: atCellStart) else { continue }
+            guard accepts(
+                candidate.code, rest: rest, atCellStart: atCellStart, variant: candidate.variant,
+                previousCode: previous?.code) else { continue }
             // "D3 A4 40 TDI": a code-like start of the value of a free-text field that has nothing yet is
             // the value, not a new field. Only a bare code or a code with its label starts a new field.
             if let previous, freeTextCodes.contains(previous.code),
@@ -526,9 +541,19 @@ enum RowSegmenter {
     /// A code counts only if its surroundings fit: its label follows, or (at the start of a cell) a value of
     /// the right shape, or nothing at all (the value is in the next line). Inside a cell, only the label counts,
     /// so a model name such as `Audi A4 40 TDI` is not cut into fields.
-    private static func accepts(_ code: String, rest: [String], atCellStart: Bool) -> Bool {
+    private static func accepts(
+        _ code: String, rest: [String], atCellStart: Bool, variant: Bool, previousCode: String?
+    ) -> Bool {
         if rest.isEmpty { return atCellStart }
         if labelFollows(code, rest) { return true }
+        // Two fields in one text line without boxes (`A S-4455AA B 10.06.2022`): a plainly spelled B or I directly
+        // in front of a complete date starts a field even in the middle of the line. Not behind a free-text field
+        // (D.1 to D.3), where `Typ B 10.06.2022` is part of the text.
+        if !variant, code == "B" || code == "I", !freeTextCodes.contains(previousCode ?? ""),
+           DateScan.firstDate(in: Array(rest.prefix(5)), twoDigitPivot: 2100)?.tokenIndex == 0
+        {
+            return true
+        }
         guard atCellStart else { return false }
         switch code {
         case "B", "I", "H", "A6", "A3":

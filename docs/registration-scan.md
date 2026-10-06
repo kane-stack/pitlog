@@ -67,6 +67,27 @@ jetzt abdeckt (synthetische Tests in `RegistrationFieldBTests`, keine echten Dat
 - **Vorauswahl im Review:** *hoch* und *mittel* sind an, nur *niedrig* ist aus. Ein plausibles Datum aus B ist damit
   wie die anderen sicheren Felder vorausgewählt. Die UI-Fixture `mixed` zeigt den *niedrigen* Fall jetzt über B nach I.
 
+### Scheckkarte: Vorderseite und Hinweise (zweiter Gerätetest)
+
+Beim Test mit der Karte meldete das Review „Nur die Rückseite wurde gelesen“, obwohl beide Seiten gescannt waren
+(der Zähler zeigte 2). Die Meldung hing nur daran, dass weder Kennzeichen noch Erstzulassung gelesen wurden, und
+behauptete damit, die Vorderseite fehle. Jetzt gilt:
+
+- **Hinweise:** *Fehlt* eine Seite wirklich (nur eine nicht leere Seite gescannt), bleibt der alte Hinweis
+  („Nur die Rückseite/Vorderseite wurde gelesen …“). Wurde die andere Seite gescannt, aber nichts gelesen, lautet er:
+  „Auf der Vorderseite konnten Kennzeichen und Erstzulassung nicht gelesen werden. Versuch es mit besserem Licht
+  oder trag sie selbst ein.“ bzw. für die Rückseite (FIN, Marke, Modell). Die Rückseite erkennt der Parser an der
+  Legende, die Vorderseite am Titel; als gescannt zählt jede Seite mit Text, die nicht die Legendenseite ist.
+  Neue Notices `cardFrontUnreadable` und `cardBackUnreadable`.
+- **Titel der Vorderseite:** auch `TEIL1`, `TEIL I`, `TEILI`, `TEIL l` (OCR liest die 1 als I oder l).
+- **A und B in einer Zeile ohne Boxen** (`A S-4455AA B 10.06.2022`, `A … I 11.06.2022 B 10.06.2022`): Ein schlichtes
+  `B` oder `I` direkt vor einem vollständigen Datum beginnt auch mitten in der Zeile ein Feld. Nicht hinter D.1 bis D.3
+  (dort ist `Typ B 10.06.2022` Text) und nicht als OCR-Variante (`8`). Mit Boxen trug das schon vorher.
+- **Reihenfolge der Seiten:** Rückseite vor Vorderseite liefert dasselbe (Test).
+- Ungeprüft bleibt, wie Vision die kleine Schrift der echten Karte liest. Die Layouts in `RegistrationCardFrontTests`
+  sind Annahmen (Code und Wert in getrennten Zeilen, nebeneinander, mit und ohne Punkt, zusammengeklebt).
+  Der Debug-Dump (jetzt mit Zeilenzahl je Seite und Leerzeile zwischen den Seiten) zeigt, was wirklich ankommt.
+
 ### Diagnose „Erkannte Zeilen kopieren“ (nur Debug)
 
 Im Review des Zulassungsscheins steht in Debug-Builds (`#if DEBUG`, nicht im Release und ohne Katalogtexte, wie die

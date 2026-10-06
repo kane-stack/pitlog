@@ -195,7 +195,7 @@ struct RegistrationReviewTests {
         let text = RecognizedLinesDump.text(from: [
             [RecognizedLine(text: "B", box: Rect(x: 0.05, y: 0.3, w: 0.03, h: 0.02)), RecognizedLine(text: "12.03.2015")],
         ])
-        #expect(text.contains("## page 1 of 1"))
+        #expect(text.contains("## page 1 of 1 (2 lines)"))
         #expect(text.contains("0.050 0.300 0.030 0.020 | B"))
         #expect(text.contains("- - - - | 12.03.2015"))
     }

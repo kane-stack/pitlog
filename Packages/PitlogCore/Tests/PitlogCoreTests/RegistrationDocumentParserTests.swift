@@ -824,3 +824,96 @@ struct RegistrationGeometryTests {
         #expect(draft.make?.value == "DEMO")
     }
 }
+
+// MARK: Chip card front and the notices about its sides
+
+private let cardHeading = "ZULASSUNGSBESCHEINIGUNG TEIL 1"
+private let cardBack = RegistrationFixtures.card2023.pages[1]
+
+struct CardFrontCase: Sendable, CustomTestStringConvertible {
+    let lines: [String]
+    var testDescription: String { lines.joined(separator: " ⏎ ") }
+}
+
+@Suite("RegistrationDocumentParser chip card front")
+struct RegistrationCardFrontTests {
+    private static let heading = cardHeading
+    private static let back = cardBack
+
+    @Test("plate and first registration on the card front, in several layouts", arguments: [
+        CardFrontCase(lines: [cardHeading, "A", "S-4455AA", "B", "10.06.2022"]),
+        CardFrontCase(lines: [cardHeading, "A S-4455AA", "B 10.06.2022"]),
+        CardFrontCase(lines: [cardHeading, "A S-4455AA B 10.06.2022"]),
+        CardFrontCase(lines: [cardHeading, "A S-4455AA I 11.06.2022 B 10.06.2022"]),
+        CardFrontCase(lines: [cardHeading, "A S-4455AA B 10.06.2022 I 11.06.2022"]),
+        CardFrontCase(lines: [cardHeading, "A S-4455AA", "B10.06.2022"]),
+        CardFrontCase(lines: [cardHeading, "A", "S-4455AA", "B Erstmalige Zulassung", "10.06.2022", "I Zugelassen", "11.06.2022"]),
+        CardFrontCase(lines: [cardHeading, "A.", "S-4455AA", "B.", "10 .06. 2022"]),
+        CardFrontCase(lines: [cardHeading, "A S-4455AA", "B 10.06.22"]),
+        CardFrontCase(lines: ["Zulassungsbescheinigung Teil I", "A S-4455AA B 10.06.2022"]),
+        CardFrontCase(lines: ["ZULASSUNGSBESCHEINIGUNG TEIL1", "A S-4455AA B 10.06.2022"]),
+    ])
+    func layouts(testCase: CardFrontCase) {
+        for pages in [[testCase.lines], [testCase.lines, Self.back], [Self.back, testCase.lines]] {
+            let draft = parse(pages)
+            #expect(draft.plate?.value == "S-4455AA", "\(testCase.testDescription)")
+            #expect(draft.firstRegistration?.value == day(2022, 6, 10), "\(testCase.testDescription)")
+            #expect((draft.firstRegistration?.confidence ?? .low) >= .medium, "\(testCase.testDescription)")
+        }
+    }
+
+    @Test("with boxes: A and B side by side, each in its own cell")
+    func boxedFront() {
+        func line(_ text: String, _ x: Double, _ y: Double) -> RecognizedLine {
+            RecognizedLine(text: text, box: Rect(x: x, y: y, w: 0.15, h: 0.03))
+        }
+        let draft = RegistrationDocumentParser().parse(
+            [
+                line("ZULASSUNGSBESCHEINIGUNG TEIL 1", 0.1, 0.05),
+                line("A", 0.05, 0.20), line("S-4455AA", 0.12, 0.20),
+                line("B", 0.55, 0.20), line("10.06.2022", 0.62, 0.20),
+            ], today: today)
+        #expect(draft.plate?.value == "S-4455AA")
+        #expect(draft.firstRegistration?.value == day(2022, 6, 10))
+    }
+
+    @Test("a heading with the part number in several spellings is the card front", arguments: [
+        "ZULASSUNGSBESCHEINIGUNG TEIL 1", "ZULASSUNGSBESCHEINIGUNG TEIL1", "Zulassungsbescheinigung Teil I",
+        "ZULASSUNGSBESCHEINIGUNG TEILI", "ZULASSUNGSBESCHEINIGUNG TEIL l", "ZULASSUNGSBESCHEINIGUNG TEILl",
+    ])
+    func headings(heading: String) {
+        let draft = parse([[cardHeading, "A S-4455AA", "B 10.06.2022"]])
+        #expect(draft.notices == [.cardBackSideMissing], "\(heading)")
+    }
+
+    @Test("a side that was scanned but gave nothing is unreadable, not missing")
+    func unreadableSides() {
+        let junk = [Self.heading, "Kz Erstm Zul xxxx", "~~~ 12 ~~~"]
+        let blur = ["ZULASSUNG", "lllll"]
+        // Front unreadable, back read, in both orders.
+        #expect(parse([junk, Self.back]).notices == [.cardFrontUnreadable])
+        #expect(parse([Self.back, junk]).notices == [.cardFrontUnreadable])
+        #expect(parse([blur, Self.back]).notices == [.cardFrontUnreadable])
+        #expect(parse([Self.back, blur]).vin?.value == "ZXY3C45678D901234")
+        // Back unreadable, front read.
+        let front = [Self.heading, "A S-4455AA", "B 10.06.2022"]
+        #expect(parse([front, blur]).notices == [.cardBackUnreadable])
+        #expect(parse([blur, front]).notices == [.cardBackUnreadable])
+        // A side that was not scanned at all is still missing.
+        #expect(parse([front]).notices == [.cardBackSideMissing])
+        #expect(parse([Self.back]).notices == [.cardFrontSideMissing])
+        // A page without any text does not count as scanned.
+        #expect(parse([Self.back, []]).notices == [.cardFrontSideMissing])
+        #expect(parse([front, ["", "  "]]).notices == [.cardBackSideMissing])
+        // Both sides read: nothing to say.
+        #expect(parse([front, Self.back]).notices.isEmpty)
+    }
+
+    @Test("B in the middle of a line needs a plain B and a complete date")
+    func midLineB() {
+        // A variant of the code (8 for B) or a word before a date is not a field start in the middle of a line.
+        #expect(parse([["A S-4455AA 8 10.06.2022"]]).firstRegistration == nil)
+        #expect(parse([["Zulassung B Wien 10.06.2022"]]).firstRegistration == nil)
+        #expect(parse([["D3 Handelsbezeichnung Typ B 10.06.2022"]]).firstRegistration == nil)
+    }
+}

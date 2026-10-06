@@ -6,9 +6,14 @@ import PitlogCore
 /// The text holds whatever the certificate shows, including the holder's name and address.
 enum RecognizedLinesDump {
     static func text(from pages: [[RecognizedLine]]) -> String {
-        var output: [String] = ["# Recognized lines: page, then x y w h | text (origin top left, 0...1)"]
+        var output: [String] = [
+            "# Recognized lines per page: x y w h | text (origin top left, 0...1)",
+            "# \(pages.count) page(s): " + pages.map { "\($0.count) lines" }.joined(separator: ", "),
+        ]
         for (index, page) in pages.enumerated() {
-            output.append("## page \(index + 1) of \(pages.count)")
+            output.append("")
+            output.append("## page \(index + 1) of \(pages.count) (\(page.count) lines)")
+            if page.isEmpty { output.append("(no lines recognized)") }
             for line in page {
                 if let box = line.box {
                     output.append("\(format(box.x)) \(format(box.y)) \(format(box.w)) \(format(box.h)) | \(line.text)")

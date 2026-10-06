@@ -59,6 +59,10 @@ extension RegistrationScanNotice {
             LocalizedStringResource("Only the front of the card was read. Scan the back as well for VIN, make and model.", comment: "Registration review: notice when only the front of the chip card was scanned")
         case .cardFrontSideMissing:
             LocalizedStringResource("Only the back of the card was read. Scan the front as well for the license plate and the first registration.", comment: "Registration review: notice when only the back of the chip card was scanned")
+        case .cardFrontUnreadable:
+            LocalizedStringResource("The license plate and the first registration could not be read from the front of the card. Try again with better light, or enter them yourself.", comment: "Registration review: notice when the front of the chip card was scanned but plate and first registration could not be read")
+        case .cardBackUnreadable:
+            LocalizedStringResource("VIN, make and model could not be read from the back of the card. Try again with better light, or enter them yourself.", comment: "Registration review: notice when the back of the chip card was scanned but VIN, make and model could not be read")
         }
     }
 }
