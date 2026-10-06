@@ -1,8 +1,9 @@
 # Gerätetest (Checkliste für Christopher)
 
 Was nur auf einem echten iPhone mit iOS 26 geklärt werden kann. Kurz, abhakbar. Hintergrund und bisherige Befunde:
-`docs/accessibility-audit.md`. Der Simulator-Audit (`performAccessibilityAudit`) ist grün bis auf die dort dokumentierten
-Reste; er ersetzt den Durchgang hier nicht.
+`docs/accessibility-audit.md`. Der Simulator-Audit (`performAccessibilityAudit`) ist **rot**: 35 UI-Tests melden die dort dokumentierten
+Reste (je ein wechselndes „Dynamic Type“-Element, wenige Kontrast- und „Text clipped“-Befunde ohne Element). Er ersetzt den
+Durchgang hier nicht.
 
 Vorbereitung: Debug- oder TestFlight-Build, iCloud angemeldet, Mitteilungen erlaubt. Zweites Gerät für den Sync.
 
