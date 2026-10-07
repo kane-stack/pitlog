@@ -9,17 +9,17 @@
       "localizations": [
         {
           "description": "One purchase, no subscription.",
-          "displayName": "Pitlog Pro Lifetime",
+          "displayName": "Wagemo Pro Lifetime",
           "locale": "en_US"
         },
         {
           "description": "Einmal kaufen, kein Abo.",
-          "displayName": "Pitlog Pro Lifetime",
+          "displayName": "Wagemo Pro Lifetime",
           "locale": "de"
         }
       ],
       "productID": "com.kane.pitlog.pro.lifetime",
-      "referenceName": "Pitlog Pro Lifetime",
+      "referenceName": "Wagemo Pro Lifetime",
       "type": "NonConsumable"
     }
   ],
@@ -49,7 +49,7 @@
     {
       "id": "21700001",
       "localizations": [],
-      "name": "Pitlog Pro",
+      "name": "Wagemo Pro",
       "subscriptions": [
         {
           "adHocOffers": [],
@@ -66,18 +66,18 @@
           "localizations": [
             {
               "description": "Yearly subscription, 14 days free.",
-              "displayName": "Pitlog Pro",
+              "displayName": "Wagemo Pro",
               "locale": "en_US"
             },
             {
               "description": "Jahresabo, 14 Tage gratis.",
-              "displayName": "Pitlog Pro",
+              "displayName": "Wagemo Pro",
               "locale": "de"
             }
           ],
           "productID": "com.kane.pitlog.pro.yearly",
           "recurringSubscriptionPeriod": "P1Y",
-          "referenceName": "Pitlog Pro Yearly",
+          "referenceName": "Wagemo Pro Yearly",
           "subscriptionGroupID": "21700001",
           "type": "RecurringSubscription",
           "winbackOffers": []

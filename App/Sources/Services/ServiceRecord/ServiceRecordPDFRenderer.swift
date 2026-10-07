@@ -51,7 +51,7 @@ struct ServiceRecordPDFRenderer: Sendable {
         // Title and creator only. No author: the document must not carry the owner's name.
         format.documentInfo = [
             kCGPDFContextTitle as String: texts.title,
-            kCGPDFContextCreator as String: "Pitlog",
+            kCGPDFContextCreator as String: "Wagemo",
         ]
         let renderer = UIGraphicsPDFRenderer(bounds: CGRect(origin: .zero, size: Self.pageSize), format: format)
         var pageCount = 0

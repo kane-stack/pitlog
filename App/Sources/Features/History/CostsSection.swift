@@ -78,15 +78,15 @@ struct CostsSection: View {
         }
     }
 
-    /// Free plan: where the chart would be, a note that earlier years need Pitlog Pro.
+    /// Free plan: where the chart would be, a note that earlier years need Wagemo Pro.
     @ViewBuilder
     private var earlierYearsHint: some View {
         ActionRow(
             title: Text("Costs of earlier years and chart", comment: "Costs: locked row for the costs of earlier years and the chart across the years"),
             systemImage: "chart.bar", showsProBadge: true, identifier: "costsEarlierYearsRow",
             accessibilityLabelText: hasHiddenYears
-                ? Text("Costs of earlier years and chart, requires Pitlog Pro. Costs from earlier years are not shown.", comment: "VoiceOver label of the locked costs row when entries of earlier years exist")
-                : Text("Costs of earlier years and chart, requires Pitlog Pro", comment: "VoiceOver label of the locked costs row"),
+                ? Text("Costs of earlier years and chart, requires Wagemo Pro. Costs from earlier years are not shown.", comment: "VoiceOver label of the locked costs row when entries of earlier years exist")
+                : Text("Costs of earlier years and chart, requires Wagemo Pro", comment: "VoiceOver label of the locked costs row"),
             action: onUpgrade)
     }
 

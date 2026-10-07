@@ -29,7 +29,7 @@ struct NotificationPermissionPrompt: ViewModifier {
             }
         } message: {
             Text(
-                "Pitlog reminds you of deadlines with notifications on this device. Nothing is sent to a server. Next, iOS asks for your permission.",
+                "Wagemo reminds you of deadlines with notifications on this device. Nothing is sent to a server. Next, iOS asks for your permission.",
                 comment: "Alert message explaining why notifications are needed, before the system prompt")
         }
     }
@@ -69,7 +69,7 @@ struct NotificationPermissionRow: View {
                 .accessibilityIdentifier("allowNotificationsButton")
             case .denied:
                 Label {
-                    Text("Notifications are turned off for Pitlog. You will not get reminders.", comment: "Shown when the user denied the notification permission").fixedSize(horizontal: false, vertical: true)
+                    Text("Notifications are turned off for Wagemo. You will not get reminders.", comment: "Shown when the user denied the notification permission").fixedSize(horizontal: false, vertical: true)
                 } icon: {
                     Image(systemName: "bell.slash")
                 }

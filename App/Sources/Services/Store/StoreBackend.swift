@@ -1,7 +1,7 @@
 import Foundation
 import PitlogCore
 
-/// A product of Pitlog Pro as the paywall shows it. Prices are StoreKit's `displayPrice`, never hard coded.
+/// A product of Wagemo Pro as the paywall shows it. Prices are StoreKit's `displayPrice`, never hard coded.
 struct StoreProduct: Identifiable, Hashable, Sendable {
     enum Kind: Hashable, Sendable {
         case subscription

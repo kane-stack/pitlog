@@ -9,7 +9,7 @@ struct LegalView: View {
                 card {
                     heading(Text("Disclaimer", comment: "Legal screen: section header"))
                     LegalNoticeView()
-                    Text("Pitlog calculates inspection deadlines from the first registration and the date on your inspection sticker. Some rules of the 2027 inspection reform are still legally open. In doubt the app shows the earlier deadline. It does not replace the sticker, the registration certificate or advice from an inspection station.", comment: "Legal screen: full disclaimer")
+                    Text("Wagemo calculates inspection deadlines from the first registration and the date on your inspection sticker. Some rules of the 2027 inspection reform are still legally open. In doubt the app shows the earlier deadline. It does not replace the sticker, the registration certificate or advice from an inspection station.", comment: "Legal screen: full disclaimer")
                         .wrapsText()
                 }
 

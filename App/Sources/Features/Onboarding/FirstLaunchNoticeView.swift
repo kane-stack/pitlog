@@ -15,7 +15,7 @@ struct FirstLaunchNoticeView: View {
                         .font(.title)
                         .fontWeight(.bold)
                         .wrapsText()
-                    Text("Pitlog helps you keep track of inspection deadlines. The calculation is a suggestion based on the first registration and the rules known today.", comment: "First launch notice: what the app does")
+                    Text("Wagemo helps you keep track of inspection deadlines. The calculation is a suggestion based on the first registration and the rules known today.", comment: "First launch notice: what the app does")
                         .wrapsText()
                     LegalNoticeText.text
                         .accessibilityLabel(LegalNoticeText.spoken)

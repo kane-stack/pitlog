@@ -132,7 +132,7 @@ struct ServiceRecordExportView: View {
                 Text("Attach receipts", comment: "Service record export: switch to append the receipt images at the end of the PDF")
             }
             .accessibilityIdentifier("serviceRecordReceipts")
-            note(Text("Receipts can contain your name and address. Pitlog does not black anything out. The PDF gets larger.", comment: "Service record export: privacy warning for the receipts switch"))
+            note(Text("Receipts can contain your name and address. Wagemo does not black anything out. The PDF gets larger.", comment: "Service record export: privacy warning for the receipts switch"))
         }
     }
 

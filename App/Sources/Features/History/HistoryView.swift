@@ -151,7 +151,7 @@ struct HistoryView: View {
             title: title, systemImage: "doc.text.viewfinder", showsProBadge: locked,
             identifier: "addFromReceiptRow",
             accessibilityLabelText: locked
-                ? Text("Add from receipt, requires Pitlog Pro", comment: "VoiceOver label of the receipt scan row while the user has no Pro")
+                ? Text("Add from receipt, requires Wagemo Pro", comment: "VoiceOver label of the receipt scan row while the user has no Pro")
                 : nil
         ) { startScan() }
     }
@@ -163,7 +163,7 @@ struct HistoryView: View {
             title: title, systemImage: "doc.richtext", showsProBadge: locked,
             identifier: "exportServiceRecordRow",
             accessibilityLabelText: locked
-                ? Text("Export service record, requires Pitlog Pro", comment: "VoiceOver label of the service record row while the user has no Pro")
+                ? Text("Export service record, requires Wagemo Pro", comment: "VoiceOver label of the service record row while the user has no Pro")
                 : nil
         ) { startExport() }
     }
