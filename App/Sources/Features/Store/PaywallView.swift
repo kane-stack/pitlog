@@ -1,7 +1,7 @@
 import PitlogCore
 import SwiftUI
 
-/// The Pitlog Pro paywall (ADR-11). It shows what Pro includes, both products with the price from StoreKit,
+/// The Wagemo Pro paywall (ADR-11). It shows what Pro includes, both products with the price from StoreKit,
 /// the free trial only for users who are eligible for it, the renewal terms (App Store Review Guideline
 /// 3.1.2), "Restore purchases" and the links to the terms and the privacy policy.
 struct PaywallView: View {
@@ -22,24 +22,24 @@ struct PaywallView: View {
         [
             Benefit(
                 id: .vehicles, systemImage: "car.2",
-                title: Text("More vehicles", comment: "Pitlog Pro benefit"),
-                detail: Text("Keep as many vehicles as you like and edit all of them.", comment: "Pitlog Pro benefit: more vehicles")),
+                title: Text("More vehicles", comment: "Wagemo Pro benefit"),
+                detail: Text("Keep as many vehicles as you like and edit all of them.", comment: "Wagemo Pro benefit: more vehicles")),
             Benefit(
                 id: .reminders, systemImage: "bell.badge",
-                title: Text("More reminders", comment: "Pitlog Pro benefit"),
-                detail: Text("Tyre changes, service, vignette and your own reminders.", comment: "Pitlog Pro benefit: reminders")),
+                title: Text("More reminders", comment: "Wagemo Pro benefit"),
+                detail: Text("Tyre changes, service, vignette and your own reminders.", comment: "Wagemo Pro benefit: reminders")),
             Benefit(
                 id: .receiptScan, systemImage: "doc.text.viewfinder",
-                title: Text("Receipt scan", comment: "Pitlog Pro benefit"),
-                detail: Text("Scan a workshop receipt and check the values before you save.", comment: "Pitlog Pro benefit: receipt scan")),
+                title: Text("Receipt scan", comment: "Wagemo Pro benefit"),
+                detail: Text("Scan a workshop receipt and check the values before you save.", comment: "Wagemo Pro benefit: receipt scan")),
             Benefit(
                 id: .costs, systemImage: "chart.bar",
-                title: Text("Costs over the years", comment: "Pitlog Pro benefit"),
-                detail: Text("Earlier years and the chart across all years.", comment: "Pitlog Pro benefit: costs over several years")),
+                title: Text("Costs over the years", comment: "Wagemo Pro benefit"),
+                detail: Text("Earlier years and the chart across all years.", comment: "Wagemo Pro benefit: costs over several years")),
             Benefit(
                 id: .serviceRecordExport, systemImage: "doc.richtext",
-                title: Text("Service record", comment: "Pitlog Pro benefit"),
-                detail: Text("A PDF of the history of a vehicle, for example for selling it.", comment: "Pitlog Pro benefit: PDF service record")),
+                title: Text("Service record", comment: "Wagemo Pro benefit"),
+                detail: Text("A PDF of the history of a vehicle, for example for selling it.", comment: "Wagemo Pro benefit: PDF service record")),
         ]
     }
 
@@ -61,7 +61,7 @@ struct PaywallView: View {
                 .padding(.horizontal, 16)
                 .padding(.vertical, 8)
             }
-            .navigationTitle(Text(verbatim: "Pitlog Pro"))
+            .navigationTitle(Text(verbatim: "Wagemo Pro"))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
@@ -84,7 +84,7 @@ struct PaywallView: View {
 
     private var header: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text(verbatim: "Pitlog Pro")
+            Text(verbatim: "Wagemo Pro")
                 .font(.largeTitle.bold())
                 .accessibilityAddTraits(.isHeader)
             Text("Everything for more than one vehicle. No ads, no tracking.", comment: "Paywall: one-line summary")
@@ -98,15 +98,15 @@ struct PaywallView: View {
         case .general:
             nil
         case .vehicles:
-            Text("More than one vehicle is part of Pitlog Pro. Nothing is ever deleted, your other vehicles stay readable.", comment: "Paywall: shown when the user wanted to add or edit another vehicle")
+            Text("More than one vehicle is part of Wagemo Pro. Nothing is ever deleted, your other vehicles stay readable.", comment: "Paywall: shown when the user wanted to add or edit another vehicle")
         case .reminders:
-            Text("Reminders for tyres, service, vignette and your own are part of Pitlog Pro. The inspection reminder stays free.", comment: "Paywall: shown when the user wanted a locked reminder")
+            Text("Reminders for tyres, service, vignette and your own are part of Wagemo Pro. The inspection reminder stays free.", comment: "Paywall: shown when the user wanted a locked reminder")
         case .receiptScan:
-            Text("Scanning receipts is part of Pitlog Pro. You can still attach receipts as photos or files.", comment: "Paywall: shown when the user wanted to scan a receipt")
+            Text("Scanning receipts is part of Wagemo Pro. You can still attach receipts as photos or files.", comment: "Paywall: shown when the user wanted to scan a receipt")
         case .serviceRecordExport:
-            Text("The service record as a PDF is part of Pitlog Pro. Your history stays free.", comment: "Paywall: shown when the user wanted to export the service record")
+            Text("The service record as a PDF is part of Wagemo Pro. Your history stays free.", comment: "Paywall: shown when the user wanted to export the service record")
         case .costs:
-            Text("Costs of earlier years and the chart across all years are part of Pitlog Pro. The current year stays free.", comment: "Paywall: shown when the user wanted the costs of earlier years")
+            Text("Costs of earlier years and the chart across all years are part of Wagemo Pro. The current year stays free.", comment: "Paywall: shown when the user wanted the costs of earlier years")
         }
     }
 
@@ -298,7 +298,7 @@ struct PaywallView: View {
         case .restoreFailed:
             Text("Purchases could not be restored. Check your connection and try again.", comment: "Paywall: restoring failed")
         case .nothingToRestore:
-            Text("No earlier purchase of Pitlog Pro was found for this Apple Account.", comment: "Paywall: restoring found nothing")
+            Text("No earlier purchase of Wagemo Pro was found for this Apple Account.", comment: "Paywall: restoring found nothing")
         }
     }
 }

@@ -1,4 +1,4 @@
-# Pitlog Pro: Umsetzung (M6a)
+# Wagemo Pro: Umsetzung (M6a)
 
 Entscheidung und Begründung: ADR-11 in `CLAUDE.md`, Recherche in `docs/research/monetization.md` (Abschnitt 9).
 Dieses Dokument beschreibt, wie es umgesetzt ist, wie man es testet und was Christopher in App Store Connect einrichten muss.
@@ -63,7 +63,7 @@ Keine neuen Netzwerkaufrufe außer StoreKit (Apples eigener Dienst, keine Dritta
 
 ### Im Simulator mit StoreKit-Konfiguration
 1. `scripts/bootstrap.sh`, `Pitlog.xcodeproj` öffnen. Das Schema „Pitlog“ nutzt `App/StoreKit/Pitlog.storekit` (Storefront AUT, EUR; die Datei liegt außerhalb der Quellordner und kommt nicht ins App-Bundle).
-2. Mit dem Schema ausführen: Die Paywall (Einstellungen → „Pitlog Pro holen“) zeigt die Produkte aus der Datei, den Gratiszeitraum und kauft ohne App Store Connect.
+2. Mit dem Schema ausführen: Die Paywall (Einstellungen → „Wagemo Pro holen“) zeigt die Produkte aus der Datei, den Gratiszeitraum und kauft ohne App Store Connect.
 3. Debug → StoreKit → Transaction Manager: Käufe ansehen, **Refund** (Widerruf), **Expire Subscription**, „Enable Billing Retry“ bzw. Grace Period, „Ask to Buy“, Zeit beschleunigen (Abo läuft in Minuten ab). Die App sollte nach `Transaction.updates` bzw. beim Aktivieren neu bewerten.
 4. Einstellungen → Entwickler (nur Debug) → „Pro status override“ schaltet die Gates ohne Kauf (nur im Speicher, wird beim Neustart zurückgesetzt).
 5. Gegenprobe: Abo ablaufen lassen, prüfen: Fahrzeuge bleiben sichtbar, nur das erste ist bearbeitbar, Pro-Erinnerungen tragen Schloss und werden nicht mehr geplant, Pickerl-Erinnerungen laufen weiter.
@@ -72,16 +72,16 @@ Keine neuen Netzwerkaufrufe außer StoreKit (Apples eigener Dienst, keine Dritta
 
 1. **Vereinbarungen:** App Store Connect → Business (Vereinbarungen, Steuer, Bank): Vertrag „Paid Apps“ akzeptieren, Bankverbindung und Steuerformulare ausfüllen. Ohne ihn lassen sich keine Käufe testen oder veröffentlichen.
 2. **Small Business Program:** Auf developer.apple.com/app-store/small-business-program anmelden (15 % statt 30 % Provision, solange der Umsatz unter 1 Mio. US-$ im Jahr bleibt). Die Anmeldung muss vor den ersten Umsätzen bestätigt sein.
-3. **App anlegen:** Apps → „+“ → Neue App: Plattform iOS, Name „Pitlog“ (Arbeitsname, vorher Markenrecherche, siehe Offene Fragen Nr. 8), Hauptsprache Deutsch (Österreich) oder Englisch, Bundle-ID `com.kane.pitlog` (muss unter Zertifikate, Identifier bereits existieren), SKU frei, z. B. `pitlog-ios`.
-4. **Abo-Gruppe:** App → Monetarisierung → Abonnements → Gruppe anlegen, Referenzname „Pitlog Pro“. Anzeigename der Gruppe (en: „Pitlog Pro“, de: „Pitlog Pro“).
-5. **Jahresabo:** In der Gruppe ein Abo anlegen: Referenzname „Pitlog Pro Yearly“, **Produkt-ID `com.kane.pitlog.pro.yearly`** (nicht änderbar), Dauer 1 Jahr, **Preis 4,99 €** (Österreich als Basis, die übrigen Länder übernehmen die Preisstufen).
+3. **App anlegen:** Apps → „+“ → Neue App: Plattform iOS, Name „Wagemo“ (Arbeitsname, vorher Markenrecherche, siehe Offene Fragen Nr. 8), Hauptsprache Deutsch (Österreich) oder Englisch, Bundle-ID `com.kane.pitlog` (muss unter Zertifikate, Identifier bereits existieren), SKU frei, z. B. `pitlog-ios`.
+4. **Abo-Gruppe:** App → Monetarisierung → Abonnements → Gruppe anlegen, Referenzname „Wagemo Pro“. Anzeigename der Gruppe (en: „Wagemo Pro“, de: „Wagemo Pro“).
+5. **Jahresabo:** In der Gruppe ein Abo anlegen: Referenzname „Wagemo Pro Yearly“, **Produkt-ID `com.kane.pitlog.pro.yearly`** (nicht änderbar), Dauer 1 Jahr, **Preis 4,99 €** (Österreich als Basis, die übrigen Länder übernehmen die Preisstufen).
 6. **Einführungsangebot:** Im Abo → Abonnementpreise → Einführungsangebot: Typ „Gratis“, Dauer 2 Wochen, Länder alle, Neukunden. Die App zeigt den Gratiszeitraum nur, wenn der Nutzer dafür berechtigt ist.
 7. **Familienfreigabe:** Im Abo „Familienfreigabe aktivieren“ einschalten (nach dem Aktivieren nicht mehr abschaltbar).
-8. **Lifetime-Kauf:** Monetarisierung → In-App-Käufe → „+“: Typ **Nicht verbrauchbar**, Referenzname „Pitlog Pro Lifetime“, **Produkt-ID `com.kane.pitlog.pro.lifetime`**, **Preis 14,99 €**, Familienfreigabe aktivieren.
+8. **Lifetime-Kauf:** Monetarisierung → In-App-Käufe → „+“: Typ **Nicht verbrauchbar**, Referenzname „Wagemo Pro Lifetime“, **Produkt-ID `com.kane.pitlog.pro.lifetime`**, **Preis 14,99 €**, Familienfreigabe aktivieren.
 9. **Lokalisierung der Produktnamen (en und de):** Pro Produkt und für die Abo-Gruppe Anzeigename und Beschreibung eintragen.
-   - Jahresabo: en „Pitlog Pro“ / „Yearly subscription: more vehicles, reminders, receipt scan and costs over the years.“; de „Pitlog Pro“ / „Jahresabo: mehr Fahrzeuge, Erinnerungen, Belegscan und Kosten über die Jahre.“
-   - Lifetime: en „Pitlog Pro Lifetime“ / „One purchase, no subscription.“; de „Pitlog Pro Lifetime“ / „Einmal kaufen, kein Abo.“
-10. **Review-Screenshot und Hinweise:** Bei beiden Produkten einen Screenshot der Paywall (Einstellungen → Pitlog Pro holen) hochladen und im Review-Hinweis erklären, wo man sie findet. Die Produkte müssen mit der ersten App-Version zur Prüfung eingereicht werden.
-11. **Datenschutzerklärung und App-Informationen:** Eine öffentliche Datenschutzerklärung veröffentlichen (Hinweis: keine Daten erfasst, CloudKit privat, StoreKit durch Apple), die URL in App Store Connect (App-Informationen → Datenschutzerklärung-URL) eintragen und in `AppLinks.privacyPolicy` ersetzen. Nutzungsbedingungen: Apples Standard-EULA reicht (Link ist in der Paywall); die Abo-Angaben stehen bereits in der App-Beschreibung zu ergänzen („Pitlog Pro: Jahresabo 4,99 €, verlängert sich automatisch …“, Link zu Datenschutz und Nutzungsbedingungen).
+   - Jahresabo: en „Wagemo Pro“ / „Yearly subscription: more vehicles, reminders, receipt scan and costs over the years.“; de „Wagemo Pro“ / „Jahresabo: mehr Fahrzeuge, Erinnerungen, Belegscan und Kosten über die Jahre.“
+   - Lifetime: en „Wagemo Pro Lifetime“ / „One purchase, no subscription.“; de „Wagemo Pro Lifetime“ / „Einmal kaufen, kein Abo.“
+10. **Review-Screenshot und Hinweise:** Bei beiden Produkten einen Screenshot der Paywall (Einstellungen → Wagemo Pro holen) hochladen und im Review-Hinweis erklären, wo man sie findet. Die Produkte müssen mit der ersten App-Version zur Prüfung eingereicht werden.
+11. **Datenschutzerklärung und App-Informationen:** Eine öffentliche Datenschutzerklärung veröffentlichen (Hinweis: keine Daten erfasst, CloudKit privat, StoreKit durch Apple), die URL in App Store Connect (App-Informationen → Datenschutzerklärung-URL) eintragen und in `AppLinks.privacyPolicy` ersetzen. Nutzungsbedingungen: Apples Standard-EULA reicht (Link ist in der Paywall); die Abo-Angaben stehen bereits in der App-Beschreibung zu ergänzen („Wagemo Pro: Jahresabo 4,99 €, verlängert sich automatisch …“, Link zu Datenschutz und Nutzungsbedingungen).
 12. **App-Datenschutz:** „Daten werden nicht erfasst“ (ADR-12).
 13. **Test mit Sandbox/TestFlight:** Unter Benutzer und Zugriff einen Sandbox-Tester anlegen; auf dem Gerät Kauf, Wiederherstellen und Ablauf prüfen (Sandbox verkürzt die Abo-Laufzeit). Vor dem Release das CloudKit-Schema nach Production deployen (Offene Frage Nr. 7).

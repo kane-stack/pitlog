@@ -45,7 +45,7 @@ struct ServiceRecordTexts: Sendable {
     }
 
     var footer: String {
-        string("Entered by the vehicle owner, not verified. Created with Pitlog.", "Service record PDF: footer on every page. States that the data was entered by the owner and not checked")
+        string("Entered by the vehicle owner, not verified. Created with Wagemo.", "Service record PDF: footer on every page. States that the data was entered by the owner and not checked")
     }
 
     func pageNumber(_ page: Int, of total: Int) -> String {

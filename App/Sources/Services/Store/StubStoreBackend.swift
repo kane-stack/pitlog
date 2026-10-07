@@ -23,11 +23,11 @@ struct StubStoreBackend: StoreBackend {
     func loadProducts() async throws -> [StoreProduct] {
         [
             StoreProduct(
-                id: ProProduct.yearly, kind: .subscription, displayName: "Pitlog Pro", displayPrice: Self.price(499),
+                id: ProProduct.yearly, kind: .subscription, displayName: "Wagemo Pro", displayPrice: Self.price(499),
                 isFamilyShareable: true, period: .init(value: 1, unit: .year),
                 freeTrial: freeTrial ? .init(value: 2, unit: .week) : nil),
             StoreProduct(
-                id: ProProduct.lifetime, kind: .lifetime, displayName: "Pitlog Pro Lifetime", displayPrice: Self.price(1499),
+                id: ProProduct.lifetime, kind: .lifetime, displayName: "Wagemo Pro Lifetime", displayPrice: Self.price(1499),
                 isFamilyShareable: true, period: nil, freeTrial: nil),
         ]
     }

@@ -223,7 +223,7 @@ struct EntryEditorView: View {
                 identifier: "scanReceiptRow",
                 accessibilityLabelText: entitlements.canScanReceipts
                     ? nil
-                    : Text("Scan receipt, requires Pitlog Pro", comment: "VoiceOver label of the receipt scan row in the entry editor while the user has no Pro")
+                    : Text("Scan receipt, requires Wagemo Pro", comment: "VoiceOver label of the receipt scan row in the entry editor while the user has no Pro")
             ) { startScan() }
             addRow(
                 Text("Add from Files", comment: "Entry editor: attach a receipt from the Files app"),

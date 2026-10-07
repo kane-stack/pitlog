@@ -638,7 +638,7 @@ final class AccessibilityAuditTests: XCTestCase {
         XCTAssertTrue(app.buttons["saveEntryButton"].exists)
     }
 
-    // MARK: Pitlog Pro (M6a)
+    // MARK: Wagemo Pro (M6a)
 
     // The debug build replaces StoreKit by a fixed store: `-UITestFree` or `-UITestPro` (sample data alone is
     // Pro, so that every other test stays about its own screen). The paywall shows sample products there.
@@ -822,7 +822,7 @@ final class AccessibilityAuditTests: XCTestCase {
         let app = openHistory(extraArguments: ["-UITestNoReceiptScan"])
         let add = app.descendants(matching: .any)["addFromReceiptRow"]
         XCTAssertTrue(scrollUntilVisible(add, in: app))
-        XCTAssertTrue(add.label.contains("Pitlog Pro"))
+        XCTAssertTrue(add.label.contains("Wagemo Pro"))
     }
 
     // MARK: Service record (M6b)
@@ -923,14 +923,14 @@ final class AccessibilityAuditTests: XCTestCase {
     @MainActor
     func testLockedServiceRecordRowPassesAccessibilityAudit() throws {
         let app = openFreeHistory()
-        XCTAssertTrue(app.descendants(matching: .any)["exportServiceRecordRow"].label.contains("Pitlog Pro"))
+        XCTAssertTrue(app.descendants(matching: .any)["exportServiceRecordRow"].label.contains("Wagemo Pro"))
         try audit(app, "service-record-locked-en")
     }
 
     @MainActor
     func testLockedServiceRecordRowPassesAccessibilityAuditInGerman() throws {
         let app = openFreeHistory(german: true)
-        XCTAssertTrue(app.descendants(matching: .any)["exportServiceRecordRow"].label.contains("Pitlog Pro"))
+        XCTAssertTrue(app.descendants(matching: .any)["exportServiceRecordRow"].label.contains("Wagemo Pro"))
         try audit(app, "service-record-locked-de")
     }
 

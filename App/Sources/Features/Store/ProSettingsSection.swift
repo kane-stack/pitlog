@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// The "Pitlog Pro" section of the settings: status, buy, restore, manage the subscription.
+/// The "Wagemo Pro" section of the settings: status, buy, restore, manage the subscription.
 /// The sheets (paywall, subscription management) hang on the list, so this section only reports taps.
 struct ProSettingsSection: View {
     let onShowPaywall: () -> Void
@@ -13,7 +13,7 @@ struct ProSettingsSection: View {
         Section {
             VStack(alignment: .leading, spacing: 4) {
                 Label {
-                    Text(verbatim: "Pitlog Pro")
+                    Text(verbatim: "Wagemo Pro")
                         .font(.headline)
                 } icon: {
                     Image(systemName: "sparkles")
@@ -28,7 +28,7 @@ struct ProSettingsSection: View {
 
             if store.status.source == .none {
                 ActionRow(
-                    title: Text("Get Pitlog Pro", comment: "Settings: opens the paywall"),
+                    title: Text("Get Wagemo Pro", comment: "Settings: opens the paywall"),
                     systemImage: "lock.open", identifier: "getProRow", action: onShowPaywall)
             }
             if store.status.source == .subscription {
@@ -79,7 +79,7 @@ struct ProSettingsSection: View {
         case .restoreFailed:
             Text("Purchases could not be restored. Check your connection and try again.", comment: "Paywall: restoring failed")
         case .nothingToRestore:
-            Text("No earlier purchase of Pitlog Pro was found for this Apple Account.", comment: "Paywall: restoring found nothing")
+            Text("No earlier purchase of Wagemo Pro was found for this Apple Account.", comment: "Paywall: restoring found nothing")
         }
     }
 }

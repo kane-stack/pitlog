@@ -2,7 +2,7 @@ import Foundation
 import Observation
 import PitlogCore
 
-/// The Pitlog Pro state of this device (ADR-11): products, purchase, restore and the entitlement status.
+/// The Wagemo Pro state of this device (ADR-11): products, purchase, restore and the entitlement status.
 ///
 /// The status comes from StoreKit only and is cached in this device's user defaults so that the app knows
 /// it at launch. It is never written to SwiftData or CloudKit. Verification problems never lock the user

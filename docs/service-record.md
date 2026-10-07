@@ -21,9 +21,9 @@ Der Einstieg liegt nur in der Historie, nicht zusätzlich im Fahrzeugdetail. Ein
 3. **Historie** als Tabelle: Nr., Datum, km, Kategorie, Werkstatt und Arbeiten, Betrag (optional), Beleg.
 4. **Kosten** (nur mit Beträgen): Summe je Jahr und gesamt, **je Währung getrennt**, nie umgerechnet (`Money`, `Int64` in Minor Units, kein `Double`).
 5. **Anhang** (optional): die Belege (Fotos und PDF-Seiten), je Eintrag mit Kopfzeile „Beleg zu Eintrag 3: 14. März 2026, Service, Autohaus Müller“.
-6. **Fuß auf jeder Seite:** „Angaben vom Fahrzeughalter erfasst, nicht geprüft. Erstellt mit Pitlog.“ und „Seite x von y“.
+6. **Fuß auf jeder Seite:** „Angaben vom Fahrzeughalter erfasst, nicht geprüft. Erstellt mit Wagemo.“ und „Seite x von y“.
 
-PDF-Metadaten: Titel, Creator „Pitlog“, **kein Autor**.
+PDF-Metadaten: Titel, Creator „Wagemo“, **kein Autor**.
 
 ### Reihenfolge: neueste zuerst
 
@@ -40,7 +40,7 @@ Datum, Zahlen und Beträge nur über `FormatStyle` in der App-Sprache (en/de, mi
 | Zeitraum | Alle Einträge | „Ab einem Datum“: Einträge ab diesem Tag (inklusive). Der Kilometerstand im Kopf kommt immer aus der ganzen Historie. |
 | Beträge einschließen | **aus** | Betragsspalte und Kostensummen. Aus: kein Betrag im PDF. |
 | FIN einschließen | an | Zeile „FIN“. Aus: Die Zeile fehlt ganz. |
-| Belege als Anhang | **aus** | Die Belege folgen auf eigenen Seiten. Hinweis im Sheet: Belege können Name und Anschrift enthalten, **Pitlog schwärzt nichts**. |
+| Belege als Anhang | **aus** | Die Belege folgen auf eigenen Seiten. Hinweis im Sheet: Belege können Name und Anschrift enthalten, **Wagemo schwärzt nichts**. |
 
 Die Spalte „Beleg“ zeigt „Ja“ (Beleg vorhanden) bzw. „Angehängt“. Es zählen nur Belege, deren Datei auf dem Gerät liegt (CloudKit lädt `externalStorage` nachträglich).
 
@@ -66,7 +66,7 @@ Die Spalte „Beleg“ zeigt „Ja“ (Beleg vorhanden) bzw. „Angehängt“. E
 
 - Keine Netzwerkaufrufe, keine Drittanbieter, kein Eintrag im Privacy Manifest nötig (keine Required-Reason-API).
 - Das PDF liegt nur im temporären Ordner der App (`…/tmp/ServiceRecords/<UUID>/`, Dateischutz bis zur ersten Entsperrung) und wird beim Schließen des Sheets und beim App-Start gelöscht. Was der Nutzer teilt, liegt danach beim Empfänger.
-- **Belege können personenbezogene Daten Dritter oder des Nutzers enthalten (Name, Anschrift).** Pitlog schwärzt nichts; deshalb ist der Anhang standardmäßig aus und das Sheet warnt.
+- **Belege können personenbezogene Daten Dritter oder des Nutzers enthalten (Name, Anschrift).** Wagemo schwärzt nichts; deshalb ist der Anhang standardmäßig aus und das Sheet warnt.
 - Beträge sind standardmäßig aus, die FIN standardmäßig an, weil ein Käufer sie mit dem Fahrzeug abgleicht. Wer das nicht will, schaltet sie aus.
 - Der Zweck (Haftung): Der Fuß sagt auf jeder Seite, dass die Angaben vom Halter stammen und nicht geprüft sind. Das PDF enthält keine berechnete Pickerl-Frist.
 

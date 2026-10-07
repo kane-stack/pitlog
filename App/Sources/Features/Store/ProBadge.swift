@@ -4,7 +4,7 @@ import SwiftUI
 struct ProBadge: View {
     var body: some View {
         Label {
-            Text("Pro", comment: "Badge on a feature that needs Pitlog Pro. Keep it short.")
+            Text("Pro", comment: "Badge on a feature that needs Wagemo Pro. Keep it short.")
         } icon: {
             Image(systemName: "lock.fill")
         }
@@ -14,7 +14,7 @@ struct ProBadge: View {
         .overlay(Capsule().strokeBorder(Color.primary, lineWidth: 1))
         .fixedSize()
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel(Text("Requires Pitlog Pro", comment: "VoiceOver label of the Pro badge on a locked feature"))
+        .accessibilityLabel(Text("Requires Wagemo Pro", comment: "VoiceOver label of the Pro badge on a locked feature"))
     }
 }
 
@@ -66,13 +66,13 @@ struct ReadOnlyBanner: View {
                 Image(systemName: "lock.fill")
             }
             Text(
-                "The free plan lets you edit one vehicle. This vehicle stays here and you can read everything. Pitlog Pro unlocks editing for all your vehicles.",
+                "The free plan lets you edit one vehicle. This vehicle stays here and you can read everything. Wagemo Pro unlocks editing for all your vehicles.",
                 comment: "Notice on a vehicle that is over the free limit"
             )
             .font(.subheadline)
             .fixedSize(horizontal: false, vertical: true)
             ActionRow(
-                title: Text("About Pitlog Pro", comment: "Row that opens the paywall"),
+                title: Text("About Wagemo Pro", comment: "Row that opens the paywall"),
                 systemImage: "sparkles", identifier: "readOnlyUnlockRow", action: onUnlock)
         }
         .padding()

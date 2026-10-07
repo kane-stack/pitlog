@@ -137,7 +137,7 @@ struct RemindersView: View {
                     .fixedSize(horizontal: false, vertical: true)
             }
             if locked {
-                Text("Not active without Pitlog Pro. Your reminder is kept and works again with Pro.", comment: "Reminders list: a reminder of a Pro type while the user has no Pro")
+                Text("Not active without Wagemo Pro. Your reminder is kept and works again with Pro.", comment: "Reminders list: a reminder of a Pro type while the user has no Pro")
                     .font(.footnote)
                     .fixedSize(horizontal: false, vertical: true)
             }
@@ -148,7 +148,7 @@ struct RemindersView: View {
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(Text(verbatim: (locked ? lockedLabel(presentation) : presentation.accessibilityLabel).withoutSoftHyphens))
         .accessibilityHint(locked
-            ? Text("Opens Pitlog Pro.", comment: "VoiceOver hint of a locked reminder row")
+            ? Text("Opens Wagemo Pro.", comment: "VoiceOver hint of a locked reminder row")
             : Text("Opens the reminder for editing.", comment: "VoiceOver hint of a reminder row"))
         .accessibilityAddTraits(.isButton)
         .accessibilityAction { open(reminder) }
@@ -201,7 +201,7 @@ struct RemindersView: View {
     }
 
     private func lockedLabel(_ presentation: ReminderPresentation) -> String {
-        let pro = String(localized: "Requires Pitlog Pro, not active", locale: locale, comment: "VoiceOver: a reminder of a Pro type while the user has no Pro")
+        let pro = String(localized: "Requires Wagemo Pro, not active", locale: locale, comment: "VoiceOver: a reminder of a Pro type while the user has no Pro")
         return "\(presentation.title). \(pro). \(presentation.dueText)."
     }
 
@@ -250,7 +250,7 @@ struct RemindersView: View {
         .onTapGesture { addTapped() }
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(isLocked
-            ? Text("Add reminder, requires Pitlog Pro", comment: "VoiceOver label of the add reminder row while the user has no Pro")
+            ? Text("Add reminder, requires Wagemo Pro", comment: "VoiceOver label of the add reminder row while the user has no Pro")
             : Text("Add reminder", comment: "Menu button on the vehicle detail to add a reminder"))
         .accessibilityAddTraits(.isButton)
         .accessibilityAction { addTapped() }

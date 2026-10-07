@@ -95,7 +95,7 @@ struct ServiceRecordPDFTests {
         #expect(text.contains("Autohaus Müller"))
         #expect(text.contains("Oil change"))
         #expect(text.contains("3/14/2026"))
-        #expect(text.contains("Entered by the vehicle owner, not verified. Created with Pitlog."))
+        #expect(text.contains("Entered by the vehicle owner, not verified. Created with Wagemo."))
         #expect(text.contains("Page 1 of 1"))
     }
 
@@ -106,7 +106,7 @@ struct ServiceRecordPDFTests {
         #expect(text.contains("Kennzeichen"))
         #expect(text.contains("Erstzulassung"))
         #expect(text.contains("14.3.2026"))
-        #expect(text.contains("Angaben vom Fahrzeughalter erfasst, nicht geprüft. Erstellt mit Pitlog."))
+        #expect(text.contains("Angaben vom Fahrzeughalter erfasst, nicht geprüft. Erstellt mit Wagemo."))
         #expect(text.contains("Seite 1 von 1"))
     }
 
@@ -254,7 +254,7 @@ struct ServiceRecordPDFTests {
             (attributes[key] ?? attributes[key.rawValue]) as? String
         }
         #expect(value(.titleAttribute) == "Service record")
-        #expect(value(.creatorAttribute) == "Pitlog")
+        #expect(value(.creatorAttribute) == "Wagemo")
         let author = value(.authorAttribute)
         #expect(author == nil || author == "")
     }
