@@ -29,8 +29,8 @@ der Review darauf hin.
   geliefert.
 - **Verlässlichkeit:** *hoch* nur bei gefundenem Code, passender Form und ohne Korrektur. *mittel* bei
   OCR-Korrekturen (O/0, I/1, B/8), Code aus Variante (`DI` für `D1`), VIN ohne Code und freiem Text D.2 (kann
-  mehrzeilig sein). *niedrig* bei Werten aus der Folgezeile (Datum, Freitext), bei Widersprüchen (B nach I, F.2 über
-  F.1) und bei VIN mit falscher Länge. Niedrige Werte sind im Review standardmäßig abgewählt.
+  mehrzeilig sein). *niedrig* bei Freitext aus der Folgezeile, bei Widersprüchen (B nach I, F.2 über
+  F.1) und bei VIN mit falscher Länge. Niedrige Werte sind im Review standardmäßig abgewählt. Ein Datum aus der Folgezeile ist *mittel* (siehe Feld B) und damit vorausgewählt.
 - **Besser nichts als falsch:** Zwei verschiedene Werte für dasselbe Feld heben sich auf. Ein Kennzeichen, das mit
   weiteren Buchstaben weitergeht, wird nicht abgeschnitten. Ein Erstzulassungsdatum in der Zukunft oder vor 1900
   wird verworfen.
@@ -44,6 +44,62 @@ der Review darauf hin.
   dass das Datum von Hand einzugeben ist.
 - **Teil II, Überstellungsfahrtschein:** Teil II (A21/A22) wird gelesen, mit Hinweis. Der Überstellungsfahrtschein
   („Transport Permit“) liefert nichts und wird als Sonderfall gemeldet.
+
+## Feld B (Erstzulassung), Gerätetest M6d
+
+Im ersten Gerätetest wurde die Erstzulassung nie übernommen, alles andere schon. Vermutete Ursachen, die der Parser
+jetzt abdeckt (synthetische Tests in `RegistrationFieldBTests`, keine echten Daten):
+
+- **Datum unter dem Etikett.** Das Papier setzt den Wert in die Zeile unter „Erstmalige Zulassung am:“. Solche
+  Folgezeilen-Daten waren *niedrig* und damit im Review abgewählt. Jetzt sind sie *mittel* (vorausgewählt, im
+  Review mit Hinweis „bitte prüfen“): Die Form eines vollständigen Datums ist selbst ein starker Anker. Das
+  Datum darf auch hinter einer Zeile stehen, die nur den Etikett-Text enthält (`B` / `Erstmalige Zulassung am:` / Datum).
+  Stehen `B` und `I` nebeneinander und darunter zwei Daten, werden sie von links nach rechts zugeordnet; stimmen die
+  Anzahlen nicht, wird nichts gelesen. Als Snippet dient nur das Datum, nie der Rest der Zeile.
+- **Code und Datum zusammengeklebt:** `B12.03.2015`, `B:12.03.2015` werden vor der Zeilenbildung getrennt.
+- **Leerzeichen und OCR-Fehler im Datum:** `12 .03. 2015`, `12 . 03 . 2015`, `12,03.2015`, `l2.O3.2O15`
+  (alle *mittel*, weil korrigiert).
+- **Zweistellige Jahre** (`12.03.15`): bis zum aktuellen Jahr 2000er, darüber 1900er (`27` ist 1927, nie 2027).
+  Immer *mittel*. Nur für B und I; sonst bleiben zweistellige Jahre ungültig.
+- **Vorrang von B:** Ein Datum wird nur von seinem eigenen Code gelesen. Steht vor dem Datum das Etikett eines anderen
+  Datumsfelds („Zugelassen am“, „gültig bis“, „Datum“), ist es *niedrig*. Fehlt B, wird nichts geraten (I, H, A.6,
+  Ausstellungsdatum werden nie ersatzweise genommen). B nach I bleibt *niedrig*; Zukunft und vor 1900 werden verworfen.
+- **Vorauswahl im Review:** *hoch* und *mittel* sind an, nur *niedrig* ist aus. Ein plausibles Datum aus B ist damit
+  wie die anderen sicheren Felder vorausgewählt. Die UI-Fixture `mixed` zeigt den *niedrigen* Fall jetzt über B nach I.
+
+### Scheckkarte: Vorderseite und Hinweise (zweiter Gerätetest)
+
+Beim Test mit der Karte meldete das Review „Nur die Rückseite wurde gelesen“, obwohl beide Seiten gescannt waren
+(der Zähler zeigte 2). Die Meldung hing nur daran, dass weder Kennzeichen noch Erstzulassung gelesen wurden, und
+behauptete damit, die Vorderseite fehle. Jetzt gilt:
+
+- **Hinweise:** *Fehlt* eine Seite wirklich (nur eine nicht leere Seite gescannt), bleibt der alte Hinweis
+  („Nur die Rückseite/Vorderseite wurde gelesen …“). Wurde die andere Seite gescannt, aber nichts gelesen, lautet er:
+  „Auf der Vorderseite konnten Kennzeichen und Erstzulassung nicht gelesen werden. Versuch es mit besserem Licht
+  oder trag sie selbst ein.“ bzw. für die Rückseite (FIN, Marke, Modell). Die Rückseite erkennt der Parser an der
+  Legende, die Vorderseite am Titel; als gescannt zählt jede Seite mit Text, die nicht die Legendenseite ist.
+  Neue Notices `cardFrontUnreadable` und `cardBackUnreadable`.
+- **Titel der Vorderseite:** auch `TEIL1`, `TEIL I`, `TEILI`, `TEIL l` (OCR liest die 1 als I oder l).
+- **A und B in einer Zeile ohne Boxen** (`A S-4455AA B 10.06.2022`, `A … I 11.06.2022 B 10.06.2022`): Ein schlichtes
+  `B` oder `I` direkt vor einem vollständigen Datum beginnt auch mitten in der Zeile ein Feld. Nicht hinter D.1 bis D.3
+  (dort ist `Typ B 10.06.2022` Text) und nicht als OCR-Variante (`8`). Mit Boxen trug das schon vorher.
+- **Reihenfolge der Seiten:** Rückseite vor Vorderseite liefert dasselbe (Test).
+- Ungeprüft bleibt, wie Vision die kleine Schrift der echten Karte liest. Die Layouts in `RegistrationCardFrontTests`
+  sind Annahmen (Code und Wert in getrennten Zeilen, nebeneinander, mit und ohne Punkt, zusammengeklebt).
+  Der Debug-Dump (jetzt mit Zeilenzahl je Seite und Leerzeile zwischen den Seiten) zeigt, was wirklich ankommt.
+
+### Diagnose „Erkannte Zeilen kopieren“ (nur Debug)
+
+Im Review des Zulassungsscheins steht in Debug-Builds (`#if DEBUG`, nicht im Release und ohne Katalogtexte, wie die
+anderen Entwicklerwerkzeuge) ein Abschnitt „Debug“ mit dem Knopf „Copy recognized lines“. Er legt alle erkannten
+Zeilen als Text in die Zwischenablage, je Zeile `x y w h | Text` (normalisiert, Ursprung oben links, drei
+Nachkommastellen), pro Seite eine Überschrift. **Der Text kann Name und Anschrift des Halters enthalten** (der
+Hinweis steht auch im Abschnitt). Vor dem Weitergeben schwärzen. Release-Builds halten die Zeilen nach dem Parsen
+nicht mehr (`Presentation.recognizedPages` gibt es nur in Debug).
+
+Ablauf für den nächsten Gerätetest: Debug-Build, Zulassungsschein scannen, im Review „Copy recognized lines“, Text
+in eine Notiz einfügen, Name/Anschrift/Geburtsdatum schwärzen, an die Coding-Session geben. Daraus wird ein
+synthetischer Testfall (nie die echten Daten einchecken).
 
 ## Nicht geprüft
 

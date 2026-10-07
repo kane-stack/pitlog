@@ -60,7 +60,12 @@ private struct RegistrationScanModifier: ViewModifier {
                 Task { await scan.importPhoto(item) }
             }
             .sheet(item: $scan.presentation) { presentation in
+                #if DEBUG
+                RegistrationReviewView(
+                    review: presentation.review, recognizedPages: presentation.recognizedPages, onApply: onApply)
+                #else
                 RegistrationReviewView(review: presentation.review, onApply: onApply)
+                #endif
             }
             .alert(
                 problemTitle,

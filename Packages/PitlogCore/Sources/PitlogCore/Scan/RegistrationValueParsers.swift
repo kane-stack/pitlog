@@ -10,23 +10,52 @@ enum DateScan {
         let corrected: Bool
         /// Index of the first token of the date.
         let tokenIndex: Int
+        /// Number of tokens the date spans.
+        let width: Int
     }
 
+    /// The widest date the scanner joins from loose tokens: `12 . 03 . 2015`.
+    private static let maxWidth = 5
+
     /// The first date in the tokens. Dates are `TT.MM.JJJJ` (assumed, see the README); other separators and
-    /// letters that look like digits are accepted but flagged as corrected.
-    static func firstDate(in tokens: [String]) -> Match? {
+    /// letters that look like digits are accepted but flagged as corrected. Two-digit years are only read when a
+    /// `twoDigitPivot` is given (see `parseWhole`).
+    static func firstDate(in tokens: [String], twoDigitPivot: Int? = nil) -> Match? {
         for start in tokens.indices {
-            for width in 1...3 where start + width <= tokens.count {
-                let candidate = tokens[start..<(start + width)].joined(separator: " ")
-                if let parsed = parseWhole(candidate) {
-                    return Match(date: parsed.date, corrected: parsed.corrected || width > 1, tokenIndex: start)
-                }
+            if let match = date(in: tokens, at: start, twoDigitPivot: twoDigitPivot) { return match }
+        }
+        return nil
+    }
+
+    /// All dates of the tokens, left to right, none overlapping.
+    static func allDates(in tokens: [String], twoDigitPivot: Int? = nil) -> [Match] {
+        var result: [Match] = []
+        var start = 0
+        while start < tokens.count {
+            if let match = date(in: tokens, at: start, twoDigitPivot: twoDigitPivot) {
+                result.append(match)
+                start += match.width
+            } else {
+                start += 1
+            }
+        }
+        return result
+    }
+
+    private static func date(in tokens: [String], at start: Int, twoDigitPivot: Int?) -> Match? {
+        for width in 1...maxWidth where start + width <= tokens.count {
+            let candidate = tokens[start..<(start + width)].joined(separator: " ")
+            if let parsed = parseWhole(candidate, twoDigitPivot: twoDigitPivot) {
+                return Match(
+                    date: parsed.date, corrected: parsed.corrected || width > 1, tokenIndex: start, width: width)
             }
         }
         return nil
     }
 
-    static func parseWhole(_ text: String) -> (date: DayDate, corrected: Bool)? {
+    /// One date. A two-digit year is accepted only with a `twoDigitPivot` (normally the current year): `15` is
+    /// 2015, unless that lies after the pivot, then 1915. Such a date is always flagged as corrected.
+    static func parseWhole(_ text: String, twoDigitPivot: Int? = nil) -> (date: DayDate, corrected: Bool)? {
         var groups: [[Int]] = []
         var current: [Int] = []
         var corrected = false
@@ -67,9 +96,17 @@ enum DateScan {
         } else {
             return nil
         }
-        guard (1...2).contains(day.count), (1...2).contains(month.count), year.count == 4 else { return nil }
+        guard (1...2).contains(day.count), (1...2).contains(month.count) else { return nil }
         let toInt: ([Int]) -> Int = { digits in digits.reduce(0) { total, digit in total * 10 + digit } }
-        guard let date = DayDate(year: toInt(year), month: toInt(month), day: toInt(day)) else { return nil }
+        var yearValue = toInt(year)
+        if year.count == 2, let pivot = twoDigitPivot {
+            yearValue += 2000
+            if yearValue > pivot { yearValue -= 100 }
+            corrected = true
+        } else if year.count != 4 {
+            return nil
+        }
+        guard let date = DayDate(year: yearValue, month: toInt(month), day: toInt(day)) else { return nil }
         return (date, corrected)
     }
 }

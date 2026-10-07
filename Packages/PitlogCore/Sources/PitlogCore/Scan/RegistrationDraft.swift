@@ -33,6 +33,10 @@ public enum RegistrationScanNotice: String, Hashable, Sendable, CaseIterable {
     case cardBackSideMissing
     /// Back of a chip card without the front, which carries the plate and the first registration.
     case cardFrontSideMissing
+    /// The front of a chip card was scanned (the back was read), but neither plate nor first registration came out.
+    case cardFrontUnreadable
+    /// The back of a chip card was scanned (the front was read), but nothing from it came out.
+    case cardBackUnreadable
 }
 
 /// The result of reading a registration certificate (Zulassungsschein). Holder name, address and date of birth

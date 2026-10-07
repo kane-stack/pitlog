@@ -3824,6 +3824,17 @@
         }
       }
     },
+    "The license plate and the first registration could not be read from the front of the card. Try again with better light, or enter them yourself." : {
+      "comment" : "Registration review: notice when the front of the chip card was scanned but plate and first registration could not be read",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auf der Vor­der­sei­te konnten Kenn­zei­chen und Erst­zu­las­sung nicht gelesen werden. Versuch es mit besserem Licht oder trag sie selbst ein."
+          }
+        }
+      }
+    },
     "The license plate on the receipt matches this vehicle." : {
       "comment" : "Receipt review: the license plate of the receipt belongs to the selected vehicle",
       "localizations" : {
@@ -4414,6 +4425,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "FIN auf dem Beleg: %@"
+          }
+        }
+      }
+    },
+    "VIN, make and model could not be read from the back of the card. Try again with better light, or enter them yourself." : {
+      "comment" : "Registration review: notice when the back of the chip card was scanned but VIN, make and model could not be read",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auf der Rückseite konnten FIN, Marke und Modell nicht gelesen werden. Versuch es mit besserem Licht oder trag sie selbst ein."
           }
         }
       }

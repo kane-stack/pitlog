@@ -6,12 +6,13 @@ import PitlogCore
 struct RegistrationScanService: Sendable {
     var recognizer: any TextRecognizing = VisionTextRecognizer()
 
-    func read(_ pages: [ScanPage], today: DayDate) async throws -> RegistrationDraft {
+    /// The draft plus the recognized lines it was parsed from (the lines are only for the debug diagnosis).
+    func read(_ pages: [ScanPage], today: DayDate) async throws -> (draft: RegistrationDraft, lines: [[RecognizedLine]]) {
         var recognized: [[RecognizedLine]] = []
         for page in pages {
             recognized.append(try await recognizer.recognizeLines(in: page))
         }
-        return RegistrationDocumentParser().parse(pages: recognized, today: today)
+        return (RegistrationDocumentParser().parse(pages: recognized, today: today), recognized)
     }
 
     /// The draft for already recognized lines. Used by the UI tests, where the simulator has no camera.
